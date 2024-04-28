@@ -12,7 +12,7 @@ import LinearProgress from '@mui/material/LinearProgress';
 
 dayjs.extend(isBetweenPlugin);
 
-const CustomPickersDay = styled('div')(({ theme, isSelected, isHovered }) => ({
+const CustomPickersDay = styled('div')(({ theme, isSelected, isHovered }:any) => ({
     border: '1px solid #ccc',
     padding: '8px',
     borderRadius: '4px',
@@ -25,7 +25,7 @@ const CustomPickersDay = styled('div')(({ theme, isSelected, isHovered }) => ({
     cursor: 'pointer',
 }));
 
-const isInSameWeek = (dayA, dayB) => {
+const isInSameWeek = (dayA:any, dayB:any) => {
     if (dayB == null) {
         return false;
     }
@@ -49,13 +49,13 @@ const generateSlots = () => {
 };
 
 
-export default function WeekPicker({ ajid, idprojectstatustitle, setOpenCalander }) {
-    const [value, setValue] = React.useState(dayjs());
-    const [idroom, setIdroom] = React.useState(-1);
-    const [room, setRoom] = React.useState([]);
-    const [slotall, setSlotAll] = React.useState(null);
-    const [isLoaded, setIsLoaded] = React.useState(false);
-    const [reseveroom, setReseveroom] = React.useState(null);
+export default function WeekPicker({ ajid, idprojectstatustitle, setOpenCalander }:any) {
+    const [value, setValue] = React.useState<any>(dayjs());
+    const [idroom, setIdroom] = React.useState<any>(-1);
+    const [room, setRoom] = React.useState<any>([]);
+    const [slotall, setSlotAll] = React.useState<any>(null);
+    const [isLoaded, setIsLoaded] = React.useState<any>(false);
+    const [reseveroom, setReseveroom] = React.useState<any>(null);
 
 
     const fetchRoom = () => {
@@ -76,7 +76,7 @@ export default function WeekPicker({ ajid, idprojectstatustitle, setOpenCalander
     const startOfWeek = value;
     const endOfWeek = value;
 
-    const handleDayClick = (day) => {
+    const handleDayClick = (day:any) => {
         console.log(`Clicked on ${day.format('DD/MM/YYYY')}`);
         // Add your logic for handling day clicks here
     };
@@ -171,16 +171,16 @@ export default function WeekPicker({ ajid, idprojectstatustitle, setOpenCalander
                                     onChange={(newValue) => setValue(newValue)}
                                     showDaysOutsideCurrentMonth
                                     displayWeekNumber
-                                    onDayClick={(day) => handleDayClick(day)}
-                                    renderDay={(day, _, dayState) => (
-                                        <CustomPickersDay
-                                            isSelected={dayState.isSelected}
-                                            isHovered={dayState.isHovered}
-                                            onClick={() => handleDayClick(day)}
-                                        >
-                                            {day.format('DD/MM')}
-                                        </CustomPickersDay>
-                                    )}
+                                    // Remove the onDayClick prop
+                                    // renderDay={(day, _, dayState) => (
+                                    //     <CustomPickersDay
+                                    //         isSelected={dayState.isSelected}
+                                    //         isHovered={dayState.isHovered}
+                                    //         onClick={() => handleDayClick(day)}
+                                    //     >
+                                    //         {day.format('DD/MM')}
+                                        // </CustomPickersDay>
+                                    // )}
                                 />
                                 <FormControl fullWidth>
                                     <InputLabel id="demo-simple-select-label">เลือกห้องสอบ</InputLabel>
@@ -193,7 +193,7 @@ export default function WeekPicker({ ajid, idprojectstatustitle, setOpenCalander
                                     >
                                         <MenuItem value={-1}>เลือก</MenuItem>
                                         {
-                                            room?.map((item, index) => {
+                                            room?.map((item:any, index:any) => {
                                                 return <MenuItem key={index} value={item.id_room}>{item.room_title}</MenuItem>
                                             })
                                         }
@@ -216,7 +216,7 @@ export default function WeekPicker({ ajid, idprojectstatustitle, setOpenCalander
                                         }
                                     })
                                         .then(res => {
-                                            const slotsByDate = res.data.data.reduce((accumulator, item) => {
+                                            const slotsByDate = res.data.data.reduce((accumulator:any, item:any) => {
                                                 const { date, slot, id_room, condition, day } = item;
 
                                                 if (accumulator[date]) {
@@ -261,12 +261,12 @@ export default function WeekPicker({ ajid, idprojectstatustitle, setOpenCalander
                                     </thead>
                                     <tbody>
                                         {
-                                            slotall?.map((item, index) => {
+                                            slotall?.map((item:any, index:any) => {
                                                 return (
                                                     <tr key={index}>
                                                         <td>{dayjs(item.date).format('DD/MM')}</td>
                                                         {
-                                                            item.slots.map((slot, index) => {
+                                                            item.slots.map((slot:any, index:any) => {
                                                                 return (
                                                                     <td key={index}>
                                                                         <Button sx={{ m: 0.5, p: 3 }} variant="contained" color="primary" size="small" onClick={() => {
@@ -279,7 +279,7 @@ export default function WeekPicker({ ajid, idprojectstatustitle, setOpenCalander
                                                                                     id_project: ajid,
                                                                                     id_test_catagory: idprojectstatustitle
                                                                                 })
-                                                                                    .then(res => {
+                                                                                    .then(() => {
                                                                                         SChecker();
                                                                                     })
                                                                                     .catch(err => {

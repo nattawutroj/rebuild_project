@@ -6,23 +6,23 @@ import TextField from '@mui/material/TextField';
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 
 
-export default function ModalAddJust({ act, setAct, projectcode, setOpenAddJust }) {
+export default function ModalAddJust({ act, setAct, projectcode, setOpenAddJust }:any) {
 
-    const [id_staff, setIdStaff] = React.useState(-1);
+    const [id_staff, setIdStaff] = React.useState<any>(-1);
 
 
-    const [nametitle, setNametitle] = useState([]);
+    const [nametitle, setNametitle] = useState<any>([]);
 
-    const [editProfileAlert, setEditProfileAlert] = useState(false);
+    const [editProfileAlert, setEditProfileAlert] = useState<any>(false);
 
-    const [selectedTitle, setSelectedTitle] = useState('');
-    const [staffList, setStaffList] = React.useState([]);
-    const handleTitleChange = (event) => {
+    const [selectedTitle, setSelectedTitle] = useState<any>('');
+    const [staffList, setStaffList] = React.useState<any>([]);
+    const handleTitleChange = (event:any) => {
         setSelectedTitle(event.target.value);
         handleChangesub(event);
     };
 
-    const [id_project_staff_position, setIdProjectStaffPosition] = React.useState(-1);
+    const [id_project_staff_position, setIdProjectStaffPosition] = React.useState<any>(-1);
     React.useEffect(() => {
         FetchStaff();
 
@@ -31,9 +31,9 @@ export default function ModalAddJust({ act, setAct, projectcode, setOpenAddJust 
 
 
 
-    const [subOpen] = React.useState(false);
+    const [subOpen] = React.useState<any>(false);
 
-    const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState<any>({
         id_project: projectcode,
         id_project_staff_position: '4',
         id_name_title: '',
@@ -45,9 +45,9 @@ export default function ModalAddJust({ act, setAct, projectcode, setOpenAddJust 
         email: '',
     });
 
-    const handleChangesub = (event) => {
+    const handleChangesub = (event:any) => {
         const { name, value } = event.target;
-        setFormData((prevFormData) => ({
+        setFormData((prevFormData:any) => ({
             ...prevFormData,
             [name]: value,
         }));
@@ -89,8 +89,8 @@ export default function ModalAddJust({ act, setAct, projectcode, setOpenAddJust 
     React.useEffect(() => {
         axios.get('/resources/public/name_title')
             .then(res => {
-                setNametitle(prevNametitle => {
-                    const nameTitles = res.data.data.map(item => ({
+                setNametitle((prevNametitle:any) => {
+                    const nameTitles = res.data.data.map((item:any) => ({
                         label: item.name_title_th,
                         value: item.id_name_title
                     }));
@@ -127,11 +127,11 @@ export default function ModalAddJust({ act, setAct, projectcode, setOpenAddJust 
             });
     }
 
-    function handleChange(event) {
+    function handleChange(event:any) {
         setIdStaff(event.target.value);
     }
 
-    function handleChangeposition(event) {
+    function handleChangeposition(event:any) {
         setIdProjectStaffPosition(event.target.value);
     }
 
@@ -183,7 +183,7 @@ export default function ModalAddJust({ act, setAct, projectcode, setOpenAddJust 
                     >
                         <MenuItem value={-1}><em>เลือกที่ปรึกษา</em></MenuItem>
                         {
-                            staffList.map((staff, index) => {
+                            staffList.map((staff:any, index:any) => {
                                 return (
                                     <MenuItem key={index} value={staff.id_staff}>{staff.name_title_th + ' ' + staff.first_name_th + ' ' + staff.last_name_th}</MenuItem>
                                 )
@@ -236,7 +236,7 @@ export default function ModalAddJust({ act, setAct, projectcode, setOpenAddJust 
                         value={selectedTitle} // ต้องมี value attribute
                         onChange={handleTitleChange}
                     >
-                        {nametitle.map((option) => (
+                        {nametitle.map((option:any) => (
                             <MenuItem key={option.value} value={option.value}>
                                 {option.label}
                                 {console.log(option.value)}

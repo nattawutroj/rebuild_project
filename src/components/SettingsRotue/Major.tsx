@@ -25,7 +25,7 @@ import { Add } from '@mui/icons-material';
 
 const Example = () => {
 
-    const [List, setList] = useState([]);
+    const [List, setList] = useState<any>([]);
 
 
     useEffect(() => {
@@ -99,7 +99,7 @@ const Example = () => {
         [],
     );
     //CREATE action
-    const handleCreateUser = async ({ values, table }) => {
+    const handleCreateUser = async ({ values, table }:any) => {
         console.log(values);
         values.department_code = 62;
         if (values.major_code !== '' && values.major_name !== '' && values.major_initial !== '') {
@@ -130,7 +130,7 @@ const Example = () => {
     };
 
     //UPDATE action
-    const handleSaveUser = async ({ values, table }) => {
+    const handleSaveUser = async ({ values, table }:any) => {
         console.log(values);
         values.department_code = 62;
         Axios.put('/resources/admin/major/edit', values)
@@ -150,7 +150,7 @@ const Example = () => {
     };
 
     //DELETE action
-    const openDeleteConfirmModal = (row) => {
+    const openDeleteConfirmModal = (row:any) => {
         console.log(row.id);
         if (window.confirm(`คุณต้องการลบข้อมูลนี้หรือไม่?`)) {
             Axios.delete('/resources/admin/major/delete', { data: { major_code: row.id } })
@@ -170,7 +170,7 @@ const Example = () => {
     };
 
     const table = useMaterialReactTable({
-        columns,
+        columns: [],
         data: List,
         createDisplayMode: 'modal', //default ('row', and 'custom' are also available)
         editDisplayMode: 'modal', //default ('row', 'cell', 'table', and 'custom' are also available)
@@ -246,7 +246,7 @@ const Example = () => {
         enableStickyHeader: true,
         initialState: {
             density: 'compact',
-            pagination: { pageSize: 20 },
+            pagination: { pageIndex: 0, pageSize: 20 },
             sorting: [{ id: 'major_code', desc: true }],
         },
         state: {

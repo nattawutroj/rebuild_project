@@ -10,9 +10,9 @@ import axios from '@/api/axios';
 import { Button, Typography } from '@mui/material';
 
 export default function Boss() {
-    const [id_staff, setIdStaff] = React.useState(-1);
+    const [id_staff, setIdStaff] = React.useState<any>(-1);
 
-    const [staffList, setStaffList] = React.useState([]);
+    const [staffList, setStaffList] = React.useState<any>([]);
 
 
     React.useEffect(() => {
@@ -22,7 +22,7 @@ export default function Boss() {
     }, []);
 
 
-    function handleChange(event) {
+    function handleChange(event:any) {
         setIdStaff(event.target.value);
     }
 
@@ -79,7 +79,7 @@ export default function Boss() {
                             >
                                 <MenuItem value={-1}><em>เลือกที่ปรึกษา</em></MenuItem>
                                 {
-                                    staffList.map((staff, index) => {
+                                    staffList.map((staff:any, index:any) => {
                                         return (
                                             <MenuItem key={index} value={staff.id_staff}>{staff.name_title_th + ' ' + staff.first_name_th + ' ' + staff.last_name_th}</MenuItem>
                                         )

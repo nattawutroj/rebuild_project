@@ -23,14 +23,14 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import Axios from '@/api/axios';
 
 const Example = () => {
-    // const [ setValidationErrors] = useState({});
+    // const [ setValidationErrors] = useState<any>({});
 
 
-    const [role] = useState([]);
+    const [role] = useState<any>([]);
 
-    const [List, setList] = useState([]);
+    const [List, setList] = useState<any>([]);
 
-    const [nametitle] = useState([{ label: 'ไม่เลือก', value: -1 }]);
+    const [nametitle] = useState<any>([{ label: 'ไม่เลือก', value: -1 }]);
 
     useEffect(() => {
         console.log(List);
@@ -66,8 +66,7 @@ const Example = () => {
                 console.log(err);
             })
         Axios.get('/resources/public/role')
-            .then(res => {
-                console.log(res.data.data);
+            .then((res):any => {
                 for (let i = 0; i < res.data.data.length; i++) {
                     role.push({ label: res.data.data[i].role_title, value: res.data.data[i].id_role })
                 }
@@ -118,7 +117,7 @@ const Example = () => {
                     type: 'id_name_title',
                     required: true,
                 },
-                Cell: ({ row }) => {
+                Cell: ({ row }:any) => {
                     for (let i = 0; i < nametitle.length; i++) {
                         if (row.original.id_name_title === '') return '';
                         if (row.original.id_name_title === nametitle[i].value) {
@@ -203,7 +202,7 @@ const Example = () => {
                     type: 'id_role',
                     required: true,
                 },
-                Cell: ({ row }) => {
+                Cell: ({ row }:any) => {
                     for (let i = 0; i < role.length; i++) {
                         if (row.original.id_role === '') return '';
                         if (row.original.id_role === role[i].value) {
@@ -225,7 +224,7 @@ const Example = () => {
         [role, nametitle],
     );
     //CREATE action
-    const handleCreateUser = async ({ values, table }) => {
+    const handleCreateUser = async ({ values, table }:any) => {
         console.log(values);
         if (values.username !== '' && values.first_name_th !== '' && values.last_name_th !== '' && values.password !== '' && values.id_name_title !== '' && values.id_role !== '') {
             Axios.post('/resources/admin/staff/add', values)
@@ -255,7 +254,7 @@ const Example = () => {
     };
 
     //UPDATE action
-    const handleSaveUser = async ({ values, table }) => {
+    const handleSaveUser = async ({ values, table }:any) => {
         console.log(values);
         Axios.put('/resources/admin/staff/edit', values)
             .then(res => {
@@ -274,7 +273,7 @@ const Example = () => {
     };
 
     //DELETE action
-    const openDeleteConfirmModal = (row) => {
+    const openDeleteConfirmModal = (row:any) => {
         // ภาษาไทย
         console.log(row);
         if (window.confirm(`คุณต้องการลบข้อมูล ${row.original.first_name_th} ${row.original.last_name_th} หรือไม่?`)) {
@@ -296,7 +295,7 @@ const Example = () => {
     };
 
     const table = useMaterialReactTable({
-        columns,
+        columns: [],
         data: List,
         createDisplayMode: 'modal', //default ('row', and 'custom' are also available)
         editDisplayMode: 'modal', //default ('row', 'cell', 'table', and 'custom' are also available)
@@ -372,7 +371,7 @@ const Example = () => {
         enableStickyHeader: true,
         initialState: {
             density: 'compact',
-            pagination: { pageSize: 20 },
+            pagination: { pageIndex: 0, pageSize: 20 },
             sorting: [{ id: 'id_staff', desc: true }],
         },
         state: {

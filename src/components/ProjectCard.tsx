@@ -16,12 +16,13 @@ import { TextField } from '@mui/material';
 import { MenuItem } from '@mui/material';
 import { Select } from '@mui/material';
 import { InputLabel } from '@mui/material';
+import { AnyAaaaRecord } from 'dns';
 
 
-export default function ProjectCard({ projectinfo, editMode, setEditMode }) {
-    const [subject, setSubject] = React.useState(-1);
-    const [subjectList, setSubjectList] = React.useState();
-    const handleChangesubject = (event) => {
+export default function ProjectCard({ projectinfo, editMode, setEditMode }: any) {
+    const [subject, setSubject] = React.useState<any>(-1);
+    const [subjectList, setSubjectList] = React.useState<any>();
+    const handleChangesubject = (event: any) => {
         setSubject(event.target.value);
     };
     React.useEffect(() => {
@@ -37,39 +38,39 @@ export default function ProjectCard({ projectinfo, editMode, setEditMode }) {
         fetchSubject();
     }, []);
 
-    const [dialog, setDialog] = React.useState(false);
-    const [dialogstaff, setDialogStaff] = React.useState(false);
-    const [deldatastaffos, setDeldatastaffos] = React.useState();
-    const [dialogdelProject, setdialogDelProject] = React.useState(false);
-    const [errAlert, setErrAlert] = React.useState(false);
-    const [project_title_th, setProject_title_th] = React.useState(projectinfo[0].project_title_th);
-    const [project_title_en, setProject_title_en] = React.useState(projectinfo[0].project_title_en);
-    const [project_study_title_th, setProject_study_title_th] = React.useState(projectinfo[0].case_study_title_th);
-    const [project_study_title_en, setProject_study_title_en] = React.useState(projectinfo[0].case_study_title_en);
-    const [openAddStaff, setOpenAddStaff] = React.useState(false);
+    const [dialog, setDialog] = React.useState<any>(false);
+    const [dialogstaff, setDialogStaff] = React.useState<any>(false);
+    const [deldatastaffos, setDeldatastaffos] = React.useState<any>();
+    const [dialogdelProject, setdialogDelProject] = React.useState<any>(false);
+    const [errAlert, setErrAlert] = React.useState<any>(false);
+    const [project_title_th, setProject_title_th] = React.useState<any>(projectinfo[0].project_title_th);
+    const [project_title_en, setProject_title_en] = React.useState<any>(projectinfo[0].project_title_en);
+    const [project_study_title_th, setProject_study_title_th] = React.useState<any>(projectinfo[0].case_study_title_th);
+    const [project_study_title_en, setProject_study_title_en] = React.useState<any>(projectinfo[0].case_study_title_en);
+    const [openAddStaff, setOpenAddStaff] = React.useState<any>(false);
 
-    const [member, setMember] = React.useState([]);
-    const [staff, setStaff] = React.useState([]);
-    const [openBuild, setOpenBuild] = React.useState(false);
+    const [member, setMember] = React.useState<any>([]);
+    const [staff, setStaff] = React.useState<any>([]);
+    const [openBuild, setOpenBuild] = React.useState<any>(false);
 
-    const [projectcode, setProjectcode] = React.useState();
-    let adviserContent = null;
+    const [projectcode, setProjectcode] = React.useState<any>();
+    let adviserContent: any = null;
     let countStd = 0;
     const fetchData = async () => {
-        const result = await Promise.all(projectinfo.map(item => search(item)));
-        const flattenedResult = result.flat();
+        const result = await Promise.all(projectinfo.map((item: any) => search(item)));
+        const flattenedResult: any = result.flat();
         setMember(flattenedResult);
     };
 
     const fetchStaff = async () => {
-        await Promise.all(projectinfo.map(item => searchStaff(item)));
+        await Promise.all(projectinfo.map((item: AnyAaaaRecord) => searchStaff(item)));
     };
 
     const handleCloseDel = () => {
         setDialog(false);
     };
 
-    function AlertDialog(data2) {
+    function AlertDialog(data2: any) {
         setDialog(true),
             setDeldatastaffos(data2.id_project_os_staff)
     }
@@ -87,7 +88,7 @@ export default function ProjectCard({ projectinfo, editMode, setEditMode }) {
         setOpenBuild(false);
     };
 
-    const submitBuild = async (e) => {
+    const submitBuild = async (e: any) => {
         e.preventDefault();
         if (project_title_th === '' || project_title_en === '' || subject === -1) {
             setErrAlert(true)
@@ -109,7 +110,7 @@ export default function ProjectCard({ projectinfo, editMode, setEditMode }) {
         }
     }
 
-    const search = async (item) => {
+    const search = async (item:any) => {
         try {
             const response = await axios.post('/user/checkjoin', {
                 id_project: item.id_project
@@ -136,7 +137,7 @@ export default function ProjectCard({ projectinfo, editMode, setEditMode }) {
         pb: 3,
     };
 
-    const searchStaff = async (item) => {
+    const searchStaff = async (item:any) => {
         try {
             const response = await axios.post('/user/projectstafflist', {
                 id_project: item.id_project
@@ -150,7 +151,7 @@ export default function ProjectCard({ projectinfo, editMode, setEditMode }) {
         }
     }
 
-    const delstaffos = async (item) => {
+    const delstaffos = async (item:any) => {
         try {
             await axios.delete('/user/staffos', {
                 data: {
@@ -164,7 +165,7 @@ export default function ProjectCard({ projectinfo, editMode, setEditMode }) {
         }
     }
 
-    const delstaff = async (item) => {
+    const delstaff = async (item:any) => {
         try {
             await axios.delete('/user/projectstaff', {
                 data: {
@@ -178,7 +179,7 @@ export default function ProjectCard({ projectinfo, editMode, setEditMode }) {
         }
     }
 
-    const btninitalcomfirm = async (item) => {
+    const btninitalcomfirm = async (item:any) => {
         if (editMode == 1) {
             setEditMode(0)
         }
@@ -198,7 +199,7 @@ export default function ProjectCard({ projectinfo, editMode, setEditMode }) {
         setDialogStaff(false);
     };
 
-    function AlertDialogStaff(data2) {
+    function AlertDialogStaff(data2: any) {
         setDialogStaff(true),
             setDeldatastaffos(data2.id_project_staff)
     }
@@ -206,7 +207,7 @@ export default function ProjectCard({ projectinfo, editMode, setEditMode }) {
     function confimdelStaff() {
         delstaff(deldatastaffos)
     }
-    const delProject = async (item) => {
+    const delProject = async (item:any) => {
         try {
             await axios.delete('/user/join', {
                 data: {
@@ -227,7 +228,7 @@ export default function ProjectCard({ projectinfo, editMode, setEditMode }) {
         setdialogDelProject(false);
     };
 
-    function AlertDialogProject(data2) {
+    function AlertDialogProject(data2: any) {
         setdialogDelProject(true),
             setDeldatastaffos(data2.id_project)
     }
@@ -239,9 +240,8 @@ export default function ProjectCard({ projectinfo, editMode, setEditMode }) {
     return (
         <React.Fragment>
             {console.log(staff)}
-            {projectinfo.map((item, index) => (
+            {projectinfo.map((item:any, index:any) => (
                 <div className="card" key={index}>
-                    {console.log(item)}
                     <Accordion key={index} sx={{ mt: 1 }} defaultExpanded>
                         <AccordionSummary
                             expandIcon={<ExpandMoreIcon />}
@@ -292,7 +292,7 @@ export default function ProjectCard({ projectinfo, editMode, setEditMode }) {
                                     <Typography sx={{ mt: 0.3, width: '33%', flexShrink: 0 }}>ผู้จัดทำโครงงาน</Typography>
                                     <Stack direction="column" spacing={0}>
                                         {
-                                            member.map((data, index) => (
+                                            member.map((data: any, index: any) => (
                                                 (data.id_project === item.id_project) ?
                                                     <Typography sx={{ pt: 0.3, color: 'text.secondary' }} key={index}>{countStd++}{data.student_code + ' ' + data.first_name_th + ' ' + data.last_name_th}</Typography>
                                                     : ''
@@ -310,10 +310,10 @@ export default function ProjectCard({ projectinfo, editMode, setEditMode }) {
                                     <Typography sx={{ mt: 0.3, width: '33%', flexShrink: 0 }}>ที่ปรึกษา</Typography>
                                     <Stack direction="column" spacing={0}>
                                         {
-                                            staff.map((data, index) => {
+                                            staff.map((data: any, index: any) => {
                                                 // Use a variable to conditionally render the "ไม่มีที่ปรึกษา" message
 
-                                                data.staff.map((data2, index2) => {
+                                                data.staff.map((data2: any, index2: any) => {
 
                                                     if (data2.id_project === item.id_project && data2.id_project_staff_position === 1) {
                                                         adviserContent = (
@@ -347,8 +347,8 @@ export default function ProjectCard({ projectinfo, editMode, setEditMode }) {
                                     <Typography sx={{ mt: 0.3, width: '33%', flexShrink: 0 }}>ที่ปรึกษาร่วม </Typography>
                                     <Stack direction="column" spacing={0}>
                                         {
-                                            staff.map((data) => (
-                                                data.staff.map((data2, index2) => (
+                                            staff.map((data: any) => (
+                                                data.staff.map((data2: any, index2: any) => (
                                                     (data2.id_project === item.id_project && data2.id_project_staff_position === 4) ?
                                                         <Typography sx={{ pt: 0.3, color: 'text.secondary' }} key={index2}>{data2.name_title_th + ' ' + data2.first_name_th + ' ' + data2.last_name_th}<IconButton onClick={() => { AlertDialogStaff(data2) }} sx={{ pb: 1.2 }} aria-label="delete"><DeleteIcon color="error" fontSize="small" /></IconButton></Typography>
                                                         : ''
@@ -356,8 +356,8 @@ export default function ProjectCard({ projectinfo, editMode, setEditMode }) {
                                             ))
                                         }
                                         {
-                                            staff.map((data) => (
-                                                data.os_staff.map((data2, index2) => (
+                                            staff.map((data: any) => (
+                                                data.os_staff.map((data2: any, index2: any) => (
                                                     (data2.id_project === item.id_project && data2.id_project_staff_position === 4) ?
                                                         <Typography sx={{ pt: 0.3, color: 'text.secondary' }} key={index2}>{data2.name_title_th + ' ' + data2.first_name_th + ' ' + data2.last_name_th}<IconButton onClick={() => { AlertDialog(data2) }} sx={{ pb: 1.2 }} aria-label="delete"><DeleteIcon color="error" fontSize="small" /></IconButton></Typography>
                                                         : ''
@@ -374,7 +374,6 @@ export default function ProjectCard({ projectinfo, editMode, setEditMode }) {
                                 <Button onClick={() => { btninitalcomfirm(item.id_project_status) }} disabled={adviserContent == null} variant='contained' color='success' startIcon={<CheckIcon />}>ยืนยัน</Button>
                                 <Button onClick={() => { AlertDialogProject(item) }} variant='contained' color='error' startIcon={<DeleteIcon />}>{countStd > 1 ? 'ออกจากโครงงาน' : 'ลบโครงงาน'}</Button>
                             </Stack>
-
                         </AccordionDetails>
                     </Accordion>
                 </div>
@@ -519,11 +518,8 @@ export default function ProjectCard({ projectinfo, editMode, setEditMode }) {
                             label="เลือกรายวิชาโครงงานพิเศษ"
                             onChange={handleChangesubject}
                         >
-                            {
-                                console.log(subjectList)
-                            }
                             <MenuItem value={-1}></MenuItem>
-                            {subjectList ? subjectList.map((item, index) => {
+                            {subjectList ? subjectList.map((item:any, index:any) => {
                                 return (
                                     <MenuItem key={index} value={item.subject_code}>{item.subject_code + "  " + item.subject_name}</MenuItem>
                                 )
@@ -531,7 +527,6 @@ export default function ProjectCard({ projectinfo, editMode, setEditMode }) {
                         </Select>
                         <Button
                             type="submit"
-                            required
                             fullWidth
                             variant="contained"
                             sx={{ mt: 3, mb: 2 }}

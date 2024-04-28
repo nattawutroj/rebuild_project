@@ -33,21 +33,21 @@ const theme = createTheme({
 
 export default function AdminDash() {
     const navigate = useNavigate();
-    const [dialogstaff, setDialogstaff] = React.useState(false);
-    const [aaid_staff, setAaid_staff] = React.useState('');
-    const [openCalander, setOpenCalander] = React.useState(false);
-    const [lableexam1, setLableexam1] = React.useState(0);
-    const [lableexam2, setLableexam2] = React.useState(0);
-    const [lableexam3, setLableexam3] = React.useState(0);
-    const [projectProcessCount, setProjectProcessCount] = React.useState(0);
-    const [projectProcessWaitSchduleCount, setProjectProcessWaitSchduleCount] = React.useState(0);
-    const [projectProcessWaitSchdule60Count, setProjectProcessWaitSchdule60Count] = React.useState(0);
-    const [projectProcessWaitSchdule100Count, setProjectProcessWaitSchdule100Count] = React.useState(0);
-    const [projectProcessWaitRecordCount, setProjectProcessWaitRecordCount] = React.useState(0);
-    const [projectProcessWaitConfiremT01Count, setprojectProcessWaitConfiremT01Count] = React.useState(0);
-    const [projectProcessWaitRecord60Count, setProjectProcessWaitRecord60Count] = React.useState(0);
-    const [projectProcessWaitRecord100Count, setProjectProcessWaitRecord100Count] = React.useState(0);
-    const [projectProcessWaitRecordFinalCount, setProjectProcessWaitRecordFinalCount] = React.useState(0);
+    const [dialogstaff, setDialogstaff] = React.useState<any>(false);
+    const [aaid_staff, setAaid_staff] = React.useState<any>('');
+    const [openCalander, setOpenCalander] = React.useState<any>(false);
+    const [lableexam1, setLableexam1] = React.useState<any>(0);
+    const [lableexam2, setLableexam2] = React.useState<any>(0);
+    const [lableexam3, setLableexam3] = React.useState<any>(0);
+    const [projectProcessCount, setProjectProcessCount] = React.useState<any>(0);
+    const [projectProcessWaitSchduleCount, setProjectProcessWaitSchduleCount] = React.useState<any>(0);
+    const [projectProcessWaitSchdule60Count, setProjectProcessWaitSchdule60Count] = React.useState<any>(0);
+    const [projectProcessWaitSchdule100Count, setProjectProcessWaitSchdule100Count] = React.useState<any>(0);
+    const [projectProcessWaitRecordCount, setProjectProcessWaitRecordCount] = React.useState<any>(0);
+    const [projectProcessWaitConfiremT01Count, setprojectProcessWaitConfiremT01Count] = React.useState<any>(0);
+    const [projectProcessWaitRecord60Count, setProjectProcessWaitRecord60Count] = React.useState<any>(0);
+    const [projectProcessWaitRecord100Count, setProjectProcessWaitRecord100Count] = React.useState<any>(0);
+    const [projectProcessWaitRecordFinalCount, setProjectProcessWaitRecordFinalCount] = React.useState<any>(0);
     const listcount = () => {
         setLableexam1(0);
         setLableexam2(0);
@@ -61,49 +61,49 @@ export default function AdminDash() {
         setProjectProcessWaitRecord60Count(0);
         setProjectProcessWaitRecord100Count(0);
         setProjectProcessWaitRecordFinalCount(0);
-        fileList.map((file) => {
+        fileList.map((file: { id_project_status_title: number }) => {
             if (file.id_project_status_title == 3) {
-                setLableexam1((prevLableexam1) => prevLableexam1 + 1);
+                setLableexam1((prevLableexam1:any) => prevLableexam1 + 1);
             }
             if (file.id_project_status_title == 8) {
-                setLableexam2((prevLableexam2) => prevLableexam2 + 1);
+                setLableexam2((prevLableexam2:any) => prevLableexam2 + 1);
             }
             if (file.id_project_status_title == 12) {
-                setLableexam3((prevLableexam3) => prevLableexam3 + 1);
+                setLableexam3((prevLableexam3:any) => prevLableexam3 + 1);
             }
         }
         )
-        projectProcess?.map((file) => {
-            setProjectProcessCount((prevProjectProcessCount) => prevProjectProcessCount + 1);
+        projectProcess?.map(() => {
+            setProjectProcessCount((prevProjectProcessCount:any) => prevProjectProcessCount + 1);
         }
         )
-        projectProcessWaitSchdule?.map((file) => {
-            setProjectProcessWaitSchduleCount((prevProjectProcessWaitSchduleCount) => prevProjectProcessWaitSchduleCount + 1);
+        projectProcessWaitSchdule?.map(() => {
+            setProjectProcessWaitSchduleCount((prevProjectProcessWaitSchduleCount:any) => prevProjectProcessWaitSchduleCount + 1);
         }
         )
-        projectProcessWaitSchdule60?.map((file) => {
-            setProjectProcessWaitSchdule60Count((prevProjectProcessWaitSchdule60Count) => prevProjectProcessWaitSchdule60Count + 1);
+        projectProcessWaitSchdule60?.map(() => {
+            setProjectProcessWaitSchdule60Count((prevProjectProcessWaitSchdule60Count:any) => prevProjectProcessWaitSchdule60Count + 1);
         }
         )
-        projectProcessWaitSchdule100?.map((file) => {
-            setProjectProcessWaitSchdule100Count((prevProjectProcessWaitSchdule100Count) => prevProjectProcessWaitSchdule100Count + 1);
+        projectProcessWaitSchdule100?.map(() => {
+            setProjectProcessWaitSchdule100Count((prevProjectProcessWaitSchdule100Count:any) => prevProjectProcessWaitSchdule100Count + 1);
         }
         )
-        projectProcessWaitRecord?.map((file) => {
-            setProjectProcessWaitRecordCount((prevProjectProcessWaitRecordCount) => prevProjectProcessWaitRecordCount + 1);
+        projectProcessWaitRecord?.map(() => {
+            setProjectProcessWaitRecordCount((prevProjectProcessWaitRecordCount:any) => prevProjectProcessWaitRecordCount + 1);
         })
-        projectProcessWaitRecord60?.map((file) => {
-            setProjectProcessWaitRecord60Count((prevProjectProcessWaitRecord60Count) => prevProjectProcessWaitRecord60Count + 1);
+        projectProcessWaitRecord60?.map(() => {
+            setProjectProcessWaitRecord60Count((prevProjectProcessWaitRecord60Count:any) => prevProjectProcessWaitRecord60Count + 1);
         })
-        projectProcessWaitRecord100?.map((file) => {
-            setProjectProcessWaitRecord100Count((prevProjectProcessWaitRecord100Count) => prevProjectProcessWaitRecord100Count + 1);
+        projectProcessWaitRecord100?.map(() => {
+            setProjectProcessWaitRecord100Count((prevProjectProcessWaitRecord100Count:any) => prevProjectProcessWaitRecord100Count + 1);
         })
-        projectProcessWaitConfiremT01?.map((file) => {
-            setprojectProcessWaitConfiremT01Count((prevprojectProcessWaitConfiremT01Count) => prevprojectProcessWaitConfiremT01Count + 1);
+        projectProcessWaitConfiremT01?.map(() => {
+            setprojectProcessWaitConfiremT01Count((prevprojectProcessWaitConfiremT01Count:any) => prevprojectProcessWaitConfiremT01Count + 1);
         })
-        projectProcessWaitRecordFinal.map((file) => {
+        projectProcessWaitRecordFinal.map(() => {
             console.log("hello")
-            setProjectProcessWaitRecordFinalCount((prevProjectProcessWaitRecordFinalCount) => prevProjectProcessWaitRecordFinalCount + 1);
+            setProjectProcessWaitRecordFinalCount((prevProjectProcessWaitRecordFinalCount:any) => prevProjectProcessWaitRecordFinalCount + 1);
         })
     }
 
@@ -112,7 +112,7 @@ export default function AdminDash() {
         setDialogstaff(false);
     };
 
-    const handleRemoveStaff = (id) => {
+    const handleRemoveStaff = (id:any) => {
         setAaid_staff(id);
         setDialogstaff(true);
     }
@@ -153,35 +153,35 @@ export default function AdminDash() {
         pb: 3,
     };
 
-    const [fileList, setFileList] = React.useState([]);
-    const [projectProcess, setProjectProcess] = React.useState([]);
-    const [projectProcessWaitSchdule, setProjectProcessWaitSchdule] = React.useState([]);
-    const [projectProcessWaitSchdule60, setProjectProcessWaitSchdule60] = React.useState([]);
-    const [projectProcessWaitSchdule100, setProjectProcessWaitSchdule100] = React.useState([]);
-    const [projectProcessWaitRecord, setProjetProcessWaitRecord] = React.useState([]);
-    const [projectProcessWaitConfiremT01, setProjectProcessWaitConfiremT01] = React.useState([]);
-    const [projectProcessWaitRecord60, setProjetProcessWaitRecord60] = React.useState([]);
-    const [projectProcessWaitRecord100, setProjetProcessWaitRecord100] = React.useState([]);
-    const [projectProcessWaitRecordFinal, setProjetProcessWaitRecordFinal] = React.useState([]);
-    const [expanded, setExpanded] = React.useState(false);
-    const [openCancel, setOpenCancel] = React.useState(false);
-    const [Canceldatafrom, setCanceldatafrom] = React.useState([]);
-    const [Cancelcomment, setCancelcomment] = React.useState('');
-    const [selectstatus_code, setSelectStatus_code] = React.useState(21);
-    const [openAddJust, setOpenAddJust] = React.useState(false);
-    const [projectcode, setProjectcode] = React.useState('');
-    const [staff, setStaff] = React.useState([]);
-    const [ajid, setAjid] = React.useState('');
-    const [act, setAct] = React.useState(0);
-    const [idprojectstatustitle, setIdprojectstatustitle] = React.useState('');
-    const [modalRecord, setmodalRecord] = React.useState(false);
-    const [modalRecord2, setmodalRecord2] = React.useState(false);
-    const [examrecord, setExamrecord] = React.useState('');
-    const [examrecordcomment, setExamrecordcomment] = React.useState('');
-    const [a1, setA1] = React.useState('');
-    const [a2, setA2] = React.useState('');
-    const [a3, setA3] = React.useState('');
-    const [a4, setA4] = React.useState('');
+    const [fileList, setFileList] = React.useState<any>([]);
+    const [projectProcess, setProjectProcess] = React.useState<any>([]);
+    const [projectProcessWaitSchdule, setProjectProcessWaitSchdule] = React.useState<any>([]);
+    const [projectProcessWaitSchdule60, setProjectProcessWaitSchdule60] = React.useState<any>([]);
+    const [projectProcessWaitSchdule100, setProjectProcessWaitSchdule100] = React.useState<any>([]);
+    const [projectProcessWaitRecord, setProjetProcessWaitRecord] = React.useState<any>([]);
+    const [projectProcessWaitConfiremT01, setProjectProcessWaitConfiremT01] = React.useState<any>([]);
+    const [projectProcessWaitRecord60, setProjetProcessWaitRecord60] = React.useState<any>([]);
+    const [projectProcessWaitRecord100, setProjetProcessWaitRecord100] = React.useState<any>([]);
+    const [projectProcessWaitRecordFinal, setProjetProcessWaitRecordFinal] = React.useState<any>([]);
+    const [expanded, setExpanded] = React.useState<any>(false);
+    const [openCancel, setOpenCancel] = React.useState<any>(false);
+    const [Canceldatafrom, setCanceldatafrom] = React.useState<any>([]);
+    const [Cancelcomment, setCancelcomment] = React.useState<any>('');
+    const [selectstatus_code, setSelectStatus_code] = React.useState<any>(21);
+    const [openAddJust, setOpenAddJust] = React.useState<any>(false);
+    const [projectcode, setProjectcode] = React.useState<any>('');
+    const [staff, setStaff] = React.useState<any>([]);
+    const [ajid, setAjid] = React.useState<any>('');
+    const [act, setAct] = React.useState<any>(0);
+    const [idprojectstatustitle, setIdprojectstatustitle] = React.useState<any>('');
+    const [modalRecord, setmodalRecord] = React.useState<any>(false);
+    const [modalRecord2, setmodalRecord2] = React.useState<any>(false);
+    const [examrecord, setExamrecord] = React.useState<any>('');
+    const [examrecordcomment, setExamrecordcomment] = React.useState<any>('');
+    const [a1, setA1] = React.useState<any>('');
+    const [a2, setA2] = React.useState<any>('');
+    const [a3, setA3] = React.useState<any>('');
+    const [a4, setA4] = React.useState<any>('');
 
     React.useEffect(() => {
         axios.get('/resources/admin/projectinfomation/staff',
@@ -197,15 +197,15 @@ export default function AdminDash() {
         });
     }, [ajid, act]);
 
-    const convertDate = (date) => {
+    const convertDate = (date:any) => {
         let d = new Date(date);
         return d.toLocaleString();
     }
 
-    const [pdfUrl, setPdfUrl] = React.useState('');
+    const [pdfUrl, setPdfUrl] = React.useState<any>('');
 
 
-    const handleFileDownload = (id_file) => {
+    const handleFileDownload = (id_file:any) => {
         axios.get('/resources/public/download/pdf', {
             params: {
                 file: id_file
@@ -220,14 +220,14 @@ export default function AdminDash() {
 
             // Open the PDF file in a new window or tab
             if (window.innerWidth < 900) {
-                setPdfUrl(null)
+                setPdfUrl('');
                 window.open(dataUrl);
             }
             else {
                 setPdfUrl(dataUrl);
             }
         }).catch(err => {
-            setPdfUrl(null)
+            setPdfUrl('')
             console.log(err);
         }
         );
@@ -235,15 +235,15 @@ export default function AdminDash() {
 
     const cfrecordexam = () => {
         var x = 0;
-        if (idprojectstatustitle == 6) {
+        if (Number(idprojectstatustitle) === 6) {
             x = 1;
         }
         if (examrecord == 'ผ่าน') {
-            handlereportConfirmUNC(a1, a2, a3, a4)
+            handlereportConfirmUNC(a1, a2, a3)
         }
 
         else if (examrecord == 'ผ่านแบบมีเงื่อนไข') {
-            handlereportConfirmUNC(a1, examrecord, a3, a4)
+            handlereportConfirmUNC(a1, examrecord, a3)
         }
         else if (examrecord == 'ไม่ผ่าน') {
             handleCancelcommentUNC(a1, examrecordcomment, a3, a4)
@@ -274,7 +274,7 @@ export default function AdminDash() {
                 }
             }
         ).then(res => {
-            setPdfUrl(null)
+            setPdfUrl('')
             console.log(res)
             setFileList(res.data.result);
             setExpanded(false);
@@ -297,7 +297,7 @@ export default function AdminDash() {
                 const projectProcessData = response.data.result.rows;
 
                 // Use Promise.all to handle multiple asynchronous calls
-                const fileLastUpdatePromises = projectProcessData.map(item => {
+                const fileLastUpdatePromises = projectProcessData.map((item: { id_project: any; }) => {
                     return axios.get('resources/admin/projectfilelast', {
                         params: {
                             id_project: item.id_project
@@ -314,7 +314,7 @@ export default function AdminDash() {
                 return Promise.all(fileLastUpdatePromises)
                     .then(fileLastUpdates => {
                         // Combine projectProcessData with fileLastUpdates
-                        const combinedData = projectProcessData.map((item, index) => ({
+                        const combinedData = projectProcessData.map((item: any, index: any | number) => ({
                             ...item,
                             fileLastUpdate: fileLastUpdates[index]
                         }));
@@ -322,7 +322,7 @@ export default function AdminDash() {
                     });
             })
             .then(combinedData => {
-                setPdfUrl(null);
+                setPdfUrl('');
                 // setProjectProcess(prevProjectProcess => [...prevProjectProcess, ...combinedData]);
                 setProjectProcess(combinedData);
                 setExpanded(false);
@@ -342,7 +342,7 @@ export default function AdminDash() {
                 const projectProcessWaitSchduleData = response.data.result.rows;
 
                 // Use Promise.all to handle multiple asynchronous calls
-                const fileLastUpdatePromises = projectProcessWaitSchduleData.map(item => {
+                const fileLastUpdatePromises = projectProcessWaitSchduleData.map((item: { id_project: any; }) => {
                     return axios.get('resources/admin/projectfilelast', {
                         params: {
                             id_project: item.id_project
@@ -359,7 +359,7 @@ export default function AdminDash() {
                 return Promise.all(fileLastUpdatePromises)
                     .then(fileLastUpdates => {
                         // Combine projectProcessWaitSchduleData with fileLastUpdates
-                        const combinedData = projectProcessWaitSchduleData.map((item, index) => ({
+                        const combinedData = projectProcessWaitSchduleData.map((item: any, index: any | number) => ({
                             ...item,
                             fileLastUpdate: fileLastUpdates[index]
                         }));
@@ -367,7 +367,7 @@ export default function AdminDash() {
                     });
             })
             .then(combinedData => {
-                setPdfUrl(null);
+                setPdfUrl('');
                 // setProjectProcessWaitSchdule(prevProjectProcessWaitSchdule => [...prevProjectProcessWaitSchdule, ...combinedData]);
                 setProjectProcessWaitSchdule(combinedData);
                 setExpanded(false);
@@ -386,7 +386,7 @@ export default function AdminDash() {
                 const projectProcessWaitSchduleData60 = response.data.result.rows;
 
                 // Use Promise.all to handle multiple asynchronous calls
-                const fileLastUpdatePromises = projectProcessWaitSchduleData60.map(item => {
+                const fileLastUpdatePromises = projectProcessWaitSchduleData60.map((item: { id_project: any; }) => {
                     return axios.get('resources/admin/projectfilelast', {
                         params: {
                             id_project: item.id_project
@@ -403,7 +403,7 @@ export default function AdminDash() {
                 return Promise.all(fileLastUpdatePromises)
                     .then(fileLastUpdates => {
                         // Combine projectProcessWaitSchduleData60 with fileLastUpdates
-                        const combinedData = projectProcessWaitSchduleData60.map((item, index) => ({
+                        const combinedData = projectProcessWaitSchduleData60.map((item: any, index: any | number) => ({
                             ...item,
                             fileLastUpdate: fileLastUpdates[index]
                         }));
@@ -411,7 +411,7 @@ export default function AdminDash() {
                     });
             })
             .then(combinedData => {
-                setPdfUrl(null);
+                setPdfUrl('');
                 setProjectProcessWaitSchdule60(combinedData);
                 setExpanded(false);
             })
@@ -430,7 +430,7 @@ export default function AdminDash() {
                 const projectProcessWaitSchduleData100 = response.data.result.rows;
 
                 // Use Promise.all to handle multiple asynchronous calls
-                const fileLastUpdatePromises = projectProcessWaitSchduleData100.map(item => {
+                const fileLastUpdatePromises = projectProcessWaitSchduleData100.map((item: { id_project: any; }) => {
                     return axios.get('resources/admin/projectfilelast', {
                         params: {
                             id_project: item.id_project
@@ -446,7 +446,7 @@ export default function AdminDash() {
                 // Wait for all promises to resolve
                 return Promise.all(fileLastUpdatePromises)
                     .then(fileLastUpdates => {
-                        const combinedData = projectProcessWaitSchduleData100.map((item, index) => ({
+                        const combinedData = projectProcessWaitSchduleData100.map((item:any, index:any) => ({
                             ...item,
                             fileLastUpdate: fileLastUpdates[index]
                         }));
@@ -473,7 +473,7 @@ export default function AdminDash() {
                 const projectProcessWaitRecord = response.data.result.rows;
 
                 // Use Promise.all to handle multiple asynchronous calls
-                const fileLastUpdatePromises = projectProcessWaitRecord.map(item => {
+                const fileLastUpdatePromises = projectProcessWaitRecord.map((item:any) => {
                     return axios.get('resources/admin/projectfilelast', {
                         params: {
                             id_project: item.id_project
@@ -490,7 +490,7 @@ export default function AdminDash() {
                 return Promise.all(fileLastUpdatePromises)
                     .then(fileLastUpdates => {
                         // Combine projectProcessWaitRecord with fileLastUpdates
-                        const combinedData = projectProcessWaitRecord.map((item, index) => ({
+                        const combinedData = projectProcessWaitRecord.map((item:any, index:any) => ({
                             ...item,
                             fileLastUpdate: fileLastUpdates[index]
                         }));
@@ -518,7 +518,7 @@ export default function AdminDash() {
                 const projectProcessWaitRecord60 = response.data.result.rows;
 
                 // Use Promise.all to handle multiple asynchronous calls
-                const fileLastUpdatePromises = projectProcessWaitRecord60.map(item => {
+                const fileLastUpdatePromises = projectProcessWaitRecord60.map((item:any) => {
                     return axios.get('resources/admin/projectfilelast', {
                         params: {
                             id_project: item.id_project
@@ -535,7 +535,7 @@ export default function AdminDash() {
                 return Promise.all(fileLastUpdatePromises)
                     .then(fileLastUpdates => {
                         // Combine projectProcessWaitRecord60 with fileLastUpdates
-                        const combinedData = projectProcessWaitRecord60.map((item, index) => ({
+                        const combinedData = projectProcessWaitRecord60.map((item:any, index:any) => ({
                             ...item,
                             fileLastUpdate: fileLastUpdates[index]
                         }));
@@ -562,7 +562,7 @@ export default function AdminDash() {
                 const projectProcessWaitRecord100 = response.data.result.rows;
 
                 // Use Promise.all to handle multiple asynchronous calls
-                const fileLastUpdatePromises = projectProcessWaitRecord100.map(item => {
+                const fileLastUpdatePromises = projectProcessWaitRecord100.map((item:any) => {
                     return axios.get('resources/admin/projectfilelast', {
                         params: {
                             id_project: item.id_project
@@ -579,7 +579,7 @@ export default function AdminDash() {
                 return Promise.all(fileLastUpdatePromises)
                     .then(fileLastUpdates => {
                         // Combine projectProcessWaitRecord100 with fileLastUpdates
-                        const combinedData = projectProcessWaitRecord100.map((item, index) => ({
+                        const combinedData = projectProcessWaitRecord100.map((item:any, index:any) => ({
                             ...item,
                             fileLastUpdate: fileLastUpdates[index]
                         }));
@@ -607,7 +607,7 @@ export default function AdminDash() {
                 const projectProcessWaitRecordFinal = response.data.result.rows;
 
                 // Use Promise.all to handle multiple asynchronous calls
-                const fileLastUpdatePromises = projectProcessWaitRecordFinal.map(item => {
+                const fileLastUpdatePromises = projectProcessWaitRecordFinal.map((item:any) => {
                     return axios.get('resources/admin/projectfilelast', {
                         params: {
                             id_project: item.id_project
@@ -624,7 +624,7 @@ export default function AdminDash() {
                 return Promise.all(fileLastUpdatePromises)
                     .then(fileLastUpdates => {
                         // Combine projectProcessWaitRecordFinal with fileLastUpdates
-                        const combinedData = projectProcessWaitRecordFinal.map((item, index) => ({
+                        const combinedData = projectProcessWaitRecordFinal.map((item:any, index:any) => ({
                             ...item,
                             fileLastUpdate: fileLastUpdates[index]
                         }));
@@ -652,7 +652,7 @@ export default function AdminDash() {
                 const projectProcessWaitConfiremT01 = response.data.result.rows;
 
                 // Use Promise.all to handle multiple asynchronous calls
-                const fileLastUpdatePromises = projectProcessWaitConfiremT01.map(item => {
+                const fileLastUpdatePromises = projectProcessWaitConfiremT01.map((item:any) => {
                     return axios.get('resources/admin/projectfilelast', {
                         params: {
                             id_project: item.id_project
@@ -669,7 +669,7 @@ export default function AdminDash() {
                 return Promise.all(fileLastUpdatePromises)
                     .then(fileLastUpdates => {
                         // Combine projectProcessWaitRecord100 with fileLastUpdates
-                        const combinedData = projectProcessWaitConfiremT01.map((item, index) => ({
+                        const combinedData = projectProcessWaitConfiremT01.map((item:any, index:any) => ({
                             ...item,
                             fileLastUpdate: fileLastUpdates[index]
                         }));
@@ -687,12 +687,12 @@ export default function AdminDash() {
             });
     };
 
-    const Viewpdf = (id) => {
+    const Viewpdf = (id:any) => {
         handleFileDownload(id);
     }
 
 
-    const handleChange = (panel) => {
+    const handleChange = (panel:any) => {
         setExpanded(panel);
     }
 
@@ -709,7 +709,7 @@ export default function AdminDash() {
         FetchProjectProcessWaitRecordExtamFinal();
     }, [selectstatus_code])
 
-    const handlereportCancel = (id_project_file_paths, comment, id_project_status_title, id_project_status) => {
+    const handlereportCancel = (id_project_file_paths:any, id_project_status_title:any, id_project_status:any) => {
         setCanceldatafrom({
             id_project_file_paths: id_project_file_paths,
             id_project_status_title: id_project_status_title,
@@ -749,7 +749,7 @@ export default function AdminDash() {
             });
         }
     }
-    const handlereportConfirm = (id_project_file_paths, comment, id_project_status_title, id_project_status) => {
+    const handlereportConfirm = (id_project_file_paths:any, comment:any, id_project_status_title:any, id_project_status:any) => {
         console.log(id_project_file_paths, comment, id_project_status_title, id_project_status);
         if (confirm("ยืนยันการดำเนินการ")) {
             axios.post('resources/admin/reqreport/approve',
@@ -766,7 +766,7 @@ export default function AdminDash() {
             null
         }
     }
-    const handleCancelcommentUNC = (id_project_file_paths, comment, id_project_status_title, id_project_status) => {
+    const handleCancelcommentUNC = (id_project_file_paths:any, comment:any, id_project_status_title:any, id_project_status:any) => {
         if (examrecord == 'ไม่ผ่านยื่นสอบใหม่ภายในช่วงเวลา') {
             axios.post('resources/admin/reqreport/provere',
                 {
@@ -797,7 +797,7 @@ export default function AdminDash() {
             });
         }
     }
-    const handlereportConfirmUNC = (id_project_file_paths, comment, id_project_status_title, id_project_status) => {
+    const handlereportConfirmUNC = (id_project_file_paths: any, id_project_status_title: any, id_project_status: any) => {
         axios.post('resources/admin/reqreport/approve',
             {
                 id_project_file_paths: id_project_file_paths,
@@ -811,11 +811,11 @@ export default function AdminDash() {
         });
     }
 
-    const openDoc = (id, selectReport) => {
+    const openDoc = (id:any, selectReport:any) => {
         window.open(`/testreport/${id}/${selectReport}`);
     }
 
-    const openDocWidget = (id, selectReport) => {
+    const openDocWidget = (id:any, selectReport:any) => {
         if (window.innerWidth < 900) {
             setPdfUrl(null)
             window.open(`/testreport/${id}/${selectReport}`);
@@ -875,7 +875,7 @@ export default function AdminDash() {
                             <Typography sx={{ pt: 0.3 }}>ไม่มีรายการ</Typography>
                     }
                 </AccordionSummary>
-                <AccordionSummary aria-controls="panel1a-content" id="panel1a-header" onClick={() => navigate({to: '/test_six_reports",'})}>
+                <AccordionSummary aria-controls="panel1a-content" id="panel1a-header" onClick={() => navigate({to: '/test_six_reports'})}>
                     <Typography sx={{ pt: 0.3, width: '40%', flexShrink: 0 }}>ยื่นสอบหกสิบ</Typography>
                     {
                         lableexam2 > 0 ?

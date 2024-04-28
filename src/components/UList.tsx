@@ -4,7 +4,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import List from '@mui/material/List';
 import ListItemText from '@mui/material/ListItemText';
 import Collapse from '@mui/material/Collapse';
-import PropTypes from 'prop-types';
+import PropTypes, { any } from 'prop-types';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import PermContactCalendarIcon from '@mui/icons-material/PermContactCalendar';
 import SyncLockIcon from '@mui/icons-material/SyncLock';
@@ -37,13 +37,9 @@ const style = {
 
 
 
-const Userlist = ({ Open, setOpen }) => {
-    const { profile } = React.useContext(ProfileContext)
-    // const [modalProfile, setModalProfile] = React.useState(false);
-    Userlist.propTypes = {
-        Open: PropTypes.bool.isRequired,
-        setOpen: PropTypes.func.isRequired,
-    };
+const Userlist = ({ Open, setOpen }:any) => {
+    const { profile } = React.useContext<any>(ProfileContext);
+    // const [modalProfile, setModalProfile] = React.useState<any>(false);
 
     const handleClick = () => {
         setOpen(!Open);
@@ -64,15 +60,15 @@ const Userlist = ({ Open, setOpen }) => {
         window.location.reload();
     }
 
-    const [majorCode, setMajorCode] = React.useState([]);
-    const [nametitle, setNametitle] = React.useState([]);
+    const [majorCode, setMajorCode] = React.useState<any>([]);
+    const [nametitle, setNametitle] = React.useState<any>([]);
 
 
-    const [errAlert, setErrAlert] = React.useState(false);
-    const [passwordchangeOpen, setPasswordchangeOpen] = React.useState(false);
+    const [errAlert, setErrAlert] = React.useState<any>(false);
+    const [passwordchangeOpen, setPasswordchangeOpen] = React.useState<any>(false);
 
-    const [profilechangeOpen, setprofilechangeOpen] = React.useState(false);
-    const handleChangPassword = (event) => {
+    const [profilechangeOpen, setprofilechangeOpen] = React.useState<any>(false);
+    const handleChangPassword = (event:any) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
         const datalist = {
@@ -100,8 +96,8 @@ const Userlist = ({ Open, setOpen }) => {
     React.useEffect(() => {
         axios.get('/resources/public/major')
             .then(res => {
-                setMajorCode(prevMajorCode => {
-                    const newMajorCode = res.data.data.map(item => ({
+                setMajorCode((prevMajorCode:any) => {
+                    const newMajorCode = res.data.data.map((item:any) => ({
                         label: item.major_code + ' ' + item.major_name,
                         value: item.major_code
                     }));
@@ -114,8 +110,8 @@ const Userlist = ({ Open, setOpen }) => {
 
         axios.get('/resources/public/name_title')
             .then(res => {
-                setNametitle(prevNametitle => {
-                    const nameTitles = res.data.data.map(item => ({
+                setNametitle((prevNametitle:any):any => {
+                    const nameTitles = res.data.data.map((item:any) => ({
                         label: item.name_title_th,
                         value: item.id_name_title
                     }));
@@ -127,22 +123,22 @@ const Userlist = ({ Open, setOpen }) => {
             });
     }, []);
 
-    const [selectedTitle, setSelectedTitle] = React.useState(null);
+    const [selectedTitle, setSelectedTitle] = React.useState<any>(null);
     React.useEffect(() => {
         setSelectedTitle(profile.id_name_title);
     }, [profile]);
 
 
-    const [editProfile, setEditProfile] = React.useState(profile);
+    const [editProfile, setEditProfile] = React.useState<any>(profile);
 
 
 
-    const handleInfoChangeNT = (event) => {
+    const handleInfoChangeNT = (event:any) => {
         setEditProfile({ ...editProfile, id_name_title: event.target.value });
         setSelectedTitle(event.target.value);
     }
 
-    const handleInfoChange = (event) => {
+    const handleInfoChange = (event:any) => {
         setEditProfile({ ...editProfile, [event.target.name]: event.target.value });
     }
 
@@ -276,7 +272,7 @@ const Userlist = ({ Open, setOpen }) => {
                                 value={selectedTitle} // ต้องมี value attribute
                                 onChange={handleInfoChangeNT}
                             >
-                                {nametitle.map((option, index) => (
+                                {nametitle.map((option:any, index:any) => (
                                     <MenuItem key={index} value={option.value}>{option.label}</MenuItem>
                                 ))}
                             </TextField>

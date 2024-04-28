@@ -7,7 +7,7 @@ import { Button, Typography } from '@mui/material';
 
 export default function Semester() {
 
-    const [semester, setSemester] = React.useState(0);
+    const [semester, setSemester] = React.useState<any>(0);
 
     const getsemester = async () => {
         try {

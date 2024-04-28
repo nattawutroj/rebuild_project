@@ -10,31 +10,31 @@ import axios from '@/api/axios';
 import FileSending from './SubComponets/FileSending';
 import { Print } from '@mui/icons-material';
 
-export default function ProjectCard({ projectinfo, setEditMode }) {
-    const [member, setMember] = React.useState([]);
-    const [staff, setStaff] = React.useState([]);
+export default function ProjectCard({ projectinfo, setEditMode }: any) {
+    const [member, setMember] = React.useState<any>([]);
+    const [staff, setStaff] = React.useState<any>([]);
 
-    let adviserContent = null;
+    let adviserContent: null | any = null;
     let countStd = 0;
     const fetchData = async () => {
-        const result = await Promise.all(projectinfo.map(item => search(item)));
-        const flattenedResult = result.flat();
+        const result = await Promise.all(projectinfo.map((item: any) => search(item)));
+        const flattenedResult: any = result.flat();
         setMember(flattenedResult);
     };
 
     const fetchStaff = async () => {
-        await Promise.all(projectinfo.map(item => searchStaff(item)));
+        await Promise.all(projectinfo.map((item: any) => searchStaff(item)));
     };
     React.useEffect(() => {
         fetchData();
         fetchStaff();
     }, [projectinfo]);
 
-    const openDoc = (id, selectReport) => {
+    const openDoc = (id: any, selectReport: any) => {
         window.open(`/testreport/${id}/${selectReport}`);
     }
 
-    const search = async (item) => {
+    const search = async (item: any) => {
         try {
             const response = await axios.post('/user/checkjoin', {
                 id_project: item.id_project
@@ -46,7 +46,7 @@ export default function ProjectCard({ projectinfo, setEditMode }) {
             return [];
         }
     };
-    const searchStaff = async (item) => {
+    const searchStaff = async (item: any) => {
         try {
             const response = await axios.post('/user/projectstafflist', {
                 id_project: item.id_project
@@ -62,9 +62,8 @@ export default function ProjectCard({ projectinfo, setEditMode }) {
     return (
         <React.Fragment>
             {console.log(staff)}
-            {projectinfo.map((item, index) => (
+            {projectinfo.map((item: any, index: any) => (
                 <div className="card" key={index}>
-                    {console.log(item)}
                     <Accordion key={index} sx={{ mt: 1 }} defaultExpanded>
                         <AccordionSummary
                             expandIcon={<ExpandMoreIcon />}
@@ -113,7 +112,11 @@ export default function ProjectCard({ projectinfo, setEditMode }) {
                                     <Typography sx={{ mt: 0.3, width: '33%', flexShrink: 0 }}>ผู้จัดทำโครงงาน</Typography>
                                     <Stack direction="column" spacing={0}>
                                         {
-                                            member.map((data, index) => (
+                                            (member as {
+                                                student_code: string;
+                                                first_name_th: string;
+                                                last_name_th: string; id_project: string
+                                            }[]).map((data, index) => (
                                                 (data.id_project === item.id_project) ?
                                                     (
                                                         countStd++,
@@ -133,10 +136,10 @@ export default function ProjectCard({ projectinfo, setEditMode }) {
                                     <Typography sx={{ mt: 0.3, width: '33%', flexShrink: 0 }}>ที่ปรึกษา</Typography>
                                     <Stack direction="column" spacing={0}>
                                         {
-                                            staff.map((data, index) => {
+                                            staff.map((data: any, index: any) => {
                                                 // Use a variable to conditionally render the "ไม่มีที่ปรึกษา" message
 
-                                                data.staff.map((data2, index2) => {
+                                                data.staff.map((data2: any, index2: any) => {
 
                                                     if (data2.id_project === item.id_project && data2.id_project_staff_position === 1) {
                                                         adviserContent = (
@@ -167,8 +170,8 @@ export default function ProjectCard({ projectinfo, setEditMode }) {
                                     <Typography sx={{ mt: 0.3, width: '33%', flexShrink: 0 }}>ที่ปรึกษาร่วม </Typography>
                                     <Stack direction="column" spacing={0}>
                                         {
-                                            staff.map((data) => (
-                                                data.staff.map((data2, index2) => (
+                                            staff.map((data: any) => (
+                                                data.staff.map((data2: any, index2: any) => (
                                                     (data2.id_project === item.id_project && data2.id_project_staff_position === 4) ?
                                                         <Typography sx={{ pt: 0.3, color: 'text.secondary' }} key={index2}>{data2.name_title_th + ' ' + data2.first_name_th + ' ' + data2.last_name_th}</Typography>
                                                         : ''
@@ -176,8 +179,8 @@ export default function ProjectCard({ projectinfo, setEditMode }) {
                                             ))
                                         }
                                         {
-                                            staff.map((data) => (
-                                                data.os_staff.map((data2, index2) => (
+                                            staff.map((data: any) => (
+                                                data.os_staff.map((data2: any, index2: any) => (
                                                     (data2.id_project === item.id_project && data2.id_project_staff_position === 4) ?
                                                         <Typography sx={{ pt: 0.3, color: 'text.secondary' }} key={index2}>{data2.name_title_th + ' ' + data2.first_name_th + ' ' + data2.last_name_th}</Typography>
                                                         : ''
@@ -193,7 +196,7 @@ export default function ProjectCard({ projectinfo, setEditMode }) {
                                         justifyContent="flex-end"
                                         alignItems="center"
                                         spacing={2} sx={{ mt: 2.5, mr: 2 }}>
-                                        <Typography variant="bodyๅ" color="text.secondary">
+                                        <Typography variant="body1" color="text.secondary">
                                             โปรดพิมพ์เอกสารและนำส่งที่ห้องภาควิชา
                                         </Typography>
                                         {
@@ -215,10 +218,7 @@ export default function ProjectCard({ projectinfo, setEditMode }) {
                                     : ''
                             }
                         </AccordionDetails>
-                        {
-                            <FileSending text={"ส่งไฟล์ ทก.01"} itemprojectinfo={item} id_project={item.id_project} />
-
-                        }
+                        <FileSending itemprojectinfo={item} id_project={item.id_project} />
                     </Accordion>
                 </div>
             ))}

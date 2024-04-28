@@ -25,14 +25,14 @@ const VisuallyHiddenInput = styled('input')({
     width: 1,
 });
 
-export default function FileSending({ itemprojectinfo, id_project }) {
-    const [testcat, setTestcat] = useState(1);
-    const handleChangetestcat = (event) => {
+export default function FileSending({ itemprojectinfo, id_project }:any) {
+    const [testcat, setTestcat] = useState<any>(1);
+    const handleChangetestcat = (event:any) => {
         setTestcat(event.target.value);
     };
     console.log(itemprojectinfo)
-    const [file, setFile] = useState(null);
-    const [fileList, setFileList] = useState(null);
+    const [file, setFile] = useState<any>(null);
+    const [fileList, setFileList] = useState<any>(null);
     React.useEffect(() => {
         Fecthfile();
     }, [id_project]);
@@ -40,7 +40,7 @@ export default function FileSending({ itemprojectinfo, id_project }) {
 
     console.log(fileList)
 
-    const handleFileChange = (event) => {
+    const handleFileChange = (event:any) => {
         const selectedFile = event.target.files[0];
         // Validate if the selected file is a PDF
         if (selectedFile && selectedFile.type === 'application/pdf') {
@@ -99,7 +99,7 @@ export default function FileSending({ itemprojectinfo, id_project }) {
         }
     }
 
-    const handleFileDownload = (id_file) => {
+    const handleFileDownload = (id_file:any) => {
         axios.get('/resources/public/download/pdf', {
             params: {
                 file: id_file
@@ -118,14 +118,14 @@ export default function FileSending({ itemprojectinfo, id_project }) {
     };
 
     // สร้าง fn เปลี่ยน timestamp เป็นวันที่ เวลา "2024-01-20T18:13:05.951Z"
-    const convertDate = (timestamp) => {
+    const convertDate = (timestamp:any) => {
         const date = new Date(timestamp);
         const convertedDate = date.toLocaleString('th-TH', { timeZone: 'Asia/Bangkok' });
 
         return convertedDate;
     }
 
-    const handleFileDelete = (id_file) => {
+    const handleFileDelete = (id_file:any) => {
 
         axios.post('/user/prove', {
             id_project_status_title: itemprojectinfo.id_project_status_title,
@@ -211,7 +211,7 @@ export default function FileSending({ itemprojectinfo, id_project }) {
                             <Typography sx={{ pt: 0.3, width: '40%', flexShrink: 0 }}>สถานะการยื่นสอบ</Typography>
                         </AccordionSummary>
                         <AccordionDetails>
-                            {fileList.map((file, index) => (
+                            {fileList.map((file:any, index:any) => (
                                 file.staus_code == 21 || file.staus_code == 25 || file.staus_code == 24 || file.staus_code == 19 || file.staus_code == 18 ?
                                     <Accordion key={index} sx={{ mt: 1, width: '100%' }} >
                                         <AccordionSummary
@@ -219,7 +219,6 @@ export default function FileSending({ itemprojectinfo, id_project }) {
                                             aria-controls="panel1a-content"
                                             id="panel1a-header"
                                         >
-                                            {console.log(file)}
                                             <Typography sx={{ pt: 0.3, width: '40%', flexShrink: 0 }}>{convertDate(file.timestamp)}</Typography>
                                             {
                                                 file.staus_code == 21 ?

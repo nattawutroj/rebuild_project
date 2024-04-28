@@ -60,157 +60,157 @@ const styles = StyleSheet.create({
 });
 
 // Create Document Component
-// function BasicDocument({ projectinfo, member, staff, boss, selectReport }) {
-function BasicDocument() {
-    const projectinfo = {
-        "id_project": "66200008",
-        "project_title_th": "ทดสอบสร้างโปรเจ็ค 05",
-        "project_title_en": "ทดสอบสร้างโปรเจ็ค 05",
-        "case_study_title_th": "Chome",
-        "case_study_title_en": "Chome",
-        "build_timestamp": "2024-01-31T08:04:26.924Z",
-        "id_semester": 2,
-        "subject_code": "60223122",
-        "subject_name": "โครงงานพิเศษ (iti)",
-        "credit": 3,
-        "semester": "2",
-        "year": "2566"
-    }
+function BasicDocument({ projectinfo, member, staff, boss }:any) {
+// function BasicDocument() {
+    // const projectinfo = {
+    //     "id_project": "66200008",
+    //     "project_title_th": "ทดสอบสร้างโปรเจ็ค 05",
+    //     "project_title_en": "ทดสอบสร้างโปรเจ็ค 05",
+    //     "case_study_title_th": "Chome",
+    //     "case_study_title_en": "Chome",
+    //     "build_timestamp": "2024-01-31T08:04:26.924Z",
+    //     "id_semester": 2,
+    //     "subject_code": "60223122",
+    //     "subject_name": "โครงงานพิเศษ (iti)",
+    //     "credit": 3,
+    //     "semester": "2",
+    //     "year": "2566"
+    // }
 
-    const boss = [
-        {
-            "id_boss": 1,
-            "id_staff": 6,
-            "username": "ITKNM",
-            "initials": "KNM",
-            "id_name_title": 17,
-            "first_name_th": "ขนิษฐา",
-            "last_name_th": "นามี",
-            "first_name_en": null,
-            "last_name_en": null,
-            "phone": null,
-            "address": null,
-            "email": null,
-            "password": "ITKNM",
-            "id_role": 3,
-            "name_title_th": "ผศ. ดร.",
-            "name_title_en": null
-        }
-    ]
+    // const boss = [
+    //     {
+    //         "id_boss": 1,
+    //         "id_staff": 6,
+    //         "username": "ITKNM",
+    //         "initials": "KNM",
+    //         "id_name_title": 17,
+    //         "first_name_th": "ขนิษฐา",
+    //         "last_name_th": "นามี",
+    //         "first_name_en": null,
+    //         "last_name_en": null,
+    //         "phone": null,
+    //         "address": null,
+    //         "email": null,
+    //         "password": "ITKNM",
+    //         "id_role": 3,
+    //         "name_title_th": "ผศ. ดร.",
+    //         "name_title_en": null
+    //     }
+    // ]
 
-    const member = [
-        {
-            "id_project_member": 51,
-            "id_project": "66200008",
-            "id_student": 3,
-            "student_code": "6506021421129",
-            "first_name_th": "ณัฐกานต์",
-            "last_name_th": "กระแสร์ลาภ",
-            "id_name_title": 2,
-            "course_code": 620620,
-            "phone": "0621595519",
-            "address": "39 หมู่ 10 ตำบลตาลเดี่ยว อำเภอแก่งคอย จังหวัดสระบุรี 18110",
-            "id_project_status": 20,
-            "id_project_status_title": 6,
-            "status_timestamp": "08:04:26.990544+00",
-            "project_title_th": "ทดสอบสร้างโปรเจ็ค 05",
-            "project_title_en": "ทดสอบสร้างโปรเจ็ค 05",
-            "case_study_title_th": "Chome",
-            "case_study_title_en": "Chome",
-            "build_timestamp": "2024-01-31T08:04:26.924Z",
-            "id_semester": 2,
-            "semester": "2",
-            "year": "2566",
-            "name_title_th": "นางสาว",
-            "name_title_en": "Miss",
-            "course_name": "อุตสาหกรรมศาสตรบัณฑิต",
-            "credit": 3
-        },
-        {
-            "id_project_member": 55,
-            "id_project": "66200008",
-            "id_student": 321,
-            "student_code": "6606021421276",
-            "first_name_th": "ทรวภพ",
-            "last_name_th": "ขูจิต",
-            "id_name_title": 5,
-            "course_code": 486022,
-            "phone": "0902907811",
-            "address": "25000",
-            "id_project_status": 20,
-            "id_project_status_title": 6,
-            "status_timestamp": "08:04:26.990544+00",
-            "project_title_th": "ทดสอบสร้างโปรเจ็ค 05",
-            "project_title_en": "ทดสอบสร้างโปรเจ็ค 05",
-            "case_study_title_th": "Chome",
-            "case_study_title_en": "Chome",
-            "build_timestamp": "2024-01-31T08:04:26.924Z",
-            "id_semester": 2,
-            "semester": "2",
-            "year": "2566",
-            "name_title_th": "คุณ",
-            "name_title_en": "K.",
-            "course_name": "อุตสาหกรรมศาสตรบัณฑิต (ต่อเนื่อง)",
-            "credit": 3
-        }
-    ]
+    // const member = [
+    //     {
+    //         "id_project_member": 51,
+    //         "id_project": "66200008",
+    //         "id_student": 3,
+    //         "student_code": "6506021421129",
+    //         "first_name_th": "ณัฐกานต์",
+    //         "last_name_th": "กระแสร์ลาภ",
+    //         "id_name_title": 2,
+    //         "course_code": 620620,
+    //         "phone": "0621595519",
+    //         "address": "39 หมู่ 10 ตำบลตาลเดี่ยว อำเภอแก่งคอย จังหวัดสระบุรี 18110",
+    //         "id_project_status": 20,
+    //         "id_project_status_title": 6,
+    //         "status_timestamp": "08:04:26.990544+00",
+    //         "project_title_th": "ทดสอบสร้างโปรเจ็ค 05",
+    //         "project_title_en": "ทดสอบสร้างโปรเจ็ค 05",
+    //         "case_study_title_th": "Chome",
+    //         "case_study_title_en": "Chome",
+    //         "build_timestamp": "2024-01-31T08:04:26.924Z",
+    //         "id_semester": 2,
+    //         "semester": "2",
+    //         "year": "2566",
+    //         "name_title_th": "นางสาว",
+    //         "name_title_en": "Miss",
+    //         "course_name": "อุตสาหกรรมศาสตรบัณฑิต",
+    //         "credit": 3
+    //     },
+    //     {
+    //         "id_project_member": 55,
+    //         "id_project": "66200008",
+    //         "id_student": 321,
+    //         "student_code": "6606021421276",
+    //         "first_name_th": "ทรวภพ",
+    //         "last_name_th": "ขูจิต",
+    //         "id_name_title": 5,
+    //         "course_code": 486022,
+    //         "phone": "0902907811",
+    //         "address": "25000",
+    //         "id_project_status": 20,
+    //         "id_project_status_title": 6,
+    //         "status_timestamp": "08:04:26.990544+00",
+    //         "project_title_th": "ทดสอบสร้างโปรเจ็ค 05",
+    //         "project_title_en": "ทดสอบสร้างโปรเจ็ค 05",
+    //         "case_study_title_th": "Chome",
+    //         "case_study_title_en": "Chome",
+    //         "build_timestamp": "2024-01-31T08:04:26.924Z",
+    //         "id_semester": 2,
+    //         "semester": "2",
+    //         "year": "2566",
+    //         "name_title_th": "คุณ",
+    //         "name_title_en": "K.",
+    //         "course_name": "อุตสาหกรรมศาสตรบัณฑิต (ต่อเนื่อง)",
+    //         "credit": 3
+    //     }
+    // ]
 
-    const staff = {
-        "staff": [
-            {
-                "id_project_staff": 25,
-                "id_project": "66200008",
-                "id_staff": 2,
-                "id_project_staff_position": 1,
-                "id_name_title": 1,
-                "first_name_th": "(S) ณัฐวุฒิ",
-                "last_name_th": "(S) โรจนจันทร์",
-                "name_title_th": "นาย",
-                "name_title_en": "Mr.",
-                "project_staff_position_title": "ปรึกษา"
-            },
-            {
-                "id_project_staff": 70,
-                "id_project": "66200008",
-                "id_staff": 9,
-                "id_project_staff_position": 3,
-                "id_name_title": 17,
-                "first_name_th": "นัฎฐพันธ์",
-                "last_name_th": "นาคพงษ์",
-                "name_title_th": "ผศ. ดร.",
-                "name_title_en": null,
-                "project_staff_position_title": "กรรมการ"
-            },
-            {
-                "id_project_staff": 68,
-                "id_project": "66200008",
-                "id_staff": 23,
-                "id_project_staff_position": 2,
-                "id_name_title": 18,
-                "first_name_th": "สมชัย",
-                "last_name_th": "เชียงพงศ์พันธุ์",
-                "name_title_th": "ผศ.",
-                "name_title_en": null,
-                "project_staff_position_title": "ประธาน"
-            },
-            {
-                "id_project_staff": 69,
-                "id_project": "66200008",
-                "id_staff": 24,
-                "id_project_staff_position": 3,
-                "id_name_title": 20,
-                "first_name_th": "อนิราช",
-                "last_name_th": "มิ่งขวัญ",
-                "name_title_th": "รศ. ดร.",
-                "name_title_en": null,
-                "project_staff_position_title": "กรรมการ"
-            }
-        ],
-        "os_staff": []
-    }
+    // const staff = {
+    //     "staff": [
+    //         {
+    //             "id_project_staff": 25,
+    //             "id_project": "66200008",
+    //             "id_staff": 2,
+    //             "id_project_staff_position": 1,
+    //             "id_name_title": 1,
+    //             "first_name_th": "(S) ณัฐวุฒิ",
+    //             "last_name_th": "(S) โรจนจันทร์",
+    //             "name_title_th": "นาย",
+    //             "name_title_en": "Mr.",
+    //             "project_staff_position_title": "ปรึกษา"
+    //         },
+    //         {
+    //             "id_project_staff": 70,
+    //             "id_project": "66200008",
+    //             "id_staff": 9,
+    //             "id_project_staff_position": 3,
+    //             "id_name_title": 17,
+    //             "first_name_th": "นัฎฐพันธ์",
+    //             "last_name_th": "นาคพงษ์",
+    //             "name_title_th": "ผศ. ดร.",
+    //             "name_title_en": null,
+    //             "project_staff_position_title": "กรรมการ"
+    //         },
+    //         {
+    //             "id_project_staff": 68,
+    //             "id_project": "66200008",
+    //             "id_staff": 23,
+    //             "id_project_staff_position": 2,
+    //             "id_name_title": 18,
+    //             "first_name_th": "สมชัย",
+    //             "last_name_th": "เชียงพงศ์พันธุ์",
+    //             "name_title_th": "ผศ.",
+    //             "name_title_en": null,
+    //             "project_staff_position_title": "ประธาน"
+    //         },
+    //         {
+    //             "id_project_staff": 69,
+    //             "id_project": "66200008",
+    //             "id_staff": 24,
+    //             "id_project_staff_position": 3,
+    //             "id_name_title": 20,
+    //             "first_name_th": "อนิราช",
+    //             "last_name_th": "มิ่งขวัญ",
+    //             "name_title_th": "รศ. ดร.",
+    //             "name_title_en": null,
+    //             "project_staff_position_title": "กรรมการ"
+    //         }
+    //     ],
+    //     "os_staff": []
+    // }
 
 
-    const [selectReport, setSelectReport] = React.useState(1)
+    const [selectReport, setSelectReport] = React.useState<any>(1)
     return (
 
         <PDFViewer style={styles.viewer}>
@@ -233,7 +233,7 @@ function BasicDocument() {
                                     <Singature1 staff={staff} />
                                 </View>
                                 {
-                                    staff.staff.map((item, index) => {
+                                    staff.staff.map((item:any) => {
                                         return (
                                             (item.project_staff_position_title === 'ประธาน') ?
                                                 <>
@@ -256,7 +256,7 @@ function BasicDocument() {
                                     })
                                 }
                                 {
-                                    staff.staff.map((item, index) => {
+                                    staff.staff.map((item:any) => {
                                         return (
                                             (item.project_staff_position_title === 'กรรมการ') ?
                                                 <>
@@ -308,7 +308,7 @@ function BasicDocument() {
 }
 export default BasicDocument;
 
-function Header({ selectReport }) {
+function Header({ selectReport }: { selectReport: number }) {
     return (
         <>
             <View style={[styles.header, styles.row]}>
@@ -366,7 +366,7 @@ function Header({ selectReport }) {
     )
 }
 
-function Information({ projectinfo, member, staff }) {
+function Information({ projectinfo, member, staff }: { projectinfo: any, member: any, staff: any }) {
     var countadvisor = 0;
     return (
         <>
@@ -395,7 +395,7 @@ function Information({ projectinfo, member, staff }) {
                 <Text style={{ width: '67%', }}></Text>
             </View>
             {
-                member.map((item, index) => {
+                member.map((item:any) => {
                     return (
                         <View style={styles.row}>
                             <Text style={{ width: '5%', fontWeight: 'bold', textAlign: 'left' }}> </Text>
@@ -413,7 +413,7 @@ function Information({ projectinfo, member, staff }) {
                 <Text style={{ width: '70%', }}></Text>
             </View>
             {
-                staff.staff.map((item, index) => {
+                staff.staff.map((item:any) => {
                     return (
                         (item.project_staff_position_title === 'ปรึกษา') ?
                             <View style={styles.row}>
@@ -431,7 +431,7 @@ function Information({ projectinfo, member, staff }) {
                 <Text style={{ width: '70%', }}></Text>
             </View>
             {
-                staff.staff.map((item, index) => {
+                staff.staff.map((item:any) => {
                     return (
                         (item.project_staff_position_title === 'ปรึกษาร่วม') ?
                             <View style={styles.row}>
@@ -460,7 +460,7 @@ function Information({ projectinfo, member, staff }) {
                 <Text style={{ width: '70%', }}></Text>
             </View>
             {
-                staff.staff.map((item, index) => {
+                staff.staff.map((item:any) => {
                     return (
                         (item.project_staff_position_title === 'ประธาน') ?
                             <View style={styles.row}>
@@ -475,7 +475,7 @@ function Information({ projectinfo, member, staff }) {
                 })
             }
             {
-                staff.staff.map((item, index) => {
+                staff.staff.map((item:any) => {
                     return (
                         (item.project_staff_position_title === 'กรรมการ') ?
                             <View style={styles.row}>
@@ -493,7 +493,7 @@ function Information({ projectinfo, member, staff }) {
     )
 }
 
-function Information2({ projectinfo, member, staff }) {
+function Information2({ projectinfo, member, staff }: { projectinfo: any, member: any, staff: any }) {
     var countadvisor = 0;
     var membercount = 0;
     return (
@@ -560,7 +560,7 @@ function Information2({ projectinfo, member, staff }) {
                 <Text style={{ width: '67%', }}></Text>
             </View>
             {
-                member.map((item, index) => {
+                member.map((item:any, index:any) => {
                     return (
                         index !== 0 ?
                             <View style={styles.row}>
@@ -597,7 +597,7 @@ function Information2({ projectinfo, member, staff }) {
                 <Text style={{ width: '70%', }}></Text>
             </View>
             {
-                staff.staff.map((item, index) => {
+                staff.staff.map((item:any) => {
                     return (
                         (item.project_staff_position_title === 'ปรึกษา') ?
                             <View style={styles.row}>
@@ -615,7 +615,7 @@ function Information2({ projectinfo, member, staff }) {
                 <Text style={{ width: '70%', }}></Text>
             </View>
             {
-                staff.staff.map((item, index) => {
+                staff.staff.map((item:any) => {
                     return (
                         (item.project_staff_position_title === 'ปรึกษาร่วม') ?
                             <View style={styles.row}>
@@ -745,11 +745,11 @@ function Singature0() {
 }
 
 
-function Singature1({ staff }) {
+function Singature1({ staff }: { staff: any }) {
     return (
         <>
             {
-                staff.staff.map((item, index) => {
+                staff.staff.map((item:any) => {
                     return (
                         (item.project_staff_position_title === 'ประธาน') ?
                             <>
@@ -781,7 +781,7 @@ function Singature1({ staff }) {
                 })
             }
             {
-                staff.staff.map((item, index) => {
+                staff.staff.map((item:any) => {
                     return (
                         (item.project_staff_position_title === 'กรรมการ') ?
                             <>
@@ -823,7 +823,7 @@ function Singature1({ staff }) {
     )
 }
 
-function SingatureItem({ item }) {
+function SingatureItem({ item }: { item: any }) {
     return (
         <>
             {
@@ -893,12 +893,12 @@ function SingatureItem({ item }) {
 }
 
 
-function Bottom01({ boss, staff }) {
+function Bottom01({ boss, staff }: { boss: any, staff: any }) {
     var x = 0;
 
     var countstaffa = 0;
     var countstaffb = 0;
-    staff?.staff.map((item) => {
+    staff?.staff.map((item:any) => {
         if (item.project_staff_position_title === 'ประธาน') {
             countstaffa++;
         } else if (item.project_staff_position_title === 'กรรมการ') {
@@ -917,7 +917,7 @@ function Bottom01({ boss, staff }) {
                     <Text style={{ width: '100%', textAlign: 'center' }}>________________________</Text>
                     <Text style={{ width: '100%', textAlign: 'center' }}> </Text>
                     {
-                        staff.staff.map((item) => {
+                        staff.staff.map((item:any) => {
                             return (
                                 (item.project_staff_position_title === 'ปรึกษา' && x === 0) ?
                                     <>
@@ -955,7 +955,7 @@ function Bottom01({ boss, staff }) {
                                 <Text style={{ width: '100%', fontSize: 14, marginTop: 6, textAlign: 'center' }}>กรรมการ________________________</Text>
                             </>
                             :
-                            (staff.staff.map((item) => {
+                            (staff.staff.map((item:any) => {
                                 return (
                                     <>
                                         {
@@ -971,7 +971,7 @@ function Bottom01({ boss, staff }) {
                         (countstaffa === 0 && countstaffb === 0) ?
                             null
                             :
-                            (staff.staff.map((item) => {
+                            (staff.staff.map((item:any) => {
                                 return (
                                     <>
                                         {

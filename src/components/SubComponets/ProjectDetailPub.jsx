@@ -8,9 +8,9 @@ import axios from '@/api/axios';
 
 export default function ProjectDetail({ act, id }) {
 
-    const [item, setItem] = React.useState([]);
-    const [staff, setStaff] = React.useState([]);
-    const [member, setMember] = React.useState([]);
+    const [item, setItem] = React.useState<any>([]);
+    const [staff, setStaff] = React.useState<any>([]);
+    const [member, setMember] = React.useState<any>([]);
     let adviserContent = null;
     let countStd = 0;
 

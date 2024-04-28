@@ -17,7 +17,7 @@ import Link from '@mui/material/Link';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-function Copyright(props) {
+function Copyright(props:any) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
@@ -34,7 +34,7 @@ const drawerWidth = 240;
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
-})(({ theme, open }) => ({
+})(({ theme, open }:any) => ({
   zIndex: theme.zIndex.drawer + 1,
   transition: theme.transitions.create(['width', 'margin'], {
     easing: theme.transitions.easing.sharp,
@@ -80,7 +80,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 const defaultTheme = createTheme();
 
 export default function Dashboard() {
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState<any>(true);
   const toggleDrawer = () => {
     setOpen(!open);
   };
@@ -89,7 +89,8 @@ export default function Dashboard() {
     <ThemeProvider theme={defaultTheme}>
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
-        <AppBar position="absolute" open={open}>
+        <AppBar position="absolute">
+        {/* <AppBar position="absolute" open={open}> */}
           <Toolbar
             sx={{
               pr: '24px', // keep right padding when drawer closed

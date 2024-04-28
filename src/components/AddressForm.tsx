@@ -7,24 +7,24 @@ import MenuItem from '@mui/material/MenuItem';
 import Axios from '@/api/axios';
 
 
-export default function AddressForm({ profile, setProfile, editProfileAlert }) {
+export default function AddressForm({ profile, setProfile, editProfileAlert }:any) {
 
-  const [majorCode, setMajorCode] = useState([]);
-
-
-  const [nametitle, setNametitle] = useState([]);
+  const [majorCode, setMajorCode] = useState<{label: any; value: any}[]>([]);
 
 
-  const [selectedTitle, setSelectedTitle] = useState('');
+  const [nametitle, setNametitle] = useState<{label: any; value: any}[]>([]);
 
-  const handleTitleChange = (event) => {
+
+  const [selectedTitle, setSelectedTitle] = useState<any>('');
+
+  const handleTitleChange = (event:any) => {
     setSelectedTitle(event.target.value);
     handleInfoChange(event);
   };
 
-  const [selectedMajor, setSelectedMajor] = useState('');
+  const [selectedMajor, setSelectedMajor] = useState<any>('');
 
-  const handleMajorChange = (event) => {
+  const handleMajorChange = (event:any) => {
     setSelectedMajor(event.target.value);
     handleInfoChange(event);
   }
@@ -33,8 +33,8 @@ export default function AddressForm({ profile, setProfile, editProfileAlert }) {
   useEffect(() => {
     Axios.get('/resources/public/major')
       .then(res => {
-        setMajorCode(prevMajorCode => {
-          const newMajorCode = res.data.data.map(item => ({
+        setMajorCode((prevMajorCode: {label: any; value: any}[]) => {
+          const newMajorCode = res.data.data.map((item: { major_initial: string; major_name: string; major_code: any; }) => ({
             label: item.major_initial + ' ' + item.major_name,
             value: item.major_code
           }));
@@ -48,7 +48,7 @@ export default function AddressForm({ profile, setProfile, editProfileAlert }) {
     Axios.get('/resources/public/name_title')
       .then(res => {
         setNametitle(prevNametitle => {
-          const nameTitles = res.data.data.map(item => ({
+          const nameTitles = res.data.data.map((item: { name_title_th: any; id_name_title: any; }) => ({
             label: item.name_title_th,
             value: item.id_name_title
           }));
@@ -60,7 +60,7 @@ export default function AddressForm({ profile, setProfile, editProfileAlert }) {
       });
   }, []);
   
-  const [FileList, setFileList] = useState({
+  const [FileList, setFileList] = useState<any>({
     first_name_en: '',
     last_name_en: '',
     email: '',
@@ -70,13 +70,13 @@ export default function AddressForm({ profile, setProfile, editProfileAlert }) {
     major_code: '',
   });
 
-  const handleInfoChange = (e) => {
+  const handleInfoChange = (e: { target: { name: any; value: any; }; }) => {
     setFileList({ ...FileList, [e.target.name]: e.target.value });
     profileUpdate();
   }
 
   const profileUpdate = useCallback(() => {
-    setProfile((prevProfile) => ({
+    setProfile((prevProfile: any) => ({
       ...prevProfile,
       first_name_en: FileList.first_name_en,
       last_name_en: FileList.last_name_en,
@@ -234,7 +234,6 @@ export default function AddressForm({ profile, setProfile, editProfileAlert }) {
               </MenuItem>
             ))}
           </TextField>
-          {console.log(profile)}
         </Grid>
       </Grid>
     </React.Fragment>

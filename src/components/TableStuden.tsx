@@ -23,17 +23,17 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import Axios from '@/api/axios';
 
 const Example = () => {
-    // const [setValidationErrors] = useState({});
+    // const [setValidationErrors] = useState<any>({});
 
 
 
-    const [course] = useState([{ label: 'ไม่เลือก', value: '' }]);
+    const [course] = useState<any>([{ label: 'ไม่เลือก', value: '' }]);
 
-    const [List, setList] = useState([]);
+    const [List, setList] = useState<any>([]);
 
-    const [majorCode] = useState([{ label: 'ไม่เลือก', value: -1 }]);
+    const [majorCode] = useState<any>([{ label: 'ไม่เลือก', value: -1 }]);
 
-    const [nametitle] = useState([{ label: 'ไม่เลือก', value: -1 }]);
+    const [nametitle] = useState<any>([{ label: 'ไม่เลือก', value: -1 }]);
 
     useEffect(() => {
         console.log(List);
@@ -118,7 +118,7 @@ const Example = () => {
                     type: 'id_name_title',
                     required: false,
                 },
-                Cell: ({ row }) => {
+                Cell: ({ row }:any) => {
                     for (let i = 0; i < nametitle.length; i++) {
                         if (row.original.id_name_title === '') return '';
                         if (row.original.id_name_title === nametitle[i].value) {
@@ -219,7 +219,7 @@ const Example = () => {
         [course, majorCode, nametitle],
     );
     //CREATE action
-    const handleCreateUser = async ({ values, table }) => {
+    const handleCreateUser = async ({ values, table }:any) => {
         console.log(values);
         if (values.student_code !== '' && values.first_name_th !== '' && values.last_name_th !== '' && values.course_code !== '' && values.password !== '') {
             Axios.post('/resources/admin/student/add', values)
@@ -249,7 +249,7 @@ const Example = () => {
     };
 
     //UPDATE action
-    const handleSaveUser = async ({ values, table }) => {
+    const handleSaveUser = async ({ values, table }:any) => {
         console.log(values);
         Axios.put('/resources/admin/student/edit', values)
             .then(res => {
@@ -268,7 +268,7 @@ const Example = () => {
     };
 
     //DELETE action
-    const openDeleteConfirmModal = (row) => {
+    const openDeleteConfirmModal = (row:any) => {
         console.log(row.id);
         if (window.confirm(`คุณต้องการลบข้อมูล ${row.original.first_name_th} ${row.original.last_name_th} หรือไม่?`)) {
             Axios.delete('/resources/admin/student/delete', { data: { id_student: row.id } })
@@ -288,7 +288,7 @@ const Example = () => {
     };
 
     const table = useMaterialReactTable({
-        columns,
+        columns: [],
         data: List,
         createDisplayMode: 'modal', //default ('row', and 'custom' are also available)
         editDisplayMode: 'modal', //default ('row', 'cell', 'table', and 'custom' are also available)
@@ -364,7 +364,7 @@ const Example = () => {
         enableStickyHeader: true,
         initialState: {
             density: 'compact',
-            pagination: { pageSize: 20 },
+            pagination: { pageIndex: 0, pageSize: 20 },
             sorting: [{ id: 'id_student', desc: true }],
         },
         state: {

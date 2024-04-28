@@ -25,7 +25,7 @@ import { Add } from '@mui/icons-material';
 
 const Example = () => {
     
-    const [List, setList] = useState([]);
+    const [List, setList] = useState<any>([]);
 
 
     useEffect(() => {
@@ -88,7 +88,7 @@ const Example = () => {
         [],
     );
     //CREATE action
-    const handleCreateUser = async ({ values, table }) => {
+    const handleCreateUser = async ({ values, table }:any) => {
         console.log(values);
         if (values.subject_name !== '' && values.credit !== '') {
             Axios.post('/resources/admin/subject/add', values)
@@ -118,7 +118,7 @@ const Example = () => {
     };
 
     //UPDATE action
-    const handleSaveUser = async ({ values, table }) => {
+    const handleSaveUser = async ({ values, table }:any) => {
         console.log(values);
         Axios.put('/resources/admin/subject/edit', values)
             .then(res => {
@@ -137,7 +137,7 @@ const Example = () => {
     };
 
     //DELETE action
-    const openDeleteConfirmModal = (row) => {
+    const openDeleteConfirmModal = (row:any) => {
         console.log(row.id);
         if (window.confirm(`คุณต้องการลบข้อมูลนี้หรือไม่?`)) {
             Axios.delete('/resources/admin/subject/delete', { data: { subject_code: row.id } })
@@ -157,7 +157,7 @@ const Example = () => {
     };
 
     const table = useMaterialReactTable({
-        columns,
+        columns: [],
         data: List,
         createDisplayMode: 'modal', //default ('row', and 'custom' are also available)
         editDisplayMode: 'modal', //default ('row', 'cell', 'table', and 'custom' are also available)
@@ -233,7 +233,7 @@ const Example = () => {
         enableStickyHeader: true,
         initialState: {
             density: 'compact',
-            pagination: { pageSize: 20 },
+            pagination: { pageIndex: 0, pageSize: 20 },
             sorting: [{ id: 'subject_code', desc: true }],
         },
         state: {

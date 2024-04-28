@@ -5,10 +5,10 @@ import { Route } from "@/routes/_app/testreport/index.$id.$selectReport";
 
 function App() {
     const { id, selectReport } = Route.useParams();
-    const [projectinfo, setProjectinfo] = React.useState([]);
-    const [boss, setBoss] = React.useState([]);
-    const [member, setMember] = React.useState([]);
-    const [staff, setStaff] = React.useState([]);
+    const [projectinfo, setProjectinfo] = React.useState<any>([]);
+    const [boss, setBoss] = React.useState<any>([]);
+    const [member, setMember] = React.useState<any>([]);
+    const [staff, setStaff] = React.useState<any>([]);
 
     async function docprojectinfomation(id:any) {
         const response = await axios.get('/resources/public/projectinfomation', {

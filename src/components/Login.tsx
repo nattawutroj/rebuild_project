@@ -6,7 +6,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
+import { Grid } from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -25,7 +25,7 @@ import AddressForm from '@/components/AddressForm'
 import ChangePassword from './ChangePassword'
 
 
-function Copyright(props) {
+function Copyright(props: any) {
     return (
         <Typography variant="body2" color="text.secondary" align="center" {...props}>
             {'Copyright © '}
@@ -37,7 +37,7 @@ function Copyright(props) {
         </Typography>
     );
 }
-const style = (theme) => ({
+const style = (theme: any) => ({
     typography: {
         fontFamily: 'Kanit, sans-serif',
     },
@@ -67,13 +67,13 @@ const defaultTheme = createTheme();
 
 export default function SignInSide() {
 
-    const [profile, setProfile] = React.useState({});
+    const [profile, setProfile] = React.useState<any>({});
 
-    const [notComplete, setNotComplete] = React.useState(false);
+    const [notComplete, setNotComplete] = React.useState<any>(false);
 
-    const [activeStep, setActiveStep] = React.useState(0);
+    const [activeStep, setActiveStep] = React.useState<any>(0);
 
-    const [editProfileAlert, setEditProfileAlert] = React.useState(false);
+    const [editProfileAlert, setEditProfileAlert] = React.useState<any>(false);
 
     const handleNext = () => {
         console.log("not complete" + profile);
@@ -82,6 +82,9 @@ export default function SignInSide() {
         }
         else if (profile.address === '' || profile.email === '' || profile.id_name_title === '' || profile.first_name_en === '' || profile.last_name_en === '' || profile.major_code === '') {
             setEditProfileAlert(true)
+        }
+        else if (!(changepassword !== rechangepassword || changepassword === '' || rechangepassword === '') && !(profile.address === '' || profile.email === '' || profile.id_name_title === '' || profile.first_name_en === '' || profile.last_name_en === '' || profile.major_code === '')) {
+            handleChangePasswordStd
         }
         else {
             setChangepasserrorAlert(false);
@@ -93,20 +96,20 @@ export default function SignInSide() {
         setActiveStep(activeStep - 1);
     };
 
-    const [changepassword, setChangepassword] = React.useState('');
-    const [rechangepassword, setRechangepassword] = React.useState('');
-    const [changepasserrorAlert, setChangepasserrorAlert] = React.useState(false);
+    const [changepassword, setChangepassword] = React.useState<any>('');
+    const [rechangepassword, setRechangepassword] = React.useState<any>('');
+    const [changepasserrorAlert, setChangepasserrorAlert] = React.useState<any>(false);
 
-    const [open, setOpen] = React.useState(false);
-    const [profileEdit, setProfileEdit] = React.useState(false);
-    const [errAlert, setErrAlert] = React.useState(false);
-    const [loginAlert, setLoginAlert] = React.useState(false);
-    const [remember, setRemember] = React.useState(localStorage.getItem('remember') ? true : false);
+    const [open, setOpen] = React.useState<any>(false);
+    const [profileEdit, setProfileEdit] = React.useState<any>(false);
+    const [errAlert, setErrAlert] = React.useState<any>(false);
+    const [loginAlert, setLoginAlert] = React.useState<any>(false);
+    const [remember, setRemember] = React.useState<any>(localStorage.getItem('remember') ? true : false);
 
 
     const steps = ['เปลี่ยนรหัสผ่าน', 'กรอกข้อมูลส่วนบุคคล'];
 
-    function getStepContent(step) {
+    function getStepContent(step: any) {
         switch (step) {
             case 0:
                 return <ChangePassword rechangepassword={rechangepassword} changepassword={changepassword} setChangepassword={setChangepassword} setRechangepassword={setRechangepassword} changepasserrorAlert={changepasserrorAlert} />;
@@ -126,7 +129,7 @@ export default function SignInSide() {
         setProfileEdit(false);
     }
 
-    const handleChangPassword = (event) => {
+    const handleChangPassword = (event: any) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
         const datalist = {
@@ -174,7 +177,7 @@ export default function SignInSide() {
                     }).then((res) => {
                         if (res.status === 200) {
                             console.log(res.data);
-                            localStorage.setItem('loginStatus', true);
+                            localStorage.setItem('loginStatus', 'true');
                             localStorage.setItem('role', 'student');
                             console.log("1");
                             console.log(profile);
@@ -201,7 +204,7 @@ export default function SignInSide() {
             }).then((res) => {
                 if (res.status === 200) {
                     console.log(res.data);
-                    localStorage.setItem('loginStatus', true);
+                    localStorage.setItem('loginStatus', 'true');
                     localStorage.setItem('role', 'student');
                     console.log("2");
                     console.log(profile);
@@ -217,9 +220,9 @@ export default function SignInSide() {
         console.log(datalist);
     }
 
-    const handleSubmit = (event) => {
+    const handleSubmit = (event: any) => {
         event.preventDefault();
-        const data = new FormData(event.currentTarget);
+        const data: any = new FormData(event.currentTarget);
         console.log({
             user: data.get('user'),
             password: data.get('password'),
@@ -249,9 +252,8 @@ export default function SignInSide() {
                         });
                 }
                 else {
-                    console.log(remember);
                     if (remember) {
-                        localStorage.setItem('remember', true);
+                        localStorage.setItem('remember', 'true');
                         localStorage.setItem('user', data.get('user'));
                         localStorage.setItem('password', data.get('password'));
                     }
@@ -260,11 +262,11 @@ export default function SignInSide() {
                         localStorage.removeItem('user');
                         localStorage.removeItem('password');
                     }
-                    localStorage.setItem('loginStatus', true);
+                    localStorage.setItem('loginStatus', 'true');
                     if (res.data.data.id_role == 1) {
                         localStorage.setItem('role', 'admin');
                         window.location.href = '/dashboard';
-                    }else if (res.data.data.id_role == 3) {
+                    } else if (res.data.data.id_role == 3) {
                         localStorage.setItem('role', 'staff');
                         window.location.href = '/staffdash';
                     }
@@ -323,7 +325,7 @@ export default function SignInSide() {
                     backdropFilter: 'blur(12px)',
                     backgroundColor: 'rgba(255,255,255,0.3)'
                 }}>
-                <Grid item xs={12} md={11} sx={{ backgroundColor: 'rgba(255,255,255,0.9)' }} elevation={6}>
+                <Grid container xs={12} md={11} sx={{ backgroundColor: 'rgba(255,255,255,0.9)' }}>
                     <Box
                         sx={{
                             my: 12,
@@ -488,12 +490,11 @@ export default function SignInSide() {
                                     <React.Fragment>
                                         <Typography variant="h5" gutterBottom>
                                             ขอบคุณสำหรับข้อมูลของคุณ
-                                            
+
                                         </Typography>
                                         <Typography variant="subtitle1">
                                             ข้อมูลของคุณได้รับการบันทึกเรียบร้อยแล้ว สามารถแก้ไขข้อมูลของคุณในหน้าโปรไฟล์
                                         </Typography>
-                                        {handleChangePasswordStd()}
                                     </React.Fragment>
                                 ) : (
                                     <React.Fragment>

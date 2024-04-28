@@ -2,7 +2,7 @@ import React from "react";
 import { Accordion, AccordionDetails, AccordionSummary, Typography } from "@mui/material";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import SkateboardingIcon from '@mui/icons-material/Skateboarding';
-export default function Accord({ joinDetail }) {
+export default function Accord({ joinDetail }:any) {
     return (
         <React.Fragment>
             <Accordion sx={{ mt: 2 }}>
@@ -17,7 +17,7 @@ export default function Accord({ joinDetail }) {
                     <Typography sx={{ color: 'text.secondary' }}>{joinDetail[0].project_title_th}</Typography>
                 </AccordionSummary>
                 {
-                    joinDetail.map((item, index) => (
+                    joinDetail.map((item:any, index:any) => (
                         <AccordionDetails key={index}>
                             <Typography sx={{ color: 'text.secondary' }}>
                                 <SkateboardingIcon fontSize="small" />{' ' + item.student_code + '  ' + item.first_name_th + ' ' + item.last_name_th}

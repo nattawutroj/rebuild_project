@@ -11,19 +11,19 @@ import { InputLabel } from "@mui/material";
 import { NativeSelect } from "@mui/material";
 import { Stack } from "@mui/material";
 import { Button } from "@mui/material";
-import AllProjectList from "../libs/Report/AllProjectList"
+// import AllProjectList from "../libs/Report/AllProjectList"
 import Box from "@mui/material/Box";
 
 
 export default function AdminDash() {
 
-    const [docgenlist, setDocgenlist] = React.useState([]);
+    const [docgenlist, setDocgenlist] = React.useState<any>([]);
 
-    function keepdoc(file) {
-        setDocgenlist((docgenlist) => [...docgenlist, file]);
+    function keepdoc(file:any) {
+        setDocgenlist((docgenlist:any) => [...docgenlist, file]);
     }
 
-    const [semester, setSemester] = React.useState([]);
+    const [semester, setSemester] = React.useState<any>([]);
 
     const getsemester = async () => {
         try {
@@ -35,7 +35,7 @@ export default function AdminDash() {
     }
 
     const fetchsemester = async () => {
-        const [semester] = await Promise.all([getsemester()]);
+        const [semester]:any = await Promise.all([getsemester()]);
         setSemester(semester.data.result);
     }
 
@@ -44,17 +44,17 @@ export default function AdminDash() {
     }, [])
 
 
-    const [fileList, setFileList] = React.useState([]);
-    const [expanded, setExpanded] = React.useState(false);
-    const [selectstatus_code, setSelectStatus_code] = React.useState(0);
+    const [fileList, setFileList] = React.useState<any>([]);
+    const [expanded, setExpanded] = React.useState<any>(false);
+    const [selectstatus_code, setSelectStatus_code] = React.useState<any>(0);
 
-    const [semester_select, setSemester_Select] = React.useState(-1);
+    const [semester_select, setSemester_Select] = React.useState<any>(-1);
 
-    const [pdfUrl, setPdfUrl] = React.useState('');
-    const [resetCounter, setResetCounter] = React.useState(0);
+    const [pdfUrl, setPdfUrl] = React.useState<any>('');
+    const [resetCounter, setResetCounter] = React.useState<any>(0);
 
 
-    const handleFileDownload = (id_file) => {
+    const handleFileDownload = (id_file:any) => {
         axios.get('/resources/public/download/pdf', {
             params: {
                 file: id_file
@@ -89,7 +89,7 @@ export default function AdminDash() {
         })
     }
 
-    const Viewpdf = (id) => {
+    const Viewpdf = (id:any) => {
         console.log(id)
         axios.get('resources/public/fefile', {
             params: {
@@ -105,7 +105,7 @@ export default function AdminDash() {
     }
 
 
-    const handleChange = (panel) => {
+    const handleChange = (panel:any) => {
         setExpanded(panel);
     }
 
@@ -115,7 +115,7 @@ export default function AdminDash() {
 
     function fillterdata() {
         setDocgenlist([]);
-        fileList?.map((file) => (
+        fileList?.map((file:any) => (
             semester_select == -1 ?
                 selectstatus_code == 0 ?
                     keepdoc(file)
@@ -280,7 +280,7 @@ export default function AdminDash() {
                             >
                                 <option value={-1}>ทุกภาคการศึกษา</option>
                                 {
-                                    semester?.map((item, index) => (
+                                    semester?.map((item:any, index:any) => (
                                         <option value={item.id_semester} key={index}>{item.semester}/{item.year}</option>
                                     ))
                                 }
@@ -316,7 +316,7 @@ export default function AdminDash() {
                         // setDocgenlist([])
                     }
                     {
-                        fileList?.map((file, index) => (
+                        fileList?.map((file:any, index:any) => (
                             console.log(file),
                             semester_select == -1 ?
                                 selectstatus_code == 0 ?
@@ -441,7 +441,6 @@ export default function AdminDash() {
                                     null
                         ))}
                 </Grid>
-                {console.log(docgenlist.length)}
                 {
                     docgenlist.length > 0 ?
                         window.innerWidth > 600 ?
@@ -451,7 +450,8 @@ export default function AdminDash() {
                                     width={'100%'}
                                     display="flex"
                                 >
-                                    <AllProjectList docgenlist={docgenlist} key={resetCounter} /></Box>
+                                    {/* <AllProjectList docgenlist={docgenlist} key={resetCounter} /> */}
+                                    </Box>
                             </Grid>
                             :
                             null
@@ -463,7 +463,7 @@ export default function AdminDash() {
     )
 
 
-    function Ifodata({ file, index }) {
+    function Ifodata({ file, index }:any) {
 
         // keepdoc(file);
 

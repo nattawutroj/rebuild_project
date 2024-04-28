@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Box } from "@mui/joy";
+import { Box } from "@mui/material";
 import { Grid, Typography } from "@mui/material";
 import LogoImg from '../assets/ITlogo.png';
 import BgImg from '../assets/bgimg.jpg'
@@ -83,7 +83,7 @@ const DemoPaper = styled(Paper)(({ theme }) => ({
 
 const Home = () => {
 
-    const [news, setNews] = React.useState([]);
+    const [news, setNews] = React.useState<any>([]);
 
     const fecthNews = () => {
         axios.get('/resources/public/newshome')
@@ -98,7 +98,7 @@ const Home = () => {
         fecthNews();
     }, [])
 
-    const handleLink = (e) => {
+    const handleLink = (e:any) => {
         // if e check not start with http or https
         if (!e.startsWith('http')) {
             e = 'http://' + e;
@@ -126,13 +126,13 @@ const Home = () => {
                         backgroundSize: 'cover',
                         backgroundRepeat: 'no-repeat',
                     }} md={8} height={'100%'} >
-                        <Box ml={-2} mt={-2} pl={4} pr={4} md={8} height={'100vh'} sx={{ backdropFilter: 'blur(13px)', backgroundColor: 'rgba(255,255,255,0.3)' }}>
+                        <Box component="div" ml={-2} mt={-2} pl={4} pr={4} height={'100vh'} sx={{ backdropFilter: 'blur(13px)', backgroundColor: 'rgba(255,255,255,0.3)' }}>
                             <Box sx={{ height: '30vh', display: 'flex' }}>
                                 <Box sx={{ m: 'auto', width: '80%', display: 'inline' }}>
                                     <Typography variant="h3" color="initial">ระบบบริหารจัดการข้อมูลโครงงานพิเศษ</Typography>
                                     <Typography variant="h4" color="initial">ข่าวประชาสัมพันธ์จากภาควิชา</Typography>
                                 </Box>
-                                <Box variant="div"
+                                <Box
                                     component="img"
                                     sx={{
                                         m: 'auto',
@@ -167,7 +167,7 @@ const Home = () => {
                             </Stack>
                             <Grid sx={{ width: '100%', overflowY: 'auto', maxHeight: '45vh' }} container justifyContent="center" spacing={{ xs: 2, md: 0 }} columns={{ xs: 4, sm: 5, md: 15 }}>
                                 {
-                                    news.map((item, index) => {
+                                    news.map((item:any, index:any) => {
                                         return (
                                             <Accordion key={index}>
                                                 <AccordionSummary

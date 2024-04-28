@@ -148,7 +148,7 @@ const navigationItems = [
 const NavBar: React.FC = () => {
   return (
     <Menubar className="border-none">
-      {navigationItems.map((item) => (
+      {navigationItems.map((item:any) => (
         <NavBarItem key={item.name} {...item} />
       ))}
     </Menubar>

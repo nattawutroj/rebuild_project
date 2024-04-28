@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { SetStateAction, useEffect, useMemo, useState } from 'react';
 import {
     MaterialReactTable,
     // createRow,
@@ -21,25 +21,25 @@ import { FormControl, MenuItem, Select } from '@mui/material';
 import Botton from '@mui/material/Button';
 
 const Example = () => {
-    const [validationErrors, setValidationErrors] = useState({});
-    const [rowSelection, setRowSelection] = useState({});
+    const [validationErrors, setValidationErrors] = useState<any>({});
+    const [rowSelection, setRowSelection] = useState<any>({});
 
-    const [selectedFile, setSelectedFile] = useState(null);
+    const [selectedFile, setSelectedFile] = useState<any>(null);
 
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState<any>(false);
 
-    const [List, setList] = useState([]);
+    const [List, setList] = useState<any>([]);
 
-    const [Item, setItem] = useState('');
+    const [Item, setItem] = useState<any>('');
 
-    const [Menu, setManu] = useState([]);
+    const [Menu, setManu] = useState<any>([]);
 
-    const [motion, setMotion] = useState('');
-    const [progress, setProgress] = useState(false);
+    const [motion, setMotion] = useState<any>('');
+    const [progress, setProgress] = useState<any>(false);
     
 
 
-    const handleChange = (event) => {
+    const handleChange = (event: { target: { value: SetStateAction<string>; }; }) => {
         setItem(event.target.value);
         console.log(event.target.value);
     };
@@ -67,17 +67,17 @@ const Example = () => {
             setLoading(true)
             setMotion('Waitng.')
             setProgress(true)
-            var predata = []
-            const trueKey = Object.keys(rowSelection);
-            trueKey.forEach(element => {
-                List.forEach(item => {
+            let predata: unknown[] = [];
+            const trueKey:any = Object.keys(rowSelection);
+            trueKey.forEach((element:any) => {
+                List.forEach((item:any) => {
                     if (item[1] === element) {
-                        predata.push(item)
+                        predata.push(item);
                     }
                 })
             });
-            var updata = []
-            predata.forEach(item => {
+            var updata: any[] | undefined = []
+            predata.forEach((item:any) => {
                 setMotion("Waitng..")
                 var data = {
                     course_code: Item,
@@ -86,6 +86,9 @@ const Example = () => {
                     last_name_th: item[3],
                     password: item[1],
                     status: true
+                }
+                if (!updata) {
+                    updata = [];
                 }
                 updata.push(data)
                 setMotion("Waitng...")
@@ -115,8 +118,6 @@ const Example = () => {
                 muiEditTextFieldProps: {
                     type: 'student_code',
                     required: true,
-                    error: !!validationErrors?.email,
-                    helperText: validationErrors?.email,
                     //remove any previous validation errors when user focuses on the input
                     onFocus: () =>
                         setValidationErrors({
@@ -124,7 +125,7 @@ const Example = () => {
                             email: undefined,
                         }),
                 },
-                Cell: ({ row }) =>
+                Cell: ({ row }:any) =>
                 (
                     row.original[8] ? <i style={{ color: 'red' }}>ถูกเพิ่มแล้ว</i> : <i style={{ color: 'green' }}>ปกติ</i>
                 ),
@@ -136,8 +137,6 @@ const Example = () => {
                 muiEditTextFieldProps: {
                     type: 'student_code',
                     required: true,
-                    error: !!validationErrors?.email,
-                    helperText: validationErrors?.email,
                     //remove any previous validation errors when user focuses on the input
                     onFocus: () =>
                         setValidationErrors({
@@ -153,8 +152,6 @@ const Example = () => {
                 muiEditTextFieldProps: {
                     type: 'first_name_th',
                     required: true,
-                    error: !!validationErrors?.firstName,
-                    helperText: validationErrors?.firstName,
                     //remove any previous validation errors when user focuses on the input
                     onFocus: () =>
                         setValidationErrors({
@@ -171,8 +168,6 @@ const Example = () => {
                 muiEditTextFieldProps: {
                     type: 'last_name_th',
                     required: true,
-                    error: !!validationErrors?.lastName,
-                    helperText: validationErrors?.lastName,
                     //remove any previous validation errors when user focuses on the input
                     onFocus: () =>
                         setValidationErrors({
@@ -186,8 +181,6 @@ const Example = () => {
                 header: 'สาขา',
                 editVariant: 'select',
                 muiEditTextFieldProps: {
-                    error: !!validationErrors?.state,
-                    helperText: validationErrors?.state,
                 },
             },
         ],
@@ -196,7 +189,7 @@ const Example = () => {
 
 
     const table = useMaterialReactTable({
-        columns,
+        columns: [], // Replace 'any' with an empty array or specify the type of the columns.
         data: List,
         createDisplayMode: 'modal', //default ('row', and 'custom' are also available)
         editDisplayMode: 'modal', //default ('row', 'cell', 'table', and 'custom' are also available)
@@ -231,7 +224,7 @@ const Example = () => {
                             label="Age"
                             onChange={handleChange}
                         >
-                            {Menu.map((item, index) => (
+                            {Menu.map((item:any, index:any) => (
                                 <MenuItem key={index} value={item.course_code}>{item.course_code}  {item.course_name}</MenuItem>
                             ))}
                         </Select>
@@ -241,7 +234,7 @@ const Example = () => {
         ),
         enableRowSelection: (row) => row.original[8] != true,
         onRowSelectionChange: setRowSelection, //connect internal row selection state to your own
-        initialState: { density: 'compact', pagination: { pageSize: 100 } },
+        initialState: { density: 'compact', pagination: { pageIndex: 0, pageSize: 100 } },
         state: {
             rowSelection,
         },

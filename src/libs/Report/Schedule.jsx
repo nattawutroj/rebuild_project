@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
 // function BasicDocument({ projectinfo, member, staff, boss, selectReport }) {
 
 function BasicDocument() {
-    const [docgenlist, setDocgenlist] = React.useState([]);
+    const [docgenlist, setDocgenlist] = React.useState<any>([]);
 
     async function schedule() {
         const response = await axios.get('/resources/public/schedule', {});
@@ -148,7 +148,7 @@ function BasicDocument() {
         return response.data.result[0];
     }
 
-    const [isLoading, setIsLoading] = React.useState(true);
+    const [isLoading, setIsLoading] = React.useState<any>(true);
 
     const datacleandatetoday = (data) => {
         var currentdate = new Date();
@@ -173,7 +173,7 @@ function BasicDocument() {
 
 
             await Promise.all(
-                data.map(async (item) => {
+                data.map(async (item:any) => {
                     console.log('Fetching data for project:', item.id_project);
                     const [projectinfo, member, staff] = await Promise.all([
                         docprojectinfomation(item.id_project),
@@ -297,7 +297,7 @@ function Information({ docgenlist }) {
                 console.log(docgenlist)
             }
             {
-                docgenlist?.map((item, index) => {
+                docgenlist?.map((item:any, index:any) => {
                     return (
                         <>
                             {
@@ -306,7 +306,7 @@ function Information({ docgenlist }) {
                                 count >= 25 ? <View break>{count = 0}</View> : null
                             }
                             <View style={[styles.row, styles.bb]} key={index}>
-                                {console.log(item)}
+                                {console.log(item:any)}
                                 <View style={[styles.column, styles.bl, { width: '10%', textAlign: 'left', fontWeight: 'light', }]}>
                                     <Text style={[{ textAlign: 'center', fontWeight: 'light', padding: '2', fontSize: '13' }]}>{item.id_project}</Text>
                                 </View>

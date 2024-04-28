@@ -185,14 +185,14 @@ const MultipleSelector = React.forwardRef<
     ref: React.Ref<MultipleSelectorRef>,
   ) => {
     const inputRef = React.useRef<HTMLInputElement>(null);
-    const [open, setOpen] = React.useState(false);
-    const [isLoading, setIsLoading] = React.useState(false);
+    const [open, setOpen] = React.useState<any>(false);
+    const [isLoading, setIsLoading] = React.useState<any>(false);
 
     const [selected, setSelected] = React.useState<Option[]>(value || []);
     const [options, setOptions] = React.useState<GroupOption>(
       transToGroupOption(arrayDefaultOptions, groupBy),
     );
-    const [inputValue, setInputValue] = React.useState("");
+    const [inputValue, setInputValue] = React.useState<any>("");
     const debouncedSearchTerm = useDebounce(inputValue, delay || 500);
 
     React.useImperativeHandle(

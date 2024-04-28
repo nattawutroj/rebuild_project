@@ -31,7 +31,7 @@ import Semester from './components/SettingsRotue/Semester';
 import Boss from './components/SettingsRotue/Boss';
 import ProjectAll from './components/ProjectAll'
 import ReportData from './components/ReportData';
-import ReportProTea from './components/ReportProTea';
+// import ReportProTea from './components/ReportProTea';
 
 
 const drawerWidth = 240;
@@ -63,14 +63,14 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 );
 
 const defaultTheme = createTheme();
-export const ProfileContext = React.createContext();
+export const ProfileContext = React.createContext({});
 export default function Dashboard() {
     const role = localStorage.getItem('role');
     if (role !== 'admin') {
         localStorage.removeItem('token')
     }
 
-    const [profile, setProfile] = React.useState({});
+    const [profile, setProfile] = React.useState<any>({});
     React.useEffect(() => {
         Axios.get('/user/profile').then(res => {
             setProfile(res.data.result);
@@ -79,7 +79,7 @@ export default function Dashboard() {
         })
     }, [])
 
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = React.useState<any>(false);
     const toggleDrawer = () => {
         setOpen(!open);
     };

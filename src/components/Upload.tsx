@@ -4,7 +4,7 @@ import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { styled } from '@mui/material/styles';
 import { CloudDownloadTwoTone } from '@mui/icons-material';
 
-const Form = ({setList,selectedFile, setSelectedFile}) => {
+const Form = ({setList,selectedFile, setSelectedFile}:any) => {
 
 
     const VisuallyHiddenInput = styled('input')({
@@ -19,7 +19,7 @@ const Form = ({setList,selectedFile, setSelectedFile}) => {
         width: 1,
     });
 
-    const handleSubmit = async (event) => {
+    const handleSubmit = async (event:any) => {
         event.preventDefault();
         const formData = new FormData();
         formData.append('', selectedFile);
@@ -36,7 +36,7 @@ const Form = ({setList,selectedFile, setSelectedFile}) => {
         });
     }
 
-    const handleFileSelect = (event) => {
+    const handleFileSelect = (event:any) => {
         setSelectedFile(event.target.files[0])
     }
 

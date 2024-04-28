@@ -27,7 +27,7 @@ const SubMenuItems: React.FC<{ items: SubItem[] }> = React.memo(({ items }) => {
   return (
     <MenubarContent>
       {items &&
-        items.map((item) => (
+        items.map((item:any) => (
           <React.Fragment key={item.label}>
             {!item.subItems && (
               <MenubarItem>
@@ -44,7 +44,7 @@ const SubMenuItems: React.FC<{ items: SubItem[] }> = React.memo(({ items }) => {
                   )}
                 </MenubarSubTrigger>
                 <MenubarSubContent>
-                  {item.subItems.map((navSubSubItem) => (
+                  {item.subItems.map((navSubSubItem:any) => (
                     <MenubarItem
                       key={navSubSubItem.label}
                       onClick={() => navigate({ to: navSubSubItem.to })}
