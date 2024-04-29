@@ -29,6 +29,7 @@ const Breadcrumbs: React.FC = () => {
   }, [location.pathname]);
 
   const isValidRoute = !matches.some((match) => match.globalNotFound);
+  
 
   return (
     breadcrumbs.length > 0 &&

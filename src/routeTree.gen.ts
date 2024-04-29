@@ -12,39 +12,52 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as LoginImport } from './routes/login'
+import { Route as StaffImport } from './routes/_staff'
+import { Route as DashImport } from './routes/_dash'
 import { Route as AppImport } from './routes/_app'
 import { Route as AppIndexImport } from './routes/_app/index'
-import { Route as AppTesttitleroomIndexImport } from './routes/_app/test_title_room/index'
-import { Route as AppTesttitlereportsIndexImport } from './routes/_app/test_title_reports/index'
-import { Route as AppTesttitlerecordIndexImport } from './routes/_app/test_title_record/index'
-import { Route as AppTesttitlecandidateIndexImport } from './routes/_app/test_title_candidate/index'
-import { Route as AppTestsixroomIndexImport } from './routes/_app/test_six_room/index'
-import { Route as AppTestsixreportsIndexImport } from './routes/_app/test_six_reports/index'
-import { Route as AppTestsixrecordIndexImport } from './routes/_app/test_six_record/index'
-import { Route as AppTesthundredroomIndexImport } from './routes/_app/test_hundred_room/index'
-import { Route as AppTesthundredreportsIndexImport } from './routes/_app/test_hundred_reports/index'
-import { Route as AppTesthundredrecordIndexImport } from './routes/_app/test_hundred_record/index'
-import { Route as AppTeacherIndexImport } from './routes/_app/teacher/index'
-import { Route as AppSubjectsIndexImport } from './routes/_app/subjects/index'
-import { Route as AppStudentgropsIndexImport } from './routes/_app/student_grops/index'
-import { Route as AppStudentIndexImport } from './routes/_app/student/index'
-import { Route as AppSemesterIndexImport } from './routes/_app/semester/index'
-import { Route as AppRoomIndexImport } from './routes/_app/room/index'
-import { Route as AppNewsIndexImport } from './routes/_app/news/index'
-import { Route as AppNametitleIndexImport } from './routes/_app/name_title/index'
-import { Route as AppDocapproveIndexImport } from './routes/_app/doc_approve/index'
-import { Route as AppDissertationcompleteIndexImport } from './routes/_app/dissertation_complete/index'
-import { Route as AppDashboardIndexImport } from './routes/_app/dashboard/index'
-import { Route as AppCoursesIndexImport } from './routes/_app/courses/index'
-import { Route as AppCaptainsIndexImport } from './routes/_app/captains/index'
-import { Route as AppAllIndexImport } from './routes/_app/all/index'
-import { Route as AppTestreportIdSelectReportImport } from './routes/_app/testreport.$id.$selectReport'
-import { Route as AppTestreportIndexIdSelectReportImport } from './routes/_app/testreport/index.$id.$selectReport'
+import { Route as StaffStaffdashIndexImport } from './routes/_staff/staff_dash/index'
+import { Route as DashTesttitleroomIndexImport } from './routes/_dash/test_title_room/index'
+import { Route as DashTesttitlereportsIndexImport } from './routes/_dash/test_title_reports/index'
+import { Route as DashTesttitlerecordIndexImport } from './routes/_dash/test_title_record/index'
+import { Route as DashTesttitlecandidateIndexImport } from './routes/_dash/test_title_candidate/index'
+import { Route as DashTestsixroomIndexImport } from './routes/_dash/test_six_room/index'
+import { Route as DashTestsixreportsIndexImport } from './routes/_dash/test_six_reports/index'
+import { Route as DashTestsixrecordIndexImport } from './routes/_dash/test_six_record/index'
+import { Route as DashTesthundredroomIndexImport } from './routes/_dash/test_hundred_room/index'
+import { Route as DashTesthundredreportsIndexImport } from './routes/_dash/test_hundred_reports/index'
+import { Route as DashTesthundredrecordIndexImport } from './routes/_dash/test_hundred_record/index'
+import { Route as DashTeacherIndexImport } from './routes/_dash/teacher/index'
+import { Route as DashSubjectsIndexImport } from './routes/_dash/subjects/index'
+import { Route as DashStudentgropsIndexImport } from './routes/_dash/student_grops/index'
+import { Route as DashStudentIndexImport } from './routes/_dash/student/index'
+import { Route as DashSemesterIndexImport } from './routes/_dash/semester/index'
+import { Route as DashRoomIndexImport } from './routes/_dash/room/index'
+import { Route as DashNewsIndexImport } from './routes/_dash/news/index'
+import { Route as DashNametitleIndexImport } from './routes/_dash/name_title/index'
+import { Route as DashDocapproveIndexImport } from './routes/_dash/doc_approve/index'
+import { Route as DashDissertationcompleteIndexImport } from './routes/_dash/dissertation_complete/index'
+import { Route as DashDashboardIndexImport } from './routes/_dash/dashboard/index'
+import { Route as DashCoursesIndexImport } from './routes/_dash/courses/index'
+import { Route as DashCaptainsIndexImport } from './routes/_dash/captains/index'
+import { Route as DashAllIndexImport } from './routes/_dash/all/index'
+import { Route as DashTestreportIdSelectReportImport } from './routes/_dash/testreport.$id.$selectReport'
+import { Route as DashTestreportIndexIdSelectReportImport } from './routes/_dash/testreport/index.$id.$selectReport'
 
 // Create/Update Routes
 
 const LoginRoute = LoginImport.update({
   path: '/login',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const StaffRoute = StaffImport.update({
+  id: '/_staff',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const DashRoute = DashImport.update({
+  id: '/_dash',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -58,197 +71,208 @@ const AppIndexRoute = AppIndexImport.update({
   getParentRoute: () => AppRoute,
 } as any)
 
-const AppTesttitleroomIndexRoute = AppTesttitleroomIndexImport.update({
+const StaffStaffdashIndexRoute = StaffStaffdashIndexImport.update({
+  path: '/staff_dash/',
+  getParentRoute: () => StaffRoute,
+} as any).lazy(() =>
+  import('./routes/_staff/staff_dash/index.lazy').then((d) => d.Route),
+)
+
+const DashTesttitleroomIndexRoute = DashTesttitleroomIndexImport.update({
   path: '/test_title_room/',
-  getParentRoute: () => AppRoute,
+  getParentRoute: () => DashRoute,
 } as any).lazy(() =>
-  import('./routes/_app/test_title_room/index.lazy').then((d) => d.Route),
+  import('./routes/_dash/test_title_room/index.lazy').then((d) => d.Route),
 )
 
-const AppTesttitlereportsIndexRoute = AppTesttitlereportsIndexImport.update({
+const DashTesttitlereportsIndexRoute = DashTesttitlereportsIndexImport.update({
   path: '/test_title_reports/',
-  getParentRoute: () => AppRoute,
+  getParentRoute: () => DashRoute,
 } as any).lazy(() =>
-  import('./routes/_app/test_title_reports/index.lazy').then((d) => d.Route),
+  import('./routes/_dash/test_title_reports/index.lazy').then((d) => d.Route),
 )
 
-const AppTesttitlerecordIndexRoute = AppTesttitlerecordIndexImport.update({
+const DashTesttitlerecordIndexRoute = DashTesttitlerecordIndexImport.update({
   path: '/test_title_record/',
-  getParentRoute: () => AppRoute,
+  getParentRoute: () => DashRoute,
 } as any).lazy(() =>
-  import('./routes/_app/test_title_record/index.lazy').then((d) => d.Route),
+  import('./routes/_dash/test_title_record/index.lazy').then((d) => d.Route),
 )
 
-const AppTesttitlecandidateIndexRoute = AppTesttitlecandidateIndexImport.update(
-  {
+const DashTesttitlecandidateIndexRoute =
+  DashTesttitlecandidateIndexImport.update({
     path: '/test_title_candidate/',
-    getParentRoute: () => AppRoute,
-  } as any,
-).lazy(() =>
-  import('./routes/_app/test_title_candidate/index.lazy').then((d) => d.Route),
-)
+    getParentRoute: () => DashRoute,
+  } as any).lazy(() =>
+    import('./routes/_dash/test_title_candidate/index.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 
-const AppTestsixroomIndexRoute = AppTestsixroomIndexImport.update({
+const DashTestsixroomIndexRoute = DashTestsixroomIndexImport.update({
   path: '/test_six_room/',
-  getParentRoute: () => AppRoute,
+  getParentRoute: () => DashRoute,
 } as any).lazy(() =>
-  import('./routes/_app/test_six_room/index.lazy').then((d) => d.Route),
+  import('./routes/_dash/test_six_room/index.lazy').then((d) => d.Route),
 )
 
-const AppTestsixreportsIndexRoute = AppTestsixreportsIndexImport.update({
+const DashTestsixreportsIndexRoute = DashTestsixreportsIndexImport.update({
   path: '/test_six_reports/',
-  getParentRoute: () => AppRoute,
+  getParentRoute: () => DashRoute,
 } as any).lazy(() =>
-  import('./routes/_app/test_six_reports/index.lazy').then((d) => d.Route),
+  import('./routes/_dash/test_six_reports/index.lazy').then((d) => d.Route),
 )
 
-const AppTestsixrecordIndexRoute = AppTestsixrecordIndexImport.update({
+const DashTestsixrecordIndexRoute = DashTestsixrecordIndexImport.update({
   path: '/test_six_record/',
-  getParentRoute: () => AppRoute,
+  getParentRoute: () => DashRoute,
 } as any).lazy(() =>
-  import('./routes/_app/test_six_record/index.lazy').then((d) => d.Route),
+  import('./routes/_dash/test_six_record/index.lazy').then((d) => d.Route),
 )
 
-const AppTesthundredroomIndexRoute = AppTesthundredroomIndexImport.update({
+const DashTesthundredroomIndexRoute = DashTesthundredroomIndexImport.update({
   path: '/test_hundred_room/',
-  getParentRoute: () => AppRoute,
+  getParentRoute: () => DashRoute,
 } as any).lazy(() =>
-  import('./routes/_app/test_hundred_room/index.lazy').then((d) => d.Route),
+  import('./routes/_dash/test_hundred_room/index.lazy').then((d) => d.Route),
 )
 
-const AppTesthundredreportsIndexRoute = AppTesthundredreportsIndexImport.update(
-  {
+const DashTesthundredreportsIndexRoute =
+  DashTesthundredreportsIndexImport.update({
     path: '/test_hundred_reports/',
-    getParentRoute: () => AppRoute,
+    getParentRoute: () => DashRoute,
+  } as any).lazy(() =>
+    import('./routes/_dash/test_hundred_reports/index.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const DashTesthundredrecordIndexRoute = DashTesthundredrecordIndexImport.update(
+  {
+    path: '/test_hundred_record/',
+    getParentRoute: () => DashRoute,
   } as any,
 ).lazy(() =>
-  import('./routes/_app/test_hundred_reports/index.lazy').then((d) => d.Route),
+  import('./routes/_dash/test_hundred_record/index.lazy').then((d) => d.Route),
 )
 
-const AppTesthundredrecordIndexRoute = AppTesthundredrecordIndexImport.update({
-  path: '/test_hundred_record/',
-  getParentRoute: () => AppRoute,
-} as any).lazy(() =>
-  import('./routes/_app/test_hundred_record/index.lazy').then((d) => d.Route),
-)
-
-const AppTeacherIndexRoute = AppTeacherIndexImport.update({
+const DashTeacherIndexRoute = DashTeacherIndexImport.update({
   path: '/teacher/',
-  getParentRoute: () => AppRoute,
+  getParentRoute: () => DashRoute,
 } as any).lazy(() =>
-  import('./routes/_app/teacher/index.lazy').then((d) => d.Route),
+  import('./routes/_dash/teacher/index.lazy').then((d) => d.Route),
 )
 
-const AppSubjectsIndexRoute = AppSubjectsIndexImport.update({
+const DashSubjectsIndexRoute = DashSubjectsIndexImport.update({
   path: '/subjects/',
-  getParentRoute: () => AppRoute,
+  getParentRoute: () => DashRoute,
 } as any).lazy(() =>
-  import('./routes/_app/subjects/index.lazy').then((d) => d.Route),
+  import('./routes/_dash/subjects/index.lazy').then((d) => d.Route),
 )
 
-const AppStudentgropsIndexRoute = AppStudentgropsIndexImport.update({
+const DashStudentgropsIndexRoute = DashStudentgropsIndexImport.update({
   path: '/student_grops/',
-  getParentRoute: () => AppRoute,
+  getParentRoute: () => DashRoute,
 } as any).lazy(() =>
-  import('./routes/_app/student_grops/index.lazy').then((d) => d.Route),
+  import('./routes/_dash/student_grops/index.lazy').then((d) => d.Route),
 )
 
-const AppStudentIndexRoute = AppStudentIndexImport.update({
+const DashStudentIndexRoute = DashStudentIndexImport.update({
   path: '/student/',
-  getParentRoute: () => AppRoute,
+  getParentRoute: () => DashRoute,
 } as any).lazy(() =>
-  import('./routes/_app/student/index.lazy').then((d) => d.Route),
+  import('./routes/_dash/student/index.lazy').then((d) => d.Route),
 )
 
-const AppSemesterIndexRoute = AppSemesterIndexImport.update({
+const DashSemesterIndexRoute = DashSemesterIndexImport.update({
   path: '/semester/',
-  getParentRoute: () => AppRoute,
+  getParentRoute: () => DashRoute,
 } as any).lazy(() =>
-  import('./routes/_app/semester/index.lazy').then((d) => d.Route),
+  import('./routes/_dash/semester/index.lazy').then((d) => d.Route),
 )
 
-const AppRoomIndexRoute = AppRoomIndexImport.update({
+const DashRoomIndexRoute = DashRoomIndexImport.update({
   path: '/room/',
-  getParentRoute: () => AppRoute,
+  getParentRoute: () => DashRoute,
 } as any).lazy(() =>
-  import('./routes/_app/room/index.lazy').then((d) => d.Route),
+  import('./routes/_dash/room/index.lazy').then((d) => d.Route),
 )
 
-const AppNewsIndexRoute = AppNewsIndexImport.update({
+const DashNewsIndexRoute = DashNewsIndexImport.update({
   path: '/news/',
-  getParentRoute: () => AppRoute,
+  getParentRoute: () => DashRoute,
 } as any).lazy(() =>
-  import('./routes/_app/news/index.lazy').then((d) => d.Route),
+  import('./routes/_dash/news/index.lazy').then((d) => d.Route),
 )
 
-const AppNametitleIndexRoute = AppNametitleIndexImport.update({
+const DashNametitleIndexRoute = DashNametitleIndexImport.update({
   path: '/name_title/',
-  getParentRoute: () => AppRoute,
+  getParentRoute: () => DashRoute,
 } as any).lazy(() =>
-  import('./routes/_app/name_title/index.lazy').then((d) => d.Route),
+  import('./routes/_dash/name_title/index.lazy').then((d) => d.Route),
 )
 
-const AppDocapproveIndexRoute = AppDocapproveIndexImport.update({
+const DashDocapproveIndexRoute = DashDocapproveIndexImport.update({
   path: '/doc_approve/',
-  getParentRoute: () => AppRoute,
+  getParentRoute: () => DashRoute,
 } as any).lazy(() =>
-  import('./routes/_app/doc_approve/index.lazy').then((d) => d.Route),
+  import('./routes/_dash/doc_approve/index.lazy').then((d) => d.Route),
 )
 
-const AppDissertationcompleteIndexRoute =
-  AppDissertationcompleteIndexImport.update({
+const DashDissertationcompleteIndexRoute =
+  DashDissertationcompleteIndexImport.update({
     path: '/dissertation_complete/',
-    getParentRoute: () => AppRoute,
+    getParentRoute: () => DashRoute,
   } as any).lazy(() =>
-    import('./routes/_app/dissertation_complete/index.lazy').then(
+    import('./routes/_dash/dissertation_complete/index.lazy').then(
       (d) => d.Route,
     ),
   )
 
-const AppDashboardIndexRoute = AppDashboardIndexImport.update({
+const DashDashboardIndexRoute = DashDashboardIndexImport.update({
   path: '/dashboard/',
-  getParentRoute: () => AppRoute,
+  getParentRoute: () => DashRoute,
 } as any).lazy(() =>
-  import('./routes/_app/dashboard/index.lazy').then((d) => d.Route),
+  import('./routes/_dash/dashboard/index.lazy').then((d) => d.Route),
 )
 
-const AppCoursesIndexRoute = AppCoursesIndexImport.update({
+const DashCoursesIndexRoute = DashCoursesIndexImport.update({
   path: '/courses/',
-  getParentRoute: () => AppRoute,
+  getParentRoute: () => DashRoute,
 } as any).lazy(() =>
-  import('./routes/_app/courses/index.lazy').then((d) => d.Route),
+  import('./routes/_dash/courses/index.lazy').then((d) => d.Route),
 )
 
-const AppCaptainsIndexRoute = AppCaptainsIndexImport.update({
+const DashCaptainsIndexRoute = DashCaptainsIndexImport.update({
   path: '/captains/',
-  getParentRoute: () => AppRoute,
+  getParentRoute: () => DashRoute,
 } as any).lazy(() =>
-  import('./routes/_app/captains/index.lazy').then((d) => d.Route),
+  import('./routes/_dash/captains/index.lazy').then((d) => d.Route),
 )
 
-const AppAllIndexRoute = AppAllIndexImport.update({
+const DashAllIndexRoute = DashAllIndexImport.update({
   path: '/all/',
-  getParentRoute: () => AppRoute,
+  getParentRoute: () => DashRoute,
 } as any).lazy(() =>
-  import('./routes/_app/all/index.lazy').then((d) => d.Route),
+  import('./routes/_dash/all/index.lazy').then((d) => d.Route),
 )
 
-const AppTestreportIdSelectReportRoute =
-  AppTestreportIdSelectReportImport.update({
+const DashTestreportIdSelectReportRoute =
+  DashTestreportIdSelectReportImport.update({
     path: '/testreport/$id/$selectReport',
-    getParentRoute: () => AppRoute,
+    getParentRoute: () => DashRoute,
   } as any).lazy(() =>
-    import('./routes/_app/testreport.$id.$selectReport.lazy').then(
+    import('./routes/_dash/testreport.$id.$selectReport.lazy').then(
       (d) => d.Route,
     ),
   )
 
-const AppTestreportIndexIdSelectReportRoute =
-  AppTestreportIndexIdSelectReportImport.update({
+const DashTestreportIndexIdSelectReportRoute =
+  DashTestreportIndexIdSelectReportImport.update({
     path: '/testreport/index/$id/$selectReport',
-    getParentRoute: () => AppRoute,
+    getParentRoute: () => DashRoute,
   } as any).lazy(() =>
-    import('./routes/_app/testreport/index.$id.$selectReport.lazy').then(
+    import('./routes/_dash/testreport/index.$id.$selectReport.lazy').then(
       (d) => d.Route,
     ),
   )
@@ -261,6 +285,14 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppImport
       parentRoute: typeof rootRoute
     }
+    '/_dash': {
+      preLoaderRoute: typeof DashImport
+      parentRoute: typeof rootRoute
+    }
+    '/_staff': {
+      preLoaderRoute: typeof StaffImport
+      parentRoute: typeof rootRoute
+    }
     '/login': {
       preLoaderRoute: typeof LoginImport
       parentRoute: typeof rootRoute
@@ -269,109 +301,113 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppIndexImport
       parentRoute: typeof AppImport
     }
-    '/_app/all/': {
-      preLoaderRoute: typeof AppAllIndexImport
-      parentRoute: typeof AppImport
+    '/_dash/all/': {
+      preLoaderRoute: typeof DashAllIndexImport
+      parentRoute: typeof DashImport
     }
-    '/_app/captains/': {
-      preLoaderRoute: typeof AppCaptainsIndexImport
-      parentRoute: typeof AppImport
+    '/_dash/captains/': {
+      preLoaderRoute: typeof DashCaptainsIndexImport
+      parentRoute: typeof DashImport
     }
-    '/_app/courses/': {
-      preLoaderRoute: typeof AppCoursesIndexImport
-      parentRoute: typeof AppImport
+    '/_dash/courses/': {
+      preLoaderRoute: typeof DashCoursesIndexImport
+      parentRoute: typeof DashImport
     }
-    '/_app/dashboard/': {
-      preLoaderRoute: typeof AppDashboardIndexImport
-      parentRoute: typeof AppImport
+    '/_dash/dashboard/': {
+      preLoaderRoute: typeof DashDashboardIndexImport
+      parentRoute: typeof DashImport
     }
-    '/_app/dissertation_complete/': {
-      preLoaderRoute: typeof AppDissertationcompleteIndexImport
-      parentRoute: typeof AppImport
+    '/_dash/dissertation_complete/': {
+      preLoaderRoute: typeof DashDissertationcompleteIndexImport
+      parentRoute: typeof DashImport
     }
-    '/_app/doc_approve/': {
-      preLoaderRoute: typeof AppDocapproveIndexImport
-      parentRoute: typeof AppImport
+    '/_dash/doc_approve/': {
+      preLoaderRoute: typeof DashDocapproveIndexImport
+      parentRoute: typeof DashImport
     }
-    '/_app/name_title/': {
-      preLoaderRoute: typeof AppNametitleIndexImport
-      parentRoute: typeof AppImport
+    '/_dash/name_title/': {
+      preLoaderRoute: typeof DashNametitleIndexImport
+      parentRoute: typeof DashImport
     }
-    '/_app/news/': {
-      preLoaderRoute: typeof AppNewsIndexImport
-      parentRoute: typeof AppImport
+    '/_dash/news/': {
+      preLoaderRoute: typeof DashNewsIndexImport
+      parentRoute: typeof DashImport
     }
-    '/_app/room/': {
-      preLoaderRoute: typeof AppRoomIndexImport
-      parentRoute: typeof AppImport
+    '/_dash/room/': {
+      preLoaderRoute: typeof DashRoomIndexImport
+      parentRoute: typeof DashImport
     }
-    '/_app/semester/': {
-      preLoaderRoute: typeof AppSemesterIndexImport
-      parentRoute: typeof AppImport
+    '/_dash/semester/': {
+      preLoaderRoute: typeof DashSemesterIndexImport
+      parentRoute: typeof DashImport
     }
-    '/_app/student/': {
-      preLoaderRoute: typeof AppStudentIndexImport
-      parentRoute: typeof AppImport
+    '/_dash/student/': {
+      preLoaderRoute: typeof DashStudentIndexImport
+      parentRoute: typeof DashImport
     }
-    '/_app/student_grops/': {
-      preLoaderRoute: typeof AppStudentgropsIndexImport
-      parentRoute: typeof AppImport
+    '/_dash/student_grops/': {
+      preLoaderRoute: typeof DashStudentgropsIndexImport
+      parentRoute: typeof DashImport
     }
-    '/_app/subjects/': {
-      preLoaderRoute: typeof AppSubjectsIndexImport
-      parentRoute: typeof AppImport
+    '/_dash/subjects/': {
+      preLoaderRoute: typeof DashSubjectsIndexImport
+      parentRoute: typeof DashImport
     }
-    '/_app/teacher/': {
-      preLoaderRoute: typeof AppTeacherIndexImport
-      parentRoute: typeof AppImport
+    '/_dash/teacher/': {
+      preLoaderRoute: typeof DashTeacherIndexImport
+      parentRoute: typeof DashImport
     }
-    '/_app/test_hundred_record/': {
-      preLoaderRoute: typeof AppTesthundredrecordIndexImport
-      parentRoute: typeof AppImport
+    '/_dash/test_hundred_record/': {
+      preLoaderRoute: typeof DashTesthundredrecordIndexImport
+      parentRoute: typeof DashImport
     }
-    '/_app/test_hundred_reports/': {
-      preLoaderRoute: typeof AppTesthundredreportsIndexImport
-      parentRoute: typeof AppImport
+    '/_dash/test_hundred_reports/': {
+      preLoaderRoute: typeof DashTesthundredreportsIndexImport
+      parentRoute: typeof DashImport
     }
-    '/_app/test_hundred_room/': {
-      preLoaderRoute: typeof AppTesthundredroomIndexImport
-      parentRoute: typeof AppImport
+    '/_dash/test_hundred_room/': {
+      preLoaderRoute: typeof DashTesthundredroomIndexImport
+      parentRoute: typeof DashImport
     }
-    '/_app/test_six_record/': {
-      preLoaderRoute: typeof AppTestsixrecordIndexImport
-      parentRoute: typeof AppImport
+    '/_dash/test_six_record/': {
+      preLoaderRoute: typeof DashTestsixrecordIndexImport
+      parentRoute: typeof DashImport
     }
-    '/_app/test_six_reports/': {
-      preLoaderRoute: typeof AppTestsixreportsIndexImport
-      parentRoute: typeof AppImport
+    '/_dash/test_six_reports/': {
+      preLoaderRoute: typeof DashTestsixreportsIndexImport
+      parentRoute: typeof DashImport
     }
-    '/_app/test_six_room/': {
-      preLoaderRoute: typeof AppTestsixroomIndexImport
-      parentRoute: typeof AppImport
+    '/_dash/test_six_room/': {
+      preLoaderRoute: typeof DashTestsixroomIndexImport
+      parentRoute: typeof DashImport
     }
-    '/_app/test_title_candidate/': {
-      preLoaderRoute: typeof AppTesttitlecandidateIndexImport
-      parentRoute: typeof AppImport
+    '/_dash/test_title_candidate/': {
+      preLoaderRoute: typeof DashTesttitlecandidateIndexImport
+      parentRoute: typeof DashImport
     }
-    '/_app/test_title_record/': {
-      preLoaderRoute: typeof AppTesttitlerecordIndexImport
-      parentRoute: typeof AppImport
+    '/_dash/test_title_record/': {
+      preLoaderRoute: typeof DashTesttitlerecordIndexImport
+      parentRoute: typeof DashImport
     }
-    '/_app/test_title_reports/': {
-      preLoaderRoute: typeof AppTesttitlereportsIndexImport
-      parentRoute: typeof AppImport
+    '/_dash/test_title_reports/': {
+      preLoaderRoute: typeof DashTesttitlereportsIndexImport
+      parentRoute: typeof DashImport
     }
-    '/_app/test_title_room/': {
-      preLoaderRoute: typeof AppTesttitleroomIndexImport
-      parentRoute: typeof AppImport
+    '/_dash/test_title_room/': {
+      preLoaderRoute: typeof DashTesttitleroomIndexImport
+      parentRoute: typeof DashImport
     }
-    '/_app/testreport/$id/$selectReport': {
-      preLoaderRoute: typeof AppTestreportIdSelectReportImport
-      parentRoute: typeof AppImport
+    '/_staff/staff_dash/': {
+      preLoaderRoute: typeof StaffStaffdashIndexImport
+      parentRoute: typeof StaffImport
     }
-    '/_app/testreport/index/$id/$selectReport': {
-      preLoaderRoute: typeof AppTestreportIndexIdSelectReportImport
-      parentRoute: typeof AppImport
+    '/_dash/testreport/$id/$selectReport': {
+      preLoaderRoute: typeof DashTestreportIdSelectReportImport
+      parentRoute: typeof DashImport
+    }
+    '/_dash/testreport/index/$id/$selectReport': {
+      preLoaderRoute: typeof DashTestreportIndexIdSelectReportImport
+      parentRoute: typeof DashImport
     }
   }
 }
@@ -379,35 +415,36 @@ declare module '@tanstack/react-router' {
 // Create and export the route tree
 
 export const routeTree = rootRoute.addChildren([
-  AppRoute.addChildren([
-    AppIndexRoute,
-    AppAllIndexRoute,
-    AppCaptainsIndexRoute,
-    AppCoursesIndexRoute,
-    AppDashboardIndexRoute,
-    AppDissertationcompleteIndexRoute,
-    AppDocapproveIndexRoute,
-    AppNametitleIndexRoute,
-    AppNewsIndexRoute,
-    AppRoomIndexRoute,
-    AppSemesterIndexRoute,
-    AppStudentIndexRoute,
-    AppStudentgropsIndexRoute,
-    AppSubjectsIndexRoute,
-    AppTeacherIndexRoute,
-    AppTesthundredrecordIndexRoute,
-    AppTesthundredreportsIndexRoute,
-    AppTesthundredroomIndexRoute,
-    AppTestsixrecordIndexRoute,
-    AppTestsixreportsIndexRoute,
-    AppTestsixroomIndexRoute,
-    AppTesttitlecandidateIndexRoute,
-    AppTesttitlerecordIndexRoute,
-    AppTesttitlereportsIndexRoute,
-    AppTesttitleroomIndexRoute,
-    AppTestreportIdSelectReportRoute,
-    AppTestreportIndexIdSelectReportRoute,
+  AppRoute.addChildren([AppIndexRoute]),
+  DashRoute.addChildren([
+    DashAllIndexRoute,
+    DashCaptainsIndexRoute,
+    DashCoursesIndexRoute,
+    DashDashboardIndexRoute,
+    DashDissertationcompleteIndexRoute,
+    DashDocapproveIndexRoute,
+    DashNametitleIndexRoute,
+    DashNewsIndexRoute,
+    DashRoomIndexRoute,
+    DashSemesterIndexRoute,
+    DashStudentIndexRoute,
+    DashStudentgropsIndexRoute,
+    DashSubjectsIndexRoute,
+    DashTeacherIndexRoute,
+    DashTesthundredrecordIndexRoute,
+    DashTesthundredreportsIndexRoute,
+    DashTesthundredroomIndexRoute,
+    DashTestsixrecordIndexRoute,
+    DashTestsixreportsIndexRoute,
+    DashTestsixroomIndexRoute,
+    DashTesttitlecandidateIndexRoute,
+    DashTesttitlerecordIndexRoute,
+    DashTesttitlereportsIndexRoute,
+    DashTesttitleroomIndexRoute,
+    DashTestreportIdSelectReportRoute,
+    DashTestreportIndexIdSelectReportRoute,
   ]),
+  StaffRoute.addChildren([StaffStaffdashIndexRoute]),
   LoginRoute,
 ])
 

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import BasicDocument from "@/libs/Report/Helloworld";
 import axios from "@/api/axios";
-import { Route } from "@/routes/_app/testreport/index.$id.$selectReport";
+import { Route } from "@/routes/_dash/testreport/index.$id.$selectReport";
 
 function App() {
     const { id, selectReport } = Route.useParams();

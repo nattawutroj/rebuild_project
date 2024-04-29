@@ -77,7 +77,7 @@ const Example = () => {
             )
     }, [nametitle, role])
 
-    const columns = useMemo(
+    const columns:any = useMemo(
         () => [
             {
                 accessorKey: 'id_staff',

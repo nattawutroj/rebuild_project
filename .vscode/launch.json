@@ -1,0 +1,69 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "preLaunchTask": "start-dev-server",
+      "postDebugTask": "terminate-all-tasks",
+      "type": "chrome",
+      "request": "launch",
+      "name": "Launch Vivaldi",
+      "url": "http://localhost:5173",
+      "webRoot": "${workspaceFolder}/src",
+      "sourceMapPathOverrides": {
+        "webpack:///./src/*": "${webRoot}/*"
+      },
+      "runtimeArgs": ["--remote-debugging-port=9222"],
+      "sourceMaps": true,
+      "osx": {
+        "runtimeExecutable": "/Applications/Vivaldi.app/Contents/MacOS/Vivaldi"
+      }
+    },
+    {
+      "preLaunchTask": "start-dev-server",
+      "postDebugTask": "terminate-all-tasks",
+      "type": "chrome",
+      "request": "launch",
+      "name": "Launch Google Chrome",
+      "url": "http://localhost:5173",
+      "webRoot": "${workspaceFolder}/src",
+      "sourceMapPathOverrides": {
+        "webpack:///./src/*": "${webRoot}/*"
+      },
+      "runtimeArgs": ["--remote-debugging-port=9222"],
+      "sourceMaps": true,
+      "osx": {
+        "runtimeExecutable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+      }
+    },
+    {
+      "preLaunchTask": "start-dev-server",
+      "postDebugTask": "terminate-all-tasks",
+      "type": "msedge",
+      "request": "launch",
+      "name": "Launch Edge",
+      "url": "${input:terminate}",
+      "sourceMapPathOverrides": {
+        "webpack:///./src/*": "${webRoot}/*"
+      },
+      "runtimeArgs": ["--remote-debugging-port=9222"],
+      "sourceMaps": true,
+      "osx": {
+        "runtimeExecutable": "/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge"
+      }
+    },
+    {
+      "preLaunchTask": "start-dev-server",
+      "postDebugTask": "terminate-all-tasks",
+      "name": "Launch Firefox",
+      "type": "firefox",
+      "reAttach": true,
+      "request": "launch",
+      "url": "http://localhost:5173",
+      "webRoot": "${workspaceFolder}/src",
+      "reloadOnChange": {
+        "watch": ["${workspaceFolder}/**/*.js"],
+        "ignore": ["${workspaceFolder}/node_modules/**"]
+      }
+    }
+  ]
+}

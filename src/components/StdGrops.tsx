@@ -109,7 +109,7 @@ const Example = () => {
             alert('กรุณาเลือกหลักสูตร')
         }
     };
-    const columns = useMemo(
+    const columns:any = useMemo(
         () => [
             {
                 accessorKey: '8',

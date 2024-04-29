@@ -87,7 +87,7 @@ const Example = () => {
             })
     }, [course, majorCode, nametitle])
 
-    const columns = useMemo(
+    const columns:any = useMemo(
         () => [
             {
                 accessorKey: 'id_student',

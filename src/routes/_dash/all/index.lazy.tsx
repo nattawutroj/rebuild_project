@@ -1,0 +1,8 @@
+
+import AdminDash from '@/components/ProjectAll'
+import Boss from '@/components/SettingsRotue/Boss'
+import { createLazyFileRoute } from '@tanstack/react-router'
+
+export const Route = createLazyFileRoute('/_dash/all/')({
+    component: AdminDash
+})

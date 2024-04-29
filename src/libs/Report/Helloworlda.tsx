@@ -1,5 +1,4 @@
 
-import { Route } from "@/routes/_app/testreport.$id.$selectReport";
 import React from 'react';
 import { Page, Text, View, Document, StyleSheet,PDFViewer, } from '@react-pdf/renderer';
 
