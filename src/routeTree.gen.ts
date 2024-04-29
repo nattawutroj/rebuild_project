@@ -16,6 +16,7 @@ import { Route as StaffImport } from './routes/_staff'
 import { Route as DashImport } from './routes/_dash'
 import { Route as AppImport } from './routes/_app'
 import { Route as AppIndexImport } from './routes/_app/index'
+import { Route as StaffStudentdashIndexImport } from './routes/_staff/student_dash/index'
 import { Route as StaffStaffdashIndexImport } from './routes/_staff/staff_dash/index'
 import { Route as DashTesttitleroomIndexImport } from './routes/_dash/test_title_room/index'
 import { Route as DashTesttitlereportsIndexImport } from './routes/_dash/test_title_reports/index'
@@ -70,6 +71,13 @@ const AppIndexRoute = AppIndexImport.update({
   path: '/',
   getParentRoute: () => AppRoute,
 } as any)
+
+const StaffStudentdashIndexRoute = StaffStudentdashIndexImport.update({
+  path: '/student_dash/',
+  getParentRoute: () => StaffRoute,
+} as any).lazy(() =>
+  import('./routes/_staff/student_dash/index.lazy').then((d) => d.Route),
+)
 
 const StaffStaffdashIndexRoute = StaffStaffdashIndexImport.update({
   path: '/staff_dash/',
@@ -401,6 +409,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StaffStaffdashIndexImport
       parentRoute: typeof StaffImport
     }
+    '/_staff/student_dash/': {
+      preLoaderRoute: typeof StaffStudentdashIndexImport
+      parentRoute: typeof StaffImport
+    }
     '/_dash/testreport/$id/$selectReport': {
       preLoaderRoute: typeof DashTestreportIdSelectReportImport
       parentRoute: typeof DashImport
@@ -444,7 +456,10 @@ export const routeTree = rootRoute.addChildren([
     DashTestreportIdSelectReportRoute,
     DashTestreportIndexIdSelectReportRoute,
   ]),
-  StaffRoute.addChildren([StaffStaffdashIndexRoute]),
+  StaffRoute.addChildren([
+    StaffStaffdashIndexRoute,
+    StaffStudentdashIndexRoute,
+  ]),
   LoginRoute,
 ])
 

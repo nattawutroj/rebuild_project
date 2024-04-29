@@ -183,7 +183,7 @@ export default function SignInSide() {
                             localStorage.setItem('role', 'student');
                             console.log("1");
                             console.log(profile);
-                            navigate({ to: '/studentdash'});
+                            navigate({ to: '/student_dash'});
                         }
                     }).catch((err) => {
                         console.log(err);
@@ -210,7 +210,7 @@ export default function SignInSide() {
                     localStorage.setItem('role', 'student');
                     console.log("2");
                     console.log(profile);
-                    navigate({ to: '/studentdash'});
+                    navigate({ to: '/student_dash'});
                 }
             }).catch((err) => {
                 console.log(err);
@@ -290,7 +290,7 @@ export default function SignInSide() {
                                 });
                         }
                         else {
-                            navigate({ to: '/studentdash'});
+                            navigate({ to: '/student_dash'});
                         }
                     }
                 }
