@@ -23,6 +23,7 @@ import { StepLabel } from '@mui/material';
 import { CssBaseline } from '@mui/material';
 import AddressForm from '@/components/AddressForm'
 import ChangePassword from './ChangePassword'
+import { useNavigate } from '@tanstack/react-router';
 
 
 function Copyright(props: any) {
@@ -66,6 +67,7 @@ const defaultTheme = createTheme();
 
 
 export default function SignInSide() {
+    const navigate = useNavigate()
 
     const [profile, setProfile] = React.useState<any>({});
 
@@ -181,7 +183,7 @@ export default function SignInSide() {
                             localStorage.setItem('role', 'student');
                             console.log("1");
                             console.log(profile);
-                            window.location.href = '/studentdash';
+                            navigate({ to: '/studentdash'});
                         }
                     }).catch((err) => {
                         console.log(err);
@@ -208,7 +210,7 @@ export default function SignInSide() {
                     localStorage.setItem('role', 'student');
                     console.log("2");
                     console.log(profile);
-                    window.location.href = '/studentdash';
+                    navigate({ to: '/studentdash'});
                 }
             }).catch((err) => {
                 console.log(err);
@@ -265,10 +267,10 @@ export default function SignInSide() {
                     localStorage.setItem('loginStatus', 'true');
                     if (res.data.data.id_role == 1) {
                         localStorage.setItem('role', 'admin');
-                        window.location.href = '/dashboard';
+                        navigate({ to: '/dashboard'});
                     } else if (res.data.data.id_role == 3) {
                         localStorage.setItem('role', 'staff');
-                        window.location.href = '/staff_dash';
+                        navigate({ to: '/staff_dash'});
                     }
                     else if (res.data.data.id_role == undefined) {
                         localStorage.setItem('role', 'student');
@@ -288,7 +290,7 @@ export default function SignInSide() {
                                 });
                         }
                         else {
-                            window.location.href = '/studentdash';
+                            navigate({ to: '/studentdash'});
                         }
                     }
                 }
