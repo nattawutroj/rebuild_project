@@ -31,7 +31,6 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { useNavigate } from "@tanstack/react-router";
 
 
 const theme = createTheme({
@@ -59,7 +58,6 @@ const theme = createTheme({
 })
 
 export default function AdminDash() {
-    const navigate = useNavigate()
     const [dialogstaff, setDialogstaff] = React.useState<any>(false);
     const [aaid_staff, setAaid_staff] = React.useState<any>('');
     const [openCalander, setOpenCalander] = React.useState<any>(false);
@@ -287,7 +285,7 @@ export default function AdminDash() {
             }
         ).then((response) => {
             console.log(response);
-            navigate({to : '/test_title_room'});
+            window.location.reload();
         });
     }
 
@@ -758,7 +756,7 @@ export default function AdminDash() {
                 }
             ).then((response) => {
                 console.log(response);
-                navigate({to : '/test_title_room'});
+                window.location.reload();
             });
         }
         else {
@@ -772,7 +770,7 @@ export default function AdminDash() {
                 }
             ).then((response) => {
                 console.log(response);
-                navigate({to : '/test_title_room'});
+                window.location.reload();
             });
         }
     }
@@ -787,7 +785,7 @@ export default function AdminDash() {
                 }
             ).then((response) => {
                 console.log(response);
-                navigate({to : '/test_title_room'});
+                window.location.reload();
             });
         } else {
             null
@@ -805,7 +803,7 @@ export default function AdminDash() {
                 }
             ).then((response) => {
                 console.log(response);
-                navigate({to : '/test_title_room'});
+                window.location.reload();
             });
         }
         else {
@@ -820,7 +818,7 @@ export default function AdminDash() {
                 }
             ).then((response) => {
                 console.log(response);
-                navigate({to : '/test_title_room'});
+                window.location.reload();
             });
         }
     }
@@ -834,7 +832,7 @@ export default function AdminDash() {
             }
         ).then((response) => {
             console.log(response);
-            navigate({to : '/test_title_room'});
+            window.location.reload();
         });
     }
 
