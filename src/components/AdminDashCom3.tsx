@@ -287,7 +287,7 @@ export default function AdminDash() {
             }
         ).then((response) => {
             console.log(response);
-            navigate(0);
+            navigate({to : '/test_title_room'});
         });
     }
 
@@ -758,7 +758,7 @@ export default function AdminDash() {
                 }
             ).then((response) => {
                 console.log(response);
-                navigate(0);
+                navigate({to : '/test_title_room'});
             });
         }
         else {
@@ -772,7 +772,7 @@ export default function AdminDash() {
                 }
             ).then((response) => {
                 console.log(response);
-                navigate(0);
+                navigate({to : '/test_title_room'});
             });
         }
     }
@@ -787,7 +787,7 @@ export default function AdminDash() {
                 }
             ).then((response) => {
                 console.log(response);
-                navigate(0);
+                navigate({to : '/test_title_room'});
             });
         } else {
             null
@@ -805,7 +805,7 @@ export default function AdminDash() {
                 }
             ).then((response) => {
                 console.log(response);
-                navigate(0);
+                navigate({to : '/test_title_room'});
             });
         }
         else {
@@ -820,7 +820,7 @@ export default function AdminDash() {
                 }
             ).then((response) => {
                 console.log(response);
-                navigate(0);
+                navigate({to : '/test_title_room'});
             });
         }
     }
@@ -834,7 +834,7 @@ export default function AdminDash() {
             }
         ).then((response) => {
             console.log(response);
-            navigate(0);
+            navigate({to : '/test_title_room'});
         });
     }
 
