@@ -1,6 +1,5 @@
 import React from "react";
 import axios from "@/api/axios";
-import { div } from "@mui/material";
 import { Typography } from "@mui/material";
 import { green, red } from "@mui/material/colors";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
