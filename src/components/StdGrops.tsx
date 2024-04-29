@@ -189,7 +189,7 @@ const Example = () => {
 
 
     const table = useMaterialReactTable({
-        columns: [], // Replace 'any' with an empty array or specify the type of the columns.
+        columns, // Replace 'any' with an empty array or specify the type of the columns.
         data: List,
         createDisplayMode: 'modal', //default ('row', and 'custom' are also available)
         editDisplayMode: 'modal', //default ('row', 'cell', 'table', and 'custom' are also available)

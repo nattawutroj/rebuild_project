@@ -5,6 +5,7 @@ import { Typography } from "@mui/material";
 import { green, red } from "@mui/material/colors";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from "@tanstack/react-router";
+import PageHeader from "./PageHeader";
 
 
 const theme = createTheme({
@@ -830,6 +831,7 @@ export default function AdminDash() {
     return (
         <>
             <ThemeProvider theme={theme}>
+                <PageHeader title="คำร้องโครงงานพิเศษที่รอ" subTitle="ดำเนินการอยู่" className="font-kanit" />
                 <AccordionSummary sx={{}} aria-controls="panel1a-content" id="panel1a-header" onClick={() => navigate({to: '/test_title_reports'})}>
                     <Typography sx={{ pt: 0.3, width: '40%', flexShrink: 0 }}>ยื่นสอบหัวข้อ</Typography>
                     {

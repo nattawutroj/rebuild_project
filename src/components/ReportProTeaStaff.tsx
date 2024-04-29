@@ -339,7 +339,7 @@
 //                                 <option value={9}>กำลังเริ่มต้นโครงงาน</option>
 //                             </NativeSelect>
 //                         </FormControl>
-//                         <Button onClick={() => { fillterdata(), setResetCounter(resetCounter + 1); }} variant="contained" sx={{ mt: 2 }} >พิมพ์รายงาน</Button>
+//                         <Button onClick={() => { fillterdata(), setResetCounter(resetCounter + 1); }} variant="contained" sx={{ mt: 2 }} disabled >พิมพ์รายงาน</Button>
 //                     </Stack>
 //                     {
 //                         // setDocgenlist([])

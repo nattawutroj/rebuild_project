@@ -150,7 +150,7 @@ const Example = () => {
     };
 
     const table = useMaterialReactTable({
-        columns: [],
+        columns,
         data: List,
         createDisplayMode: 'modal', //default ('row', and 'custom' are also available)
         editDisplayMode: 'modal', //default ('row', 'cell', 'table', and 'custom' are also available)
