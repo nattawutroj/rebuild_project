@@ -998,7 +998,7 @@ export default function AdminDash() {
                             id="panel1a-header"
                         >
                             <Stack direction="row" spacing={0}>
-                                <Typography sx={{ mt: 0.3, width: '33%', flexShrink: 0 }}>ที่ปรึกษา</Typography>
+                                <Typography sx={{ mt: 0.3, width: '33%', flexShrink: 0 }}>ประธาน</Typography>
                                 <Stack direction="column" spacing={0}>
                                     {
                                         staff.map((data:any) => (

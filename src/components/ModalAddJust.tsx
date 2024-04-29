@@ -10,6 +10,12 @@ export default function ModalAddJust({ act, setAct, projectcode, setOpenAddJust 
 
     const [id_staff, setIdStaff] = React.useState<any>(-1);
 
+    const [id_staff1, setIdStaff1] = React.useState<any>(-1);
+
+    const [id_staff2, setIdStaff2] = React.useState<any>(-1);
+
+    const [id_staff3, setIdStaff3] = React.useState<any>(-1);
+
 
     const [nametitle, setNametitle] = useState<any>([]);
 
@@ -25,7 +31,6 @@ export default function ModalAddJust({ act, setAct, projectcode, setOpenAddJust 
     const [id_project_staff_position, setIdProjectStaffPosition] = React.useState<any>(-1);
     React.useEffect(() => {
         FetchStaff();
-
     }, []);
 
 
@@ -130,34 +135,117 @@ export default function ModalAddJust({ act, setAct, projectcode, setOpenAddJust 
     function handleChange(event:any) {
         setIdStaff(event.target.value);
     }
+    function handleChange1(event:any) {
+        setIdStaff1(event.target.value);
+    }
+    function handleChange2(event:any) {
+        setIdStaff2(event.target.value);
+    }
+    function handleChange3(event:any) {
+        setIdStaff3(event.target.value);
+    }
 
     function handleChangeposition(event:any) {
         setIdProjectStaffPosition(event.target.value);
     }
 
     function addStaff() {
+        if(id_staff != -1) {
         axios.post('/user/projectstaff', {
             id_project: projectcode,
             id_staff: id_staff,
-            id_project_staff_position: id_project_staff_position
+            id_project_staff_position: 2
         })
             .then(res => {
                 console.log(res.data);
                 if (res.data.status === 200) {
-                    window.alert("เพิ่มข้อมูลสำเร็จ");
-                    // setOpenAddJust(false);
-
-                    console.log("act >>", act);
+                    if(id_staff1 != -1) {
+                    axios.post('/user/projectstaff', {
+                        id_project: projectcode,
+                        id_staff: id_staff1,
+                        id_project_staff_position: 3
+                    })
+                        .then(res => {
+                            console.log(res.data);
+                            if (res.data.status === 200) {
+                                if(id_staff2 != -1) {
+                                axios.post('/user/projectstaff', {
+                                    id_project: projectcode,
+                                    id_staff: id_staff2,
+                                    id_project_staff_position: 3
+                                })
+                                    .then(res => {
+                                        console.log(res.data);
+                                        if (res.data.status === 200) {
+                                            if(id_staff3 != -1) {
+                                            axios.post('/user/projectstaff', {
+                                                id_project: projectcode,
+                                                id_staff: id_staff3,
+                                                id_project_staff_position: 3
+                                            })
+                                                .then(res => {
+                                                    console.log(res.data);
+                                                    if (res.data.status === 200) {
+                                                        window.alert("เพิ่มข้อมูลสำเร็จ");
+                                                        setOpenAddJust(false);
+                                    
+                                                        console.log("act >>", act);
+                                                        setAct(act + 1);
+                                    
+                                                        // window.location.reload();
+                                                    } else {
+                                                        setOpenAddJust(false);
+                                                    }
+                                                })
+                                                .catch(err => {
+                                                    console.log(err);
+                                                });
+                                            }
+                                            else {
+                                                setOpenAddJust(false);
+                                            }
+                                            setAct(act + 1);
+                        
+                                            // window.location.reload();
+                                        } else {
+                                            setOpenAddJust(false);
+                                        }
+                                    })
+                                    .catch(err => {
+                                        console.log(err);
+                                    });
+                                }
+                                else {
+                                    setOpenAddJust(false);
+                                }
+                                setAct(act + 1);
+            
+                                // window.location.reload();
+                            } else {
+                                setOpenAddJust(false);
+                            }
+                        })
+                        .catch(err => {
+                            console.log(err);
+                        });
+                    }
+                    else {
+                        setOpenAddJust(false);
+                    }
                     setAct(act + 1);
 
                     // window.location.reload();
                 } else {
-                    window.alert("เพิ่มข้อมูลไม่สำเร็จ");
+                    setOpenAddJust(false);
                 }
             })
             .catch(err => {
                 console.log(err);
             });
+        }
+        else {
+            window.alert("เพิ่มข้อมูลไม่สำเร็จ");
+        }
     }
 
     return (
@@ -172,8 +260,8 @@ export default function ModalAddJust({ act, setAct, projectcode, setOpenAddJust 
                 >
                     <h3>จัดตั้งกรรมการ</h3>
                 </Stack>
-                <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label">กรรมการ</InputLabel>
+                <FormControl fullWidth sx={{mt:3}}>
+                    <InputLabel id="demo-simple-select-label">ประธาน</InputLabel>
                     <Select
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
@@ -191,27 +279,70 @@ export default function ModalAddJust({ act, setAct, projectcode, setOpenAddJust 
                         }
                     </Select>
                 </FormControl>
-                <FormControl fullWidth sx={{ mt: 1 }}>
-                    <InputLabel id="select2">ตำแหน่ง</InputLabel>
+                <FormControl fullWidth sx={{mt:3}}>
+                    <InputLabel id="demo-simple-select-label">กรรมการ</InputLabel>
                     <Select
-                        labelId="select2"
+                        labelId="demo-simple-select-label"
                         id="demo-simple-select"
-                        value={id_project_staff_position}
+                        value={id_staff1}
                         label="Staff"
-                        onChange={handleChangeposition}
+                        onChange={handleChange1}
                     >
-                        <MenuItem value={-1}><em>เลือกตำแหน่ง</em></MenuItem>
-                        <MenuItem value={2}>ประธาน</MenuItem>
-                        <MenuItem value={3}>กรรมการ</MenuItem>
-
+                        <MenuItem value={-1}><em>เลือกที่ปรึกษา</em></MenuItem>
+                        {
+                            staffList.map((staff:any, index:any) => {
+                                return (
+                                    <MenuItem key={index} value={staff.id_staff}>{staff.name_title_th + ' ' + staff.first_name_th + ' ' + staff.last_name_th}</MenuItem>
+                                )
+                            })
+                        }
+                    </Select>
+                </FormControl>
+                <FormControl fullWidth sx={{mt:3}}>
+                    <InputLabel id="demo-simple-select-label">กรรมการ</InputLabel>
+                    <Select
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        value={id_staff2}
+                        label="Staff"
+                        onChange={handleChange2}
+                    >
+                        <MenuItem value={-1}><em>เลือกที่ปรึกษา</em></MenuItem>
+                        {
+                            staffList.map((staff:any, index:any) => {
+                                return (
+                                    <MenuItem key={index} value={staff.id_staff}>{staff.name_title_th + ' ' + staff.first_name_th + ' ' + staff.last_name_th}</MenuItem>
+                                )
+                            })
+                        }
+                    </Select>
+                </FormControl>
+                <FormControl fullWidth sx={{mt:3}}>
+                    <InputLabel id="demo-simple-select-label">กรรมการ</InputLabel>
+                    <Select
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        value={id_staff3}
+                        label="Staff"
+                        onChange={handleChange3}
+                    >
+                        <MenuItem value={-1}><em>เลือกที่ปรึกษา</em></MenuItem>
+                        {
+                            staffList.map((staff:any, index:any) => {
+                                return (
+                                    <MenuItem key={index} value={staff.id_staff}>{staff.name_title_th + ' ' + staff.first_name_th + ' ' + staff.last_name_th}</MenuItem>
+                                )
+                            })
+                        }
                     </Select>
                 </FormControl>
             </Box>
+
             <Stack direction="row"
                 justifyContent="flex-end"
                 alignItems="center"
                 spacing={2} sx={{ mt: 2.5 }}>
-                <Button color='success' variant="contained" onClick={() => { id_staff == -1 || id_project_staff_position == -1 ? window.alert("โปรดเลือกข้อมูลให้ครบถ้วน") : addStaff() }}>เพิ่ม</Button>
+                <Button color='success' variant="contained" onClick={() => { id_staff == -1 ? window.alert("โปรดเลือกข้อมูลให้ครบถ้วน") : addStaff() }}>เพิ่ม</Button>
                 <Button variant="contained" onClick={() => { setOpenAddJust(false) }}>ยกเลิก</Button>
             </Stack>
             <Modal
