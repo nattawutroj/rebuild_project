@@ -535,7 +535,7 @@ export default function AdminDash() {
                                         <Stack direction="row" spacing={0}>
                                             <Typography sx={{ mt: 2, width: '33%', flexShrink: 0 }}>ไฟล์</Typography>
                                             <Stack direction="column" spacing={0}>
-                                                <Typography sx={{ pt: 1, mb: 1, color: 'text.secondary' }}><Button onClick={() => { handleFileDownload(file.path) }} component="label" variant="contained" startIcon={<ZoomIn />}>View File</Button></Typography>
+                                                <Typography sx={{ pt: 1, mb: 1, color: 'text.secondary' }}><Button onClick={() => { handleFileDownload(file.path) }} component="label" variant="contained" startIcon={<ZoomIn />}>ดูไฟล์</Button></Typography>
                                             </Stack>
                                         </Stack>
                                     </Card>

@@ -460,7 +460,7 @@ export default function ProjectCard({ projectinfo, editMode, setEditMode }: any)
                 aria-describedby="parent-modal-description"
             >
                 <Box sx={{ ...style, width: 400 }}>
-                    <h2 id="parent-modal-title">Edit Your Project</h2>
+                    <p className='w-full text-2xl'>แก้ไขชื่อโปรเจค</p>
                     <Box component="form" noValidate onSubmit={submitBuild} sx={{ mt: 1 }}>
                         <TextField
                             margin="normal"
@@ -531,7 +531,7 @@ export default function ProjectCard({ projectinfo, editMode, setEditMode }: any)
                             variant="contained"
                             sx={{ mt: 3, mb: 2 }}
                         >
-                            Create
+                            ยืนยัน
                         </Button>
                     </Box>
                 </Box>

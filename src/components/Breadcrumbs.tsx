@@ -16,7 +16,7 @@ const Breadcrumbs: React.FC = () => {
   const breadcrumbs = useMemo(() => {
     const pathnames = location.pathname.split("/").filter((x) => x);
     const crumbs = [
-      { name: "Home", path: "/", icon: HomeIcon, alt: "Home Icon" },
+      { name: "Home", path: "/dashboard", icon: HomeIcon, alt: "Home Icon" },
       ...pathnames.map((pathname, index) => ({
         name: capitalize(pathname.replace(/-/g, " ")),
         path: `/${pathnames.slice(0, index + 1).join("/")}`,

@@ -6,7 +6,7 @@ import { Menubar } from "@/components/ui/menubar";
 const navigationItems = [
   {
     name: "หน้าแรก",
-    path: "/",
+    path: "/dashboard",
   },
   {
     name: "จัดการสอบ",
@@ -108,7 +108,6 @@ const navigationItems = [
   },
   {
     name: "ออกรายงาน",
-    to: "/",
   },
   {
     name: "ตั้งค่าระบบ",

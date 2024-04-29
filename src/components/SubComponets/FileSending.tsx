@@ -62,7 +62,9 @@ export default function FileSending({ itemprojectinfo, id_project }:any) {
             if (response.data.result.length === 0) {
                 setFileList(null);
             } else {
-                setFileList(response.data.result);
+                // เรียงลำดับใหม่ ตอนนี้ หน้าไปท้าย เป็น ท้ายไปหน้า response.data.result
+                
+                setFileList(response.data.result.reverse());
             }
         })
     }
@@ -159,7 +161,7 @@ export default function FileSending({ itemprojectinfo, id_project }:any) {
                                         }
                                     </Typography>
                                     <Button component="label" variant="contained" startIcon={<UploadFileIcon />}>
-                                        Upload File
+                                        แนบ ทก.01
                                         <VisuallyHiddenInput
                                             type="file"
                                             onChange={handleFileChange}
@@ -269,7 +271,7 @@ export default function FileSending({ itemprojectinfo, id_project }:any) {
                                                 <Stack direction="row" spacing={0}>
                                                     <Typography sx={{ mt: 2, width: '33%', flexShrink: 0 }}>ไฟล์</Typography>
                                                     <Stack direction="column" spacing={0}>
-                                                        <Typography sx={{ pt: 1, mb: 1, color: 'text.secondary' }}><Button onClick={() => handleFileDownload(file.path)} component="label" variant="contained" startIcon={<ZoomIn />}>View File</Button></Typography>
+                                                        <Typography sx={{ pt: 1, mb: 1, color: 'text.secondary' }}><Button onClick={() => handleFileDownload(file.path)} component="label" variant="contained" startIcon={<ZoomIn />}>ดูไฟล์</Button></Typography>
                                                     </Stack>
                                                 </Stack>
                                             </Card>
@@ -314,14 +316,13 @@ export default function FileSending({ itemprojectinfo, id_project }:any) {
                                 }
                             </Typography>
                             <Button component="label" variant="contained" startIcon={<UploadFileIcon />}>
-                                Upload File
+                                อัพโหลด ทก.01
                                 <VisuallyHiddenInput
                                     type="file"
                                     onChange={handleFileChange}
                                     accept=".pdf" // Allow only PDF files
                                 />
                             </Button>
-
                             {
                                 (itemprojectinfo.id_project_status_title == 7) ?
                                     <Box sx={{ minWidth: 200 }}>

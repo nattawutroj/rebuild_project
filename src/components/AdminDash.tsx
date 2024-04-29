@@ -1,12 +1,11 @@
 import React from "react";
 import axios from "@/api/axios";
-import { AccordionSummary } from "@mui/material";
+import { div } from "@mui/material";
 import { Typography } from "@mui/material";
 import { green, red } from "@mui/material/colors";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from "@tanstack/react-router";
 import PageHeader from "./PageHeader";
-
 
 const theme = createTheme({
     typography: {
@@ -64,47 +63,47 @@ export default function AdminDash() {
         setProjectProcessWaitRecordFinalCount(0);
         fileList.map((file: { id_project_status_title: number }) => {
             if (file.id_project_status_title == 3) {
-                setLableexam1((prevLableexam1:any) => prevLableexam1 + 1);
+                setLableexam1((prevLableexam1: any) => prevLableexam1 + 1);
             }
             if (file.id_project_status_title == 8) {
-                setLableexam2((prevLableexam2:any) => prevLableexam2 + 1);
+                setLableexam2((prevLableexam2: any) => prevLableexam2 + 1);
             }
             if (file.id_project_status_title == 12) {
-                setLableexam3((prevLableexam3:any) => prevLableexam3 + 1);
+                setLableexam3((prevLableexam3: any) => prevLableexam3 + 1);
             }
         }
         )
         projectProcess?.map(() => {
-            setProjectProcessCount((prevProjectProcessCount:any) => prevProjectProcessCount + 1);
+            setProjectProcessCount((prevProjectProcessCount: any) => prevProjectProcessCount + 1);
         }
         )
         projectProcessWaitSchdule?.map(() => {
-            setProjectProcessWaitSchduleCount((prevProjectProcessWaitSchduleCount:any) => prevProjectProcessWaitSchduleCount + 1);
+            setProjectProcessWaitSchduleCount((prevProjectProcessWaitSchduleCount: any) => prevProjectProcessWaitSchduleCount + 1);
         }
         )
         projectProcessWaitSchdule60?.map(() => {
-            setProjectProcessWaitSchdule60Count((prevProjectProcessWaitSchdule60Count:any) => prevProjectProcessWaitSchdule60Count + 1);
+            setProjectProcessWaitSchdule60Count((prevProjectProcessWaitSchdule60Count: any) => prevProjectProcessWaitSchdule60Count + 1);
         }
         )
         projectProcessWaitSchdule100?.map(() => {
-            setProjectProcessWaitSchdule100Count((prevProjectProcessWaitSchdule100Count:any) => prevProjectProcessWaitSchdule100Count + 1);
+            setProjectProcessWaitSchdule100Count((prevProjectProcessWaitSchdule100Count: any) => prevProjectProcessWaitSchdule100Count + 1);
         }
         )
         projectProcessWaitRecord?.map(() => {
-            setProjectProcessWaitRecordCount((prevProjectProcessWaitRecordCount:any) => prevProjectProcessWaitRecordCount + 1);
+            setProjectProcessWaitRecordCount((prevProjectProcessWaitRecordCount: any) => prevProjectProcessWaitRecordCount + 1);
         })
         projectProcessWaitRecord60?.map(() => {
-            setProjectProcessWaitRecord60Count((prevProjectProcessWaitRecord60Count:any) => prevProjectProcessWaitRecord60Count + 1);
+            setProjectProcessWaitRecord60Count((prevProjectProcessWaitRecord60Count: any) => prevProjectProcessWaitRecord60Count + 1);
         })
         projectProcessWaitRecord100?.map(() => {
-            setProjectProcessWaitRecord100Count((prevProjectProcessWaitRecord100Count:any) => prevProjectProcessWaitRecord100Count + 1);
+            setProjectProcessWaitRecord100Count((prevProjectProcessWaitRecord100Count: any) => prevProjectProcessWaitRecord100Count + 1);
         })
         projectProcessWaitConfiremT01?.map(() => {
-            setprojectProcessWaitConfiremT01Count((prevprojectProcessWaitConfiremT01Count:any) => prevprojectProcessWaitConfiremT01Count + 1);
+            setprojectProcessWaitConfiremT01Count((prevprojectProcessWaitConfiremT01Count: any) => prevprojectProcessWaitConfiremT01Count + 1);
         })
         projectProcessWaitRecordFinal.map(() => {
             console.log("hello")
-            setProjectProcessWaitRecordFinalCount((prevProjectProcessWaitRecordFinalCount:any) => prevProjectProcessWaitRecordFinalCount + 1);
+            setProjectProcessWaitRecordFinalCount((prevProjectProcessWaitRecordFinalCount: any) => prevProjectProcessWaitRecordFinalCount + 1);
         })
     }
 
@@ -113,7 +112,7 @@ export default function AdminDash() {
         setDialogstaff(false);
     };
 
-    const handleRemoveStaff = (id:any) => {
+    const handleRemoveStaff = (id: any) => {
         setAaid_staff(id);
         setDialogstaff(true);
     }
@@ -198,7 +197,7 @@ export default function AdminDash() {
         });
     }, [ajid, act]);
 
-    const convertDate = (date:any) => {
+    const convertDate = (date: any) => {
         let d = new Date(date);
         return d.toLocaleString();
     }
@@ -206,7 +205,7 @@ export default function AdminDash() {
     const [pdfUrl, setPdfUrl] = React.useState<any>('');
 
 
-    const handleFileDownload = (id_file:any) => {
+    const handleFileDownload = (id_file: any) => {
         axios.get('/resources/public/download/pdf', {
             params: {
                 file: id_file
@@ -447,7 +446,7 @@ export default function AdminDash() {
                 // Wait for all promises to resolve
                 return Promise.all(fileLastUpdatePromises)
                     .then(fileLastUpdates => {
-                        const combinedData = projectProcessWaitSchduleData100.map((item:any, index:any) => ({
+                        const combinedData = projectProcessWaitSchduleData100.map((item: any, index: any) => ({
                             ...item,
                             fileLastUpdate: fileLastUpdates[index]
                         }));
@@ -474,7 +473,7 @@ export default function AdminDash() {
                 const projectProcessWaitRecord = response.data.result.rows;
 
                 // Use Promise.all to handle multiple asynchronous calls
-                const fileLastUpdatePromises = projectProcessWaitRecord.map((item:any) => {
+                const fileLastUpdatePromises = projectProcessWaitRecord.map((item: any) => {
                     return axios.get('resources/admin/projectfilelast', {
                         params: {
                             id_project: item.id_project
@@ -491,7 +490,7 @@ export default function AdminDash() {
                 return Promise.all(fileLastUpdatePromises)
                     .then(fileLastUpdates => {
                         // Combine projectProcessWaitRecord with fileLastUpdates
-                        const combinedData = projectProcessWaitRecord.map((item:any, index:any) => ({
+                        const combinedData = projectProcessWaitRecord.map((item: any, index: any) => ({
                             ...item,
                             fileLastUpdate: fileLastUpdates[index]
                         }));
@@ -519,7 +518,7 @@ export default function AdminDash() {
                 const projectProcessWaitRecord60 = response.data.result.rows;
 
                 // Use Promise.all to handle multiple asynchronous calls
-                const fileLastUpdatePromises = projectProcessWaitRecord60.map((item:any) => {
+                const fileLastUpdatePromises = projectProcessWaitRecord60.map((item: any) => {
                     return axios.get('resources/admin/projectfilelast', {
                         params: {
                             id_project: item.id_project
@@ -536,7 +535,7 @@ export default function AdminDash() {
                 return Promise.all(fileLastUpdatePromises)
                     .then(fileLastUpdates => {
                         // Combine projectProcessWaitRecord60 with fileLastUpdates
-                        const combinedData = projectProcessWaitRecord60.map((item:any, index:any) => ({
+                        const combinedData = projectProcessWaitRecord60.map((item: any, index: any) => ({
                             ...item,
                             fileLastUpdate: fileLastUpdates[index]
                         }));
@@ -563,7 +562,7 @@ export default function AdminDash() {
                 const projectProcessWaitRecord100 = response.data.result.rows;
 
                 // Use Promise.all to handle multiple asynchronous calls
-                const fileLastUpdatePromises = projectProcessWaitRecord100.map((item:any) => {
+                const fileLastUpdatePromises = projectProcessWaitRecord100.map((item: any) => {
                     return axios.get('resources/admin/projectfilelast', {
                         params: {
                             id_project: item.id_project
@@ -580,7 +579,7 @@ export default function AdminDash() {
                 return Promise.all(fileLastUpdatePromises)
                     .then(fileLastUpdates => {
                         // Combine projectProcessWaitRecord100 with fileLastUpdates
-                        const combinedData = projectProcessWaitRecord100.map((item:any, index:any) => ({
+                        const combinedData = projectProcessWaitRecord100.map((item: any, index: any) => ({
                             ...item,
                             fileLastUpdate: fileLastUpdates[index]
                         }));
@@ -608,7 +607,7 @@ export default function AdminDash() {
                 const projectProcessWaitRecordFinal = response.data.result.rows;
 
                 // Use Promise.all to handle multiple asynchronous calls
-                const fileLastUpdatePromises = projectProcessWaitRecordFinal.map((item:any) => {
+                const fileLastUpdatePromises = projectProcessWaitRecordFinal.map((item: any) => {
                     return axios.get('resources/admin/projectfilelast', {
                         params: {
                             id_project: item.id_project
@@ -625,7 +624,7 @@ export default function AdminDash() {
                 return Promise.all(fileLastUpdatePromises)
                     .then(fileLastUpdates => {
                         // Combine projectProcessWaitRecordFinal with fileLastUpdates
-                        const combinedData = projectProcessWaitRecordFinal.map((item:any, index:any) => ({
+                        const combinedData = projectProcessWaitRecordFinal.map((item: any, index: any) => ({
                             ...item,
                             fileLastUpdate: fileLastUpdates[index]
                         }));
@@ -653,7 +652,7 @@ export default function AdminDash() {
                 const projectProcessWaitConfiremT01 = response.data.result.rows;
 
                 // Use Promise.all to handle multiple asynchronous calls
-                const fileLastUpdatePromises = projectProcessWaitConfiremT01.map((item:any) => {
+                const fileLastUpdatePromises = projectProcessWaitConfiremT01.map((item: any) => {
                     return axios.get('resources/admin/projectfilelast', {
                         params: {
                             id_project: item.id_project
@@ -670,7 +669,7 @@ export default function AdminDash() {
                 return Promise.all(fileLastUpdatePromises)
                     .then(fileLastUpdates => {
                         // Combine projectProcessWaitRecord100 with fileLastUpdates
-                        const combinedData = projectProcessWaitConfiremT01.map((item:any, index:any) => ({
+                        const combinedData = projectProcessWaitConfiremT01.map((item: any, index: any) => ({
                             ...item,
                             fileLastUpdate: fileLastUpdates[index]
                         }));
@@ -688,12 +687,12 @@ export default function AdminDash() {
             });
     };
 
-    const Viewpdf = (id:any) => {
+    const Viewpdf = (id: any) => {
         handleFileDownload(id);
     }
 
 
-    const handleChange = (panel:any) => {
+    const handleChange = (panel: any) => {
         setExpanded(panel);
     }
 
@@ -710,7 +709,7 @@ export default function AdminDash() {
         FetchProjectProcessWaitRecordExtamFinal();
     }, [selectstatus_code])
 
-    const handlereportCancel = (id_project_file_paths:any, id_project_status_title:any, id_project_status:any) => {
+    const handlereportCancel = (id_project_file_paths: any, id_project_status_title: any, id_project_status: any) => {
         setCanceldatafrom({
             id_project_file_paths: id_project_file_paths,
             id_project_status_title: id_project_status_title,
@@ -750,7 +749,7 @@ export default function AdminDash() {
             });
         }
     }
-    const handlereportConfirm = (id_project_file_paths:any, comment:any, id_project_status_title:any, id_project_status:any) => {
+    const handlereportConfirm = (id_project_file_paths: any, comment: any, id_project_status_title: any, id_project_status: any) => {
         console.log(id_project_file_paths, comment, id_project_status_title, id_project_status);
         if (confirm("ยืนยันการดำเนินการ")) {
             axios.post('resources/admin/reqreport/approve',
@@ -767,7 +766,7 @@ export default function AdminDash() {
             null
         }
     }
-    const handleCancelcommentUNC = (id_project_file_paths:any, comment:any, id_project_status_title:any, id_project_status:any) => {
+    const handleCancelcommentUNC = (id_project_file_paths: any, comment: any, id_project_status_title: any, id_project_status: any) => {
         if (examrecord == 'ไม่ผ่านยื่นสอบใหม่ภายในช่วงเวลา') {
             axios.post('resources/admin/reqreport/provere',
                 {
@@ -812,11 +811,11 @@ export default function AdminDash() {
         });
     }
 
-    const openDoc = (id:any, selectReport:any) => {
+    const openDoc = (id: any, selectReport: any) => {
         window.open(`/testreport/${id}/${selectReport}`);
     }
 
-    const openDocWidget = (id:any, selectReport:any) => {
+    const openDocWidget = (id: any, selectReport: any) => {
         if (window.innerWidth < 900) {
             setPdfUrl(null)
             window.open(`/testreport/${id}/${selectReport}`);
@@ -832,7 +831,7 @@ export default function AdminDash() {
         <>
             <ThemeProvider theme={theme}>
                 <PageHeader title="คำร้องโครงงานพิเศษที่รอ" subTitle="ดำเนินการอยู่" className="font-kanit" />
-                <AccordionSummary sx={{}} aria-controls="panel1a-content" id="panel1a-header" onClick={() => navigate({to: '/test_title_reports'})}>
+                <div className="flex flex-row p-3 hover:bg-slate-100" aria-controls="panel1a-content" id="panel1a-header" onClick={() => navigate({ to: '/test_title_reports' })}>
                     <Typography sx={{ pt: 0.3, width: '40%', flexShrink: 0 }}>ยื่นสอบหัวข้อ</Typography>
                     {
                         lableexam1 > 0 ?
@@ -840,8 +839,8 @@ export default function AdminDash() {
                             :
                             <Typography sx={{ pt: 0.3 }}>ไม่มีรายการ</Typography>
                     }
-                </AccordionSummary>
-                <AccordionSummary aria-controls="panel1a-content" id="panel1a-header" onClick={() => navigate({to: '/test_title_candidate'})}>
+                </div>
+                <div className="flex flex-row p-3 hover:bg-slate-100" aria-controls="panel1a-content" id="panel1a-header" onClick={() => navigate({ to: '/test_title_candidate' })}>
                     <Typography sx={{ pt: 0.3, width: '40%', flexShrink: 0 }}>แต่งตั้งกรรมการ</Typography>
                     {
                         projectProcessCount > 0 ?
@@ -849,8 +848,8 @@ export default function AdminDash() {
                             :
                             <Typography sx={{ pt: 0.3 }}>ไม่มีรายการ</Typography>
                     }
-                </AccordionSummary>
-                <AccordionSummary aria-controls="panel1a-content" id="panel1a-header" onClick={() => navigate({to: '/test_title_room'})}>
+                </div>
+                <div className="flex flex-row p-3 hover:bg-slate-100" aria-controls="panel1a-content" id="panel1a-header" onClick={() => navigate({ to: '/test_title_room' })}>
                     <Typography sx={{ pt: 0.3, width: '40%', flexShrink: 0 }}>จัดตารางสอบหัวข้อ</Typography>
                     {
                         projectProcessWaitSchduleCount > 0 ?
@@ -858,8 +857,8 @@ export default function AdminDash() {
                             :
                             <Typography sx={{ pt: 0.3 }}>ไม่มีรายการ</Typography>
                     }
-                </AccordionSummary>
-                <AccordionSummary aria-controls="panel1a-content" id="panel1a-header" onClick={() => navigate({to: '/test_title_record'})}>
+                </div>
+                <div className="flex flex-row p-3 hover:bg-slate-100" aria-controls="panel1a-content" id="panel1a-header" onClick={() => navigate({ to: '/test_title_record' })}>
                     <Typography sx={{ pt: 0.3, width: '40%', flexShrink: 0 }}>บันทึกผลการสอบหัวข้อ</Typography>
                     {
                         projectProcessWaitRecordCount > 0 ?
@@ -867,8 +866,8 @@ export default function AdminDash() {
                             :
                             <Typography sx={{ pt: 0.3 }}>ไม่มีรายการ</Typography>
                     }
-                </AccordionSummary>
-                <AccordionSummary aria-controls="panel1a-content" id="panel1a-header" onClick={() => navigate({to: '/doc_approve'})}>
+                </div>
+                <div className="flex flex-row p-3 hover:bg-slate-100" aria-controls="panel1a-content" id="panel1a-header" onClick={() => navigate({ to: '/doc_approve' })}>
                     <Typography sx={{ pt: 0.3, width: '40%', flexShrink: 0 }}>ยื่นยันการแก้ไข ทก.01</Typography>
                     {
                         projectProcessWaitConfiremT01Count > 0 ?
@@ -876,8 +875,8 @@ export default function AdminDash() {
                             :
                             <Typography sx={{ pt: 0.3 }}>ไม่มีรายการ</Typography>
                     }
-                </AccordionSummary>
-                <AccordionSummary aria-controls="panel1a-content" id="panel1a-header" onClick={() => navigate({to: '/test_six_reports'})}>
+                </div>
+                <div className="flex flex-row p-3 hover:bg-slate-100" aria-controls="panel1a-content" id="panel1a-header" onClick={() => navigate({ to: '/test_six_reports' })}>
                     <Typography sx={{ pt: 0.3, width: '40%', flexShrink: 0 }}>ยื่นสอบหกสิบ</Typography>
                     {
                         lableexam2 > 0 ?
@@ -885,8 +884,8 @@ export default function AdminDash() {
                             :
                             <Typography sx={{ pt: 0.3 }}>ไม่มีรายการ</Typography>
                     }
-                </AccordionSummary>
-                <AccordionSummary aria-controls="panel1a-content" id="panel1a-header" onClick={() => navigate({to: '/test_six_room'})}>
+                </div>
+                <div className="flex flex-row p-3 hover:bg-slate-100" aria-controls="panel1a-content" id="panel1a-header" onClick={() => navigate({ to: '/test_six_room' })}>
                     <Typography sx={{ pt: 0.3, width: '40%', flexShrink: 0 }}>จัดตารางสอบหกสิบ</Typography>
                     {
                         projectProcessWaitSchdule60Count > 0 ?
@@ -894,8 +893,8 @@ export default function AdminDash() {
                             :
                             <Typography sx={{ pt: 0.3 }}>ไม่มีรายการ</Typography>
                     }
-                </AccordionSummary>
-                <AccordionSummary aria-controls="panel1a-content" id="panel1a-header" onClick={() => navigate({to: '/test_six_record'})}>
+                </div>
+                <div className="flex flex-row p-3 hover:bg-slate-100" aria-controls="panel1a-content" id="panel1a-header" onClick={() => navigate({ to: '/test_six_record' })}>
                     <Typography sx={{ pt: 0.3, width: '40%', flexShrink: 0 }}>บันทึกผลการสอบหกสิบ</Typography>
                     {
                         projectProcessWaitRecord60Count > 0 ?
@@ -903,8 +902,8 @@ export default function AdminDash() {
                             :
                             <Typography sx={{ pt: 0.3 }}>ไม่มีรายการ</Typography>
                     }
-                </AccordionSummary>
-                <AccordionSummary aria-controls="panel1a-content" id="panel1a-header" onClick={() => navigate({to: '/test_hundred_reports'})}>
+                </div>
+                <div className="flex flex-row p-3 hover:bg-slate-100" aria-controls="panel1a-content" id="panel1a-header" onClick={() => navigate({ to: '/test_hundred_reports' })}>
                     <Typography sx={{ pt: 0.3, width: '40%', flexShrink: 0 }}>ยื่นสอบร้อย</Typography>
                     {
                         lableexam3 > 0 ?
@@ -912,8 +911,8 @@ export default function AdminDash() {
                             :
                             <Typography sx={{ pt: 0.3 }}>ไม่มีรายการ</Typography>
                     }
-                </AccordionSummary>
-                <AccordionSummary aria-controls="panel1a-content" id="panel1a-header" onClick={() => navigate({to: '/test_hundred_room'})}>
+                </div>
+                <div className="flex flex-row p-3 hover:bg-slate-100" aria-controls="panel1a-content" id="panel1a-header" onClick={() => navigate({ to: '/test_hundred_room' })}>
                     <Typography sx={{ pt: 0.3, width: '40%', flexShrink: 0 }}>ตารางสอบร้อย</Typography>
                     {
                         projectProcessWaitSchdule100Count > 0 ?
@@ -921,8 +920,8 @@ export default function AdminDash() {
                             :
                             <Typography sx={{ pt: 0.3 }}>ไม่มีรายการ</Typography>
                     }
-                </AccordionSummary>
-                <AccordionSummary aria-controls="panel1a-content" id="panel1a-header" onClick={() => navigate({to: '/test_hundred_record'})}>
+                </div>
+                <div className="flex flex-row p-3 hover:bg-slate-100" aria-controls="panel1a-content" id="panel1a-header" onClick={() => navigate({ to: '/test_hundred_record' })}>
                     <Typography sx={{ pt: 0.3, width: '40%', flexShrink: 0 }}>บันทึกผลการสอบร้อย</Typography>
                     {
                         projectProcessWaitRecord100Count > 0 ?
@@ -930,8 +929,8 @@ export default function AdminDash() {
                             :
                             <Typography sx={{ pt: 0.3 }}>ไม่มีรายการ</Typography>
                     }
-                </AccordionSummary>
-                <AccordionSummary aria-controls="panel1a-content" id="panel1a-header" onClick={() => navigate({to: '/dissertation_complete'})}>
+                </div>
+                <div className="flex flex-row p-3 hover:bg-slate-100" aria-controls="panel1a-content" id="panel1a-header" onClick={() => navigate({ to: '/dissertation_complete' })}>
                     <Typography sx={{ pt: 0.3, width: '40%', flexShrink: 0 }}>ส่งปริญญานิพนธ์ฉบับสมบูรณ์ และ CD</Typography>
                     {
                         projectProcessWaitRecordFinalCount > 0 ?
@@ -939,7 +938,7 @@ export default function AdminDash() {
                             :
                             <Typography sx={{ pt: 0.3 }}>ไม่มีรายการ</Typography>
                     }
-                </AccordionSummary>
+                </div>
             </ThemeProvider >
         </>
     )
