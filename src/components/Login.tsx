@@ -87,12 +87,14 @@ export default function SignInSide() {
         else if (profile.address === '' || profile.email === '' || profile.id_name_title === '' || profile.first_name_en === '' || profile.last_name_en === '' || profile.major_code === '') {
             setEditProfileAlert(true)
         }
-        else if (!(changepassword !== rechangepassword || changepassword === '' || rechangepassword === '') && !(profile.address === '' || profile.email === '' || profile.id_name_title === '' || profile.first_name_en === '' || profile.last_name_en === '' || profile.major_code === '')) {
-            handleChangePasswordStd
-        }
         else {
             setChangepasserrorAlert(false);
             setActiveStep(activeStep + 1);
+        }
+        console.log(activeStep);
+        console.log(steps.length);
+        if (activeStep === steps.length-1) {
+            handleChangePasswordStd()
         }
     };
 
@@ -494,7 +496,6 @@ export default function SignInSide() {
                                     <React.Fragment>
                                         <Typography variant="h5" gutterBottom>
                                             ขอบคุณสำหรับข้อมูลของคุณ
-
                                         </Typography>
                                         <Typography variant="subtitle1">
                                             ข้อมูลของคุณได้รับการบันทึกเรียบร้อยแล้ว สามารถแก้ไขข้อมูลของคุณในหน้าโปรไฟล์
