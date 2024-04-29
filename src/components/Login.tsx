@@ -24,6 +24,8 @@ import { CssBaseline } from '@mui/material';
 import AddressForm from '@/components/AddressForm'
 import ChangePassword from './ChangePassword'
 import { useNavigate } from '@tanstack/react-router';
+import KMUTNB from '@/assets/KMUTNB.png'
+import ITlogo from '@/assets/FITMlogo.png'
 
 
 function Copyright(props: any) {
@@ -183,7 +185,7 @@ export default function SignInSide() {
                             localStorage.setItem('role', 'student');
                             console.log("1");
                             console.log(profile);
-                            navigate({ to: '/student_dash'});
+                            navigate({ to: '/student_dash' });
                         }
                     }).catch((err) => {
                         console.log(err);
@@ -210,7 +212,7 @@ export default function SignInSide() {
                     localStorage.setItem('role', 'student');
                     console.log("2");
                     console.log(profile);
-                    navigate({ to: '/student_dash'});
+                    navigate({ to: '/student_dash' });
                 }
             }).catch((err) => {
                 console.log(err);
@@ -267,10 +269,10 @@ export default function SignInSide() {
                     localStorage.setItem('loginStatus', 'true');
                     if (res.data.data.id_role == 1) {
                         localStorage.setItem('role', 'admin');
-                        navigate({ to: '/dashboard'});
+                        navigate({ to: '/dashboard' });
                     } else if (res.data.data.id_role == 3) {
                         localStorage.setItem('role', 'staff');
-                        navigate({ to: '/staff_dash'});
+                        navigate({ to: '/staff_dash' });
                     }
                     else if (res.data.data.id_role == undefined) {
                         localStorage.setItem('role', 'student');
@@ -290,7 +292,7 @@ export default function SignInSide() {
                                 });
                         }
                         else {
-                            navigate({ to: '/student_dash'});
+                            navigate({ to: '/student_dash' });
                         }
                     }
                 }
@@ -340,11 +342,11 @@ export default function SignInSide() {
                         }}
                     >
                         <Typography sx={{ my: 0, mb: 15 }} component="h1" variant="h4">
-                            <MouseIcon />SPITECH
+                            <div className='flex flex-row'>
+                                <img loading="lazy" className="h-20 w-auto" src={KMUTNB} />
+                                <img loading="lazy" className="h-24 pr-20 w-auto" src={ITlogo} />
+                            </div>
                         </Typography>
-                        <Avatar sx={{ m: 3, bgcolor: 'secondary.main' }}>
-                            <LockOutlinedIcon />
-                        </Avatar>
                         <Typography component="h1" variant="h5">
                             เข้าสู่ระบบ
                         </Typography>
