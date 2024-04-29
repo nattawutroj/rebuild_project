@@ -34,7 +34,6 @@ const LoginComponent: React.FC = () => {
     <div className="flex h-screen items-center justify-center bg-cpBlue">
       <Card className="w-full max-w-md">
         <CardHeader>
-          <img loading="lazy" className="rounded-sm" src={Logo} />
         </CardHeader>
         <CardContent>
           <FormProvider {...form}>
