@@ -22,11 +22,13 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Axios from '@/api/axios';
 import { Add } from '@mui/icons-material';
+import { useNavigate } from '@tanstack/react-router';
 
 const Example = () => {
-    
-    const [List, setList] = useState<any>([]);
 
+
+    const [List, setList] = useState<any>([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         console.log(List);
@@ -79,7 +81,7 @@ const Example = () => {
         [],
     );
     //CREATE action
-    const handleCreateUser = async ({ values, table }:any) => {
+    const handleCreateUser = async ({ values, table }: any) => {
         console.log(values);
         if (values.course_code !== '' && values.course_name !== '') {
             Axios.post('/resources/admin/course/add', values)
@@ -92,7 +94,7 @@ const Example = () => {
                         }).catch(err => {
                             console.log(err);
                         })
-                    window.location.reload();
+                    navigate({ to: '/courses' })
                     table.setCreatingRow(false);
                 }).catch(err => {
                     console.log(err.response.data.action);
@@ -109,7 +111,7 @@ const Example = () => {
     };
 
     //UPDATE action
-    const handleSaveUser = async ({ values, table }:any) => {
+    const handleSaveUser = async ({ values, table }: any) => {
         console.log(values);
         Axios.put('/resources/admin/course/edit', values)
             .then(res => {
@@ -128,7 +130,7 @@ const Example = () => {
     };
 
     //DELETE action
-    const openDeleteConfirmModal = (row:any) => {
+    const openDeleteConfirmModal = (row: any) => {
         console.log(row.id);
         if (window.confirm(`คุณต้องการลบข้อมูลนี้หรือไม่?`)) {
             Axios.delete('/resources/admin/course/delete', { data: { course_code: row.id } })
