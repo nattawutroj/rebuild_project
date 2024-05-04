@@ -93,7 +93,7 @@ export default function SignInSide() {
         }
         console.log(activeStep);
         console.log(steps.length);
-        if (activeStep === steps.length-1) {
+        if (activeStep === steps.length - 1) {
             handleChangePasswordStd()
         }
     };
@@ -483,7 +483,7 @@ export default function SignInSide() {
                         <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
                             <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
                                 <Typography component="h1" variant="h4" align="center">
-                                    ลงทะเบียนโครงงาน
+                                    ตั้งรหัสผ่านครั้งแรก
                                 </Typography>
                                 <Stepper activeStep={activeStep} sx={{ pt: 3, pb: 5 }}>
                                     {steps.map((label) => (

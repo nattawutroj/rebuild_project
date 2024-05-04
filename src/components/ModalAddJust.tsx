@@ -6,37 +6,17 @@ import TextField from '@mui/material/TextField';
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 
 
-export default function ModalAddJust({ act, setAct, projectcode, setOpenAddJust }:any) {
+export default function ModalAddJust({ act, setAct, projectcode, setOpenAddJust }: any) {
 
     const [id_staff, setIdStaff] = React.useState<any>(-1);
-
     const [id_staff1, setIdStaff1] = React.useState<any>(-1);
-
     const [id_staff2, setIdStaff2] = React.useState<any>(-1);
-
     const [id_staff3, setIdStaff3] = React.useState<any>(-1);
 
-
     const [nametitle, setNametitle] = useState<any>([]);
-
     const [editProfileAlert, setEditProfileAlert] = useState<any>(false);
-
     const [selectedTitle, setSelectedTitle] = useState<any>('');
     const [staffList, setStaffList] = React.useState<any>([]);
-    const handleTitleChange = (event:any) => {
-        setSelectedTitle(event.target.value);
-        handleChangesub(event);
-    };
-
-    const [id_project_staff_position, setIdProjectStaffPosition] = React.useState<any>(-1);
-    React.useEffect(() => {
-        FetchStaff();
-    }, []);
-
-
-
-
-    const [subOpen] = React.useState<any>(false);
 
     const [formData, setFormData] = useState<any>({
         id_project: projectcode,
@@ -50,18 +30,28 @@ export default function ModalAddJust({ act, setAct, projectcode, setOpenAddJust 
         email: '',
     });
 
-    const handleChangesub = (event:any) => {
+    const [subOpen, setSubOpen] = React.useState<any>(false); // Change subOpen to a state variable
+
+    React.useEffect(() => {
+        FetchStaff();
+    }, []);
+
+    const handleTitleChange = (event: any) => {
+        setSelectedTitle(event.target.value);
+        handleChangesub(event);
+    };
+
+    const handleChangesub = (event: any) => {
         const { name, value } = event.target;
-        setFormData((prevFormData:any) => ({
+        setFormData((prevFormData: any) => ({
             ...prevFormData,
             [name]: value,
         }));
     };
 
     const handleSave = () => {
-        // ทำบันทึกข้อมูลที่คุณต้องการทำ
         console.log('Saved data:', formData);
-        if (formData.id_name_title == '' || formData.first_name_th == '' || formData.last_name_th == '' || formData.first_name_en == '' || formData.last_name_en == '' || formData.phone == '' || formData.email == '') {
+        if (formData.id_name_title === '' || formData.first_name_th === '' || formData.last_name_th === '' || formData.first_name_en === '' || formData.last_name_en === '' || formData.phone === '' || formData.email === '') {
             setEditProfileAlert(true);
         }
         else {
@@ -94,8 +84,8 @@ export default function ModalAddJust({ act, setAct, projectcode, setOpenAddJust 
     React.useEffect(() => {
         axios.get('/resources/public/name_title')
             .then(res => {
-                setNametitle((prevNametitle:any) => {
-                    const nameTitles = res.data.data.map((item:any) => ({
+                setNametitle((prevNametitle: any) => {
+                    const nameTitles = res.data.data.map((item: any) => ({
                         label: item.name_title_th,
                         value: item.id_name_title
                     }));
@@ -106,20 +96,6 @@ export default function ModalAddJust({ act, setAct, projectcode, setOpenAddJust 
                 console.log(err);
             });
     }, []);
-
-    const style = {
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        width: 400,
-        bgcolor: 'background.paper',
-        border: '2px solid #000',
-        boxShadow: 24,
-        pt: 2,
-        px: 4,
-        pb: 3,
-    };
 
     function FetchStaff() {
         axios.get('/user/stafflist')
@@ -132,66 +108,79 @@ export default function ModalAddJust({ act, setAct, projectcode, setOpenAddJust 
             });
     }
 
-    function handleChange(event:any) {
+    function handleChange(event: any) {
         setIdStaff(event.target.value);
     }
-    function handleChange1(event:any) {
+
+    function handleChange1(event: any) {
         setIdStaff1(event.target.value);
     }
-    function handleChange2(event:any) {
+
+    function handleChange2(event: any) {
         setIdStaff2(event.target.value);
     }
-    function handleChange3(event:any) {
+
+    function handleChange3(event: any) {
         setIdStaff3(event.target.value);
     }
 
-    function handleChangeposition(event:any) {
-        setIdProjectStaffPosition(event.target.value);
-    }
-
     function addStaff() {
-        if(id_staff != -1) {
-        axios.post('/user/projectstaff', {
-            id_project: projectcode,
-            id_staff: id_staff,
-            id_project_staff_position: 2
-        })
-            .then(res => {
-                console.log(res.data);
-                if (res.data.status === 200) {
-                    if(id_staff1 != -1) {
-                    axios.post('/user/projectstaff', {
-                        id_project: projectcode,
-                        id_staff: id_staff1,
-                        id_project_staff_position: 3
-                    })
-                        .then(res => {
-                            console.log(res.data);
-                            if (res.data.status === 200) {
-                                if(id_staff2 != -1) {
-                                axios.post('/user/projectstaff', {
-                                    id_project: projectcode,
-                                    id_staff: id_staff2,
-                                    id_project_staff_position: 3
-                                })
-                                    .then(res => {
-                                        console.log(res.data);
-                                        if (res.data.status === 200) {
-                                            if(id_staff3 != -1) {
+        if (id_staff != -1) {
+            axios.post('/user/projectstaff', {
+                id_project: projectcode,
+                id_staff: id_staff,
+                id_project_staff_position: 2
+            })
+                .then(res => {
+                    console.log(res.data);
+                    if (res.data.status === 200) {
+                        if (id_staff1 != -1) {
+                            axios.post('/user/projectstaff', {
+                                id_project: projectcode,
+                                id_staff: id_staff1,
+                                id_project_staff_position: 3
+                            })
+                                .then(res => {
+                                    console.log(res.data);
+                                    if (res.data.status === 200) {
+                                        if (id_staff2 != -1) {
                                             axios.post('/user/projectstaff', {
                                                 id_project: projectcode,
-                                                id_staff: id_staff3,
+                                                id_staff: id_staff2,
                                                 id_project_staff_position: 3
                                             })
                                                 .then(res => {
                                                     console.log(res.data);
                                                     if (res.data.status === 200) {
-                                                        window.alert("เพิ่มข้อมูลสำเร็จ");
-                                                        setOpenAddJust(false);
-                                    
-                                                        console.log("act >>", act);
+                                                        if (id_staff3 != -1) {
+                                                            axios.post('/user/projectstaff', {
+                                                                id_project: projectcode,
+                                                                id_staff: id_staff3,
+                                                                id_project_staff_position: 3
+                                                            })
+                                                                .then(res => {
+                                                                    console.log(res.data);
+                                                                    if (res.data.status === 200) {
+                                                                        window.alert("เพิ่มข้อมูลสำเร็จ");
+                                                                        setOpenAddJust(false);
+
+                                                                        console.log("act >>", act);
+                                                                        setAct(act + 1);
+
+                                                                        // window.location.reload();
+                                                                    } else {
+                                                                        setOpenAddJust(false);
+                                                                    }
+                                                                })
+                                                                .catch(err => {
+                                                                    console.log(err);
+                                                                });
+                                                        }
+                                                        else {
+                                                            setOpenAddJust(false);
+                                                        }
                                                         setAct(act + 1);
-                                    
+
                                                         // window.location.reload();
                                                     } else {
                                                         setOpenAddJust(false);
@@ -200,50 +189,35 @@ export default function ModalAddJust({ act, setAct, projectcode, setOpenAddJust 
                                                 .catch(err => {
                                                     console.log(err);
                                                 });
-                                            }
-                                            else {
-                                                setOpenAddJust(false);
-                                            }
-                                            setAct(act + 1);
-                        
-                                            // window.location.reload();
-                                        } else {
+                                        }
+                                        else {
                                             setOpenAddJust(false);
                                         }
-                                    })
-                                    .catch(err => {
-                                        console.log(err);
-                                    });
-                                }
-                                else {
-                                    setOpenAddJust(false);
-                                }
-                                setAct(act + 1);
-            
-                                // window.location.reload();
-                            } else {
-                                setOpenAddJust(false);
-                            }
-                        })
-                        .catch(err => {
-                            console.log(err);
-                        });
-                    }
-                    else {
+                                        setAct(act + 1);
+
+                                        // window.location.reload();
+                                    } else {
+                                        setOpenAddJust(false);
+                                    }
+                                })
+                                .catch(err => {
+                                    console.log(err);
+                                });
+                        }
+                        else {
+                            setOpenAddJust(false);
+                        }
+                        setAct(act + 1);
+
+                        // window.location.reload();
+                    } else {
                         setOpenAddJust(false);
                     }
-                    setAct(act + 1);
-
-                    // window.location.reload();
-                } else {
-                    setOpenAddJust(false);
-                }
-            })
-            .catch(err => {
-                console.log(err);
-            });
-        }
-        else {
+                })
+                .catch(err => {
+                    console.log(err);
+                });
+        } else {
             window.alert("เพิ่มข้อมูลไม่สำเร็จ");
         }
     }
@@ -260,7 +234,7 @@ export default function ModalAddJust({ act, setAct, projectcode, setOpenAddJust 
                 >
                     <h3>จัดตั้งกรรมการ</h3>
                 </Stack>
-                <FormControl fullWidth sx={{mt:3}}>
+                <FormControl fullWidth sx={{ mt: 3 }}>
                     <InputLabel id="demo-simple-select-label">ประธาน</InputLabel>
                     <Select
                         labelId="demo-simple-select-label"
@@ -269,17 +243,15 @@ export default function ModalAddJust({ act, setAct, projectcode, setOpenAddJust 
                         label="Staff"
                         onChange={handleChange}
                     >
-                        <MenuItem value={-1}><em>เลือกที่ปรึกษา</em></MenuItem>
-                        {
-                            staffList.map((staff:any, index:any) => {
-                                return (
-                                    <MenuItem key={index} value={staff.id_staff}>{staff.name_title_th + ' ' + staff.first_name_th + ' ' + staff.last_name_th}</MenuItem>
-                                )
-                            })
+                        <MenuItem value={-1}><em>เลือกประธาน</em></MenuItem>
+                        {staffList
+                            .map((staff: any, index: any) => (
+                                <MenuItem key={index} value={staff.id_staff}>{staff.name_title_th + ' ' + staff.first_name_th + ' ' + staff.last_name_th}</MenuItem>
+                            ))
                         }
                     </Select>
                 </FormControl>
-                <FormControl fullWidth sx={{mt:3}}>
+                <FormControl fullWidth sx={{ mt: 3 }}>
                     <InputLabel id="demo-simple-select-label">กรรมการ</InputLabel>
                     <Select
                         labelId="demo-simple-select-label"
@@ -288,17 +260,16 @@ export default function ModalAddJust({ act, setAct, projectcode, setOpenAddJust 
                         label="Staff"
                         onChange={handleChange1}
                     >
-                        <MenuItem value={-1}><em>เลือกที่ปรึกษา</em></MenuItem>
-                        {
-                            staffList.map((staff:any, index:any) => {
-                                return (
-                                    <MenuItem key={index} value={staff.id_staff}>{staff.name_title_th + ' ' + staff.first_name_th + ' ' + staff.last_name_th}</MenuItem>
-                                )
-                            })
+                        <MenuItem value={-1}><em>เลือกกรรมการ</em></MenuItem>
+                        {staffList
+                            .filter((staff: any) => staff.id_staff !== id_staff)
+                            .map((staff: any, index: any) => (
+                                <MenuItem key={index} value={staff.id_staff}>{staff.name_title_th + ' ' + staff.first_name_th + ' ' + staff.last_name_th}</MenuItem>
+                            ))
                         }
                     </Select>
                 </FormControl>
-                <FormControl fullWidth sx={{mt:3}}>
+                <FormControl fullWidth sx={{ mt: 3 }}>
                     <InputLabel id="demo-simple-select-label">กรรมการ</InputLabel>
                     <Select
                         labelId="demo-simple-select-label"
@@ -307,17 +278,16 @@ export default function ModalAddJust({ act, setAct, projectcode, setOpenAddJust 
                         label="Staff"
                         onChange={handleChange2}
                     >
-                        <MenuItem value={-1}><em>เลือกที่ปรึกษา</em></MenuItem>
-                        {
-                            staffList.map((staff:any, index:any) => {
-                                return (
-                                    <MenuItem key={index} value={staff.id_staff}>{staff.name_title_th + ' ' + staff.first_name_th + ' ' + staff.last_name_th}</MenuItem>
-                                )
-                            })
+                        <MenuItem value={-1}><em>เลือกกรรมการ</em></MenuItem>
+                        {staffList
+                            .filter((staff: any) => staff.id_staff !== id_staff && staff.id_staff !== id_staff1)
+                            .map((staff: any, index: any) => (
+                                <MenuItem key={index} value={staff.id_staff}>{staff.name_title_th + ' ' + staff.first_name_th + ' ' + staff.last_name_th}</MenuItem>
+                            ))
                         }
                     </Select>
                 </FormControl>
-                <FormControl fullWidth sx={{mt:3}}>
+                <FormControl fullWidth sx={{ mt: 3 }}>
                     <InputLabel id="demo-simple-select-label">กรรมการ</InputLabel>
                     <Select
                         labelId="demo-simple-select-label"
@@ -326,13 +296,12 @@ export default function ModalAddJust({ act, setAct, projectcode, setOpenAddJust 
                         label="Staff"
                         onChange={handleChange3}
                     >
-                        <MenuItem value={-1}><em>เลือกที่ปรึกษา</em></MenuItem>
-                        {
-                            staffList.map((staff:any, index:any) => {
-                                return (
-                                    <MenuItem key={index} value={staff.id_staff}>{staff.name_title_th + ' ' + staff.first_name_th + ' ' + staff.last_name_th}</MenuItem>
-                                )
-                            })
+                        <MenuItem value={-1}><em>เลือกกรรมการ</em></MenuItem>
+                        {staffList
+                            .filter((staff: any) => staff.id_staff !== id_staff && staff.id_staff !== id_staff1 && staff.id_staff !== id_staff2)
+                            .map((staff: any, index: any) => (
+                                <MenuItem key={index} value={staff.id_staff}>{staff.name_title_th + ' ' + staff.first_name_th + ' ' + staff.last_name_th}</MenuItem>
+                            ))
                         }
                     </Select>
                 </FormControl>
@@ -342,17 +311,30 @@ export default function ModalAddJust({ act, setAct, projectcode, setOpenAddJust 
                 justifyContent="flex-end"
                 alignItems="center"
                 spacing={2} sx={{ mt: 2.5 }}>
-                <Button color='success' variant="contained" onClick={() => { id_staff == -1 ? window.alert("โปรดเลือกข้อมูลให้ครบถ้วน") : addStaff() }}>เพิ่ม</Button>
+                <Button color='success' variant="contained" onClick={() => { addStaff() }}>เพิ่ม</Button>
                 <Button variant="contained" onClick={() => { setOpenAddJust(false) }}>ยกเลิก</Button>
             </Stack>
             <Modal
-                open={subOpen}
-                onClose={() => setOpenAddJust(false)}
+                open={subOpen} // You need to set this to true to open the modal
+                onClose={() => setSubOpen(false)}
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
-
-                <Box sx={{ ...style, width: 450 }}>
+                <Box
+                    sx={{
+                        position: 'absolute',
+                        top: '50%',
+                        left: '50%',
+                        transform: 'translate(-50%, -50%)',
+                        width: 400,
+                        bgcolor: 'background.paper',
+                        border: '2px solid #000',
+                        boxShadow: 24,
+                        pt: 2,
+                        px: 4,
+                        pb: 3,
+                    }}
+                >
                     <h2>เพิ่มที่ปรึกษาภายนอก</h2>
                     <TextField
                         required
@@ -367,7 +349,7 @@ export default function ModalAddJust({ act, setAct, projectcode, setOpenAddJust 
                         value={selectedTitle} // ต้องมี value attribute
                         onChange={handleTitleChange}
                     >
-                        {nametitle.map((option:any) => (
+                        {nametitle.map((option: any) => (
                             <MenuItem key={option.value} value={option.value}>
                                 {option.label}
                                 {console.log(option.value)}

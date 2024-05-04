@@ -156,6 +156,7 @@ const Example = () => {
         editDisplayMode: 'modal', //default ('row', 'cell', 'table', and 'custom' are also available)
         enableEditing: true,
         getRowId: (row) => row.course_code,
+        
         muiTableContainerProps: {
             sx: {
                 minHeight: '500px',

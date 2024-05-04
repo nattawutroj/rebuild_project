@@ -255,7 +255,9 @@ export default function ModalAddStaff({ projectcode, setOpenAddStaff }: any) {
                     >
                         <MenuItem value={-1}><em>เลือกที่ปรึกษา</em></MenuItem>
                         {
-                            staffList.map((staff: any, index: any) => {
+                            staffList
+                            .filter((staff: any) => staff.id_staff !== id_staff1)
+                            .map((staff: any, index: any) => {
                                 return (
                                     <MenuItem key={index} value={staff.id_staff}>{staff.name_title_th + ' ' + staff.first_name_th + ' ' + staff.last_name_th}</MenuItem>
                                 )
@@ -274,7 +276,9 @@ export default function ModalAddStaff({ projectcode, setOpenAddStaff }: any) {
                     >
                         <MenuItem value={-1}><em>เลือกที่ปรึกษา</em></MenuItem>
                         {
-                            staffList.map((staff: any, index: any) => {
+                            staffList
+                            .filter((staff: any) => staff.id_staff !== id_staff1 && staff.id_staff !== id_staff2)
+                            .map((staff: any, index: any) => {
                                 return (
                                     <MenuItem key={index} value={staff.id_staff}>{staff.name_title_th + ' ' + staff.first_name_th + ' ' + staff.last_name_th}</MenuItem>
                                 )
