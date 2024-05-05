@@ -6,12 +6,12 @@ import { Typography } from '@mui/material';
 import axios from '@/api/axios';
 
 
-export default function ProjectDetail({ act, id }) {
+export default function ProjectDetail({ act, id }: any) {
 
     const [item, setItem] = React.useState<any>([]);
     const [staff, setStaff] = React.useState<any>([]);
     const [member, setMember] = React.useState<any>([]);
-    let adviserContent = null;
+    let adviserContent: any = null;
     let countStd = 0;
 
 
@@ -66,7 +66,7 @@ export default function ProjectDetail({ act, id }) {
     return (
         <React.Fragment>
             <AccordionDetails  >
-                <Card sx={{ p: 1}}
+                <Card sx={{ p: 1 }}
                     aria-controls="panel1a-content"
                     id="panel1a-header"
                 >
@@ -78,7 +78,7 @@ export default function ProjectDetail({ act, id }) {
                         </Stack>
                     </Stack>
                 </Card>
-                <Card sx={{ p: 1}}
+                <Card sx={{ p: 1 }}
                     aria-controls="panel1a-content"
                     id="panel1a-header"
                 >
@@ -90,7 +90,7 @@ export default function ProjectDetail({ act, id }) {
                         </Stack>
                     </Stack>
                 </Card>
-                <Card sx={{ p: 1}}
+                <Card sx={{ p: 1 }}
                     aria-controls="panel1a-content"
                     id="panel1a-header"
                 >
@@ -98,10 +98,10 @@ export default function ProjectDetail({ act, id }) {
                         <Typography sx={{ mt: 0.3, width: '33%', flexShrink: 0 }}>ผู้จัดทำโครงงาน</Typography>
                         <Stack direction="column" spacing={0}>
                             {
-                                member?.map((data, index) => (
+                                member?.map((data: any, index: any) => (
                                     (data.id_project === item.id_project) ? (
                                         countStd++,
-                                            <Typography key={index} sx={{ pt: 0.3, color: 'text.secondary' }} >{data.student_code + ' ' + data.first_name_th + ' ' + data.last_name_th}</Typography>
+                                        <Typography key={index} sx={{ pt: 0.3, color: 'text.secondary' }} >{data.student_code + ' ' + data.first_name_th + ' ' + data.last_name_th}</Typography>
                                     )
                                         : ''
                                 ))
@@ -109,7 +109,7 @@ export default function ProjectDetail({ act, id }) {
                         </Stack>
                     </Stack>
                 </Card>
-                <Card sx={{ p: 1}}
+                <Card sx={{ p: 1 }}
                     aria-controls="panel1a-content"
                     id="panel1a-header"
                 >
@@ -117,10 +117,10 @@ export default function ProjectDetail({ act, id }) {
                         <Typography sx={{ mt: 0.3, width: '33%', flexShrink: 0 }}>ที่ปรึกษา</Typography>
                         <Stack direction="column" spacing={0}>
                             {
-                                staff.map((data, index) => {
+                                staff.map((data: any, index: any) => {
                                     // Use a variable to conditionally render the "ไม่มีที่ปรึกษา" message
 
-                                    data.staff.map((data2, index2) => {
+                                    data.staff.map((data2: any, index2: any) => {
 
                                         if (data2.id_project === item.id_project && data2.id_project_staff_position === 1) {
                                             adviserContent = (
@@ -143,7 +143,7 @@ export default function ProjectDetail({ act, id }) {
                         </Stack>
                     </Stack>
                 </Card>
-                <Card sx={{ p: 1}}
+                <Card sx={{ p: 1 }}
                     aria-controls="panel1a-content"
                     id="panel1a-header"
                 >
@@ -151,8 +151,8 @@ export default function ProjectDetail({ act, id }) {
                         <Typography sx={{ mt: 0.3, width: '33%', flexShrink: 0 }}>ที่ปรึกษาร่วม</Typography>
                         <Stack direction="column" spacing={0}>
                             {
-                                staff.map((data) => (
-                                    data.staff.map((data2, index2) => (
+                                staff.map((data: any) => (
+                                    data.staff.map((data2: any, index2: any) => (
                                         (data2.id_project === item.id_project && data2.id_project_staff_position === 4) ?
                                             <Typography sx={{ pt: 0.3, color: 'text.secondary' }} key={index2}>{data2.name_title_th + ' ' + data2.first_name_th + ' ' + data2.last_name_th}</Typography>
                                             : ''
@@ -160,8 +160,8 @@ export default function ProjectDetail({ act, id }) {
                                 ))
                             }
                             {
-                                staff.map((data) => (
-                                    data.os_staff.map((data2, index2) => (
+                                staff.map((data: any) => (
+                                    data.os_staff.map((data2: any, index2: any) => (
                                         (data2.id_project === item.id_project && data2.id_project_staff_position === 4) ?
                                             <Typography sx={{ pt: 0.3, color: 'text.secondary' }} key={index2}>{data2.name_title_th + ' ' + data2.first_name_th + ' ' + data2.last_name_th}</Typography>
                                             : ''
