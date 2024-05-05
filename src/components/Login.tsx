@@ -187,7 +187,7 @@ export default function SignInSide() {
                             localStorage.setItem('role', 'student');
                             console.log("1");
                             console.log(profile);
-                            navigate({ to: '/student_dash' });
+                            if(profile.student_code !== '' && profile.id_name_title !== '' && profile.first_name_en !== '' && profile.last_name_en !== '' && profile.email !== '' && profile.address !== '' && profile.major_code !== '') navigate({ to: '/student_dash' });
                         }
                     }).catch((err) => {
                         console.log(err);
@@ -214,7 +214,7 @@ export default function SignInSide() {
                     localStorage.setItem('role', 'student');
                     console.log("2");
                     console.log(profile);
-                    navigate({ to: '/student_dash' });
+                    if(profile.student_code !== '' && profile.id_name_title !== '' && profile.first_name_en !== '' && profile.last_name_en !== '' && profile.email !== '' && profile.address !== '' && profile.major_code !== '') navigate({ to: '/student_dash' });
                 }
             }).catch((err) => {
                 console.log(err);
