@@ -31,8 +31,8 @@ const Header: React.FC = () => {
       <div className="flex items-center gap-4">
         {isAuthenticated && (
           <>
-            <div className="text-sm">
-              Welcome,{" "}
+            <div className="text-sm font-kanit">
+              Welcome,{user?.data?.first_name_th}
               <span className="font-bold text-sky-600">{user.data.teachers_first_name}</span>!
             </div>
             <Link

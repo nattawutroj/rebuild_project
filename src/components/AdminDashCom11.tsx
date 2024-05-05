@@ -952,16 +952,19 @@ export default function AdminDash() {
                             </Select>
                         </FormControl>
                         <Box component="form" noValidate onSubmit={handleCancelcomment} sx={{ mt: 1 }}>
-                            <TextField
-                                margin="normal"
-                                fullWidth
-                                id="comment"
-                                label="หมายเหตุ"
-                                name="comment"
-                                autoFocus
-                                value={examrecordcomment}
-                                onChange={(e) => { setExamrecordcomment(e.target.value) }}
-                            />
+                            {
+                                (examrecord === 'ไม่ผ่าน' || examrecord === 'ไม่ผ่านยื่นสอบใหม่ภายในช่วงเวลา') &&
+                                <TextField
+                                    margin="normal"
+                                    fullWidth
+                                    id="comment"
+                                    label="หมายเหตุ"
+                                    name="comment"
+                                    autoFocus
+                                    value={examrecordcomment}
+                                    onChange={(e) => { setExamrecordcomment(e.target.value) }}
+                                />
+                            }
 
                             <Stack direction="row"
                                 justifyContent="flex-end"
@@ -1104,17 +1107,20 @@ export default function AdminDash() {
                             </Select>
                         </FormControl>
                         <Box component="form" noValidate onSubmit={handleCancelcomment} sx={{ mt: 1 }}>
-                            <TextField
-                                margin="normal"
-                                fullWidth
-                                id="comment"
-                                label="หมายเหตุ"
-                                name="comment"
-                                autoFocus
-                                value={examrecordcomment}
-                                onChange={(e) => { setExamrecordcomment(e.target.value) }}
-                            />
 
+                            {
+                                (examrecord === 'ไม่ผ่าน' || examrecord === 'ไม่ผ่านยื่นสอบใหม่ภายในช่วงเวลา') &&
+                                <TextField
+                                    margin="normal"
+                                    fullWidth
+                                    id="comment"
+                                    label="หมายเหตุ"
+                                    name="comment"
+                                    autoFocus
+                                    value={examrecordcomment}
+                                    onChange={(e) => { setExamrecordcomment(e.target.value) }}
+                                />
+                            }
                             <Stack direction="row"
                                 justifyContent="flex-end"
                                 alignItems="center"

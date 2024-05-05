@@ -268,7 +268,7 @@ export default function AdminDash() {
         }
 
         else if (examrecord == 'ผ่านแบบมีเงื่อนไข') {
-            handlereportConfirmUNC(a1, a4, examrecord)
+            handlereportConfirmUNC(a1, a4, a3)
         }
         else if (examrecord == 'ไม่ผ่าน') {
             handleCancelcommentUNC(a1, examrecordcomment, a3, a4)
@@ -1079,16 +1079,21 @@ export default function AdminDash() {
                             </Select>
                         </FormControl>
                         <Box component="form" noValidate onSubmit={handleCancelcomment} sx={{ mt: 1 }}>
-                            <TextField
-                                margin="normal"
-                                fullWidth
-                                id="comment"
-                                label="หมายเหตุ"
-                                name="comment"
-                                autoFocus
-                                value={examrecordcomment}
-                                onChange={(e) => { setExamrecordcomment(e.target.value) }}
-                            />
+
+
+                            {
+                                (examrecord === 'ไม่ผ่าน' || examrecord === 'ไม่ผ่านยื่นสอบใหม่ภายในช่วงเวลา') &&
+                                <TextField
+                                    margin="normal"
+                                    fullWidth
+                                    id="comment"
+                                    label="หมายเหตุ"
+                                    name="comment"
+                                    autoFocus
+                                    value={examrecordcomment}
+                                    onChange={(e) => { setExamrecordcomment(e.target.value) }}
+                                />
+                            }
 
                             <Stack direction="row"
                                 justifyContent="flex-end"
