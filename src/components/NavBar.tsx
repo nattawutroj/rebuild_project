@@ -2,6 +2,7 @@ import * as React from "react";
 import NavBarItem from "./NavBarItem";
 
 import { Menubar } from "@/components/ui/menubar";
+import path from "path";
 
 const navigationItems = [
   {
@@ -108,6 +109,7 @@ const navigationItems = [
   },
   {
     name: "ออกรายงาน",
+    path: "/reports",
   },
   {
     name: "ตั้งค่าระบบ",
@@ -147,7 +149,7 @@ const navigationItems = [
 const NavBar: React.FC = () => {
   return (
     <Menubar className="border-none">
-      {navigationItems.map((item:any) => (
+      {navigationItems.map((item: any) => (
         <NavBarItem key={item.name} {...item} />
       ))}
     </Menubar>

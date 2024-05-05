@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import BasicDocument from "@/libs/Report/Helloworld";
 import axios from "@/api/axios";
-import { Route } from "@/routes/_dash/testreport/index.$id.$selectReport";
+import { Route } from "@/routes/testreport.$id.$selectReport.lazy";
 
 function App() {
     const { id, selectReport } = Route.useParams();
@@ -63,7 +63,7 @@ function App() {
         printdoc(id);
     }, [id]); // เพิ่ม dependencies เพื่อหลีกเลี่ยงการเรียกซ้ำ
 
-    console.log("projectinfo");
+    console.log(id, selectReport, "id, selectReport");
     
     // ตรวจสอบว่าข้อมูลพร้อมใช้งานหรือไม่
     if (projectinfo.length === 0 || boss.length === 0 || member.length === 0 || !staff) {

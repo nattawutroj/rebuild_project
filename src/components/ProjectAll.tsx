@@ -11,7 +11,7 @@ import { InputLabel } from "@mui/material";
 import { NativeSelect } from "@mui/material";
 import { Stack } from "@mui/material";
 import { Button } from "@mui/material";
-// import AllProjectList from "../libs/Report/AllProjectList"
+import AllProjectList from "@/libs/Report/AAAllProjectList";
 import Box from "@mui/material/Box";
 
 
@@ -19,8 +19,8 @@ export default function AdminDash() {
 
     const [docgenlist, setDocgenlist] = React.useState<any>([]);
 
-    function keepdoc(file:any) {
-        setDocgenlist((docgenlist:any) => [...docgenlist, file]);
+    function keepdoc(file: any) {
+        setDocgenlist((docgenlist: any) => [...docgenlist, file]);
     }
 
     const [semester, setSemester] = React.useState<any>([]);
@@ -35,7 +35,7 @@ export default function AdminDash() {
     }
 
     const fetchsemester = async () => {
-        const [semester]:any = await Promise.all([getsemester()]);
+        const [semester]: any = await Promise.all([getsemester()]);
         setSemester(semester.data.result);
     }
 
@@ -54,7 +54,7 @@ export default function AdminDash() {
     const [resetCounter, setResetCounter] = React.useState<any>(0);
 
 
-    const handleFileDownload = (id_file:any) => {
+    const handleFileDownload = (id_file: any) => {
         axios.get('/resources/public/download/pdf', {
             params: {
                 file: id_file
@@ -67,8 +67,8 @@ export default function AdminDash() {
             // Create a data URL from the Blob
             const dataUrl = URL.createObjectURL(blob);
 
-                setPdfUrl(null)
-                window.open(dataUrl);
+            setPdfUrl(null)
+            window.open(dataUrl);
         }).catch(err => {
             setPdfUrl(null)
             console.log(err);
@@ -89,7 +89,7 @@ export default function AdminDash() {
         })
     }
 
-    const Viewpdf = (id:any) => {
+    const Viewpdf = (id: any) => {
         console.log(id)
         axios.get('resources/public/fefile', {
             params: {
@@ -105,7 +105,7 @@ export default function AdminDash() {
     }
 
 
-    const handleChange = (panel:any) => {
+    const handleChange = (panel: any) => {
         setExpanded(panel);
     }
 
@@ -115,7 +115,7 @@ export default function AdminDash() {
 
     function fillterdata() {
         setDocgenlist([]);
-        fileList?.map((file:any) => (
+        fileList?.map((file: any) => (
             semester_select == -1 ?
                 selectstatus_code == 0 ?
                     keepdoc(file)
@@ -264,7 +264,7 @@ export default function AdminDash() {
     return (
         <>
             <Grid container spacing={2}>
-                <Grid sx={{ height: '100vh', overflowY: 'scroll' }} item xs={12} md={12} lg={12}>
+                <Grid sx={{ height: '100vh', overflowY: 'scroll' }} item xs={12} md={6} lg={6}>
                     <Stack direction="row" spacing={2} sx={{ mt: 2 }}>
                         <FormControl sx={{ m: 1, mt: 2, minWidth: 120 }} size="small">
                             <InputLabel variant="standard" htmlFor="uncontrolled-native">
@@ -280,7 +280,7 @@ export default function AdminDash() {
                             >
                                 <option value={-1}>ทุกภาคการศึกษา</option>
                                 {
-                                    semester?.map((item:any, index:any) => (
+                                    semester?.map((item: any, index: any) => (
                                         <option value={item.id_semester} key={index}>{item.semester}/{item.year}</option>
                                     ))
                                 }
@@ -310,13 +310,13 @@ export default function AdminDash() {
                                 <option value={9}>กำลังเริ่มต้นโครงงาน</option>
                             </NativeSelect>
                         </FormControl>
-                        <Button onClick={() => { fillterdata(), setResetCounter(resetCounter + 1); }} variant="contained" sx={{ mt: 2 }} disabled >พิมพ์รายงาน</Button>
+                        <Button onClick={() => { fillterdata(), setResetCounter(resetCounter + 1); }} variant="contained" sx={{ mt: 2 }} >พิมพ์รายงาน</Button>
                     </Stack>
                     {
                         // setDocgenlist([])
                     }
                     {
-                        fileList?.map((file:any, index:any) => (
+                        fileList?.map((file: any, index: any) => (
                             console.log(file),
                             semester_select == -1 ?
                                 selectstatus_code == 0 ?
@@ -450,8 +450,7 @@ export default function AdminDash() {
                                     width={'100%'}
                                     display="flex"
                                 >
-                                    {/* <AllProjectList docgenlist={docgenlist} key={resetCounter} /> */}
-                                    </Box>
+                                    <AllProjectList docgenlist={docgenlist} key={resetCounter} /></Box>
                             </Grid>
                             :
                             null
@@ -463,7 +462,7 @@ export default function AdminDash() {
     )
 
 
-    function Ifodata({ file, index }:any) {
+    function Ifodata({ file, index }: any) {
 
         // keepdoc(file);
 
@@ -488,10 +487,10 @@ export default function AdminDash() {
 
             {/* btn */}
             <Stack direction="row"
-                                                            justifyContent="flex-end"
-                                                            alignItems="center"
-                                                            spacing={2} sx={{ mr: 2.5 }}>
-            <Button onClick={() => { Viewpdf(file.id_project) }} variant="contained" sx={{ mr:2,mt: 1, ml: 1, mb: 1 }}>ดูรายละเอียด ทก.01</Button>
+                justifyContent="flex-end"
+                alignItems="center"
+                spacing={2} sx={{ mr: 2.5 }}>
+                <Button onClick={() => { Viewpdf(file.id_project) }} variant="contained" sx={{ mr: 2, mt: 1, ml: 1, mb: 1 }}>ดูรายละเอียด ทก.01</Button>
             </Stack>
 
             <ProjectDetail id={file.id_project} />
@@ -534,7 +533,7 @@ export default function AdminDash() {
                                         <Stack direction="row" spacing={0}>
                                             <Typography sx={{ mt: 2, width: '33%', flexShrink: 0 }}>ไฟล์</Typography>
                                             <Stack direction="column" spacing={0}>
-                                                <Typography sx={{ pt: 1, mb: 1, color: 'text.secondary' }}><Button onClick={() => { handleFileDownload(file.path) }} component="label" variant="contained" startIcon={<ZoomIn />}>ดูไฟล์</Button></Typography>
+                                                <Typography sx={{ pt: 1, mb: 1, color: 'text.secondary' }}><Button onClick={() => { handleFileDownload(file.path) }} component="label" variant="contained" startIcon={<ZoomIn />}>View File</Button></Typography>
                                             </Stack>
                                         </Stack>
                                     </Card>

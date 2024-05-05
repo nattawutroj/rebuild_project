@@ -10,13 +10,13 @@ import {
     Image,
 } from "@react-pdf/renderer";
 
-import THSN from '../../assets/THSarabunNew/THSarabunNew.ttf';
-import THSN_B from '../../assets/THSarabunNew/THSarabunNewBold.ttf';
+import THSN from '@/assets/Sarabun/Sarabun-Regular.ttf';
+import THSN_B from '@/assets/Sarabun/Sarabun-Bold.ttf';
 import logoKMUTNB from '../../assets/logoKMUTNB.png';
 import axios from '@/api/axios';
 import Checkbox from '../../assets/checkbox.jpg';
 
-function dateThai(date) {
+function dateThai(date: any) {
     const d = new Date(date);
     const months = [
         "มกราคม",
@@ -35,18 +35,18 @@ function dateThai(date) {
     return `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear() + 543}`;
 }
 
-Font.register({ family: 'THSarabunNew', fonts: [{ src: THSN }, { src: THSN_B, fontWeight: 'bold' }] });
+Font.register({ family: 'Sarabun', fonts: [{ src: THSN }, { src: THSN_B, fontWeight: 'bold' }] });
 var nullline = 0;
 // Create styles
 const styles = StyleSheet.create({
     title: {
-        fontFamily: 'THSarabunNew'
+        fontFamily: 'Sarabun'
     },
     page: {
         backgroundColor: "white",
         color: "black",
-        fontFamily: 'THSarabunNew',
-        fontSize: 16,
+        fontFamily: 'Sarabun',
+        fontSize: 11,
     },
     header: {
         paddingTop: 5,
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
         height: window.innerHeight,
     },
     forntSmall: {
-        fontSize: 12,
+        fontSize: 7,
     },
     breakable: { width: '100%', height: 400, backgroundColor: 'tomato' },
 });
@@ -120,7 +120,7 @@ function BasicDocument() {
         return response.data.data;
     }
 
-    async function docprojectinfomation(id) {
+    async function docprojectinfomation(id: any) {
         const response = await axios.get('/resources/public/projectinfomation', {
             params: {
                 id_project: id
@@ -130,7 +130,7 @@ function BasicDocument() {
     }
 
 
-    async function docmember(id) {
+    async function docmember(id: any) {
         const response = await axios.get('/resources/public/projectinfomation/student', {
             params: {
                 id_project: id
@@ -139,7 +139,7 @@ function BasicDocument() {
         return response.data.result.rows;
     }
 
-    async function docstaff(id) {
+    async function docstaff(id: any) {
         const response = await axios.get('/resources/public/projectinfomation/staff', {
             params: {
                 id_project: id
@@ -150,10 +150,10 @@ function BasicDocument() {
 
     const [isLoading, setIsLoading] = React.useState<any>(true);
 
-    const datacleandatetoday = (data) => {
+    const datacleandatetoday = (data: any) => {
         var currentdate = new Date();
-        var cleandate = [];
-        data.forEach((element) => {
+        var cleandate: any = [];
+        data.forEach((element: any) => {
             var date = new Date(element.date);
             date.setDate(date.getDate() + 1);
 
@@ -173,7 +173,7 @@ function BasicDocument() {
 
 
             await Promise.all(
-                data.map(async (item:any) => {
+                data.map(async (item: any) => {
                     console.log('Fetching data for project:', item.id_project);
                     const [projectinfo, member, staff] = await Promise.all([
                         docprojectinfomation(item.id_project),
@@ -189,7 +189,7 @@ function BasicDocument() {
             );
 
             console.log('Data fetching completed');
-            setDocgenlist((prevDocgenlist) => {
+            setDocgenlist((prevDocgenlist: any) => {
                 // Using the state updater function to get the latest state value
                 const updatedDocgenlist = [...prevDocgenlist, ...data];
                 if (updatedDocgenlist.length > 0) {
@@ -230,13 +230,9 @@ function BasicDocument() {
                         <Header />
                     </View>
                     <View style={styles.section}>
-                        {
-                            console.log(docgenlist)
-                        }
                         <Information docgenlist={docgenlist} />
                     </View>
                     <View style={{
-                        direction: "column",
                         justifyContent: "center",
                         alignItems: "flex-start",
                         paddingBottom: 10,
@@ -277,7 +273,7 @@ function Header() {
     )
 }
 
-function Information({ docgenlist }) {
+function Information({ docgenlist }: any) {
     var count = 0;
     return (
         <>
@@ -297,7 +293,7 @@ function Information({ docgenlist }) {
                 console.log(docgenlist)
             }
             {
-                docgenlist?.map((item:any, index:any) => {
+                docgenlist?.map((item: any, index: any) => {
                     return (
                         <>
                             {
@@ -306,19 +302,18 @@ function Information({ docgenlist }) {
                                 count >= 25 ? <View break>{count = 0}</View> : null
                             }
                             <View style={[styles.row, styles.bb]} key={index}>
-                                {console.log(item:any)}
                                 <View style={[styles.column, styles.bl, { width: '10%', textAlign: 'left', fontWeight: 'light', }]}>
-                                    <Text style={[{ textAlign: 'center', fontWeight: 'light', padding: '2', fontSize: '13' }]}>{item.id_project}</Text>
+                                    <Text style={[{ textAlign: 'center', fontWeight: 'light', padding: '2', fontSize: '9' }]}>{item.id_project}</Text>
                                 </View>
                                 <View style={[styles.column, styles.bl, { width: '20%', textAlign: 'left', fontWeight: 'light', }]}>
-                                    <Text style={[{ textAlign: 'left', fontWeight: 'light', padding: '2', fontSize: '13' }]}>{item.projectinfo.project_title_th}</Text>
-                                    <Text style={[{ textAlign: 'left', fontWeight: 'light', padding: '2', fontSize: '12' }]}>{item.projectinfo.case_study_title_th}</Text>
+                                    <Text style={[{ textAlign: 'left', fontWeight: 'light', padding: '2', fontSize: '9' }]}>{item.projectinfo.project_title_th}</Text>
+                                    <Text style={[{ textAlign: 'left', fontWeight: 'light', padding: '2', fontSize: '9' }]}>{item.projectinfo.case_study_title_th}</Text>
                                 </View>
                                 <View style={[styles.column, styles.bl, { width: '15%', textAlign: 'left', fontWeight: 'light', }]}>
                                     {
-                                        item.member.map((member, index) => {
+                                        item.member.map((member: any, index: any) => {
                                             return (
-                                                <Text key={index} style={[{ textAlign: 'left', fontWeight: 'light', padding: '2', fontSize: '12' }]}>{member.name_title_th}{member.first_name_th} {member.last_name_th}</Text>
+                                                <Text key={index} style={[{ textAlign: 'left', fontWeight: 'light', padding: '2', fontSize: '9' }]}>{member.name_title_th}{member.first_name_th} {member.last_name_th}</Text>
                                             )
                                         }
                                         )
@@ -326,7 +321,7 @@ function Information({ docgenlist }) {
                                 </View>
                                 <View style={[styles.column, styles.bl, { width: '15%', textAlign: 'left', fontWeight: 'light', }]}>
                                     {
-                                        item.staff.staff.map((staff, index) => {
+                                        item.staff.staff.map((staff: any, index: any) => {
                                             return (
                                                 <>
                                                     {
@@ -334,7 +329,7 @@ function Information({ docgenlist }) {
                                                     }
                                                     {
                                                         staff.project_staff_position_title === "ปรึกษา" ?
-                                                            <Text key={index} style={[{ textAlign: 'left', fontWeight: 'light', padding: '2', fontSize: '12' }]}>{staff.name_title_th}{staff.first_name_th} {staff.last_name_th}</Text>
+                                                            <Text key={index} style={[{ textAlign: 'left', fontWeight: 'light', padding: '2', fontSize: '9' }]}>{staff.name_title_th}{staff.first_name_th} {staff.last_name_th}</Text>
                                                             : null
                                                     }
                                                 </>
@@ -343,7 +338,7 @@ function Information({ docgenlist }) {
                                         )
                                     }
                                     {
-                                        item.staff.staff.map((staff, index) => {
+                                        item.staff.staff.map((staff: any, index: any) => {
                                             return (
                                                 <>
                                                     {
@@ -351,7 +346,7 @@ function Information({ docgenlist }) {
                                                     }
                                                     {
                                                         staff.project_staff_position_title === "ปรึกษาร่วม" ?
-                                                            <Text key={index} style={[{ textAlign: 'left', fontWeight: 'light', padding: '2', fontSize: '12' }]}>{staff.name_title_th}{staff.first_name_th} {staff.last_name_th}</Text>
+                                                            <Text key={index} style={[{ textAlign: 'left', fontWeight: 'light', padding: '2', fontSize: '9' }]}>{staff.name_title_th}{staff.first_name_th} {staff.last_name_th}</Text>
                                                             : null
                                                     }
                                                 </>
@@ -360,7 +355,7 @@ function Information({ docgenlist }) {
                                         )
                                     }
                                     {
-                                        item.staff.os_staff.map((staff, index) => {
+                                        item.staff.os_staff.map((staff: any, index: any) => {
                                             return (
                                                 <>
                                                     {
@@ -368,7 +363,7 @@ function Information({ docgenlist }) {
                                                     }
                                                     {
                                                         staff.project_staff_position_title === "ปรึกษาร่วม" ?
-                                                            <Text key={index} style={[{ textAlign: 'left', fontWeight: 'light', padding: '2', fontSize: '12' }]}>{staff.name_title_th}{staff.first_name_th} {staff.last_name_th}</Text>
+                                                            <Text key={index} style={[{ textAlign: 'left', fontWeight: 'light', padding: '2', fontSize: '9' }]}>{staff.name_title_th}{staff.first_name_th} {staff.last_name_th}</Text>
                                                             : null
                                                     }
                                                 </>
@@ -379,12 +374,12 @@ function Information({ docgenlist }) {
                                 </View>
                                 <View style={[styles.column, styles.bl, { width: '15%', textAlign: 'left', fontWeight: 'light', }]}>
                                     {
-                                        item.staff.staff.map((staff, index) => {
+                                        item.staff.staff.map((staff: any, index: any) => {
                                             return (
                                                 <>
                                                     {
                                                         staff.project_staff_position_title === "ประธาน" ?
-                                                            <Text key={index} style={[{ textAlign: 'left', fontWeight: 'light', padding: '2', fontSize: '12' }]}>{staff.name_title_th}{staff.first_name_th} {staff.last_name_th}</Text>
+                                                            <Text key={index} style={[{ textAlign: 'left', fontWeight: 'light', padding: '2', fontSize: '9' }]}>{staff.name_title_th}{staff.first_name_th} {staff.last_name_th}</Text>
                                                             : null
                                                     }
                                                 </>
@@ -393,12 +388,12 @@ function Information({ docgenlist }) {
                                         )
                                     }
                                     {
-                                        item.staff.staff.map((staff, index) => {
+                                        item.staff.staff.map((staff: any, index: any) => {
                                             return (
                                                 <>
                                                     {
                                                         staff.project_staff_position_title === "กรรมการ" ?
-                                                            <Text key={index} style={[{ textAlign: 'left', fontWeight: 'light', padding: '2', fontSize: '12' }]}>{staff.name_title_th}{staff.first_name_th} {staff.last_name_th}</Text>
+                                                            <Text key={index} style={[{ textAlign: 'left', fontWeight: 'light', padding: '2', fontSize: '9' }]}>{staff.name_title_th}{staff.first_name_th} {staff.last_name_th}</Text>
                                                             : null
                                                     }
                                                 </>
@@ -408,7 +403,7 @@ function Information({ docgenlist }) {
                                     }
                                 </View>
                                 <View style={[styles.column, styles.bl, { width: '15%', textAlign: 'left', fontWeight: 'light', }]}>
-                                    <Text key={index} style={[{ textAlign: 'left', fontWeight: 'light', padding: '2', fontSize: '13' }]}>
+                                    <Text key={index} style={[{ textAlign: 'left', fontWeight: 'light', padding: '2', fontSize: '9' }]}>
                                         {
                                             item.slot === 0 ? '09.00-10.00' :
                                                 item.slot === 1 ? '10.00-11.00' :
@@ -424,8 +419,8 @@ function Information({ docgenlist }) {
                                         }
                                         &nbsp;&nbsp;ห้อง&nbsp;{item.room_title}
                                     </Text>
-                                    <Text key={index} style={[{ textAlign: 'left', fontWeight: 'light', padding: '2', fontSize: '13' }]}>{dateThai(item.date)}</Text>
-                                    <Text key={index} style={[{ textAlign: 'left', fontWeight: 'light', padding: '2', fontSize: '13' }]}>{item.test_category_title}</Text>
+                                    <Text key={index} style={[{ textAlign: 'left', fontWeight: 'light', padding: '2', fontSize: '9' }]}>{dateThai(item.date)}</Text>
+                                    <Text key={index} style={[{ textAlign: 'left', fontWeight: 'light', padding: '2', fontSize: '9' }]}>{item.test_category_title}</Text>
                                 </View>
                                 <Text style={[styles.bl, styles.br, { width: '10%', textAlign: 'center', fontWeight: 'light', }]}></Text>
                             </View >

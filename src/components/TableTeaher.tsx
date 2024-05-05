@@ -365,7 +365,7 @@ const Example = () => {
                     // );
                 }}
             >
-                Create New User
+                เพิ่มข้อมูล
             </Button>
         ),
         enableStickyHeader: true,
