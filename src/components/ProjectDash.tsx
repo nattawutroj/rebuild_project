@@ -9,6 +9,7 @@ import ProjectStudentHome from "./ProjectStudentHome";
 import { Select, MenuItem, InputLabel } from "@mui/material";
 import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@mui/system';
+import { Posc } from "./ui/posc";
 
 
 const theme = createTheme({
@@ -194,6 +195,7 @@ export default function ProjectDash() {
     return (
         <ThemeProvider theme={theme}>
             <React.Fragment>
+                <Posc projectinfo={projectinfo} />
                 <CssBaseline />{
                     addProjectBtn
                         ?

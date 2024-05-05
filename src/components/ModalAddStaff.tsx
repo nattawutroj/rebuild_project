@@ -153,7 +153,6 @@ export default function ModalAddStaff({ projectcode, setOpenAddStaff }: any) {
                 .then(res => {
                     console.log(res.data);
                     if (res.data.status === 200) {
-                        window.alert("เพิ่มข้อมูลสำเร็จ");
                         if (id_staff2 != -1) {
                             axios.post('/user/projectstaff', {
                                 id_project: projectcode,
@@ -173,8 +172,8 @@ export default function ModalAddStaff({ projectcode, setOpenAddStaff }: any) {
                                                     console.log(res.data);
                                                     if (res.data.status === 200) {
                                                         window.alert("เพิ่มข้อมูลสำเร็จ");
-                                                        setOpenAddStaff(false);
                                                         window.location.reload();
+                                                        setOpenAddStaff(false);
                                                     } else {
                                                         window.alert("เพิ่มข้อมูลไม่สำเร็จ");
                                                     }
@@ -185,9 +184,11 @@ export default function ModalAddStaff({ projectcode, setOpenAddStaff }: any) {
                                         }
                                         else {
                                             setOpenAddStaff(false);
+                                            window.location.reload();
                                         }
                                     } else {
                                         setOpenAddStaff(false);
+                                        window.location.reload();
                                     }
                                 })
                                 .catch(err => {
@@ -196,6 +197,7 @@ export default function ModalAddStaff({ projectcode, setOpenAddStaff }: any) {
                         }
                         else {
                             setOpenAddStaff(false);
+                            window.location.reload();
                         }
                     } else {
                         window.alert("เพิ่มข้อมูลไม่สำเร็จ");
@@ -208,7 +210,6 @@ export default function ModalAddStaff({ projectcode, setOpenAddStaff }: any) {
         else {
             window.alert("เพิ่มข้อมูลไม่สำเร็จ");
         }
-
     }
 
     return (
@@ -256,12 +257,12 @@ export default function ModalAddStaff({ projectcode, setOpenAddStaff }: any) {
                         <MenuItem value={-1}><em>เลือกที่ปรึกษา</em></MenuItem>
                         {
                             staffList
-                            .filter((staff: any) => staff.id_staff !== id_staff1)
-                            .map((staff: any, index: any) => {
-                                return (
-                                    <MenuItem key={index} value={staff.id_staff}>{staff.name_title_th + ' ' + staff.first_name_th + ' ' + staff.last_name_th}</MenuItem>
-                                )
-                            })
+                                .filter((staff: any) => staff.id_staff !== id_staff1)
+                                .map((staff: any, index: any) => {
+                                    return (
+                                        <MenuItem key={index} value={staff.id_staff}>{staff.name_title_th + ' ' + staff.first_name_th + ' ' + staff.last_name_th}</MenuItem>
+                                    )
+                                })
                         }
                     </Select>
                 </FormControl>
@@ -277,12 +278,12 @@ export default function ModalAddStaff({ projectcode, setOpenAddStaff }: any) {
                         <MenuItem value={-1}><em>เลือกที่ปรึกษา</em></MenuItem>
                         {
                             staffList
-                            .filter((staff: any) => staff.id_staff !== id_staff1 && staff.id_staff !== id_staff2)
-                            .map((staff: any, index: any) => {
-                                return (
-                                    <MenuItem key={index} value={staff.id_staff}>{staff.name_title_th + ' ' + staff.first_name_th + ' ' + staff.last_name_th}</MenuItem>
-                                )
-                            })
+                                .filter((staff: any) => staff.id_staff !== id_staff1 && staff.id_staff !== id_staff2)
+                                .map((staff: any, index: any) => {
+                                    return (
+                                        <MenuItem key={index} value={staff.id_staff}>{staff.name_title_th + ' ' + staff.first_name_th + ' ' + staff.last_name_th}</MenuItem>
+                                    )
+                                })
                         }
                     </Select>
                 </FormControl>

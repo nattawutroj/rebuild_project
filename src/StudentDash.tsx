@@ -4,7 +4,6 @@ import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
 import MuiDrawer from '@mui/material/Drawer';
 import Axios from '@/api/axios';
 import ProjectDash from '@/components/ProjectDash';
-import { Posc } from './components/ui/posc';
 
 
 
@@ -60,7 +59,6 @@ export default function Dashboard() {
     return (
         <ProfileContext.Provider value={{ profile, setProfile }}>
             <ThemeProvider theme={defaultTheme}>
-                <Posc />
                 <ProjectDash />
             </ThemeProvider>
         </ProfileContext.Provider >
