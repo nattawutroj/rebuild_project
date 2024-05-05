@@ -2,8 +2,8 @@ import axios from "axios";
 
 const axiosInstance = axios.create({
   // baseURL: import.meta.env.VITE_API_BASE_URL,
-  // baseURL: 'https://spitech-backend.azurewebsites.net',
-  baseURL: "http://localhost:3000",
+  baseURL: 'https://spitech-backend.azurewebsites.net',
+  // baseURL: "http://localhost:3000",
 });
 
 axiosInstance.interceptors.request.use(
