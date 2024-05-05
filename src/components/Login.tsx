@@ -350,7 +350,7 @@ export default function SignInSide() {
                             </div>
                         </Typography>
                         <Typography component="h1" variant="h5">
-                            เข้าสู่ระบบ
+                            <p className='font-kanit'>เข้าสู่ระบบ</p>
                         </Typography>
                         <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
                             <TextField
@@ -391,7 +391,7 @@ export default function SignInSide() {
                                 variant="contained"
                                 sx={{ mt: 3, mb: 2 }}
                             >
-                                เข้าสู่ระบบ
+                                <p className='font-kanit'>เข้าสู่ระบบ</p>
                             </Button>
 
                             <Copyright sx={{ mt: 10 }} />

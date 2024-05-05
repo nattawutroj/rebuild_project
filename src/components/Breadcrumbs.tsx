@@ -47,10 +47,10 @@ const Breadcrumbs: React.FC = () => {
                     </BreadcrumbLink>
                   ) : index + 1 < breadcrumbs.length ? (
                     <BreadcrumbLink href={breadcrumb.path}>
-                      {breadcrumb.name}
+                      {breadcrumb.name.replace(/_/g, ' ')}
                     </BreadcrumbLink>
                   ) : (
-                    <BreadcrumbPage>{breadcrumb.name}</BreadcrumbPage>
+                    <BreadcrumbPage>{breadcrumb.name.replace(/_/g, ' ')}</BreadcrumbPage>
                   )}
                 </BreadcrumbItem>
               </React.Fragment>

@@ -14,6 +14,7 @@ import { Route as rootRoute } from './routes/__root'
 import { Route as TestImport } from './routes/test'
 import { Route as ScheduleImport } from './routes/schedule'
 import { Route as LoginImport } from './routes/login'
+import { Route as AllproImport } from './routes/allpro'
 import { Route as StaffImport } from './routes/_staff'
 import { Route as DashImport } from './routes/_dash'
 import { Route as AppImport } from './routes/_app'
@@ -62,6 +63,11 @@ const ScheduleRoute = ScheduleImport.update({
 
 const LoginRoute = LoginImport.update({
   path: '/login',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const AllproRoute = AllproImport.update({
+  path: '/allpro',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -318,6 +324,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StaffImport
       parentRoute: typeof rootRoute
     }
+    '/allpro': {
+      preLoaderRoute: typeof AllproImport
+      parentRoute: typeof rootRoute
+    }
     '/login': {
       preLoaderRoute: typeof LoginImport
       parentRoute: typeof rootRoute
@@ -489,6 +499,7 @@ export const routeTree = rootRoute.addChildren([
     StaffStaffdashIndexRoute,
     StaffStudentdashIndexRoute,
   ]),
+  AllproRoute,
   LoginRoute,
   ScheduleRoute,
   TestRoute,

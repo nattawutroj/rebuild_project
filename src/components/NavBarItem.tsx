@@ -25,7 +25,7 @@ interface NavItemProps {
 const SubMenuItems: React.FC<{ items: SubItem[] }> = React.memo(({ items }) => {
   const navigate = useNavigate();
   return (
-    <MenubarContent>
+    <MenubarContent className="font-kanit">
       {items &&
         items.map((item:any) => (
           <React.Fragment key={item.label}>
@@ -65,7 +65,7 @@ const NavBarItem: React.FC<NavItemProps> = React.memo(
   ({ name, path, subItems }) => {
     return (
       <MenubarMenu>
-        <MenubarTrigger>
+        <MenubarTrigger className="font-kanit">
           {path ? <Link to={path}>{name}</Link> : name}
         </MenubarTrigger>
         {subItems && subItems.length > 0 && <SubMenuItems items={subItems} />}

@@ -20,6 +20,8 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import { PausePresentation } from '@mui/icons-material';
+import { ButtonUI } from '@/components/ui/button';
+import { useNavigate } from '@tanstack/react-router';
 
 
 const theme = createTheme({
@@ -82,6 +84,7 @@ const DemoPaper = styled(Paper)(({ theme }) => ({
 
 
 const Home = () => {
+    const navigate = useNavigate();
 
     const [news, setNews] = React.useState<any>([]);
 
@@ -98,7 +101,7 @@ const Home = () => {
         fecthNews();
     }, [])
 
-    const handleLink = (e:any) => {
+    const handleLink = (e: any) => {
         // if e check not start with http or https
         if (!e.startsWith('http')) {
             e = 'http://' + e;
@@ -129,8 +132,8 @@ const Home = () => {
                         <Box component="div" ml={-2} mt={-2} pl={4} pr={4} height={'100vh'} sx={{ backdropFilter: 'blur(13px)', backgroundColor: 'rgba(255,255,255,0.3)' }}>
                             <Box sx={{ height: '30vh', display: 'flex' }}>
                                 <Box sx={{ m: 'auto', width: '80%', display: 'inline' }}>
-                                    <Typography variant="h3" color="initial">ระบบบริหารจัดการข้อมูลโครงงานพิเศษ</Typography>
-                                    <Typography variant="h4" color="initial">ข่าวประชาสัมพันธ์จากภาควิชา</Typography>
+                                    <Typography className='font-kanit' variant="h3" color="initial">ระบบบริหารจัดการข้อมูลโครงงานพิเศษ</Typography>
+                                    <Typography className='font-kanit' variant="h4" color="initial">ข่าวประชาสัมพันธ์จากภาควิชา</Typography>
                                 </Box>
                                 <Box
                                     component="img"
@@ -148,26 +151,16 @@ const Home = () => {
                                 spacing={1}
                                 sx={{ mb: 3 }}
                             >
-                                <DemoPaper square={false}>
-                                    <ListItemButton href='/schedule'>
-                                        <ListItemIcon>
-                                            <DashboardIcon />
-                                        </ListItemIcon>
-                                        <ListItemText primary="ตารางสอบ" />
-                                    </ListItemButton></DemoPaper>
-                                <DemoPaper square={false}>
-                                    <ListItemButton href='/allpro'>
-                                        <ListItemIcon>
-                                            <PausePresentation />
-                                        </ListItemIcon>
-                                        <ListItemText primary="โปรเจ็คทั้งหทด" />
-                                    </ListItemButton></DemoPaper>
-
-
+                                <ButtonUI className='w-80 h-20 bg-white text-black text-2xl font-kanit' onClick={() => navigate({ to: '/schedule' })}>
+                                    ตารางสอบ
+                                </ButtonUI>
+                                <ButtonUI className='w-80 h-20 bg-white text-black text-2xl font-kanit' onClick={() => navigate({ to: '/allpro' })}>
+                                    โปรเจ็คทั้งหมด
+                                </ButtonUI>
                             </Stack>
                             <Grid sx={{ width: '100%', overflowY: 'auto', maxHeight: '45vh' }} container justifyContent="center" spacing={{ xs: 2, md: 0 }} columns={{ xs: 4, sm: 5, md: 15 }}>
                                 {
-                                    news.map((item:any, index:any) => {
+                                    news.map((item: any, index: any) => {
                                         return (
                                             <Accordion key={index}>
                                                 <AccordionSummary
@@ -176,7 +169,7 @@ const Home = () => {
                                                     sx={{ width: '100%' }}
                                                     id="panel1-header"
                                                 >
-                                                    {item.topic}
+                                                    <p className='font-kanit'>{item.topic}</p>
                                                 </AccordionSummary>
                                                 <AccordionDetails>
                                                     <Grid container sx={{ marginLeft: '60vw', marginRight: '60vw' }} justifyContent="center" spacing={{ xs: 2, md: 0 }} columns={{ xs: 4, sm: 5, md: 15 }}>
