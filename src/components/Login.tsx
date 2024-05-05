@@ -421,7 +421,7 @@ export default function SignInSide() {
                                 <LockOutlinedIcon />
                             </Avatar>
                             <Typography component="h1" variant="h5">
-                                เปลี่ยนรหัสผ่าน
+                                ตั้งรหัสผ่านครั้งแรก
                             </Typography>
                             <Box component="form" noValidate onSubmit={handleChangPassword} sx={{ mt: 1 }}>
                                 <TextField

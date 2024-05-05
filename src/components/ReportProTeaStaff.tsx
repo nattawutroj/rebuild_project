@@ -11,7 +11,7 @@ import { InputLabel } from "@mui/material";
 import { NativeSelect } from "@mui/material";
 import { Stack } from "@mui/material";
 import { Button } from "@mui/material";
-// import AllProjectList from "../libs/Report/AllProjectList"
+import AllProjectList from "@/libs/Report/AAAllProjectList"
 import Box from "@mui/material/Box";
 import Select from '@mui/material/Select';
 import { ProfileContext } from '../StaffDash';
@@ -22,15 +22,16 @@ import MenuItem from '@mui/material/MenuItem';
 
 export default function AdminDash() {
 
-    const { profile }:any = React.useContext(ProfileContext)
+    const { profile }: any = React.useContext(ProfileContext)
+
 
     const [docgenlist, setDocgenlist] = React.useState<any>([]);
 
-    function keepdoc(file:any) {
-        setDocgenlist((docgenlist:any) => [...docgenlist, file]);
+    function keepdoc(file: any) {
+        setDocgenlist((docgenlist: any) => [...docgenlist, file]);
     }
 
-    const [semester, setSemester] = React.useState<any>([]);
+    const [semester, setSemester] = React.useState([]);
 
     const getsemester = async () => {
         try {
@@ -42,23 +43,22 @@ export default function AdminDash() {
     }
 
     const fetchsemester = async () => {
-        const [semester]:any = await Promise.all([getsemester()]);
+        const [semester]: any = await Promise.all([getsemester()]);
         setSemester(semester.data.result);
     }
 
 
-
-    const [fileList, setFileList] = React.useState<any>([]);
-    const [expanded, setExpanded] = React.useState<any>(false);
+    const [fileList, setFileList] = React.useState([]);
+    const [expanded, setExpanded] = React.useState(false);
     const [selectstatus_code, setSelectStatus_code] = React.useState<any>(0);
 
     const [semester_select, setSemester_Select] = React.useState<any>(-1);
 
-    const [pdfUrl, setPdfUrl] = React.useState<any>('');
-    const [resetCounter, setResetCounter] = React.useState<any>(0);
+    const [pdfUrl, setPdfUrl] = React.useState('');
+    const [resetCounter, setResetCounter] = React.useState(0);
 
 
-    const handleFileDownload = (id_file:any) => {
+    const handleFileDownload = (id_file: any) => {
         axios.get('/resources/public/download/pdf', {
             params: {
                 file: id_file
@@ -73,23 +73,23 @@ export default function AdminDash() {
 
             // Open the PDF file in a new window or tab
             if (window.innerWidth < 900) {
-                setPdfUrl(null)
+                setPdfUrl('')
                 window.open(dataUrl);
             }
             else {
                 setPdfUrl(dataUrl);
             }
         }).catch(err => {
-            setPdfUrl(null)
+            setPdfUrl('')
             console.log(err);
         }
         );
     };
 
 
-    const [staffList, setStaffList] = React.useState<any>([]);
+    const [staffList, setStaffList] = React.useState([]);
 
-    const [id_staff, setIdStaff] = React.useState<any>(-1);
+    const [id_staff, setIdStaff] = React.useState<any>(profile.id_staff);
     function FetchStaff() {
         axios.get('/user/stafflist')
             .then(res => {
@@ -103,44 +103,40 @@ export default function AdminDash() {
 
 
     const Fetchreqreport = async () => {
-        console.log("1")
-            await axios.get('resources/admin/reqproject/teacher', {
-                params: {
-                    id_staff: profile.id_staff
-                }
+        await axios.get('resources/admin/reqproject/teacher', {
+            params: {
+                id_staff: profile.id_staff
             }
-            ).then(res => {
-                setPdfUrl(null)
-                setFileList(res.data.result);
-                setExpanded(false);
-            }).catch(err => {
-                console.log(err);
-            })
+        }
+        ).then(res => {
+            setPdfUrl('')
+            setFileList(res.data.result);
+            setExpanded(false);
+        }).catch(err => {
+            console.log(err);
+        })
     }
 
-    const Viewpdf = (id:any) => {
+    const Viewpdf = (id: any) => {
         handleFileDownload(id);
     }
 
 
-    const handleChange = (panel:any) => {
+    const handleChange = (panel: any) => {
         setExpanded(panel);
     }
 
+
     React.useEffect(() => {
-        console.log(profile.length)
-        if (Object.keys(profile).length !== 0) {
-            FetchStaff();
-            fetchsemester();
-            Fetchreqreport();
-        }
-    }, [profile]);
-    
-    
+        FetchStaff(); // Assuming FetchStaff modifies some state
+        fetchsemester();
+        Fetchreqreport();
+    }, [profile])
+
 
     function fillterdata() {
         setDocgenlist([]);
-        fileList?.map((file:any) => (
+        fileList?.map((file: any) => (
             semester_select == -1 ?
                 selectstatus_code == 0 ?
                     keepdoc(file)
@@ -288,12 +284,9 @@ export default function AdminDash() {
 
     return (
         <>
-        {
-
-        console.log(Object.keys(profile).length)
-        }
             <Grid container spacing={2}>
-                    <Stack direction="row" sx={{ mt: 2 }}>
+                <Grid sx={{ height: '100vh', overflowY: 'scroll' }} item xs={12} md={6} lg={6}>
+                    <Stack direction="row" spacing={2} sx={{ mt: 2 }}>
                         <FormControl sx={{ m: 1, mt: 2, minWidth: 120 }} size="small">
                             <InputLabel variant="standard" htmlFor="uncontrolled-native">
                                 ภาคการศึกษา
@@ -308,7 +301,7 @@ export default function AdminDash() {
                             >
                                 <option value={-1}>ทุกภาคการศึกษา</option>
                                 {
-                                    semester?.map((item:any, index:any) => (
+                                    semester?.map((item: any, index: any) => (
                                         <option value={item.id_semester} key={index}>{item.semester}/{item.year}</option>
                                     ))
                                 }
@@ -338,13 +331,13 @@ export default function AdminDash() {
                                 <option value={9}>กำลังเริ่มต้นโครงงาน</option>
                             </NativeSelect>
                         </FormControl>
-                        <Button onClick={() => { fillterdata(), setResetCounter(resetCounter + 1); }} variant="contained" sx={{ mt: 2 }} disabled >พิมพ์รายงาน</Button>
+                        <Button onClick={() => { fillterdata(), setResetCounter(resetCounter + 1); }} variant="contained" sx={{ mt: 2 }} >พิมพ์รายงาน</Button>
                     </Stack>
                     {
                         // setDocgenlist([])
                     }
                     {
-                        fileList?.map((file:any, index:any) => (
+                        fileList?.map((file: any, index: any) => (
                             semester_select == -1 ?
                                 selectstatus_code == 0 ?
                                     <Ifodata file={file} index={index} key={index} />
@@ -467,16 +460,33 @@ export default function AdminDash() {
                                     :
                                     null
                         ))}
+                </Grid>
+                {
+                    docgenlist.length > 0 ?
+                        window.innerWidth > 600 ?
+                            <Grid item xs={12} md={12} lg={6}>
+                                <Box
+                                    height={'100vh'}
+                                    width={'100%'}
+                                    display="flex"
+                                >
+                                    <AllProjectList docgenlist={docgenlist} key={resetCounter} /></Box>
+                            </Grid>
+                            :
+                            null
+                        :
+                        null
+                }
             </Grid>
         </>
     )
 
 
-    function Ifodata({ file, index }:any) {
+    function Ifodata({ file, index }: any) {
 
         // keepdoc(file);
 
-        return (<Accordion expanded={expanded === `${file.id_project}`} onChange={() => { handleChange(`${file.id_project}`) }} key={index} sx={{ mt: 1, width: '100%' }} >
+        return (<Accordion expanded={expanded === file.id_project.toString()} onChange={() => { handleChange(file.id_project.toString()) }} key={index} sx={{ mt: 1, width: '100%' }} >
             <AccordionSummary
                 expandIcon={<CloudUploadIcon />}
                 aria-controls="panel1a-content"
@@ -535,7 +545,7 @@ export default function AdminDash() {
                                         <Stack direction="row" spacing={0}>
                                             <Typography sx={{ mt: 2, width: '33%', flexShrink: 0 }}>ไฟล์</Typography>
                                             <Stack direction="column" spacing={0}>
-                                                <Typography sx={{ pt: 1, mb: 1, color: 'text.secondary' }}><Button onClick={() => { handleFileDownload(file.path) }} component="label" variant="contained" startIcon={<ZoomIn />}>ดูไฟล์</Button></Typography>
+                                                <Typography sx={{ pt: 1, mb: 1, color: 'text.secondary' }}><Button onClick={() => { handleFileDownload(file.path) }} component="label" variant="contained" startIcon={<ZoomIn />}>View File</Button></Typography>
                                             </Stack>
                                         </Stack>
                                     </Card>
