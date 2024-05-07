@@ -372,7 +372,8 @@ export default function ProjectCard({ projectinfo, editMode, setEditMode }: any)
                                 alignItems="center"
                                 spacing={2} sx={{ mt: 2.5 }}>
                                 <Button onClick={() => { btninitalcomfirm(item.id_project_status) }} disabled={adviserContent == null} variant='contained' color='success' startIcon={<CheckIcon />}>ยืนยัน</Button>
-                                <Button onClick={() => { AlertDialogProject(item) }} variant='contained' color='error' startIcon={<DeleteIcon />}>{countStd > 1 ? 'ออกจากโครงงาน' : 'ลบโครงงาน'}</Button>
+                                {editMode !== 1 && <Button onClick={() => { AlertDialogProject(item) }} variant='contained' color='error' startIcon={<DeleteIcon />}>{countStd > 1 ? 'ออกจากโครงงาน' : 'ลบโครงงาน'}</Button> }
+                                
                             </Stack>
                         </AccordionDetails>
                     </Accordion>
