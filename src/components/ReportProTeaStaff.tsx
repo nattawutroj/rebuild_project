@@ -3,7 +3,7 @@ import axios from "@/api/axios";
 import { Accordion, Grid } from "@mui/material";
 import { AccordionSummary } from "@mui/material";
 import { Typography } from "@mui/material";
-import { CloudUpload as CloudUploadIcon } from "@mui/icons-material";
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { green, red } from "@mui/material/colors";
 import ProjectDetail from './SubComponets/ProjectDetail';
 import { FormControl } from "@mui/material";
@@ -289,7 +289,7 @@ export default function AdminDash() {
                     <Stack direction="row" spacing={2} sx={{ mt: 2 }}>
                         <FormControl sx={{ m: 1, mt: 2, minWidth: 120 }} size="small">
                             <InputLabel variant="standard" htmlFor="uncontrolled-native">
-                                ภาคการศึกษา
+                                <p className="font-kanit">ภาคการศึกษา</p>
                             </InputLabel>
                             <NativeSelect
                                 defaultValue={-1}
@@ -309,7 +309,7 @@ export default function AdminDash() {
                         </FormControl>
                         <FormControl sx={{ m: 1, mt: 2, minWidth: 120 }} size="small">
                             <InputLabel variant="standard" htmlFor="uncontrolled-native">
-                                สถานะ
+                                <p className="font-kanit">สถานะ</p>
                             </InputLabel>
                             <NativeSelect
                                 defaultValue={0}
@@ -331,7 +331,7 @@ export default function AdminDash() {
                                 <option value={9}>กำลังเริ่มต้นโครงงาน</option>
                             </NativeSelect>
                         </FormControl>
-                        <Button onClick={() => { fillterdata(), setResetCounter(resetCounter + 1); }} variant="contained" sx={{ mt: 2 }} >พิมพ์รายงาน</Button>
+                        <Button onClick={() => { fillterdata(), setResetCounter(resetCounter + 1); }} variant="contained" sx={{ mt: 2 }} ><p className="font-kanit">พิมพ์รายงาน</p></Button>
                     </Stack>
                     {
                         // setDocgenlist([])
@@ -488,18 +488,18 @@ export default function AdminDash() {
 
         return (<Accordion expanded={expanded === file.id_project.toString()} onChange={() => { handleChange(file.id_project.toString()) }} key={index} sx={{ mt: 1, width: '100%' }} >
             <AccordionSummary
-                expandIcon={<CloudUploadIcon />}
+                expandIcon={<KeyboardArrowUpIcon />}
                 aria-controls="panel1a-content"
                 id="panel1a-header"
             >
-                <Typography sx={{ pt: 0.3, width: '65%', flexShrink: 0 }}> {file.id_project} {file.project_title_th} </Typography>
+                <Typography sx={{ pt: 0.3, width: '65%', flexShrink: 0,fontFamily: "kanit" }}> {file.id_project} {file.project_title_th} </Typography>
                 {
                     file.staus_code != -1 ?
                         // <Typography sx={{ pt: 0.3, color: green[600] }}>ไม่ผ่านยื่นสอบใหม่ภายในช่วงเวลา</Typography>
-                        <Typography sx={{ pt: 0.3, color: green[600] }}>{file.project_status_name_title}</Typography>
+                        <Typography sx={{ pt: 0.3, color: green[600],fontFamily: "kanit" }}>{file.project_status_name_title}</Typography>
                         :
                         file.staus_code == 18 ?
-                            <Typography sx={{ pt: 0.3, color: red[600] }}>{file.project_status_name_title}</Typography>
+                            <Typography sx={{ pt: 0.3, color: red[600],fontFamily: "kanit" }}>{file.project_status_name_title}</Typography>
                             :
                             null
                 }

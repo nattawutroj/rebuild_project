@@ -6,12 +6,12 @@ import { Typography } from '@mui/material';
 import axios from '@/api/axios';
 
 
-export default function ProjectDetail({ act, id }:any) {
+export default function ProjectDetail({ act, id }: any) {
 
     const [item, setItem] = React.useState<any>([]);
     const [staff, setStaff] = React.useState<any>([]);
     const [member, setMember] = React.useState<any>([]);
-    let adviserContent:any = null;
+    let adviserContent: any = null;
     let countStd = 0;
 
 
@@ -65,43 +65,43 @@ export default function ProjectDetail({ act, id }:any) {
 
     return (
         <React.Fragment>
-            <AccordionDetails  >
-                <Card sx={{ p: 1}}
+            <AccordionDetails sx={{ fontFamily: "kanit" }}  >
+                <Card sx={{ p: 1 }}
                     aria-controls="panel1a-content"
                     id="panel1a-header"
                 >
                     <Stack direction="row" spacing={0}>
-                        <Typography sx={{ mt: 1, width: '33%', flexShrink: 0 }}>ชื่อโครงงาน</Typography>
+                        <Typography sx={{ mt: 1, width: '33%', flexShrink: 0, fontFamily: "kanit" }}>ชื่อโครงงาน</Typography>
                         <Stack direction="column" spacing={0}>
-                            <Typography sx={{ pt: 0.3, color: 'text.secondary' }}>{item.project_title_th}</Typography>
-                            <Typography sx={{ pt: 0.3, color: 'text.secondary' }}>{item.project_title_en}</Typography>
+                            <Typography sx={{ pt: 0.3, color: 'text.secondary', fontFamily: "kanit" }}>{item.project_title_th}</Typography>
+                            <Typography sx={{ pt: 0.3, color: 'text.secondary', fontFamily: "kanit" }}>{item.project_title_en}</Typography>
                         </Stack>
                     </Stack>
                 </Card>
-                <Card sx={{ p: 1}}
+                <Card sx={{ p: 1 }}
                     aria-controls="panel1a-content"
                     id="panel1a-header"
                 >
                     <Stack direction="row" spacing={0}>
-                        <Typography sx={{ mt: 1, width: '33%', flexShrink: 0 }}>กรณีศึกษา</Typography>
+                        <Typography sx={{ mt: 1, width: '33%', flexShrink: 0, fontFamily: "kanit" }}>กรณีศึกษา</Typography>
                         <Stack direction="column" spacing={0}>
-                            <Typography sx={{ pt: 0.3, color: 'text.secondary' }}>{item.case_study_title_th}</Typography>
-                            <Typography sx={{ pt: 0.3, color: 'text.secondary' }}>{item.case_study_title_en}</Typography>
+                            <Typography sx={{ pt: 0.3, color: 'text.secondary', fontFamily: "kanit" }}>{item.case_study_title_th}</Typography>
+                            <Typography sx={{ pt: 0.3, color: 'text.secondary', fontFamily: "kanit" }}>{item.case_study_title_en}</Typography>
                         </Stack>
                     </Stack>
                 </Card>
-                <Card sx={{ p: 1}}
+                <Card sx={{ p: 1 }}
                     aria-controls="panel1a-content"
                     id="panel1a-header"
                 >
                     <Stack direction="row" spacing={0}>
-                        <Typography sx={{ mt: 0.3, width: '33%', flexShrink: 0 }}>ผู้จัดทำโครงงาน</Typography>
+                        <Typography sx={{ mt: 0.3, width: '33%', flexShrink: 0, fontFamily: "kanit" }}>ผู้จัดทำโครงงาน</Typography>
                         <Stack direction="column" spacing={0}>
                             {
-                                member?.map((data:any, index:any) => (
+                                member?.map((data: any, index: any) => (
                                     (data.id_project === item.id_project) ? (
                                         countStd++,
-                                            <Typography key={index} sx={{ pt: 0.3, color: 'text.secondary' }} >{data.student_code + ' ' + data.first_name_th + ' ' + data.last_name_th}  <b>&nbsp;&nbsp;&nbsp;โทร</b> {data.phone}</Typography>
+                                        <Typography key={index} sx={{ pt: 0.3, color: 'text.secondary', fontFamily: "kanit" }} >{data.student_code + ' ' + data.first_name_th + ' ' + data.last_name_th}  <b>&nbsp;&nbsp;&nbsp;โทร</b> {data.phone}</Typography>
                                     )
                                         : ''
                                 ))
@@ -109,27 +109,27 @@ export default function ProjectDetail({ act, id }:any) {
                         </Stack>
                     </Stack>
                 </Card>
-                <Card sx={{ p: 1}}
+                <Card sx={{ p: 1 }}
                     aria-controls="panel1a-content"
                     id="panel1a-header"
                 >
                     <Stack direction="row" spacing={0}>
-                        <Typography sx={{ mt: 0.3, width: '33%', flexShrink: 0 }}>ประธาน </Typography>
+                        <Typography sx={{ mt: 0.3, width: '33%', flexShrink: 0, fontFamily: "kanit" }}>ประธาน </Typography>
                         <Stack direction="column" spacing={0}>
                             {
-                                staff.map((data:any) => (
-                                    data.staff.map((data2:any, index2:any) => (
+                                staff.map((data: any) => (
+                                    data.staff.map((data2: any, index2: any) => (
                                         (data2.id_project === item.id_project && data2.id_project_staff_position === 2) ?
-                                            <Typography sx={{ pt: 0.3, color: 'text.secondary' }} key={index2}>{data2.name_title_th + ' ' + data2.first_name_th + ' ' + data2.last_name_th}</Typography>
+                                            <Typography sx={{ pt: 0.3, color: 'text.secondary', fontFamily: "kanit" }} key={index2}>{data2.name_title_th + ' ' + data2.first_name_th + ' ' + data2.last_name_th}</Typography>
                                             : ''
                                     ))
                                 ))
                             }
                             {
-                                staff.map((data:any) => (
-                                    data.os_staff.map((data2:any, index2:any) => (
+                                staff.map((data: any) => (
+                                    data.os_staff.map((data2: any, index2: any) => (
                                         (data2.id_project === item.id_project && data2.id_project_staff_position === 2) ?
-                                            <Typography sx={{ pt: 0.3, color: 'text.secondary' }} key={index2}>{data2.name_title_th + ' ' + data2.first_name_th + ' ' + data2.last_name_th}</Typography>
+                                            <Typography sx={{ pt: 0.3, color: 'text.secondary', fontFamily: "kanit" }} key={index2}>{data2.name_title_th + ' ' + data2.first_name_th + ' ' + data2.last_name_th}</Typography>
                                             : ''
                                     ))
                                 ))
@@ -137,27 +137,27 @@ export default function ProjectDetail({ act, id }:any) {
                         </Stack>
                     </Stack>
                 </Card>
-                <Card sx={{ p: 1}}
+                <Card sx={{ p: 1 }}
                     aria-controls="panel1a-content"
                     id="panel1a-header"
                 >
                     <Stack direction="row" spacing={0}>
-                        <Typography sx={{ mt: 0.3, width: '33%', flexShrink: 0 }}>กรรมการ </Typography>
+                        <Typography sx={{ mt: 0.3, width: '33%', flexShrink: 0, fontFamily: "kanit" }}>กรรมการ </Typography>
                         <Stack direction="column" spacing={0}>
                             {
-                                staff.map((data:any) => (
-                                    data.staff.map((data2:any, index2:any) => (
+                                staff.map((data: any) => (
+                                    data.staff.map((data2: any, index2: any) => (
                                         (data2.id_project === item.id_project && data2.id_project_staff_position === 3) ?
-                                            <Typography sx={{ pt: 0.3, color: 'text.secondary' }} key={index2}>{data2.name_title_th + ' ' + data2.first_name_th + ' ' + data2.last_name_th}</Typography>
+                                            <Typography sx={{ pt: 0.3, color: 'text.secondary', fontFamily: "kanit" }} key={index2}>{data2.name_title_th + ' ' + data2.first_name_th + ' ' + data2.last_name_th}</Typography>
                                             : ''
                                     ))
                                 ))
                             }
                             {
-                                staff.map((data:any) => (
-                                    data.os_staff.map((data2:any, index2:any) => (
+                                staff.map((data: any) => (
+                                    data.os_staff.map((data2: any, index2: any) => (
                                         (data2.id_project === item.id_project && data2.id_project_staff_position === 3) ?
-                                            <Typography sx={{ pt: 0.3, color: 'text.secondary' }} key={index2}>{data2.name_title_th + ' ' + data2.first_name_th + ' ' + data2.last_name_th}</Typography>
+                                            <Typography sx={{ pt: 0.3, color: 'text.secondary', fontFamily: "kanit" }} key={index2}>{data2.name_title_th + ' ' + data2.first_name_th + ' ' + data2.last_name_th}</Typography>
                                             : ''
                                     ))
                                 ))
@@ -165,22 +165,22 @@ export default function ProjectDetail({ act, id }:any) {
                         </Stack>
                     </Stack>
                 </Card>
-                <Card sx={{ p: 1}}
+                <Card sx={{ p: 1 }}
                     aria-controls="panel1a-content"
                     id="panel1a-header"
                 >
                     <Stack direction="row" spacing={0}>
-                        <Typography sx={{ mt: 0.3, width: '33%', flexShrink: 0 }}>ที่ปรึกษา</Typography>
+                        <Typography sx={{ mt: 0.3, width: '33%', flexShrink: 0, fontFamily: "kanit" }}>ที่ปรึกษา</Typography>
                         <Stack direction="column" spacing={0}>
                             {
-                                staff.map((data:any, index:any) => {
+                                staff.map((data: any, index: any) => {
                                     // Use a variable to conditionally render the "ไม่มีที่ปรึกษา" message
 
-                                    data.staff.map((data2:any, index2:any) => {
+                                    data.staff.map((data2: any, index2: any) => {
 
                                         if (data2.id_project === item.id_project && data2.id_project_staff_position === 1) {
                                             adviserContent = (
-                                                <Typography sx={{ pt: 0.3, color: 'text.secondary' }} key={index2}>
+                                                <Typography sx={{ pt: 0.3, color: 'text.secondary', fontFamily: "kanit" }} key={index2}>
                                                     {data2.name_title_th + ' ' + data2.first_name_th + ' ' + data2.last_name_th}
                                                 </Typography>
                                             );
@@ -190,7 +190,7 @@ export default function ProjectDetail({ act, id }:any) {
                                     // Render the content for each staff member
                                     return (
                                         <div key={index}>
-                                            {adviserContent ? adviserContent : <Typography sx={{ color: 'red' }} key={index}>ไม่มีที่ปรึกษา</Typography>}
+                                            {adviserContent ? adviserContent : <Typography sx={{ color: 'red', fontFamily: "kanit" }} key={index}>ไม่มีที่ปรึกษา</Typography>}
                                         </div>
                                     );
                                 })
@@ -199,27 +199,27 @@ export default function ProjectDetail({ act, id }:any) {
                         </Stack>
                     </Stack>
                 </Card>
-                <Card sx={{ p: 1}}
+                <Card sx={{ p: 1 }}
                     aria-controls="panel1a-content"
                     id="panel1a-header"
                 >
                     <Stack direction="row" spacing={0}>
-                        <Typography sx={{ mt: 0.3, width: '33%', flexShrink: 0 }}>ที่ปรึกษาร่วม </Typography>
+                        <Typography sx={{ mt: 0.3, width: '33%', flexShrink: 0, fontFamily: "kanit" }}>ที่ปรึกษาร่วม </Typography>
                         <Stack direction="column" spacing={0}>
                             {
-                                staff.map((data:any) => (
-                                    data.staff.map((data2:any, index2:any) => (
+                                staff.map((data: any) => (
+                                    data.staff.map((data2: any, index2: any) => (
                                         (data2.id_project === item.id_project && data2.id_project_staff_position === 4) ?
-                                            <Typography sx={{ pt: 0.3, color: 'text.secondary' }} key={index2}>{data2.name_title_th + ' ' + data2.first_name_th + ' ' + data2.last_name_th}</Typography>
+                                            <Typography sx={{ pt: 0.3, color: 'text.secondary', fontFamily: "kanit" }} key={index2}>{data2.name_title_th + ' ' + data2.first_name_th + ' ' + data2.last_name_th}</Typography>
                                             : ''
                                     ))
                                 ))
                             }
                             {
-                                staff.map((data:any) => (
-                                    data.os_staff.map((data2:any, index2:any) => (
+                                staff.map((data: any) => (
+                                    data.os_staff.map((data2: any, index2: any) => (
                                         (data2.id_project === item.id_project && data2.id_project_staff_position === 4) ?
-                                            <Typography sx={{ pt: 0.3, color: 'text.secondary' }} key={index2}>{data2.name_title_th + ' ' + data2.first_name_th + ' ' + data2.last_name_th}</Typography>
+                                            <Typography sx={{ pt: 0.3, color: 'text.secondary', fontFamily: "kanit" }} key={index2}>{data2.name_title_th + ' ' + data2.first_name_th + ' ' + data2.last_name_th}</Typography>
                                             : ''
                                     ))
                                 ))
