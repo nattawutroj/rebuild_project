@@ -904,7 +904,7 @@ export default function AdminDash() {
                                                 sx={{ ml: 4, mr: 4 }}
                                             >
                                             </Stack>
-                                            <ProjectDetail id={file.id_project} />
+                                            <ProjectDetail del={false} id={file.id_project} />
                                             <AccordionDetails>
                                                 <Card sx={{ p: 1 }}
                                                     aria-controls="panel1a-content"

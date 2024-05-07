@@ -4,10 +4,10 @@ import { AccordionDetails } from '@mui/material';
 import { Card } from '@mui/material';
 import { Typography } from '@mui/material';
 import axios from '@/api/axios';
+import { ButtonUI } from '../ui/button';
 
 
-export default function ProjectDetail({ act, id }: any) {
-
+export default function ProjectDetail({ act, id, del }: any) {
     const [item, setItem] = React.useState<any>([]);
     const [staff, setStaff] = React.useState<any>([]);
     const [member, setMember] = React.useState<any>([]);
@@ -57,6 +57,25 @@ export default function ProjectDetail({ act, id }: any) {
 
     }
 
+    const delProject = async (item: any, itemids: any) => {
+        if (window.confirm('คุณต้องการนำนักศึกษาออกจากโครงงานหรือไม่? \n หากต้องการ กรุณากดปุ่ม OK หากไม่ต้องการ กรุณากดปุ่ม Cancel \n ** หากไม่มีนักศึกษาในโครงงาน โครงงานจะถูกลบออกจากระบบ **')) {
+            if (window.confirm('******** ย้ำอีกครั้ง ********\nคุณต้องการนำนักศึกษาออกจากโครงงานหรือไม่? \n หากต้องการ กรุณากดปุ่ม OK หากไม่ต้องการ กรุณากดปุ่ม Cancel \n ** หากไม่มีนักศึกษาในโครงงาน โครงงานจะถูกลบออกจากระบบ **')) {
+                try {
+                    await axios.delete('/user/joinatadmin', {
+                        data: {
+                            params: {
+                                id_project: item,
+                                id_student: itemids
+                            }
+                        }
+                    });
+                    window.location.reload();
+                } catch (error) {
+                    console.log(error);
+                }
+            }
+        }
+    }
 
     React.useEffect(() => {
         projectinfomation();
@@ -101,7 +120,12 @@ export default function ProjectDetail({ act, id }: any) {
                                 member?.map((data: any, index: any) => (
                                     (data.id_project === item.id_project) ? (
                                         countStd++,
-                                        <Typography key={index} sx={{ pt: 0.3, color: 'text.secondary', fontFamily: "kanit" }} >{data.student_code + ' ' + data.first_name_th + ' ' + data.last_name_th}  <b>&nbsp;&nbsp;&nbsp;โทร</b> {data.phone}</Typography>
+                                        <Typography key={index} sx={{ pt: 0.3, color: 'text.secondary', fontFamily: "kanit" }} >
+                                            {data.student_code + ' ' + data.first_name_th + ' ' + data.last_name_th}  <b>&nbsp;&nbsp;&nbsp;โทร</b> {data.phone}
+                                            {
+                                                del && <ButtonUI className='ml-4 w-auyo h-8 bg-red-600' onClick={() => delProject(data.id_project, data.id_student)}>นำออกจากโครงงาน</ButtonUI>
+                                            }
+                                        </Typography>
                                     )
                                         : ''
                                 ))

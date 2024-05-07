@@ -891,7 +891,7 @@ export default function AdminDash() {
                                     sx={{ ml: 4, mr: 4 }}
                                 >
                                 </Stack>
-                                <ProjectDetail act={act} id={file.id_project} />
+                                <ProjectDetail del={false} act={act} id={file.id_project} />
 
                                 <Button onClick={() => { setIdprojectstatustitle(file.id_project_status_title), setAjid(file.id_project), setProjectcode(file.id_project), setOpenCalander(true) }} sx={{ mt: 2.5, mb: 1, ml: 2 }} variant='contained' color='primary' startIcon={<Add />}>จัดตารางสอบ</Button>
                                 {

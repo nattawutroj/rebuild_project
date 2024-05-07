@@ -519,10 +519,11 @@ export default function AdminDash() {
                             <Typography sx={{ pt: 0.3, color: red[600] }}>{file.project_status_name_title}</Typography>
                             :
                             null
+                            
                 }
             </AccordionSummary>
 
-            <ProjectDetail id={file.id_project} />
+            <ProjectDetail del={false} id={file.id_project} />
 
             {/* <AccordionDetails>
                                     <Card sx={{ p: 1 }}

@@ -493,7 +493,7 @@ export default function AdminDash() {
                 <Button onClick={() => { Viewpdf(file.id_project) }} variant="contained" sx={{ mr: 2, mt: 1, ml: 1, mb: 1 }}>ดูรายละเอียด ทก.01</Button>
             </Stack>
 
-            <ProjectDetail id={file.id_project} />
+            <ProjectDetail del={true} id={file.id_project} />
 
             {/* <AccordionDetails>
                                     <Card sx={{ p: 1 }}

@@ -505,7 +505,7 @@ export default function AdminDash() {
                 }
             </AccordionSummary>
 
-            <ProjectDetail id={file.id_project} />
+            <ProjectDetail del={false} id={file.id_project} />
 
             {/* <AccordionDetails>
                                     <Card sx={{ p: 1 }}
