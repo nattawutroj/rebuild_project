@@ -7,10 +7,12 @@ import path from "path";
 const navigationItems = [
   {
     name: "หน้าแรก",
+    icon: "home",
     path: "/dashboard",
   },
   {
     name: "จัดการสอบ",
+    icon: "book",
     subItems: [
       {
         label: "สอบหัวข้อ",
@@ -82,6 +84,7 @@ const navigationItems = [
   },
   {
     name: "จัดการผู้ใช้",
+    icon: "user",
     subItems: [
       {
         label: "เจ้าหน้าที่/อาจารย์",
@@ -109,10 +112,12 @@ const navigationItems = [
   },
   {
     name: "ออกรายงาน",
+    icon: "report",
     path: "/reports",
   },
   {
     name: "ตั้งค่าระบบ",
+    icon: "setting",
     subItems: [
       {
         label: "หลักสูตร",
