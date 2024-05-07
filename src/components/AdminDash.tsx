@@ -1,10 +1,12 @@
 import React from "react";
 import axios from "@/api/axios";
-import { Typography } from "@mui/material";
+import { CardContent, Typography } from "@mui/material";
 import { green, red } from "@mui/material/colors";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from "@tanstack/react-router";
 import PageHeader from "./PageHeader";
+import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui/card";
+import { cn } from "@/lib/utils";
 
 const theme = createTheme({
     typography: {
@@ -830,7 +832,7 @@ export default function AdminDash() {
         <>
             <ThemeProvider theme={theme}>
                 <PageHeader title="คำร้องโครงงานพิเศษที่รอ" subTitle="ดำเนินการอยู่" className="font-kanit" />
-                <div className="flex flex-row p-3 hover:bg-slate-100" aria-controls="panel1a-content" id="panel1a-header" onClick={() => navigate({ to: '/test_title_reports' })}>
+                {/* <div className="flex flex-row p-3 hover:bg-slate-100" aria-controls="panel1a-content" id="panel1a-header" onClick={() => navigate({ to: '/test_title_reports' })}>
                     <Typography sx={{ pt: 0.3, width: '40%', flexShrink: 0 }}>ยื่นสอบหัวข้อ</Typography>
                     {
                         lableexam1 > 0 ?
@@ -937,8 +939,45 @@ export default function AdminDash() {
                             :
                             <Typography sx={{ pt: 0.3 }}>ไม่มีรายการ</Typography>
                     }
+                </div> */}
+
+                <div className="grid grid-cols-4 gap-4 mt-5 font-kanit">
+                    <CardDashborad title="ยื่นสอบหัวข้อ" count={lableexam1} onClick={() => navigate({ to: '/test_title_reports' })} />
+                    <CardDashborad title="แต่งตั้งกรรมการ" count={projectProcessCount} onClick={() => navigate({ to: '/test_title_candidate' })} />
+                    <CardDashborad title="จัดตารางสอบหัวข้อ" count={projectProcessWaitSchduleCount} onClick={() => navigate({ to: '/test_title_room' })} />
+                    <CardDashborad title="บันทึกผลการสอบหัวข้อ" count={projectProcessWaitRecordCount} onClick={() => navigate({ to: '/test_title_record' })} />
+                    <CardDashborad title="ยื่นยันการแก้ไข ทก.01" count={projectProcessWaitConfiremT01Count} onClick={() => navigate({ to: '/doc_approve' })} />
+                    <CardDashborad title="ยื่นสอบหกสิบ" count={lableexam2} onClick={() => navigate({ to: '/test_six_reports' })} />
+                    <CardDashborad title="จัดตารางสอบหกสิบ" count={projectProcessWaitSchdule60Count} onClick={() => navigate({ to: '/test_six_room' })} />
+                    <CardDashborad title="บันทึกผลการสอบหกสิบ" count={projectProcessWaitRecord60Count} onClick={() => navigate({ to: '/test_six_record' })} />
+                    <CardDashborad title="ยื่นสอบร้อย" count={lableexam3} onClick={() => navigate({ to: '/test_hundred_reports' })} />
+                    <CardDashborad title="ตารางสอบร้อย" count={projectProcessWaitSchdule100Count} onClick={() => navigate({ to: '/test_hundred_room' })} />
+                    <CardDashborad title="บันทึกผลการสอบร้อย" count={projectProcessWaitRecord100Count} onClick={() => navigate({ to: '/test_hundred_record' })} />
+                    <CardDashborad title="ส่งปริญญานิพนธ์ฉบับสมบูรณ์ และ CD" count={projectProcessWaitRecordFinalCount} onClick={() => navigate({ to: '/dissertation_complete' })} />
                 </div>
             </ThemeProvider >
         </>
+    )
+}
+
+const CardDashborad: React.FC<any> = ({ title, count, onClick }) => {
+    const ping = cn('animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75', { 'hidden': count === 0 });
+    const dot = cn('relative inline-flex rounded-full h-4 w-4', { 'bg-slate-400': count === 0, 'bg-green-500': count !== 0 })
+    return (
+        <Card className="hover:bg-slate-100" onClick={onClick}>
+            <CardHeader>
+                {title}
+                <CardTitle className="flex justify-center pl-5 text-3xl pt-2">
+                    {count}
+                </CardTitle>
+
+                <CardFooter className="pl-10">
+                    <span className="relative flex h-4 w-4">
+                        <span className={ping}></span>
+                        <span className={dot}></span>
+                    </span>
+                </CardFooter>
+            </CardHeader>
+        </Card>
     )
 }
