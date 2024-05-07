@@ -870,7 +870,7 @@ export default function AdminDash() {
                             <Typography sx={{ pt: 0.3, width: '70%', fontSize: 20, fontWeight: "bold", flexShrink: 0 }}>ชื่อโครงงาน</Typography>
                         </Stack>
                         {projectProcessWaitRecord.map((file: any, index: any) => (
-                            <Accordion expanded={expanded === `${file.fileLastUpdate.id_project_file_path}`} onChange={() => { handleChange(`${file.fileLastUpdate.id_project_file_path}`), openDocWidget(file.id_project, 1) }} key={index} sx={{ backgroundColor: "#FFD4B7", mt: 1, width: '100%' }} >
+                            <Accordion expanded={expanded === `${file.fileLastUpdate.id_project_file_path}`} onChange={() => { handleChange(`${file.fileLastUpdate.id_project_file_path}`), openDocWidget(file.id_project, 1) }} key={index} sx={{ backgroundColor: "#DCFCE7", mt: 1, width: '100%' }} >
                                 <AccordionSummary
                                     expandIcon={<KeyboardArrowUpIcon />}
                                     aria-controls="panel1a-content"

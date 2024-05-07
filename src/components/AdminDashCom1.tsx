@@ -878,7 +878,7 @@ export default function AdminDash() {
                             {
                                 fileList?.map((file:any, index:any) => (
                                     file.id_project_status_title == 3 ?
-                                        < Accordion expanded={expanded === `${file.id_project_file_path}`} onChange={() => { handleChange(`${file.id_project_file_path}`), Viewpdf(file.path) }} key={index} sx={{ backgroundColor: "#FFD4B7", mt: 1, width: '100%' }} >
+                                        < Accordion expanded={expanded === `${file.id_project_file_path}`} onChange={() => { handleChange(`${file.id_project_file_path}`), Viewpdf(file.path) }} key={index} sx={{ backgroundColor: "#DCFCE7", mt: 1, width: '100%' }} >
                                             <AccordionSummary
                                                 expandIcon={<KeyboardArrowUpIcon />}
                                                 aria-controls="panel1a-content"
