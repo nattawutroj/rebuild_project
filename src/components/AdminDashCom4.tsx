@@ -264,11 +264,10 @@ export default function AdminDash() {
             x = 1;
         }
         if (examrecord == 'ผ่าน') {
-            handlereportConfirmUNC(a1, a4, a3)
+            handlereportConfirmUNC(a1, a4, a3, ' ')
         }
-
         else if (examrecord == 'ผ่านแบบมีเงื่อนไข') {
-            handlereportConfirmUNC(a1, a4, a3)
+            handlereportConfirmUNC(a1, a4, a3, examrecordcomment)
         }
         else if (examrecord == 'ไม่ผ่าน') {
             handleCancelcommentUNC(a1, examrecordcomment, a3, a4)
@@ -822,13 +821,14 @@ export default function AdminDash() {
             });
         }
     }
-    const handlereportConfirmUNC = (id_project_file_paths: any, id_project_status_title: any, id_project_status: any) => {
+    const handlereportConfirmUNC = (id_project_file_paths: any, id_project_status_title: any, id_project_status: any, cm: any) => {
         axios.post('resources/admin/reqreport/approve',
             {
                 id_project_file_paths: id_project_file_paths,
                 id_project_status: id_project_status_title,
                 id_project_status_title: id_project_status,
-                id_project: ajid
+                id_project: ajid,
+                comment: cm
             }
         ).then((response) => {
             console.log(response);
@@ -1083,7 +1083,7 @@ export default function AdminDash() {
 
 
                             {
-                                (examrecord === 'ไม่ผ่าน' || examrecord === 'ไม่ผ่านยื่นสอบใหม่ภายในช่วงเวลา') &&
+                                (examrecord === 'ผ่านแบบมีเงื่อนไข' || examrecord === 'ไม่ผ่านยื่นสอบใหม่ภายในช่วงเวลา') &&
                                 <TextField
                                     margin="normal"
                                     fullWidth

@@ -25,9 +25,9 @@ const VisuallyHiddenInput = styled('input')({
     width: 1,
 });
 
-export default function FileSending({ itemprojectinfo, id_project }:any) {
+export default function FileSending({ itemprojectinfo, id_project }: any) {
     const [testcat, setTestcat] = useState<any>(1);
-    const handleChangetestcat = (event:any) => {
+    const handleChangetestcat = (event: any) => {
         setTestcat(event.target.value);
     };
     console.log(itemprojectinfo)
@@ -40,7 +40,7 @@ export default function FileSending({ itemprojectinfo, id_project }:any) {
 
     console.log(fileList)
 
-    const handleFileChange = (event:any) => {
+    const handleFileChange = (event: any) => {
         const selectedFile = event.target.files[0];
         // Validate if the selected file is a PDF
         if (selectedFile && selectedFile.type === 'application/pdf') {
@@ -63,7 +63,7 @@ export default function FileSending({ itemprojectinfo, id_project }:any) {
                 setFileList(null);
             } else {
                 // เรียงลำดับใหม่ ตอนนี้ หน้าไปท้าย เป็น ท้ายไปหน้า response.data.result
-                
+
                 setFileList(response.data.result.reverse());
             }
         })
@@ -75,35 +75,35 @@ export default function FileSending({ itemprojectinfo, id_project }:any) {
             alert('โปรดระบุประเภทการยื่นสอบ')
         }
         else {
-            if(confirm('ยื่นสอบหรือไม่?')) {
-            if (file) {
-                const formData = new FormData();
-                formData.append('', file);
-                formData.append('id_project', id_project)
-                formData.append('id_project_status', itemprojectinfo.id_project_status)
-                formData.append('id_project_status_title', itemprojectinfo.id_project_status_title)
-                formData.append('testcat', testcat)
+            if (confirm('ยื่นสอบหรือไม่?')) {
+                if (file) {
+                    const formData = new FormData();
+                    formData.append('', file);
+                    formData.append('id_project', id_project)
+                    formData.append('id_project_status', itemprojectinfo.id_project_status)
+                    formData.append('id_project_status_title', itemprojectinfo.id_project_status_title)
+                    formData.append('testcat', testcat)
 
 
-                // Perform Axios POST request to /user/file/upload
-                axios.post('/user/upload/pdf', formData)
-                    .then(response => {
-                        // Handle success
-                        console.log('File uploaded successfully:', response.data);
-                        window.location.reload();
-                    })
-                    .catch(error => {
-                        // Handle error
-                        console.error('Error uploading file:', error);
-                    });
-            } else {
-                alert('Please select a valid PDF file before uploading.');
+                    // Perform Axios POST request to /user/file/upload
+                    axios.post('/user/upload/pdf', formData)
+                        .then(response => {
+                            // Handle success
+                            console.log('File uploaded successfully:', response.data);
+                            window.location.reload();
+                        })
+                        .catch(error => {
+                            // Handle error
+                            console.error('Error uploading file:', error);
+                        });
+                } else {
+                    alert('Please select a valid PDF file before uploading.');
+                }
             }
-        }
         }
     }
 
-    const handleFileDownload = (id_file:any) => {
+    const handleFileDownload = (id_file: any) => {
         axios.get('/resources/public/download/pdf', {
             params: {
                 file: id_file
@@ -122,14 +122,14 @@ export default function FileSending({ itemprojectinfo, id_project }:any) {
     };
 
     // สร้าง fn เปลี่ยน timestamp เป็นวันที่ เวลา "2024-01-20T18:13:05.951Z"
-    const convertDate = (timestamp:any) => {
+    const convertDate = (timestamp: any) => {
         const date = new Date(timestamp);
         const convertedDate = date.toLocaleString('th-TH', { timeZone: 'Asia/Bangkok' });
 
         return convertedDate;
     }
 
-    const handleFileDelete = (id_file:any) => {
+    const handleFileDelete = (id_file: any) => {
 
         axios.post('/user/prove', {
             id_project_status_title: itemprojectinfo.id_project_status_title,
@@ -215,7 +215,7 @@ export default function FileSending({ itemprojectinfo, id_project }:any) {
                             <Typography sx={{ pt: 0.3, width: '40%', flexShrink: 0 }}>สถานะการยื่นสอบ</Typography>
                         </AccordionSummary>
                         <AccordionDetails>
-                            {fileList.map((file:any, index:any) => (
+                            {fileList.map((file: any, index: any) => (
                                 file.staus_code == 21 || file.staus_code == 25 || file.staus_code == 24 || file.staus_code == 19 || file.staus_code == 18 ?
                                     <Accordion key={index} sx={{ mt: 1, width: '100%' }} >
                                         <AccordionSummary
@@ -232,7 +232,9 @@ export default function FileSending({ itemprojectinfo, id_project }:any) {
                                                         <Typography sx={{ pt: 0.3, color: red[600] }}>{file.project_status_name_title}</Typography>
                                                         :
                                                         file.staus_code == 25 ?
-                                                            <Typography sx={{ pt: 0.3, color: green[600] }}>{file.project_status_name_title}</Typography>
+                                                            file.comment !== ' ' ?
+                                                                <Typography sx={{ pt: 0.3, color: green[600] }}>{(file.comment === 'undefined') ? 'กำลังดำเนินการโดนเจ้าหน้าที่' : "ผ่านแบบมีเงื่อนไข" }</Typography> :
+                                                                <Typography sx={{ pt: 0.3, color: green[600] }}>{file.project_status_name_title}</Typography>
                                                             :
                                                             null
                                             }
