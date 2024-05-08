@@ -445,55 +445,55 @@ function Header({ selectReport }:any) {
                 <View style={{ width: '70%', marginTop: 1 }}>
                     {
                         (selectReport === 1) ?
-                            <Text style={styles.title}>แบบประเมินหัวข้อโครงงานพิเศษ</Text>
+                            <Text style={styles.title}>แบบประเมินหัวข้อโครงงานพิเศษ </Text>
                             :
                             null
 
                     }
                     {
                         (selectReport === 61) ?
-                            <Text style={styles.title}>แบบประเมินการสอบหกสิบโครงงานพิเศษ</Text>
+                            <Text style={styles.title}>แบบประเมินการสอบหกสิบโครงงานพิเศษ </Text>
                             :
                             null
 
                     }
                     {
                         (selectReport === 101) ?
-                            <Text style={styles.title}>แบบประเมินการสอบร้อยหัวข้อโครงงานพิเศษ</Text>
+                            <Text style={styles.title}>แบบประเมินการสอบร้อยหัวข้อโครงงานพิเศษ </Text>
                             :
                             null
 
                     }
                     {
                         (selectReport === 0) ?
-                            <Text style={styles.title}>แบบเสนอหัวข้อโครงงานพิเศษ (ปริญญานิพนธ์)</Text>
+                            <Text style={styles.title}>แบบเสนอหัวข้อโครงงานพิเศษ (ปริญญานิพนธ์) </Text>
                             :
                             null
 
                     }
                     {
                         (selectReport === 10) ?
-                            <Text style={styles.title}>แบบเสนอยื่นสอบหกสิบโครงงานพิเศษ (ปริญญานิพนธ์)</Text>
+                            <Text style={styles.title}>แบบเสนอยื่นสอบหกสิบโครงงานพิเศษ (ปริญญานิพนธ์) </Text>
                             :
                             null
 
                     }
                     {
                         (selectReport === 100) ?
-                            <Text style={styles.title}>แบบเสนอยื่นสอบร้อยโครงงานพิเศษ (ปริญญานิพนธ์)</Text>
+                            <Text style={styles.title}>แบบเสนอยื่นสอบร้อยโครงงานพิเศษ (ปริญญานิพนธ์) </Text>
                             :
                             null
 
                     }
                     {
                         (selectReport === 99) ?
-                            <Text style={styles.title}>แบบประเมินเพื่อให้คะแนนวิชาโครงงานพิเศษ (ปริญญานิพนธ์)</Text>
+                            <Text style={styles.title}>แบบประเมินเพื่อให้คะแนนวิชาโครงงานพิเศษ (ปริญญานิพนธ์) </Text>
                             :
                             null
 
                     }
-                    <Text>ภาควิชาเทคโนโลยีสารสนเทศ คณะเทคโนโลยีและการจัดการอุตสาหกรรม</Text>
-                    <Text>มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ วิทยาเขตปราจีนบุรี</Text>
+                    <Text>ภาควิชาเทคโนโลยีสารสนเทศ คณะเทคโนโลยีและการจัดการอุตสาหกรรม </Text>
+                    <Text>มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ วิทยาเขตปราจีนบุรี </Text>
                 </View>
             </View>
         </>
@@ -505,55 +505,55 @@ function Information({ projectinfo, member, staff }:any) {
     return (
         <>
             <View style={styles.row}>
-                <Text style={{ width: '33%', textAlign: 'right', fontWeight: 'bold', marginRight: 50 }}>รหัสโครงงาน</Text>
-                <Text style={{ width: '67%', }}>{projectinfo.id_project}</Text>
+                <Text style={{ width: '33%', textAlign: 'right', fontWeight: 'bold', marginRight: 50 }}>รหัสโครงงาน </Text>
+                <Text style={{ width: '67%', }}>{projectinfo.id_project} </Text>
             </View>
             <View style={styles.row}>
-                <Text style={{ width: '33%', textAlign: 'right', fontWeight: 'bold', marginRight: 50 }}>ชื่อโครงงาน (ภาษาไทย)</Text>
-                <Text style={{ width: '67%', }}>{projectinfo.project_title_th}</Text>
+                <Text style={{ width: '33%', textAlign: 'right', fontWeight: 'bold', marginRight: 50 }}>ชื่อโครงงาน (ภาษาไทย) </Text>
+                <Text style={{ width: '67%', }}>{projectinfo.project_title_th} </Text>
             </View>
             <View style={styles.row}>
-                <Text style={{ width: '33%', textAlign: 'right', fontWeight: 'bold', marginRight: 50 }}>(ภาษาอังกฤษ)</Text>
-                <Text style={{ width: '67%', }}>{projectinfo.project_title_en}</Text>
+                <Text style={{ width: '33%', textAlign: 'right', fontWeight: 'bold', marginRight: 50 }}>(ภาษาอังกฤษ) </Text>
+                <Text style={{ width: '67%', }}>{projectinfo.project_title_en} </Text>
             </View>
             <View style={styles.row}>
-                <Text style={{ width: '33%', textAlign: 'right', fontWeight: 'bold', marginRight: 50 }}>กรณีศึกษา (ภาษาไทย)</Text>
-                <Text style={{ width: '67%', }}>{projectinfo.case_study_title_th}</Text>
+                <Text style={{ width: '33%', textAlign: 'right', fontWeight: 'bold', marginRight: 50 }}>กรณีศึกษา (ภาษาไทย) </Text>
+                <Text style={{ width: '67%', }}>{projectinfo.case_study_title_th} </Text>
             </View>
             <View style={styles.row}>
-                <Text style={{ width: '33%', textAlign: 'right', fontWeight: 'bold', marginRight: 50 }}>(ภาษาอังกฤษ)</Text>
-                <Text style={{ width: '67%', }}>{projectinfo.case_study_title_en}</Text>
+                <Text style={{ width: '33%', textAlign: 'right', fontWeight: 'bold', marginRight: 50 }}>(ภาษาอังกฤษ) </Text>
+                <Text style={{ width: '67%', }}>{projectinfo.case_study_title_en} </Text>
             </View>
             <View style={styles.row}>
-                <Text style={{ width: '33%', textAlign: 'left', fontWeight: 'bold', marginRight: 50 }}>ชื่อนักศึกษาผู้จัดทำโครงงานพิเศษ</Text>
-                <Text style={{ width: '67%', }}></Text>
+                <Text style={{ width: '33%', textAlign: 'left', fontWeight: 'bold', marginRight: 50 }}>ชื่อนักศึกษาผู้จัดทำโครงงานพิเศษ </Text>
+                <Text style={{ width: '67%', }}> </Text>
             </View>
             {
                 member.map((item:any, index:any) => {
                     return (
                         <View style={styles.row} key={index}>
-                            <Text style={{ width: '5%', fontWeight: 'bold', textAlign: 'left' }}> </Text>
-                            <Text style={{ width: '35%', textAlign: 'left' }}>{item.name_title_th}{item.first_name_th} {item.last_name_th}</Text>
-                            <Text style={{ width: '15%', textAlign: 'left', fontWeight: 'bold' }}>asรหัสประจำตัว</Text>
-                            <Text style={{ width: '17%', textAlign: 'left' }}>{item.student_code}</Text>
-                            <Text style={{ width: '10%', textAlign: 'left', fontWeight: 'bold' }}>โทรศัพท์</Text>
-                            <Text style={{ width: '18%', textAlign: 'left' }}>{item.phone}</Text>
+                            <Text style={{ width: '5%', fontWeight: 'bold', textAlign: 'left' }}>  </Text>
+                            <Text style={{ width: '35%', textAlign: 'left' }}>{item.name_title_th}{item.first_name_th} {item.last_name_th} </Text>
+                            <Text style={{ width: '15%', textAlign: 'left', fontWeight: 'bold' }}>asรหัสประจำตัว </Text>
+                            <Text style={{ width: '17%', textAlign: 'left' }}>{item.student_code} </Text>
+                            <Text style={{ width: '10%', textAlign: 'left', fontWeight: 'bold' }}>โทรศัพท์ </Text>
+                            <Text style={{ width: '18%', textAlign: 'left' }}>{item.phone} </Text>
                         </View>
                     )
                 })
             }
             <View style={styles.row}>
-                <Text style={{ width: '30%', textAlign: 'left', fontWeight: 'bold', marginRight: 50 }}>อาจารย์ที่ปรึกษา</Text>
-                <Text style={{ width: '70%', }}></Text>
+                <Text style={{ width: '30%', textAlign: 'left', fontWeight: 'bold', marginRight: 50 }}>อาจารย์ที่ปรึกษา </Text>
+                <Text style={{ width: '70%', }}> </Text>
             </View>
             {
                 staff.staff.map((item:any, index:any) => {
                     return (
                         (item.project_staff_position_title === 'ปรึกษา') ?
                             <View style={styles.row} key={index}>
-                                <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}></Text>
-                                <Text style={{ width: '90%', textAlign: 'left' }}>{item.name_title_th} {item.first_name_th} {item.last_name_th}</Text>
-                                <Text style={{ width: '5%', textAlign: 'right' }}></Text>
+                                <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}> </Text>
+                                <Text style={{ width: '90%', textAlign: 'left' }}>{item.name_title_th} {item.first_name_th} {item.last_name_th} </Text>
+                                <Text style={{ width: '5%', textAlign: 'right' }}> </Text>
                             </View>
                             :
                             null
@@ -561,8 +561,8 @@ function Information({ projectinfo, member, staff }:any) {
                 })
             }
             <View style={styles.row}>
-                <Text style={{ width: '30%', textAlign: 'left', fontWeight: 'bold', marginRight: 50 }}>อาจารย์ที่ปรึกษาร่วม</Text>
-                <Text style={{ width: '70%', }}></Text>
+                <Text style={{ width: '30%', textAlign: 'left', fontWeight: 'bold', marginRight: 50 }}>อาจารย์ที่ปรึกษาร่วม </Text>
+                <Text style={{ width: '70%', }}> </Text>
             </View>
             {
                 staff.staff.map((item:any, index:any) => {
@@ -570,9 +570,9 @@ function Information({ projectinfo, member, staff }:any) {
                         (item.project_staff_position_title === 'ปรึกษาร่วม') ?
                             <View style={styles.row} key={index}>
                                 {countadvisor++}
-                                <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}></Text>
-                                <Text style={{ width: '90%', textAlign: 'left' }}>{item.name_title_th} {item.first_name_th} {item.last_name_th}</Text>
-                                <Text style={{ width: '5%', textAlign: 'right' }}></Text>
+                                <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}> </Text>
+                                <Text style={{ width: '90%', textAlign: 'left' }}>{item.name_title_th} {item.first_name_th} {item.last_name_th} </Text>
+                                <Text style={{ width: '5%', textAlign: 'right' }}> </Text>
                             </View>
                             :
                             null
@@ -582,26 +582,26 @@ function Information({ projectinfo, member, staff }:any) {
             {
                 countadvisor === 0 ?
                     <View style={styles.row}>
-                        <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}></Text>
-                        <Text style={{ width: '90%', textAlign: 'left' }}>ไม่มีที่ปรึกษาร่วม</Text>
-                        <Text style={{ width: '5%', textAlign: 'right' }}></Text>
+                        <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}> </Text>
+                        <Text style={{ width: '90%', textAlign: 'left' }}>ไม่มีที่ปรึกษาร่วม </Text>
+                        <Text style={{ width: '5%', textAlign: 'right' }}> </Text>
                     </View>
                     :
                     null
             }
             <View style={styles.row}>
-                <Text style={{ width: '30%', textAlign: 'left', fontWeight: 'bold', marginRight: 50 }}>คณะกรรมการสอบโครงงานพิเศษ</Text>
-                <Text style={{ width: '70%', }}></Text>
+                <Text style={{ width: '30%', textAlign: 'left', fontWeight: 'bold', marginRight: 50 }}>คณะกรรมการสอบโครงงานพิเศษ </Text>
+                <Text style={{ width: '70%', }}> </Text>
             </View>
             {
                 staff.staff.map((item:any, index:any) => {
                     return (
                         (item.project_staff_position_title === 'ประธาน') ?
                             <View style={styles.row} key={index}>
-                                <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}></Text>
-                                <Text style={{ width: '45%', textAlign: 'left' }}>{item.name_title_th} {item.first_name_th} {item.last_name_th}</Text>
-                                <Text style={{ width: '45%', textAlign: 'left', marginRight: 30 }}>{item.project_staff_position_title}</Text>
-                                <Text style={{ width: '5%', textAlign: 'right' }}></Text>
+                                <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}> </Text>
+                                <Text style={{ width: '45%', textAlign: 'left' }}>{item.name_title_th} {item.first_name_th} {item.last_name_th} </Text>
+                                <Text style={{ width: '45%', textAlign: 'left', marginRight: 30 }}>{item.project_staff_position_title} </Text>
+                                <Text style={{ width: '5%', textAlign: 'right' }}> </Text>
                             </View>
                             :
                             null
@@ -613,10 +613,10 @@ function Information({ projectinfo, member, staff }:any) {
                     return (
                         (item.project_staff_position_title === 'กรรมการ') ?
                             <View style={styles.row} key={index}>
-                                <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}></Text>
-                                <Text style={{ width: '45%', textAlign: 'left' }}>{item.name_title_th} {item.first_name_th} {item.last_name_th}</Text>
-                                <Text style={{ width: '45%', textAlign: 'left', marginRight: 30 }}>{item.project_staff_position_title}</Text>
-                                <Text style={{ width: '5%', textAlign: 'right' }}></Text>
+                                <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}> </Text>
+                                <Text style={{ width: '45%', textAlign: 'left' }}>{item.name_title_th} {item.first_name_th} {item.last_name_th} </Text>
+                                <Text style={{ width: '45%', textAlign: 'left', marginRight: 30 }}>{item.project_staff_position_title} </Text>
+                                <Text style={{ width: '5%', textAlign: 'right' }}> </Text>
                             </View>
                             :
                             null
@@ -633,65 +633,65 @@ function Information2({ projectinfo, member, staff }:any) {
     return (
         <>
             <View style={styles.row}>
-                <Text style={{ width: '20%', fontWeight: 'bold' }}>ชื่อ - สกุลนักศึกษา</Text>
-                <Text style={{ width: '40%' }}>{member[0].name_title_th} {member[0].first_name_th} {member[0].last_name_th}</Text>
-                <Text style={{ width: '1%' }}> </Text>
-                <Text style={{ width: '13%', fontWeight: 'bold' }}>รหัสประจำตัว</Text>
-                <Text style={{ width: '26%' }}>{member[0].student_code}</Text>
+                <Text style={{ width: '20%', fontWeight: 'bold' }}>ชื่อ - สกุลนักศึกษา </Text>
+                <Text style={{ width: '40%' }}>{member[0].name_title_th} {member[0].first_name_th} {member[0].last_name_th} </Text>
+                <Text style={{ width: '1%' }}>  </Text>
+                <Text style={{ width: '13%', fontWeight: 'bold' }}>รหัสประจำตัว </Text>
+                <Text style={{ width: '26%' }}>{member[0].student_code} </Text>
             </View>
             <View style={styles.row}>
-                <Text style={{ width: '30%', fontWeight: 'bold' }}>ที่อยู่ปัจจุบันที่สามารถติดต่อได้สะดวก</Text>
-                <Text style={{ width: '20%' }}> </Text>
-                <Text style={{ width: '11%' }}> </Text>
-                <Text style={{ width: '13%', fontWeight: 'bold' }}>โทรศัพท์</Text>
-                <Text style={{ width: '26%' }}>{member[0].phone}</Text>
+                <Text style={{ width: '30%', fontWeight: 'bold' }}>ที่อยู่ปัจจุบันที่สามารถติดต่อได้สะดวก </Text>
+                <Text style={{ width: '20%' }}>  </Text>
+                <Text style={{ width: '11%' }}>  </Text>
+                <Text style={{ width: '13%', fontWeight: 'bold' }}>โทรศัพท์ </Text>
+                <Text style={{ width: '26%' }}>{member[0].phone} </Text>
             </View>
             <View style={styles.row}>
-                <Text style={{ width: '90%' }}>{member[0].address}</Text>
-                <Text style={{ width: '2%' }}> </Text>
-                <Text style={{ width: '2%' }}> </Text>
-                <Text style={{ width: '2%' }}> </Text>
-                <Text style={{ width: '4%' }}> </Text>
+                <Text style={{ width: '90%' }}>{member[0].address} </Text>
+                <Text style={{ width: '2%' }}>  </Text>
+                <Text style={{ width: '2%' }}>  </Text>
+                <Text style={{ width: '2%' }}>  </Text>
+                <Text style={{ width: '4%' }}>  </Text>
             </View>
             <View style={[styles.row, { marginTop: 5 }]}>
-                <Text style={{ width: '55%', fontWeight: 'bold' }}>มีความประสงค์จะขอสอบโครงงานพิเศษ (ปริญญานิพนธ์) หลักสูตร</Text>
-                <Text style={{ width: '2%' }}> </Text>
-                <Text style={{ width: '37%' }}>{member[0].course_name}</Text>
-                <Text style={{ width: '2%' }}> </Text>
-                <Text style={{ width: '4%' }}> </Text>
+                <Text style={{ width: '55%', fontWeight: 'bold' }}>มีความประสงค์จะขอสอบโครงงานพิเศษ (ปริญญานิพนธ์) หลักสูตร </Text>
+                <Text style={{ width: '2%' }}>  </Text>
+                <Text style={{ width: '37%' }}>{member[0].course_name} </Text>
+                <Text style={{ width: '2%' }}>  </Text>
+                <Text style={{ width: '4%' }}>  </Text>
             </View>
             <View style={[styles.row]}>
-                <Text style={{ width: '10%', fontWeight: 'bold' }}>วิชา</Text>
-                <Text style={{ width: '35%' }}>{projectinfo.subject_code} {projectinfo.subject_name}</Text>
-                <Text style={{ width: '20%', fontWeight: 'bold' }}>จำนวนหน่วยกิต</Text>
-                <Text style={{ width: '5%', textAlign: 'left' }}>{projectinfo.credit}</Text>
-                <Text style={{ width: '10%', fontWeight: 'bold' }}>หน่วยกิต</Text>
-                <Text style={{ width: '10%', fontWeight: 'bold' }}>ปีการศึกษา</Text>
-                <Text style={{ width: '10%' }}>{projectinfo.semester + "/" + projectinfo.year}</Text>
+                <Text style={{ width: '10%', fontWeight: 'bold' }}>วิชา </Text>
+                <Text style={{ width: '35%' }}>{projectinfo.subject_code} {projectinfo.subject_name} </Text>
+                <Text style={{ width: '20%', fontWeight: 'bold' }}>จำนวนหน่วยกิต </Text>
+                <Text style={{ width: '5%', textAlign: 'left' }}>{projectinfo.credit} </Text>
+                <Text style={{ width: '10%', fontWeight: 'bold' }}>หน่วยกิต </Text>
+                <Text style={{ width: '10%', fontWeight: 'bold' }}>ปีการศึกษา </Text>
+                <Text style={{ width: '10%' }}>{projectinfo.semester + "/" + projectinfo.year} </Text>
             </View>
             <View style={styles.row}>
-                <Text style={{ width: '20%', textAlign: 'left', fontWeight: 'bold' }}>รหัสโครงงานพิเศษ</Text>
-                <Text style={{ width: '80%', }}>{projectinfo.id_project}</Text>
+                <Text style={{ width: '20%', textAlign: 'left', fontWeight: 'bold' }}>รหัสโครงงานพิเศษ </Text>
+                <Text style={{ width: '80%', }}>{projectinfo.id_project} </Text>
             </View>
             <View style={[styles.row, { marginTop: 0 }]}>
-                <Text style={{ width: '33%', textAlign: 'right', fontWeight: 'bold', marginRight: 50 }}>ชื่อโครงงาน (ภาษาไทย)</Text>
-                <Text style={{ width: '67%', }}>{projectinfo.project_title_th}</Text>
+                <Text style={{ width: '33%', textAlign: 'right', fontWeight: 'bold', marginRight: 50 }}>ชื่อโครงงาน (ภาษาไทย) </Text>
+                <Text style={{ width: '67%', }}>{projectinfo.project_title_th} </Text>
             </View>
             <View style={styles.row}>
-                <Text style={{ width: '33%', textAlign: 'right', fontWeight: 'bold', marginRight: 50 }}>(ภาษาอังกฤษ)</Text>
-                <Text style={{ width: '67%', }}>{projectinfo.project_title_en}</Text>
+                <Text style={{ width: '33%', textAlign: 'right', fontWeight: 'bold', marginRight: 50 }}>(ภาษาอังกฤษ) </Text>
+                <Text style={{ width: '67%', }}>{projectinfo.project_title_en} </Text>
             </View>
             <View style={styles.row}>
-                <Text style={{ width: '33%', textAlign: 'right', fontWeight: 'bold', marginRight: 50 }}>กรณีศึกษา (ภาษาไทย)</Text>
-                <Text style={{ width: '67%', }}>{projectinfo.case_study_title_th}</Text>
+                <Text style={{ width: '33%', textAlign: 'right', fontWeight: 'bold', marginRight: 50 }}>กรณีศึกษา (ภาษาไทย) </Text>
+                <Text style={{ width: '67%', }}>{projectinfo.case_study_title_th} </Text>
             </View>
             <View style={styles.row}>
-                <Text style={{ width: '33%', textAlign: 'right', fontWeight: 'bold', marginRight: 50 }}>(ภาษาอังกฤษ)</Text>
-                <Text style={{ width: '67%', }}>{projectinfo.case_study_title_en}</Text>
+                <Text style={{ width: '33%', textAlign: 'right', fontWeight: 'bold', marginRight: 50 }}>(ภาษาอังกฤษ) </Text>
+                <Text style={{ width: '67%', }}>{projectinfo.case_study_title_en} </Text>
             </View>
             <View style={styles.row}>
-                <Text style={{ width: '33%', textAlign: 'left', fontWeight: 'bold', marginRight: 50 }}>ชื่อนักศึกษาร่วมโครงงาน</Text>
-                <Text style={{ width: '67%', }}></Text>
+                <Text style={{ width: '33%', textAlign: 'left', fontWeight: 'bold', marginRight: 50 }}>ชื่อนักศึกษาร่วมโครงงาน </Text>
+                <Text style={{ width: '67%', }}> </Text>
             </View>
             {
                 member.map((item:any, index:any) => {
@@ -701,12 +701,12 @@ function Information2({ projectinfo, member, staff }:any) {
                                 {
                                     membercount++
                                 }
-                                <Text style={{ width: '10%', fontWeight: 'bold', textAlign: 'left' }}>ชื่อ - สกุล</Text>
-                                <Text style={{ width: '30%', textAlign: 'center' }}>{item.name_title_th}{item.first_name_th} {item.last_name_th}</Text>
-                                <Text style={{ width: '15%', textAlign: 'left', fontWeight: 'bold' }}>รหัสประจำตัว</Text>
-                                <Text style={{ width: '17%', textAlign: 'left' }}>{item.student_code}</Text>
-                                <Text style={{ width: '10%', textAlign: 'left', fontWeight: 'bold' }}>โทรศัพท์</Text>
-                                <Text style={{ width: '18%', textAlign: 'left' }}>{item.phone}</Text>
+                                <Text style={{ width: '10%', fontWeight: 'bold', textAlign: 'left' }}>ชื่อ - สกุล </Text>
+                                <Text style={{ width: '30%', textAlign: 'center' }}>{item.name_title_th}{item.first_name_th} {item.last_name_th} </Text>
+                                <Text style={{ width: '15%', textAlign: 'left', fontWeight: 'bold' }}>รหัสประจำตัว </Text>
+                                <Text style={{ width: '17%', textAlign: 'left' }}>{item.student_code} </Text>
+                                <Text style={{ width: '10%', textAlign: 'left', fontWeight: 'bold' }}>โทรศัพท์ </Text>
+                                <Text style={{ width: '18%', textAlign: 'left' }}>{item.phone} </Text>
                             </View>
                             :
                             null
@@ -719,25 +719,25 @@ function Information2({ projectinfo, member, staff }:any) {
                         {
                             membercount++
                         }
-                        <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}></Text>
-                        <Text style={{ width: '90%', textAlign: 'left' }}>ไม่มีนักศึกษาร่วมโครงงาน</Text>
-                        <Text style={{ width: '5%', textAlign: 'right' }}></Text>
+                        <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}> </Text>
+                        <Text style={{ width: '90%', textAlign: 'left' }}>ไม่มีนักศึกษาร่วมโครงงาน </Text>
+                        <Text style={{ width: '5%', textAlign: 'right' }}> </Text>
                     </View>
                     :
                     null
             }
             <View style={styles.row}>
-                <Text style={{ width: '30%', textAlign: 'left', fontWeight: 'bold', marginRight: 50 }}>อาจารย์ที่ปรึกษา</Text>
-                <Text style={{ width: '70%', }}></Text>
+                <Text style={{ width: '30%', textAlign: 'left', fontWeight: 'bold', marginRight: 50 }}>อาจารย์ที่ปรึกษา </Text>
+                <Text style={{ width: '70%', }}> </Text>
             </View>
             {
                 staff.staff.map((item:any, index:any) => {
                     return (
                         (item.project_staff_position_title === 'ปรึกษา') ?
                             <View style={styles.row} key={index}>
-                                <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}></Text>
-                                <Text style={{ width: '90%', textAlign: 'left' }}>{item.name_title_th} {item.first_name_th} {item.last_name_th}</Text>
-                                <Text style={{ width: '5%', textAlign: 'right' }}></Text>
+                                <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}> </Text>
+                                <Text style={{ width: '90%', textAlign: 'left' }}>{item.name_title_th} {item.first_name_th} {item.last_name_th} </Text>
+                                <Text style={{ width: '5%', textAlign: 'right' }}> </Text>
                             </View>
                             :
                             null
@@ -745,8 +745,8 @@ function Information2({ projectinfo, member, staff }:any) {
                 })
             }
             <View style={styles.row}>
-                <Text style={{ width: '30%', textAlign: 'left', fontWeight: 'bold', marginRight: 50 }}>อาจารย์ที่ปรึกษาร่วม</Text>
-                <Text style={{ width: '70%', }}></Text>
+                <Text style={{ width: '30%', textAlign: 'left', fontWeight: 'bold', marginRight: 50 }}>อาจารย์ที่ปรึกษาร่วม </Text>
+                <Text style={{ width: '70%', }}> </Text>
             </View>
             {
                 staff.staff.map((item:any, index:any) => {
@@ -754,9 +754,9 @@ function Information2({ projectinfo, member, staff }:any) {
                         (item.project_staff_position_title === 'ปรึกษาร่วม') ?
                             <View style={styles.row} key={index}>
                                 {countadvisor++}
-                                <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}></Text>
-                                <Text style={{ width: '90%', textAlign: 'left' }}>{item.name_title_th} {item.first_name_th} {item.last_name_th}</Text>
-                                <Text style={{ width: '5%', textAlign: 'right' }}></Text>
+                                <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}> </Text>
+                                <Text style={{ width: '90%', textAlign: 'left' }}>{item.name_title_th} {item.first_name_th} {item.last_name_th} </Text>
+                                <Text style={{ width: '5%', textAlign: 'right' }}> </Text>
                             </View>
                             :
                             null
@@ -766,20 +766,20 @@ function Information2({ projectinfo, member, staff }:any) {
             {
                 countadvisor === 0 ?
                     <View style={styles.row}>
-                        <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}></Text>
-                        <Text style={{ width: '90%', textAlign: 'left' }}>ไม่มีที่ปรึกษาร่วม</Text>
+                        <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}> </Text>
+                        <Text style={{ width: '90%', textAlign: 'left' }}>ไม่มีที่ปรึกษาร่วม </Text>
                         {
                             nullline++
                         }
-                        <Text style={{ width: '5%', textAlign: 'right' }}></Text>
+                        <Text style={{ width: '5%', textAlign: 'right' }}> </Text>
                     </View>
                     :
                     null
             }
             <View style={styles.row}>
-                <Text style={{ width: '5%', textAlign: 'right', marginRight: 30, marginTop: 25 }}></Text>
-                <Text style={{ width: '90%', textAlign: 'left', fontWeight: 'bold' }}>จึงเรียนมาเพื่อโปรดพิจารณา</Text>
-                <Text style={{ width: '5%', textAlign: 'right' }}></Text>
+                <Text style={{ width: '5%', textAlign: 'right', marginRight: 30, marginTop: 25 }}> </Text>
+                <Text style={{ width: '90%', textAlign: 'left', fontWeight: 'bold' }}>จึงเรียนมาเพื่อโปรดพิจารณา </Text>
+                <Text style={{ width: '5%', textAlign: 'right' }}> </Text>
             </View>
         </>
     )
@@ -791,55 +791,55 @@ function Information3({ projectinfo, member, staff }:any) {
         <>
             <View style={styles.forntSmall}>
                 <View style={styles.row}>
-                    <Text style={{ width: '33%', textAlign: 'right', fontWeight: 'bold', marginRight: 50 }}>รหัสโครงงาน</Text>
-                    <Text style={{ width: '67%', }}>{projectinfo.id_project}</Text>
+                    <Text style={{ width: '33%', textAlign: 'right', fontWeight: 'bold', marginRight: 50 }}>รหัสโครงงาน </Text>
+                    <Text style={{ width: '67%', }}>{projectinfo.id_project} </Text>
                 </View>
                 <View style={styles.row}>
-                    <Text style={{ width: '33%', textAlign: 'right', fontWeight: 'bold', marginRight: 50 }}>ชื่อโครงงาน (ภาษาไทย)</Text>
-                    <Text style={{ width: '67%', }}>{projectinfo.project_title_th}</Text>
+                    <Text style={{ width: '33%', textAlign: 'right', fontWeight: 'bold', marginRight: 50 }}>ชื่อโครงงาน (ภาษาไทย) </Text>
+                    <Text style={{ width: '67%', }}>{projectinfo.project_title_th} </Text>
                 </View>
                 <View style={styles.row}>
-                    <Text style={{ width: '33%', textAlign: 'right', fontWeight: 'bold', marginRight: 50 }}>(ภาษาอังกฤษ)</Text>
-                    <Text style={{ width: '67%', }}>{projectinfo.project_title_en}</Text>
+                    <Text style={{ width: '33%', textAlign: 'right', fontWeight: 'bold', marginRight: 50 }}>(ภาษาอังกฤษ) </Text>
+                    <Text style={{ width: '67%', }}>{projectinfo.project_title_en} </Text>
                 </View>
                 <View style={styles.row}>
-                    <Text style={{ width: '33%', textAlign: 'right', fontWeight: 'bold', marginRight: 50 }}>กรณีศึกษา (ภาษาไทย)</Text>
-                    <Text style={{ width: '67%', }}>{projectinfo.case_study_title_th}</Text>
+                    <Text style={{ width: '33%', textAlign: 'right', fontWeight: 'bold', marginRight: 50 }}>กรณีศึกษา (ภาษาไทย) </Text>
+                    <Text style={{ width: '67%', }}>{projectinfo.case_study_title_th} </Text>
                 </View>
                 <View style={styles.row}>
-                    <Text style={{ width: '33%', textAlign: 'right', fontWeight: 'bold', marginRight: 50 }}>(ภาษาอังกฤษ)</Text>
-                    <Text style={{ width: '67%', }}>{projectinfo.case_study_title_en}</Text>
+                    <Text style={{ width: '33%', textAlign: 'right', fontWeight: 'bold', marginRight: 50 }}>(ภาษาอังกฤษ) </Text>
+                    <Text style={{ width: '67%', }}>{projectinfo.case_study_title_en} </Text>
                 </View>
                 <View style={styles.row}>
-                    <Text style={{ width: '33%', textAlign: 'left', fontWeight: 'bold', marginRight: 50 }}>ชื่อนักศึกษาผู้จัดทำโครงงานพิเศษ</Text>
-                    <Text style={{ width: '67%', }}></Text>
+                    <Text style={{ width: '33%', textAlign: 'left', fontWeight: 'bold', marginRight: 50 }}>ชื่อนักศึกษาผู้จัดทำโครงงานพิเศษ </Text>
+                    <Text style={{ width: '67%', }}> </Text>
                 </View>
                 {
                     member.map((item:any, index:any) => {
                         return (
                             <View style={styles.row} key={index}>
-                                <Text style={{ width: '5%', fontWeight: 'bold', textAlign: 'left' }}> </Text>
-                                <Text style={{ width: '35%', textAlign: 'left' }}>{index + 1}. {item.name_title_th}{item.first_name_th} {item.last_name_th}</Text>
-                                <Text style={{ width: '15%', textAlign: 'left', fontWeight: 'bold' }}>asรหัสประจำตัว</Text>
-                                <Text style={{ width: '17%', textAlign: 'left' }}>{item.student_code}</Text>
-                                <Text style={{ width: '10%', textAlign: 'left', fontWeight: 'bold' }}>โทรศัพท์</Text>
-                                <Text style={{ width: '18%', textAlign: 'left' }}>{item.phone}</Text>
+                                <Text style={{ width: '5%', fontWeight: 'bold', textAlign: 'left' }}>  </Text>
+                                <Text style={{ width: '35%', textAlign: 'left' }}>{index + 1}. {item.name_title_th}{item.first_name_th} {item.last_name_th} </Text>
+                                <Text style={{ width: '15%', textAlign: 'left', fontWeight: 'bold' }}>asรหัสประจำตัว </Text>
+                                <Text style={{ width: '17%', textAlign: 'left' }}>{item.student_code} </Text>
+                                <Text style={{ width: '10%', textAlign: 'left', fontWeight: 'bold' }}>โทรศัพท์ </Text>
+                                <Text style={{ width: '18%', textAlign: 'left' }}>{item.phone} </Text>
                             </View>
                         )
                     })
                 }
                 <View style={styles.row}>
-                    <Text style={{ width: '30%', textAlign: 'left', fontWeight: 'bold', marginRight: 50 }}>อาจารย์ที่ปรึกษา</Text>
-                    <Text style={{ width: '70%', }}></Text>
+                    <Text style={{ width: '30%', textAlign: 'left', fontWeight: 'bold', marginRight: 50 }}>อาจารย์ที่ปรึกษา </Text>
+                    <Text style={{ width: '70%', }}> </Text>
                 </View>
                 {
                     staff.staff.map((item:any, index:any) => {
                         return (
                             (item.project_staff_position_title === 'ปรึกษา') ?
                                 <View style={styles.row} key={index}>
-                                    <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}></Text>
-                                    <Text style={{ width: '90%', textAlign: 'left' }}>{item.name_title_th} {item.first_name_th} {item.last_name_th}</Text>
-                                    <Text style={{ width: '5%', textAlign: 'right' }}></Text>
+                                    <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}> </Text>
+                                    <Text style={{ width: '90%', textAlign: 'left' }}>{item.name_title_th} {item.first_name_th} {item.last_name_th} </Text>
+                                    <Text style={{ width: '5%', textAlign: 'right' }}> </Text>
                                 </View>
                                 :
                                 null
@@ -847,8 +847,8 @@ function Information3({ projectinfo, member, staff }:any) {
                     })
                 }
                 <View style={styles.row}>
-                    <Text style={{ width: '30%', textAlign: 'left', fontWeight: 'bold', marginRight: 50 }}>อาจารย์ที่ปรึกษาร่วม</Text>
-                    <Text style={{ width: '70%', }}></Text>
+                    <Text style={{ width: '30%', textAlign: 'left', fontWeight: 'bold', marginRight: 50 }}>อาจารย์ที่ปรึกษาร่วม </Text>
+                    <Text style={{ width: '70%', }}> </Text>
                 </View>
                 {
                     staff.staff.map((item:any, index:any) => {
@@ -856,9 +856,9 @@ function Information3({ projectinfo, member, staff }:any) {
                             (item.project_staff_position_title === 'ปรึกษาร่วม') ?
                                 <View style={styles.row} key={index}>
                                     {countadvisor++}
-                                    <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}></Text>
-                                    <Text style={{ width: '90%', textAlign: 'left' }}>{item.name_title_th} {item.first_name_th} {item.last_name_th}</Text>
-                                    <Text style={{ width: '5%', textAlign: 'right' }}></Text>
+                                    <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}> </Text>
+                                    <Text style={{ width: '90%', textAlign: 'left' }}>{item.name_title_th} {item.first_name_th} {item.last_name_th} </Text>
+                                    <Text style={{ width: '5%', textAlign: 'right' }}> </Text>
                                 </View>
                                 :
                                 null
@@ -868,26 +868,26 @@ function Information3({ projectinfo, member, staff }:any) {
                 {
                     countadvisor === 0 ?
                         <View style={styles.row}>
-                            <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}></Text>
-                            <Text style={{ width: '90%', textAlign: 'left' }}>ไม่มีที่ปรึกษาร่วม</Text>
-                            <Text style={{ width: '5%', textAlign: 'right' }}></Text>
+                            <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}> </Text>
+                            <Text style={{ width: '90%', textAlign: 'left' }}>ไม่มีที่ปรึกษาร่วม </Text>
+                            <Text style={{ width: '5%', textAlign: 'right' }}> </Text>
                         </View>
                         :
                         null
                 }
                 <View style={styles.row}>
-                    <Text style={{ width: '30%', textAlign: 'left', fontWeight: 'bold', marginRight: 50 }}>คณะกรรมการสอบโครงงานพิเศษ</Text>
-                    <Text style={{ width: '70%', }}></Text>
+                    <Text style={{ width: '30%', textAlign: 'left', fontWeight: 'bold', marginRight: 50 }}>คณะกรรมการสอบโครงงานพิเศษ </Text>
+                    <Text style={{ width: '70%', }}> </Text>
                 </View>
                 {
                     staff.staff.map((item:any, index:any) => {
                         return (
                             (item.project_staff_position_title === 'ประธาน') ?
                                 <View style={styles.row} key={index}>
-                                    <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}></Text>
-                                    <Text style={{ width: '45%', textAlign: 'left' }}>{item.name_title_th} {item.first_name_th} {item.last_name_th}</Text>
-                                    <Text style={{ width: '45%', textAlign: 'left', marginRight: 30 }}>{item.project_staff_position_title}</Text>
-                                    <Text style={{ width: '5%', textAlign: 'right' }}></Text>
+                                    <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}> </Text>
+                                    <Text style={{ width: '45%', textAlign: 'left' }}>{item.name_title_th} {item.first_name_th} {item.last_name_th} </Text>
+                                    <Text style={{ width: '45%', textAlign: 'left', marginRight: 30 }}>{item.project_staff_position_title} </Text>
+                                    <Text style={{ width: '5%', textAlign: 'right' }}> </Text>
                                 </View>
                                 :
                                 null
@@ -899,10 +899,10 @@ function Information3({ projectinfo, member, staff }:any) {
                         return (
                             (item.project_staff_position_title === 'กรรมการ') ?
                                 <View style={styles.row} key={index}>
-                                    <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}></Text>
-                                    <Text style={{ width: '45%', textAlign: 'left' }}>{item.name_title_th} {item.first_name_th} {item.last_name_th}</Text>
-                                    <Text style={{ width: '45%', textAlign: 'left', marginRight: 30 }}>{item.project_staff_position_title}</Text>
-                                    <Text style={{ width: '5%', textAlign: 'right' }}></Text>
+                                    <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}> </Text>
+                                    <Text style={{ width: '45%', textAlign: 'left' }}>{item.name_title_th} {item.first_name_th} {item.last_name_th} </Text>
+                                    <Text style={{ width: '45%', textAlign: 'left', marginRight: 30 }}>{item.project_staff_position_title} </Text>
+                                    <Text style={{ width: '5%', textAlign: 'right' }}> </Text>
                                 </View>
                                 :
                                 null
@@ -920,663 +920,663 @@ function Table1({ member }:any) {
             <View style={styles.borderTable}>
                 <View style={[styles.row]}>
                     <View style={[styles.br, { width: '50%', textAlign: 'center', fontWeight: 'bold' }]}>
-                        <Text style={{ top: 10 }}>รายการ</Text>
+                        <Text style={{ top: 10 }}>รายการ </Text>
                     </View>
                     <View style={[styles.br, { width: '10%', textAlign: 'center', fontWeight: 'bold' }]}>
-                        <Text>คะแนนเต็ม</Text>
+                        <Text>คะแนนเต็ม </Text>
                     </View>
                     <View style={[styles.br, styles.bb, { width: '25%', textAlign: 'center', fontWeight: 'bold' }]}>
-                        <Text>คะแนนที่ได้</Text>
+                        <Text>คะแนนที่ได้ </Text>
                     </View>
                     <View style={[{ width: '15%', textAlign: 'center', fontWeight: 'bold' }]}>
-                        <Text>หมายเหตุ</Text>
+                        <Text>หมายเหตุ </Text>
                     </View>
                 </View>
                 <View style={[styles.row, styles.bb]}>
                     <View style={[styles.br, { width: '50%', textAlign: 'center', fontWeight: 'bold' }]}>
-                        <Text> </Text>
+                        <Text>  </Text>
                     </View>
                     <View style={[styles.br, { width: '10%', textAlign: 'center', fontWeight: 'bold' }]}>
-                        <Text>(100)</Text>
+                        <Text>(100) </Text>
                     </View>
                     {
                         Object.keys(member).length === 1 ?
                             < View style={[styles.br, { width: '25%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                <Text>{member[0].first_name_th}</Text>
+                                <Text>{member[0].first_name_th} </Text>
                             </View>
                             :
                             Object.keys(member).length === 2 ?
                                 <>
                                     < View style={[styles.br, { width: '12.5%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                        <Text>{member[0].first_name_th}</Text>
+                                        <Text>{member[0].first_name_th} </Text>
                                     </View>
                                     < View style={[styles.br, { width: '12.5%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                        <Text>{member[1].first_name_th}</Text>
+                                        <Text>{member[1].first_name_th} </Text>
                                     </View>
                                 </>
                                 :
                                 Object.keys(member).length === 3 ?
                                     <>
                                         < View style={[styles.br, { width: '8%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                            <Text>{member[0].first_name_th}</Text>
+                                            <Text>{member[0].first_name_th} </Text>
                                         </View>
                                         < View style={[styles.br, { width: '9%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                            <Text>{member[1].first_name_th}</Text>
+                                            <Text>{member[1].first_name_th} </Text>
                                         </View>
                                         < View style={[styles.br, { width: '8%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                            <Text>{member[3].first_name_th}</Text>
+                                            <Text>{member[3].first_name_th} </Text>
                                         </View>
                                     </>
                                     :
                                     Object.keys(member).length === 4 ?
                                         <>
                                             < View style={[styles.br, { width: '6%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                                <Text>(1)</Text>
+                                                <Text>(1) </Text>
                                             </View>
                                             < View style={[styles.br, { width: '7%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                                <Text>(2)</Text>
+                                                <Text>(2) </Text>
                                             </View>
                                             < View style={[styles.br, { width: '6%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                                <Text>(3)</Text>
+                                                <Text>(3) </Text>
                                             </View>
                                             < View style={[styles.br, { width: '6%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                                <Text>(4)</Text>
+                                                <Text>(4) </Text>
                                             </View>
                                         </>
                                         :
                                         null
                     }
                     <View style={{ width: '15%', textAlign: 'center', fontWeight: 'bold' }}>
-                        <Text></Text>
+                        <Text> </Text>
                     </View>
                 </View>
                 <View style={[styles.row, styles.bb]}>
                     <View style={[styles.br, { width: '50%', textAlign: 'left', fontWeight: 'normal' }]}>
                         <Text style={[{ paddingLeft: 4, fontSize: 9, paddingTop: 5,paddingBottom: 5 }]}>1.การศึกษาปัญหาและการวิเคราะห์ระบบงานเพื่อให้ทราบถึงปัญหาที่แท้จริง
-                            หรือการแสดงให้เห็นถึงแนวคิดในการพัฒนาระบบใหม่</Text>
+                            หรือการแสดงให้เห็นถึงแนวคิดในการพัฒนาระบบใหม่ </Text>
                     </View>
                     <View style={[styles.br, { width: '10%', textAlign: 'center', fontWeight: 'normal' }]}>
-                        <Text style={{ top: 6 }}>10</Text>
+                        <Text style={{ top: 6 }}>10 </Text>
                     </View>
                     {
                         Object.keys(member).length === 1 ?
                             < View style={[styles.br, { width: '25%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                <Text> </Text>
+                                <Text>  </Text>
                             </View>
                             :
                             Object.keys(member).length === 2 ?
                                 <>
                                     < View style={[styles.br, { width: '12.5%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                        <Text> </Text>
+                                        <Text>  </Text>
                                     </View>
                                     < View style={[styles.br, { width: '12.5%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                        <Text> </Text>
+                                        <Text>  </Text>
                                     </View>
                                 </>
                                 :
                                 Object.keys(member).length === 3 ?
                                     <>
                                         < View style={[styles.br, { width: '8%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                            <Text> </Text>
+                                            <Text>  </Text>
                                         </View>
                                         < View style={[styles.br, { width: '9%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                            <Text> </Text>
+                                            <Text>  </Text>
                                         </View>
                                         < View style={[styles.br, { width: '8%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                            <Text> </Text>
+                                            <Text>  </Text>
                                         </View>
                                     </>
                                     :
                                     Object.keys(member).length === 4 ?
                                         <>
                                             < View style={[styles.br, { width: '6%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                                <Text></Text>
+                                                <Text> </Text>
                                             </View>
                                             < View style={[styles.br, { width: '7%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                                <Text></Text>
+                                                <Text> </Text>
                                             </View>
                                             < View style={[styles.br, { width: '6%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                                <Text></Text>
+                                                <Text> </Text>
                                             </View>
                                             < View style={[styles.br, { width: '6%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                                <Text></Text>
+                                                <Text> </Text>
                                             </View>
                                         </>
                                         :
                                         null
                     }
                     <View style={{ width: '15%', textAlign: 'center', fontWeight: 'bold' }}>
-                        <Text></Text>
+                        <Text> </Text>
                     </View>
                 </View>
                 <View style={[styles.row, styles.bb]}>
                     <View style={[styles.br, { width: '50%', textAlign: 'left', fontWeight: 'normal' }]}>
                         <Text style={[{ paddingLeft: 4, fontSize: 9, paddingTop: 5,paddingBottom: 5 }]}>2.การค้นคว้าหาความรู้จากแหล่งต่าง ๆ หรือแสวงหาองค์ความรู้เพื่อการ
-                            พัฒนาระบบงาน</Text>
+                            พัฒนาระบบงาน </Text>
                     </View>
                     <View style={[styles.br, { width: '10%', textAlign: 'center', fontWeight: 'normal' }]}>
-                        <Text style={{ top: 6 }}>10</Text>
+                        <Text style={{ top: 6 }}>10 </Text>
                     </View>
                     {
                         Object.keys(member).length === 1 ?
                             < View style={[styles.br, { width: '25%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                <Text> </Text>
+                                <Text>  </Text>
                             </View>
                             :
                             Object.keys(member).length === 2 ?
                                 <>
                                     < View style={[styles.br, { width: '12.5%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                        <Text> </Text>
+                                        <Text>  </Text>
                                     </View>
                                     < View style={[styles.br, { width: '12.5%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                        <Text> </Text>
+                                        <Text>  </Text>
                                     </View>
                                 </>
                                 :
                                 Object.keys(member).length === 3 ?
                                     <>
                                         < View style={[styles.br, { width: '8%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                            <Text> </Text>
+                                            <Text>  </Text>
                                         </View>
                                         < View style={[styles.br, { width: '9%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                            <Text> </Text>
+                                            <Text>  </Text>
                                         </View>
                                         < View style={[styles.br, { width: '8%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                            <Text> </Text>
+                                            <Text>  </Text>
                                         </View>
                                     </>
                                     :
                                     Object.keys(member).length === 4 ?
                                         <>
                                             < View style={[styles.br, { width: '6%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                                <Text></Text>
+                                                <Text> </Text>
                                             </View>
                                             < View style={[styles.br, { width: '7%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                                <Text></Text>
+                                                <Text> </Text>
                                             </View>
                                             < View style={[styles.br, { width: '6%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                                <Text></Text>
+                                                <Text> </Text>
                                             </View>
                                             < View style={[styles.br, { width: '6%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                                <Text></Text>
+                                                <Text> </Text>
                                             </View>
                                         </>
                                         :
                                         null
                     }
                     <View style={{ width: '15%', textAlign: 'center', fontWeight: 'bold' }}>
-                        <Text></Text>
+                        <Text> </Text>
                     </View>
                 </View>
                 <View style={[styles.row, styles.bb]}>
                     <View style={[styles.br, { width: '50%', textAlign: 'left', fontWeight: 'normal' }]}>
-                        <Text style={[{ paddingLeft: 4, fontSize: 9, paddingTop: 5,paddingBottom: 5 }]}>3.การอออกแบบ</Text>
-                        <Text style={[{ paddingLeft: 4, fontSize: 9, paddingTop: 5,paddingBottom: 5 }]}>&nbsp;&nbsp;&nbsp;3.1&nbsp;..........................................................................................................</Text>
-                        <Text style={[{ paddingLeft: 4, fontSize: 9, paddingTop: 5,paddingBottom: 5 }]}>&nbsp;&nbsp;&nbsp;3.2&nbsp;..........................................................................................................</Text>
-                        <Text style={[{ paddingLeft: 4, fontSize: 9, paddingTop: 5,paddingBottom: 5 }]}>&nbsp;&nbsp;&nbsp;3.3&nbsp;..........................................................................................................</Text>
-                        <Text style={[{ paddingLeft: 4, fontSize: 9, paddingTop: 5,paddingBottom: 5 }]}>&nbsp;&nbsp;&nbsp;3.4&nbsp;..........................................................................................................</Text>
+                        <Text style={[{ paddingLeft: 4, fontSize: 9, paddingTop: 5,paddingBottom: 5 }]}>3.การอออกแบบ </Text>
+                        <Text style={[{ paddingLeft: 4, fontSize: 9, paddingTop: 5,paddingBottom: 5 }]}>&nbsp;&nbsp;&nbsp;3.1&nbsp;.......................................................................................................... </Text>
+                        <Text style={[{ paddingLeft: 4, fontSize: 9, paddingTop: 5,paddingBottom: 5 }]}>&nbsp;&nbsp;&nbsp;3.2&nbsp;.......................................................................................................... </Text>
+                        <Text style={[{ paddingLeft: 4, fontSize: 9, paddingTop: 5,paddingBottom: 5 }]}>&nbsp;&nbsp;&nbsp;3.3&nbsp;.......................................................................................................... </Text>
+                        <Text style={[{ paddingLeft: 4, fontSize: 9, paddingTop: 5,paddingBottom: 5 }]}>&nbsp;&nbsp;&nbsp;3.4&nbsp;.......................................................................................................... </Text>
                     </View>
                     <View style={[styles.br, { width: '10%', textAlign: 'center', fontWeight: 'normal' }]}>
-                        <Text style={{ top: 35 }}>25</Text>
+                        <Text style={{ top: 35 }}>25 </Text>
                     </View>
                     {
                         Object.keys(member).length === 1 ?
                             < View style={[styles.br, { width: '25%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                <Text> </Text>
+                                <Text>  </Text>
                             </View>
                             :
                             Object.keys(member).length === 2 ?
                                 <>
                                     < View style={[styles.br, { width: '12.5%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                        <Text> </Text>
+                                        <Text>  </Text>
                                     </View>
                                     < View style={[styles.br, { width: '12.5%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                        <Text> </Text>
+                                        <Text>  </Text>
                                     </View>
                                 </>
                                 :
                                 Object.keys(member).length === 3 ?
                                     <>
                                         < View style={[styles.br, { width: '8%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                            <Text> </Text>
+                                            <Text>  </Text>
                                         </View>
                                         < View style={[styles.br, { width: '9%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                            <Text> </Text>
+                                            <Text>  </Text>
                                         </View>
                                         < View style={[styles.br, { width: '8%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                            <Text> </Text>
+                                            <Text>  </Text>
                                         </View>
                                     </>
                                     :
                                     Object.keys(member).length === 4 ?
                                         <>
                                             < View style={[styles.br, { width: '6%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                                <Text></Text>
+                                                <Text> </Text>
                                             </View>
                                             < View style={[styles.br, { width: '7%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                                <Text></Text>
+                                                <Text> </Text>
                                             </View>
                                             < View style={[styles.br, { width: '6%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                                <Text></Text>
+                                                <Text> </Text>
                                             </View>
                                             < View style={[styles.br, { width: '6%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                                <Text></Text>
+                                                <Text> </Text>
                                             </View>
                                         </>
                                         :
                                         null
                     }
                     <View style={{ width: '15%', textAlign: 'center', fontWeight: 'bold' }}>
-                        <Text></Text>
+                        <Text> </Text>
                     </View>
                 </View>
                 <View style={[styles.row, styles.bb]}>
                     <View style={[styles.br, { width: '50%', textAlign: 'left', fontWeight: 'normal' }]}>
-                        <Text style={[{ paddingLeft: 4, fontSize: 9, paddingTop: 5,paddingBottom: 5 }]}>4.การใช้เครื่องมือที่เหมาะสม</Text>
+                        <Text style={[{ paddingLeft: 4, fontSize: 9, paddingTop: 5,paddingBottom: 5 }]}>4.การใช้เครื่องมือที่เหมาะสม </Text>
                     </View>
                     <View style={[styles.br, { width: '10%', textAlign: 'center', fontWeight: 'normal' }]}>
-                        <Text style={{ top: 2 }}>5</Text>
+                        <Text style={{ top: 2 }}>5 </Text>
                     </View>
                     {
                         Object.keys(member).length === 1 ?
                             < View style={[styles.br, { width: '25%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                <Text> </Text>
+                                <Text>  </Text>
                             </View>
                             :
                             Object.keys(member).length === 2 ?
                                 <>
                                     < View style={[styles.br, { width: '12.5%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                        <Text> </Text>
+                                        <Text>  </Text>
                                     </View>
                                     < View style={[styles.br, { width: '12.5%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                        <Text> </Text>
+                                        <Text>  </Text>
                                     </View>
                                 </>
                                 :
                                 Object.keys(member).length === 3 ?
                                     <>
                                         < View style={[styles.br, { width: '8%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                            <Text> </Text>
+                                            <Text>  </Text>
                                         </View>
                                         < View style={[styles.br, { width: '9%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                            <Text> </Text>
+                                            <Text>  </Text>
                                         </View>
                                         < View style={[styles.br, { width: '8%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                            <Text> </Text>
+                                            <Text>  </Text>
                                         </View>
                                     </>
                                     :
                                     Object.keys(member).length === 4 ?
                                         <>
                                             < View style={[styles.br, { width: '6%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                                <Text></Text>
+                                                <Text> </Text>
                                             </View>
                                             < View style={[styles.br, { width: '7%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                                <Text></Text>
+                                                <Text> </Text>
                                             </View>
                                             < View style={[styles.br, { width: '6%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                                <Text></Text>
+                                                <Text> </Text>
                                             </View>
                                             < View style={[styles.br, { width: '6%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                                <Text></Text>
+                                                <Text> </Text>
                                             </View>
                                         </>
                                         :
                                         null
                     }
                     <View style={{ width: '15%', textAlign: 'center', fontWeight: 'bold' }}>
-                        <Text></Text>
+                        <Text> </Text>
                     </View>
                 </View>
                 <View style={[styles.row, styles.bb]}>
                     <View style={[styles.br, { width: '50%', textAlign: 'left', fontWeight: 'normal' }]}>
-                        <Text style={[{ paddingLeft: 4, fontSize: 9, paddingTop: 5,paddingBottom: 5 }]}>5.การทดสอบและการวางระบบจริง</Text>
+                        <Text style={[{ paddingLeft: 4, fontSize: 9, paddingTop: 5,paddingBottom: 5 }]}>5.การทดสอบและการวางระบบจริง </Text>
                     </View>
                     <View style={[styles.br, { width: '10%', textAlign: 'center', fontWeight: 'normal' }]}>
-                        <Text style={{ top: 2 }}>5</Text>
+                        <Text style={{ top: 2 }}>5 </Text>
                     </View>
                     {
                         Object.keys(member).length === 1 ?
                             < View style={[styles.br, { width: '25%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                <Text> </Text>
+                                <Text>  </Text>
                             </View>
                             :
                             Object.keys(member).length === 2 ?
                                 <>
                                     < View style={[styles.br, { width: '12.5%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                        <Text> </Text>
+                                        <Text>  </Text>
                                     </View>
                                     < View style={[styles.br, { width: '12.5%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                        <Text> </Text>
+                                        <Text>  </Text>
                                     </View>
                                 </>
                                 :
                                 Object.keys(member).length === 3 ?
                                     <>
                                         < View style={[styles.br, { width: '8%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                            <Text> </Text>
+                                            <Text>  </Text>
                                         </View>
                                         < View style={[styles.br, { width: '9%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                            <Text> </Text>
+                                            <Text>  </Text>
                                         </View>
                                         < View style={[styles.br, { width: '8%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                            <Text> </Text>
+                                            <Text>  </Text>
                                         </View>
                                     </>
                                     :
                                     Object.keys(member).length === 4 ?
                                         <>
                                             < View style={[styles.br, { width: '6%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                                <Text></Text>
+                                                <Text> </Text>
                                             </View>
                                             < View style={[styles.br, { width: '7%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                                <Text></Text>
+                                                <Text> </Text>
                                             </View>
                                             < View style={[styles.br, { width: '6%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                                <Text></Text>
+                                                <Text> </Text>
                                             </View>
                                             < View style={[styles.br, { width: '6%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                                <Text></Text>
+                                                <Text> </Text>
                                             </View>
                                         </>
                                         :
                                         null
                     }
                     <View style={{ width: '15%', textAlign: 'center', fontWeight: 'bold' }}>
-                        <Text></Text>
+                        <Text> </Text>
                     </View>
                 </View>
                 <View style={[styles.row, styles.bb]}>
                     <View style={[styles.br, { width: '50%', textAlign: 'left', fontWeight: 'normal' }]}>
-                        <Text style={[{ paddingLeft: 4, fontSize: 9, paddingTop: 5,paddingBottom: 5 }]}>6.เทคนิคใหม่ ๆ ที่ได้นำมาใช้ในการพัฒนาระบบ</Text>
+                        <Text style={[{ paddingLeft: 4, fontSize: 9, paddingTop: 5,paddingBottom: 5 }]}>6.เทคนิคใหม่ ๆ ที่ได้นำมาใช้ในการพัฒนาระบบ </Text>
                     </View>
                     <View style={[styles.br, { width: '10%', textAlign: 'center', fontWeight: 'normal' }]}>
-                        <Text style={{ top: 2 }}>15</Text>
+                        <Text style={{ top: 2 }}>15 </Text>
                     </View>
                     {
                         Object.keys(member).length === 1 ?
                             < View style={[styles.br, { width: '25%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                <Text> </Text>
+                                <Text>  </Text>
                             </View>
                             :
                             Object.keys(member).length === 2 ?
                                 <>
                                     < View style={[styles.br, { width: '12.5%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                        <Text> </Text>
+                                        <Text>  </Text>
                                     </View>
                                     < View style={[styles.br, { width: '12.5%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                        <Text> </Text>
+                                        <Text>  </Text>
                                     </View>
                                 </>
                                 :
                                 Object.keys(member).length === 3 ?
                                     <>
                                         < View style={[styles.br, { width: '8%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                            <Text> </Text>
+                                            <Text>  </Text>
                                         </View>
                                         < View style={[styles.br, { width: '9%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                            <Text> </Text>
+                                            <Text>  </Text>
                                         </View>
                                         < View style={[styles.br, { width: '8%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                            <Text> </Text>
+                                            <Text>  </Text>
                                         </View>
                                     </>
                                     :
                                     Object.keys(member).length === 4 ?
                                         <>
                                             < View style={[styles.br, { width: '6%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                                <Text></Text>
+                                                <Text> </Text>
                                             </View>
                                             < View style={[styles.br, { width: '7%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                                <Text></Text>
+                                                <Text> </Text>
                                             </View>
                                             < View style={[styles.br, { width: '6%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                                <Text></Text>
+                                                <Text> </Text>
                                             </View>
                                             < View style={[styles.br, { width: '6%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                                <Text></Text>
+                                                <Text> </Text>
                                             </View>
                                         </>
                                         :
                                         null
                     }
                     <View style={{ width: '15%', textAlign: 'center', fontWeight: 'bold' }}>
-                        <Text></Text>
+                        <Text> </Text>
                     </View>
                 </View>
                 <View style={[styles.row, styles.bb]}>
                     <View style={[styles.br, { width: '50%', textAlign: 'left', fontWeight: 'normal' }]}>
-                        <Text style={[{ paddingLeft: 4, fontSize: 9, paddingTop: 5,paddingBottom: 5 }]}>7.การนำโครงงานไปใช้จริง / ความเหมาะสมของผลงาน</Text>
+                        <Text style={[{ paddingLeft: 4, fontSize: 9, paddingTop: 5,paddingBottom: 5 }]}>7.การนำโครงงานไปใช้จริง / ความเหมาะสมของผลงาน </Text>
                     </View>
                     <View style={[styles.br, { width: '10%', textAlign: 'center', fontWeight: 'normal' }]}>
-                        <Text style={{ top: 2 }}>10</Text>
+                        <Text style={{ top: 2 }}>10 </Text>
                     </View>
                     {
                         Object.keys(member).length === 1 ?
                             < View style={[styles.br, { width: '25%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                <Text> </Text>
+                                <Text>  </Text>
                             </View>
                             :
                             Object.keys(member).length === 2 ?
                                 <>
                                     < View style={[styles.br, { width: '12.5%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                        <Text> </Text>
+                                        <Text>  </Text>
                                     </View>
                                     < View style={[styles.br, { width: '12.5%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                        <Text> </Text>
+                                        <Text>  </Text>
                                     </View>
                                 </>
                                 :
                                 Object.keys(member).length === 3 ?
                                     <>
                                         < View style={[styles.br, { width: '8%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                            <Text> </Text>
+                                            <Text>  </Text>
                                         </View>
                                         < View style={[styles.br, { width: '9%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                            <Text> </Text>
+                                            <Text>  </Text>
                                         </View>
                                         < View style={[styles.br, { width: '8%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                            <Text> </Text>
+                                            <Text>  </Text>
                                         </View>
                                     </>
                                     :
                                     Object.keys(member).length === 4 ?
                                         <>
                                             < View style={[styles.br, { width: '6%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                                <Text></Text>
+                                                <Text> </Text>
                                             </View>
                                             < View style={[styles.br, { width: '7%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                                <Text></Text>
+                                                <Text> </Text>
                                             </View>
                                             < View style={[styles.br, { width: '6%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                                <Text></Text>
+                                                <Text> </Text>
                                             </View>
                                             < View style={[styles.br, { width: '6%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                                <Text></Text>
+                                                <Text> </Text>
                                             </View>
                                         </>
                                         :
                                         null
                     }
                     <View style={{ width: '15%', textAlign: 'center', fontWeight: 'bold' }}>
-                        <Text></Text>
+                        <Text> </Text>
                     </View>
                 </View>
                 <View style={[styles.row, styles.bb]}>
                     <View style={[styles.br, { width: '50%', textAlign: 'left', fontWeight: 'normal' }]}>
-                        <Text style={[{ paddingLeft: 4, fontSize: 9, paddingTop: 5,paddingBottom: 5 }]}>8.ระยะเวลาในการจัดทำโครงงาน</Text>
+                        <Text style={[{ paddingLeft: 4, fontSize: 9, paddingTop: 5,paddingBottom: 5 }]}>8.ระยะเวลาในการจัดทำโครงงาน </Text>
                     </View>
                     <View style={[styles.br, { width: '10%', textAlign: 'center', fontWeight: 'normal' }]}>
-                        <Text style={{ top: 2 }}>10</Text>
+                        <Text style={{ top: 2 }}>10 </Text>
                     </View>
                     {
                         Object.keys(member).length === 1 ?
                             < View style={[styles.br, { width: '25%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                <Text> </Text>
+                                <Text>  </Text>
                             </View>
                             :
                             Object.keys(member).length === 2 ?
                                 <>
                                     < View style={[styles.br, { width: '12.5%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                        <Text> </Text>
+                                        <Text>  </Text>
                                     </View>
                                     < View style={[styles.br, { width: '12.5%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                        <Text> </Text>
+                                        <Text>  </Text>
                                     </View>
                                 </>
                                 :
                                 Object.keys(member).length === 3 ?
                                     <>
                                         < View style={[styles.br, { width: '8%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                            <Text> </Text>
+                                            <Text>  </Text>
                                         </View>
                                         < View style={[styles.br, { width: '9%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                            <Text> </Text>
+                                            <Text>  </Text>
                                         </View>
                                         < View style={[styles.br, { width: '8%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                            <Text> </Text>
+                                            <Text>  </Text>
                                         </View>
                                     </>
                                     :
                                     Object.keys(member).length === 4 ?
                                         <>
                                             < View style={[styles.br, { width: '6%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                                <Text></Text>
+                                                <Text> </Text>
                                             </View>
                                             < View style={[styles.br, { width: '7%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                                <Text></Text>
+                                                <Text> </Text>
                                             </View>
                                             < View style={[styles.br, { width: '6%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                                <Text></Text>
+                                                <Text> </Text>
                                             </View>
                                             < View style={[styles.br, { width: '6%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                                <Text></Text>
+                                                <Text> </Text>
                                             </View>
                                         </>
                                         :
                                         null
                     }
                     <View style={{ width: '15%', textAlign: 'center', fontWeight: 'bold' }}>
-                        <Text></Text>
+                        <Text> </Text>
                     </View>
                 </View>
                 <View style={[styles.row, styles.bb]}>
                     <View style={[styles.br, { width: '50%', textAlign: 'left', fontWeight: 'normal' }]}>
-                        <Text style={[{ paddingLeft: 4, fontSize: 9, paddingTop: 5,paddingBottom: 5 }]}> 9.อื่นๆ</Text>
-                        <Text style={[{ paddingLeft: 4, fontSize: 9, paddingTop: 5,paddingBottom: 5 }]}>&nbsp;&nbsp;&nbsp;9.1&nbsp;..........................................................................................................</Text>
-                        <Text style={[{ paddingLeft: 4, fontSize: 9, paddingTop: 5,paddingBottom: 5 }]}>&nbsp;&nbsp;&nbsp;9.2&nbsp;..........................................................................................................</Text>
-                        <Text style={[{ paddingLeft: 4, fontSize: 9, paddingTop: 5,paddingBottom: 5 }]}>&nbsp;&nbsp;&nbsp;9.3&nbsp;..........................................................................................................</Text>
+                        <Text style={[{ paddingLeft: 4, fontSize: 9, paddingTop: 5,paddingBottom: 5 }]}> 9.อื่นๆ </Text>
+                        <Text style={[{ paddingLeft: 4, fontSize: 9, paddingTop: 5,paddingBottom: 5 }]}>&nbsp;&nbsp;&nbsp;9.1&nbsp;.......................................................................................................... </Text>
+                        <Text style={[{ paddingLeft: 4, fontSize: 9, paddingTop: 5,paddingBottom: 5 }]}>&nbsp;&nbsp;&nbsp;9.2&nbsp;.......................................................................................................... </Text>
+                        <Text style={[{ paddingLeft: 4, fontSize: 9, paddingTop: 5,paddingBottom: 5 }]}>&nbsp;&nbsp;&nbsp;9.3&nbsp;.......................................................................................................... </Text>
                     </View>
                     <View style={[styles.br, { width: '10%', textAlign: 'center', fontWeight: 'normal' }]}>
-                        <Text style={{ top: 28 }}>10</Text>
+                        <Text style={{ top: 28 }}>10 </Text>
                     </View>
                     {
                         Object.keys(member).length === 1 ?
                             < View style={[styles.br, { width: '25%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                <Text> </Text>
+                                <Text>  </Text>
                             </View>
                             :
                             Object.keys(member).length === 2 ?
                                 <>
                                     < View style={[styles.br, { width: '12.5%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                        <Text> </Text>
+                                        <Text>  </Text>
                                     </View>
                                     < View style={[styles.br, { width: '12.5%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                        <Text> </Text>
+                                        <Text>  </Text>
                                     </View>
                                 </>
                                 :
                                 Object.keys(member).length === 3 ?
                                     <>
                                         < View style={[styles.br, { width: '8%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                            <Text> </Text>
+                                            <Text>  </Text>
                                         </View>
                                         < View style={[styles.br, { width: '9%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                            <Text> </Text>
+                                            <Text>  </Text>
                                         </View>
                                         < View style={[styles.br, { width: '8%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                            <Text> </Text>
+                                            <Text>  </Text>
                                         </View>
                                     </>
                                     :
                                     Object.keys(member).length === 4 ?
                                         <>
                                             < View style={[styles.br, { width: '6%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                                <Text></Text>
+                                                <Text> </Text>
                                             </View>
                                             < View style={[styles.br, { width: '7%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                                <Text></Text>
+                                                <Text> </Text>
                                             </View>
                                             < View style={[styles.br, { width: '6%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                                <Text></Text>
+                                                <Text> </Text>
                                             </View>
                                             < View style={[styles.br, { width: '6%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                                <Text></Text>
+                                                <Text> </Text>
                                             </View>
                                         </>
                                         :
                                         null
                     }
                     <View style={{ width: '15%', textAlign: 'center', fontWeight: 'bold' }}>
-                        <Text></Text>
+                        <Text> </Text>
                     </View>
                 </View>
                 <View style={[styles.row, styles.bb]}>
                     <View style={[styles.br, { width: '50%', textAlign: 'center', fontWeight: 'bold' }]}>
-                        <Text style={[{ paddingLeft: 4 }]}>รวม</Text>
+                        <Text style={[{ paddingLeft: 4 }]}>รวม </Text>
                     </View>
                     <View style={[styles.br, { width: '10%', textAlign: 'center', fontWeight: 'bold' }]}>
-                        <Text >100</Text>
+                        <Text >100 </Text>
                     </View>
                     {
                         Object.keys(member).length === 1 ?
                             < View style={[styles.br, { width: '25%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                <Text> </Text>
+                                <Text>  </Text>
                             </View>
                             :
                             Object.keys(member).length === 2 ?
                                 <>
                                     < View style={[styles.br, { width: '12.5%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                        <Text> </Text>
+                                        <Text>  </Text>
                                     </View>
                                     < View style={[styles.br, { width: '12.5%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                        <Text> </Text>
+                                        <Text>  </Text>
                                     </View>
                                 </>
                                 :
                                 Object.keys(member).length === 3 ?
                                     <>
                                         < View style={[styles.br, { width: '8%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                            <Text> </Text>
+                                            <Text>  </Text>
                                         </View>
                                         < View style={[styles.br, { width: '9%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                            <Text> </Text>
+                                            <Text>  </Text>
                                         </View>
                                         < View style={[styles.br, { width: '8%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                            <Text> </Text>
+                                            <Text>  </Text>
                                         </View>
                                     </>
                                     :
                                     Object.keys(member).length === 4 ?
                                         <>
                                             < View style={[styles.br, { width: '6%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                                <Text></Text>
+                                                <Text> </Text>
                                             </View>
                                             < View style={[styles.br, { width: '7%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                                <Text></Text>
+                                                <Text> </Text>
                                             </View>
                                             < View style={[styles.br, { width: '6%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                                <Text></Text>
+                                                <Text> </Text>
                                             </View>
                                             < View style={[styles.br, { width: '6%', textAlign: 'center', fontWeight: 'bold' }]}>
-                                                <Text></Text>
+                                                <Text> </Text>
                                             </View>
                                         </>
                                         :
                                         null
                     }
                     <View style={{ width: '15%', textAlign: 'center', fontWeight: 'bold' }}>
-                        <Text></Text>
+                        <Text> </Text>
                     </View>
                 </View>
             </View >
@@ -1589,28 +1589,28 @@ function Examreport1() {
     return (
         <>
             <View style={[styles.row, { marginTop: 10 }]}>
-                <Text style={{ width: '15%', textAlign: 'left', fontWeight: 'bold', marginRight: 50 }}>ผลการสอบโครงงานพิเศษ</Text>
-                <Text style={{ width: '35%', textAlign: 'left' }}><Image src={Checkbox} /> ผ่าน </Text>
-                <Text style={{ width: '45%', textAlign: 'left' }}>...............................................................</Text>
-                <Text style={{ width: '5%', textAlign: 'right' }}></Text>
+                <Text style={{ width: '15%', textAlign: 'left', fontWeight: 'bold', marginRight: 50 }}>ผลการสอบโครงงานพิเศษ </Text>
+                <Text style={{ width: '35%', textAlign: 'left' }}><Image src={Checkbox} /> ผ่าน  </Text>
+                <Text style={{ width: '45%', textAlign: 'left' }}>............................................................... </Text>
+                <Text style={{ width: '5%', textAlign: 'right' }}> </Text>
             </View>
             <View style={[styles.row, { marginTop: 5 }]}>
-                <Text style={{ width: '15%', textAlign: 'left', fontWeight: 'bold', marginRight: 50 }}> </Text>
-                <Text style={{ width: '35%', textAlign: 'left' }}><Image src={Checkbox} /> ผ่านแบบมีเงื่อนไข </Text>
-                <Text style={{ width: '45%', textAlign: 'left' }}>...............................................................</Text>
-                <Text style={{ width: '5%', textAlign: 'right' }}></Text>
+                <Text style={{ width: '15%', textAlign: 'left', fontWeight: 'bold', marginRight: 50 }}>  </Text>
+                <Text style={{ width: '35%', textAlign: 'left' }}><Image src={Checkbox} /> ผ่านแบบมีเงื่อนไข  </Text>
+                <Text style={{ width: '45%', textAlign: 'left' }}>............................................................... </Text>
+                <Text style={{ width: '5%', textAlign: 'right' }}> </Text>
             </View>
             <View style={[styles.row, { marginTop: 5 }]}>
-                <Text style={{ width: '15%', textAlign: 'left', fontWeight: 'bold', marginRight: 50 }}> </Text>
-                <Text style={{ width: '35%', textAlign: 'left' }}><Image src={Checkbox} /> ไม่ผ่านยื่นสอบใหม่ภายในช่วงเวลา </Text>
-                <Text style={{ width: '45%', textAlign: 'left' }}>...............................................................</Text>
-                <Text style={{ width: '5%', textAlign: 'right' }}></Text>
+                <Text style={{ width: '15%', textAlign: 'left', fontWeight: 'bold', marginRight: 50 }}>  </Text>
+                <Text style={{ width: '35%', textAlign: 'left' }}><Image src={Checkbox} /> ไม่ผ่านยื่นสอบใหม่ภายในช่วงเวลา  </Text>
+                <Text style={{ width: '45%', textAlign: 'left' }}>............................................................... </Text>
+                <Text style={{ width: '5%', textAlign: 'right' }}> </Text>
             </View>
             <View style={[styles.row, { marginTop: 5 }]}>
-                <Text style={{ width: '15%', textAlign: 'left', fontWeight: 'bold', marginRight: 50 }}> </Text>
-                <Text style={{ width: '35%', textAlign: 'left' }}><Image src={Checkbox} /> ไม่ผ่าน (F) </Text>
-                <Text style={{ width: '45%', textAlign: 'left' }}>...............................................................</Text>
-                <Text style={{ width: '5%', textAlign: 'right' }}></Text>
+                <Text style={{ width: '15%', textAlign: 'left', fontWeight: 'bold', marginRight: 50 }}>  </Text>
+                <Text style={{ width: '35%', textAlign: 'left' }}><Image src={Checkbox} /> ไม่ผ่าน (F)  </Text>
+                <Text style={{ width: '45%', textAlign: 'left' }}>............................................................... </Text>
+                <Text style={{ width: '5%', textAlign: 'right' }}> </Text>
             </View>
         </>
     );
@@ -1620,37 +1620,37 @@ function Examreport2() {
     return (
         <>
             <View style={[styles.row, { marginTop: 10 }]}>
-                <Text style={{ width: '15%', textAlign: 'left', fontWeight: 'bold', marginRight: 50 }}>ผลการประเมิน</Text>
-                <Text style={{ width: '15%', textAlign: 'left' }}> </Text>
-                <Text style={{ width: '65%', textAlign: 'left' }}> </Text>
-                <Text style={{ width: '5%', textAlign: 'right' }}></Text>
+                <Text style={{ width: '15%', textAlign: 'left', fontWeight: 'bold', marginRight: 50 }}>ผลการประเมิน </Text>
+                <Text style={{ width: '15%', textAlign: 'left' }}>  </Text>
+                <Text style={{ width: '65%', textAlign: 'left' }}>  </Text>
+                <Text style={{ width: '5%', textAlign: 'right' }}> </Text>
             </View>
             <View style={[styles.row, { marginTop: 10 }]}>
-                <Text style={{ width: '20%', textAlign: 'left', fontWeight: 'bold' }}> </Text>
-                <Text style={{ width: '20%', textAlign: 'left' }}><Image src={Checkbox} /> ผ่าน </Text>
-                <Text style={{ width: '20%', textAlign: 'left' }}><Image src={Checkbox} /> ผ่านแบบมีเงื่อนไข </Text>
-                <Text style={{ width: '20%', textAlign: 'left' }}><Image src={Checkbox} /> ไม่ผ่าน </Text>
-                <Text style={{ width: '20%', textAlign: 'right' }}></Text>
+                <Text style={{ width: '20%', textAlign: 'left', fontWeight: 'bold' }}>  </Text>
+                <Text style={{ width: '20%', textAlign: 'left' }}><Image src={Checkbox} /> ผ่าน  </Text>
+                <Text style={{ width: '20%', textAlign: 'left' }}><Image src={Checkbox} /> ผ่านแบบมีเงื่อนไข  </Text>
+                <Text style={{ width: '20%', textAlign: 'left' }}><Image src={Checkbox} /> ไม่ผ่าน  </Text>
+                <Text style={{ width: '20%', textAlign: 'right' }}> </Text>
             </View>
             <View style={[styles.row, { marginTop: 10 }]}>
-                <Text style={{ width: '5%', textAlign: 'left', fontWeight: 'bold' }}> </Text>
-                <Text style={{ width: '90%', textAlign: 'left' }}>....................................................................................................................................................................................</Text>
-                <Text style={{ width: '5%', textAlign: 'right' }}></Text>
+                <Text style={{ width: '5%', textAlign: 'left', fontWeight: 'bold' }}>  </Text>
+                <Text style={{ width: '90%', textAlign: 'left' }}>.................................................................................................................................................................................... </Text>
+                <Text style={{ width: '5%', textAlign: 'right' }}> </Text>
             </View>
             <View style={[styles.row, { marginTop: 10 }]}>
-                <Text style={{ width: '5%', textAlign: 'left', fontWeight: 'bold' }}> </Text>
-                <Text style={{ width: '90%', textAlign: 'left' }}>....................................................................................................................................................................................</Text>
-                <Text style={{ width: '5%', textAlign: 'right' }}></Text>
+                <Text style={{ width: '5%', textAlign: 'left', fontWeight: 'bold' }}>  </Text>
+                <Text style={{ width: '90%', textAlign: 'left' }}>.................................................................................................................................................................................... </Text>
+                <Text style={{ width: '5%', textAlign: 'right' }}> </Text>
             </View>
             <View style={[styles.row, { marginTop: 10 }]}>
-                <Text style={{ width: '5%', textAlign: 'left', fontWeight: 'bold' }}> </Text>
-                <Text style={{ width: '90%', textAlign: 'left' }}>....................................................................................................................................................................................</Text>
-                <Text style={{ width: '5%', textAlign: 'right' }}></Text>
+                <Text style={{ width: '5%', textAlign: 'left', fontWeight: 'bold' }}>  </Text>
+                <Text style={{ width: '90%', textAlign: 'left' }}>.................................................................................................................................................................................... </Text>
+                <Text style={{ width: '5%', textAlign: 'right' }}> </Text>
             </View>
             <View style={[styles.row, { marginTop: 10, marginBottom: 20 }]}>
-                <Text style={{ width: '5%', textAlign: 'left', fontWeight: 'bold' }}> </Text>
-                <Text style={{ width: '90%', textAlign: 'left' }}>....................................................................................................................................................................................</Text>
-                <Text style={{ width: '5%', textAlign: 'right' }}></Text>
+                <Text style={{ width: '5%', textAlign: 'left', fontWeight: 'bold' }}>  </Text>
+                <Text style={{ width: '90%', textAlign: 'left' }}>.................................................................................................................................................................................... </Text>
+                <Text style={{ width: '5%', textAlign: 'right' }}> </Text>
             </View>
         </>
     );
@@ -1665,25 +1665,25 @@ function Singature0() {
             {
                 nullline === 1 ?
                     <View style={styles.row}>
-                        <Text style={{ width: '5%', textAlign: 'right', marginTop: 20 }}> </Text>
+                        <Text style={{ width: '5%', textAlign: 'right', marginTop: 20 }}>  </Text>
                     </View>
                     :
                     <View style={styles.row}>
-                        <Text style={{ width: '5%', textAlign: 'right', marginTop: 5 }}> </Text>
+                        <Text style={{ width: '5%', textAlign: 'right', marginTop: 5 }}>  </Text>
                     </View>
             }
 
             <View style={styles.row}>
-                <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}></Text>
-                <Text style={{ width: '40%', textAlign: 'left' }}></Text>
-                <Text style={{ width: '50%', textAlign: 'center', marginRight: 30 }}>ลงชื่อ  ..................................................... (ผู้ยื่นคำร้อง) </Text>
-                <Text style={{ width: '5%', textAlign: 'right' }}></Text>
+                <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}> </Text>
+                <Text style={{ width: '40%', textAlign: 'left' }}> </Text>
+                <Text style={{ width: '50%', textAlign: 'center', marginRight: 30 }}>ลงชื่อ  ..................................................... (ผู้ยื่นคำร้อง)  </Text>
+                <Text style={{ width: '5%', textAlign: 'right' }}> </Text>
             </View>
             <View style={styles.row}>
-                <Text style={{ width: '5%', textAlign: 'right', marginRight: 50, marginTop: 20 }}></Text>
-                <Text style={{ width: '40%', textAlign: 'left' }}></Text>
-                <Text style={{ width: '50%', textAlign: 'left', marginLeft: 34, marginTop: 5 }}>............./........................../............</Text>
-                <Text style={{ width: '5%', textAlign: 'right' }}></Text>
+                <Text style={{ width: '5%', textAlign: 'right', marginRight: 50, marginTop: 20 }}> </Text>
+                <Text style={{ width: '40%', textAlign: 'left' }}> </Text>
+                <Text style={{ width: '50%', textAlign: 'left', marginLeft: 34, marginTop: 5 }}>............./........................../............ </Text>
+                <Text style={{ width: '5%', textAlign: 'right' }}> </Text>
             </View>
         </>
     )
@@ -1699,25 +1699,25 @@ function Singature1({ staff }:any) {
                         (item.project_staff_position_title === 'ประธาน') ?
                             <>
                                 <View key={index}  style={styles.row}>
+                                    <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}>  </Text>
+                                </View>
+                                <View style={styles.row}>
                                     <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}> </Text>
+                                    <Text style={{ width: '40%', textAlign: 'left' }}> </Text>
+                                    <Text style={{ width: '50%', textAlign: 'center', marginRight: 30 }}>ลงชื่อ  .....................................................  {item.project_staff_position_title} </Text>
+                                    <Text style={{ width: '5%', textAlign: 'right' }}> </Text>
                                 </View>
                                 <View style={styles.row}>
-                                    <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}></Text>
-                                    <Text style={{ width: '40%', textAlign: 'left' }}></Text>
-                                    <Text style={{ width: '50%', textAlign: 'center', marginRight: 30 }}>ลงชื่อ  .....................................................  {item.project_staff_position_title}</Text>
-                                    <Text style={{ width: '5%', textAlign: 'right' }}></Text>
+                                    <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}> </Text>
+                                    <Text style={{ width: '38%', textAlign: 'left' }}> </Text>
+                                    <Text style={{ width: '52%', textAlign: 'center', marginRight: 30 }}>(&nbsp;{item.name_title_th} {item.first_name_th} {item.last_name_th}&nbsp;) </Text>
+                                    <Text style={{ width: '5%', textAlign: 'right' }}> </Text>
                                 </View>
                                 <View style={styles.row}>
-                                    <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}></Text>
-                                    <Text style={{ width: '38%', textAlign: 'left' }}></Text>
-                                    <Text style={{ width: '52%', textAlign: 'center', marginRight: 30 }}>(&nbsp;{item.name_title_th} {item.first_name_th} {item.last_name_th}&nbsp;)</Text>
-                                    <Text style={{ width: '5%', textAlign: 'right' }}></Text>
-                                </View>
-                                <View style={styles.row}>
-                                    <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}></Text>
-                                    <Text style={{ width: '38%', textAlign: 'left' }}></Text>
-                                    <Text style={{ width: '52%', textAlign: 'center', marginRight: 30 }}></Text>
-                                    <Text style={{ width: '5%', textAlign: 'right' }}></Text>
+                                    <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}> </Text>
+                                    <Text style={{ width: '38%', textAlign: 'left' }}> </Text>
+                                    <Text style={{ width: '52%', textAlign: 'center', marginRight: 30 }}> </Text>
+                                    <Text style={{ width: '5%', textAlign: 'right' }}> </Text>
                                 </View>
                             </>
                             :
@@ -1731,25 +1731,25 @@ function Singature1({ staff }:any) {
                         (item.project_staff_position_title === 'กรรมการ') ?
                             <>
                                 <View style={styles.row}>
-                                    <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}> </Text>
+                                    <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}>  </Text>
                                 </View>
                                 <View key={index} style={styles.row}>
-                                    <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}></Text>
-                                    <Text style={{ width: '40%', textAlign: 'left' }}></Text>
-                                    <Text style={{ width: '50%', textAlign: 'center', marginRight: 30 }}>ลงชื่อ  .....................................................  {item.project_staff_position_title}</Text>
-                                    <Text style={{ width: '5%', textAlign: 'right' }}></Text>
+                                    <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}> </Text>
+                                    <Text style={{ width: '40%', textAlign: 'left' }}> </Text>
+                                    <Text style={{ width: '50%', textAlign: 'center', marginRight: 30 }}>ลงชื่อ  .....................................................  {item.project_staff_position_title} </Text>
+                                    <Text style={{ width: '5%', textAlign: 'right' }}> </Text>
                                 </View>
                                 <View style={styles.row}>
-                                    <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}></Text>
-                                    <Text style={{ width: '38%', textAlign: 'left' }}></Text>
-                                    <Text style={{ width: '52%', textAlign: 'center', marginRight: 30 }}>(&nbsp;{item.name_title_th} {item.first_name_th} {item.last_name_th}&nbsp;)</Text>
-                                    <Text style={{ width: '5%', textAlign: 'right' }}></Text>
+                                    <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}> </Text>
+                                    <Text style={{ width: '38%', textAlign: 'left' }}> </Text>
+                                    <Text style={{ width: '52%', textAlign: 'center', marginRight: 30 }}>(&nbsp;{item.name_title_th} {item.first_name_th} {item.last_name_th}&nbsp;) </Text>
+                                    <Text style={{ width: '5%', textAlign: 'right' }}> </Text>
                                 </View>
                                 <View style={styles.row}>
-                                    <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}></Text>
-                                    <Text style={{ width: '38%', textAlign: 'left' }}></Text>
-                                    <Text style={{ width: '52%', textAlign: 'center', marginRight: 30 }}></Text>
-                                    <Text style={{ width: '5%', textAlign: 'right' }}></Text>
+                                    <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}> </Text>
+                                    <Text style={{ width: '38%', textAlign: 'left' }}> </Text>
+                                    <Text style={{ width: '52%', textAlign: 'center', marginRight: 30 }}> </Text>
+                                    <Text style={{ width: '5%', textAlign: 'right' }}> </Text>
                                 </View>
                             </>
                             :
@@ -1759,10 +1759,10 @@ function Singature1({ staff }:any) {
             }
 
             <View style={styles.row}>
-                <Text style={{ width: '5%', textAlign: 'right', marginRight: 50, marginTop: 20 }}></Text>
-                <Text style={{ width: '40%', textAlign: 'left' }}></Text>
-                <Text style={{ width: '50%', textAlign: 'left', marginLeft: 34, marginTop: 5 }}>............./........................../............</Text>
-                <Text style={{ width: '5%', textAlign: 'right' }}></Text>
+                <Text style={{ width: '5%', textAlign: 'right', marginRight: 50, marginTop: 20 }}> </Text>
+                <Text style={{ width: '40%', textAlign: 'left' }}> </Text>
+                <Text style={{ width: '50%', textAlign: 'left', marginLeft: 34, marginTop: 5 }}>............./........................../............ </Text>
+                <Text style={{ width: '5%', textAlign: 'right' }}> </Text>
             </View>
         </>
     )
@@ -1775,25 +1775,25 @@ function SingatureItem({ item }:any) {
                 (item.project_staff_position_title === 'ประธาน') ?
                     <>
                         <View style={styles.row}>
+                            <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}>  </Text>
+                        </View>
+                        <View style={styles.row}>
                             <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}> </Text>
+                            <Text style={{ width: '40%', textAlign: 'left' }}> </Text>
+                            <Text style={{ width: '50%', textAlign: 'center', marginRight: 30 }}>ลงชื่อ  .....................................................  {item.project_staff_position_title} </Text>
+                            <Text style={{ width: '5%', textAlign: 'right' }}> </Text>
                         </View>
                         <View style={styles.row}>
-                            <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}></Text>
-                            <Text style={{ width: '40%', textAlign: 'left' }}></Text>
-                            <Text style={{ width: '50%', textAlign: 'center', marginRight: 30 }}>ลงชื่อ  .....................................................  {item.project_staff_position_title}</Text>
-                            <Text style={{ width: '5%', textAlign: 'right' }}></Text>
+                            <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}> </Text>
+                            <Text style={{ width: '38%', textAlign: 'left' }}> </Text>
+                            <Text style={{ width: '52%', textAlign: 'center', marginRight: 30 }}>(&nbsp;{item.name_title_th} {item.first_name_th} {item.last_name_th}&nbsp;) </Text>
+                            <Text style={{ width: '5%', textAlign: 'right' }}> </Text>
                         </View>
                         <View style={styles.row}>
-                            <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}></Text>
-                            <Text style={{ width: '38%', textAlign: 'left' }}></Text>
-                            <Text style={{ width: '52%', textAlign: 'center', marginRight: 30 }}>(&nbsp;{item.name_title_th} {item.first_name_th} {item.last_name_th}&nbsp;)</Text>
-                            <Text style={{ width: '5%', textAlign: 'right' }}></Text>
-                        </View>
-                        <View style={styles.row}>
-                            <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}></Text>
-                            <Text style={{ width: '38%', textAlign: 'left' }}></Text>
-                            <Text style={{ width: '52%', textAlign: 'center', marginRight: 30 }}></Text>
-                            <Text style={{ width: '5%', textAlign: 'right' }}></Text>
+                            <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}> </Text>
+                            <Text style={{ width: '38%', textAlign: 'left' }}> </Text>
+                            <Text style={{ width: '52%', textAlign: 'center', marginRight: 30 }}> </Text>
+                            <Text style={{ width: '5%', textAlign: 'right' }}> </Text>
                         </View>
                     </>
                     :
@@ -1803,35 +1803,35 @@ function SingatureItem({ item }:any) {
                 (item.project_staff_position_title === 'กรรมการ') ?
                     <>
                         <View style={styles.row}>
+                            <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}>  </Text>
+                        </View>
+                        <View style={styles.row}>
                             <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}> </Text>
+                            <Text style={{ width: '40%', textAlign: 'left' }}> </Text>
+                            <Text style={{ width: '50%', textAlign: 'center', marginRight: 30 }}>ลงชื่อ  .....................................................  {item.project_staff_position_title} </Text>
+                            <Text style={{ width: '5%', textAlign: 'right' }}> </Text>
                         </View>
                         <View style={styles.row}>
-                            <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}></Text>
-                            <Text style={{ width: '40%', textAlign: 'left' }}></Text>
-                            <Text style={{ width: '50%', textAlign: 'center', marginRight: 30 }}>ลงชื่อ  .....................................................  {item.project_staff_position_title}</Text>
-                            <Text style={{ width: '5%', textAlign: 'right' }}></Text>
+                            <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}> </Text>
+                            <Text style={{ width: '38%', textAlign: 'left' }}> </Text>
+                            <Text style={{ width: '52%', textAlign: 'center', marginRight: 30 }}>(&nbsp;{item.name_title_th} {item.first_name_th} {item.last_name_th}&nbsp;) </Text>
+                            <Text style={{ width: '5%', textAlign: 'right' }}> </Text>
                         </View>
                         <View style={styles.row}>
-                            <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}></Text>
-                            <Text style={{ width: '38%', textAlign: 'left' }}></Text>
-                            <Text style={{ width: '52%', textAlign: 'center', marginRight: 30 }}>(&nbsp;{item.name_title_th} {item.first_name_th} {item.last_name_th}&nbsp;)</Text>
-                            <Text style={{ width: '5%', textAlign: 'right' }}></Text>
-                        </View>
-                        <View style={styles.row}>
-                            <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}></Text>
-                            <Text style={{ width: '38%', textAlign: 'left' }}></Text>
-                            <Text style={{ width: '52%', textAlign: 'center', marginRight: 30 }}></Text>
-                            <Text style={{ width: '5%', textAlign: 'right' }}></Text>
+                            <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}> </Text>
+                            <Text style={{ width: '38%', textAlign: 'left' }}> </Text>
+                            <Text style={{ width: '52%', textAlign: 'center', marginRight: 30 }}> </Text>
+                            <Text style={{ width: '5%', textAlign: 'right' }}> </Text>
                         </View>
                     </>
                     :
                     null
             }
             <View style={styles.row}>
-                <Text style={{ width: '5%', textAlign: 'right', marginRight: 50, marginTop: 20 }}></Text>
-                <Text style={{ width: '40%', textAlign: 'left' }}></Text>
-                <Text style={{ width: '50%', textAlign: 'left', marginLeft: 34, marginTop: 5 }}>............./........................../............</Text>
-                <Text style={{ width: '5%', textAlign: 'right' }}></Text>
+                <Text style={{ width: '5%', textAlign: 'right', marginRight: 50, marginTop: 20 }}> </Text>
+                <Text style={{ width: '40%', textAlign: 'left' }}> </Text>
+                <Text style={{ width: '50%', textAlign: 'left', marginLeft: 34, marginTop: 5 }}>............./........................../............ </Text>
+                <Text style={{ width: '5%', textAlign: 'right' }}> </Text>
             </View>
         </>
     )
@@ -1855,20 +1855,20 @@ function Bottom01({ boss, staff }:any) {
         <>
             <View style={[styles.row, {marginTop: 250}]}>
                 <View style={[styles.column, { width: '33%', marginLeft: 1, marginRight: 1, textAlign: 'left', border: "2px solid #d3d3d3" }]}>
-                    <Text style={{ paddingTop: 10, width: '100%', textAlign: 'center' }}>ความเห็นอาจารย์ที่ปรึกษา</Text>
-                    <Text style={{ width: '100%', textAlign: 'center' }}>________________________</Text>
-                    <Text style={{ width: '100%', textAlign: 'center' }}>________________________</Text>
-                    <Text style={{ width: '100%', textAlign: 'center' }}>________________________</Text>
-                    <Text style={{ width: '100%', textAlign: 'center' }}>________________________</Text>
-                    <Text style={{ width: '100%', textAlign: 'center' }}> </Text>
+                    <Text style={{ paddingTop: 10, width: '100%', textAlign: 'center' }}>ความเห็นอาจารย์ที่ปรึกษา </Text>
+                    <Text style={{ width: '100%', textAlign: 'center' }}>________________________ </Text>
+                    <Text style={{ width: '100%', textAlign: 'center' }}>________________________ </Text>
+                    <Text style={{ width: '100%', textAlign: 'center' }}>________________________ </Text>
+                    <Text style={{ width: '100%', textAlign: 'center' }}>________________________ </Text>
+                    <Text style={{ width: '100%', textAlign: 'center' }}>  </Text>
                     {
                         staff.staff.map((item:any) => {
                             return (
                                 (item.project_staff_position_title === 'ปรึกษา' && x === 0) ?
                                     <>
                                         {x++}
-                                        <Text style={{ width: '100%', fontSize: 8, textAlign: 'center' }}>ลงชื่อ  ....................................................</Text>
-                                        <Text style={{ width: '100%', fontSize: 8, textAlign: 'center' }}>(&nbsp;{item.name_title_th} {item.first_name_th} {item.last_name_th}&nbsp;)</Text>
+                                        <Text style={{ width: '100%', fontSize: 8, textAlign: 'center' }}>ลงชื่อ  .................................................... </Text>
+                                        <Text style={{ width: '100%', fontSize: 8, textAlign: 'center' }}>(&nbsp;{item.name_title_th} {item.first_name_th} {item.last_name_th}&nbsp;) </Text>
                                     </>
                                     :
                                     null
@@ -1876,28 +1876,28 @@ function Bottom01({ boss, staff }:any) {
                         })
                     }
 
-                    <Text style={{ width: '100%', fontSize: 8, textAlign: 'center' }}>............./........................../............</Text>
+                    <Text style={{ width: '100%', fontSize: 8, textAlign: 'center' }}>............./........................../............ </Text>
                 </View>
                 <View style={[styles.column, { width: '33%', marginLeft: 1, marginRight: 1, textAlign: 'left', border: "2px solid #d3d3d3" }]}>
-                    <Text style={{ paddingTop: 10, width: '100%', textAlign: 'center' }}>ความเห็นหัวหน้าภาควิชา</Text>
-                    <Text style={{ width: '100%', textAlign: 'center' }}>________________________</Text>
-                    <Text style={{ width: '100%', textAlign: 'center' }}>________________________</Text>
-                    <Text style={{ width: '100%', textAlign: 'center' }}>________________________</Text>
-                    <Text style={{ width: '100%', textAlign: 'center' }}>________________________</Text>
-                    <Text style={{ width: '100%', textAlign: 'center' }}> </Text>
-                    <Text style={{ width: '100%', fontSize: 8, textAlign: 'center' }}>ลงชื่อ  ....................................................</Text>
-                    <Text style={{ width: '100%', fontSize: 8, textAlign: 'center' }}>(&nbsp;{boss[0].name_title_th} {boss[0].first_name_th} {boss[0].last_name_th}&nbsp;)</Text>
-                    <Text style={{ width: '100%', fontSize: 8, textAlign: 'center' }}>............./........................../............</Text>
+                    <Text style={{ paddingTop: 10, width: '100%', textAlign: 'center' }}>ความเห็นหัวหน้าภาควิชา </Text>
+                    <Text style={{ width: '100%', textAlign: 'center' }}>________________________ </Text>
+                    <Text style={{ width: '100%', textAlign: 'center' }}>________________________ </Text>
+                    <Text style={{ width: '100%', textAlign: 'center' }}>________________________ </Text>
+                    <Text style={{ width: '100%', textAlign: 'center' }}>________________________ </Text>
+                    <Text style={{ width: '100%', textAlign: 'center' }}>  </Text>
+                    <Text style={{ width: '100%', fontSize: 8, textAlign: 'center' }}>ลงชื่อ  .................................................... </Text>
+                    <Text style={{ width: '100%', fontSize: 8, textAlign: 'center' }}>(&nbsp;{boss[0].name_title_th} {boss[0].first_name_th} {boss[0].last_name_th}&nbsp;) </Text>
+                    <Text style={{ width: '100%', fontSize: 8, textAlign: 'center' }}>............./........................../............ </Text>
                 </View>
                 <View style={[styles.column, { width: '33%', height: '100%', marginLeft: 1, marginRight: 1, textAlign: 'left', border: "2px solid #d3d3d3" }]}>
-                    <Text style={{ paddingTop: 10, width: '100%', textAlign: 'center' }}>รายชื่อคณะกรรมการสอบ</Text>
+                    <Text style={{ paddingTop: 10, width: '100%', textAlign: 'center' }}>รายชื่อคณะกรรมการสอบ </Text>
                     {
                         (countstaffa === 0 && countstaffb === 0) ?
                             <>
-                                <Text style={{ width: '100%', fontSize: 8, marginTop: 6, textAlign: 'center' }}>ประธาน_________________________</Text>
-                                <Text style={{ width: '100%', fontSize: 8, marginTop: 6, textAlign: 'center' }}>กรรมการ________________________</Text>
-                                <Text style={{ width: '100%', fontSize: 8, marginTop: 6, textAlign: 'center' }}>กรรมการ________________________</Text>
-                                <Text style={{ width: '100%', fontSize: 8, marginTop: 6, textAlign: 'center' }}>กรรมการ________________________</Text>
+                                <Text style={{ width: '100%', fontSize: 8, marginTop: 6, textAlign: 'center' }}>ประธาน_________________________ </Text>
+                                <Text style={{ width: '100%', fontSize: 8, marginTop: 6, textAlign: 'center' }}>กรรมการ________________________ </Text>
+                                <Text style={{ width: '100%', fontSize: 8, marginTop: 6, textAlign: 'center' }}>กรรมการ________________________ </Text>
+                                <Text style={{ width: '100%', fontSize: 8, marginTop: 6, textAlign: 'center' }}>กรรมการ________________________ </Text>
                             </>
                             :
                             (staff.staff.map((item:any) => {
@@ -1905,7 +1905,7 @@ function Bottom01({ boss, staff }:any) {
                                     <>
                                         {
                                             (item.project_staff_position_title === 'ประธาน') ?
-                                                <Text style={{ width: '100%', fontSize: 8, marginTop: 6, textAlign: 'left', paddingLeft: 5 }}>ประธาน (&nbsp;{item.name_title_th} {item.first_name_th} {item.last_name_th}&nbsp;)</Text>
+                                                <Text style={{ width: '100%', fontSize: 8, marginTop: 6, textAlign: 'left', paddingLeft: 5 }}>ประธาน (&nbsp;{item.name_title_th} {item.first_name_th} {item.last_name_th}&nbsp;) </Text>
                                                 :
                                                 null
                                         }
@@ -1921,7 +1921,7 @@ function Bottom01({ boss, staff }:any) {
                                     <>
                                         {
                                             (item.project_staff_position_title === 'กรรมการ') ?
-                                                <Text style={{ width: '100%', fontSize: 8, marginTop: 6, textAlign: 'left', paddingLeft: 5 }}>กรรมการ (&nbsp;{item.name_title_th} {item.first_name_th} {item.last_name_th}&nbsp;)</Text>
+                                                <Text style={{ width: '100%', fontSize: 8, marginTop: 6, textAlign: 'left', paddingLeft: 5 }}>กรรมการ (&nbsp;{item.name_title_th} {item.first_name_th} {item.last_name_th}&nbsp;) </Text>
                                                 :
                                                 null
                                         }
@@ -1929,9 +1929,9 @@ function Bottom01({ boss, staff }:any) {
                                 )
                             }))
                     }
-                    <Text style={{ width: '100%', textAlign: 'center' }}> </Text>
-                    <Text style={{ width: '100%', fontSize: 8, textAlign: 'center' }}>วันที่สอบ ............/........................../...........</Text>
-                    <Text style={{ width: '100%', fontSize: 8, marginTop: 5, textAlign: 'center' }}>สถานที่จัดสอบ ...........................................</Text>
+                    <Text style={{ width: '100%', textAlign: 'center' }}>  </Text>
+                    <Text style={{ width: '100%', fontSize: 8, textAlign: 'center' }}>วันที่สอบ ............/........................../........... </Text>
+                    <Text style={{ width: '100%', fontSize: 8, marginTop: 5, textAlign: 'center' }}>สถานที่จัดสอบ ........................................... </Text>
                 </View>
             </View >
         </>
@@ -1945,16 +1945,16 @@ function Bottom02({ item }:any) {
         <>
             <View style={[styles.row, { fontSize: 11 }]}>
                 <View style={[styles.column, { width: '30%' }]}>
-                    <Text style={{ width: '100%', textAlign: 'center' }}>วันที่ ............./........................../............</Text>
+                    <Text style={{ width: '100%', textAlign: 'center' }}>วันที่ ............./........................../............ </Text>
                 </View>
                 <View style={[styles.column, { width: '70%' }]}>
-                    <Text style={{ paddingTop: 10, width: '100%', textAlign: 'center' }}>ลงชื่อ  ..................................................... </Text>
-                    <Text style={{ width: '100%', textAlign: 'center' }}>(&nbsp;{item.name_title_th} {item.first_name_th} {item.last_name_th}&nbsp;)</Text>
+                    <Text style={{ paddingTop: 10, width: '100%', textAlign: 'center' }}>ลงชื่อ  .....................................................  </Text>
+                    <Text style={{ width: '100%', textAlign: 'center' }}>(&nbsp;{item.name_title_th} {item.first_name_th} {item.last_name_th}&nbsp;) </Text>
                 </View>
             </View >
             <View style={[styles.row, { fontSize: 11 }]}>
                 <View style={[styles.column, { width: '100%' }]}>
-                    <Text style={{ width: '100%', textAlign: 'center' }}>หมายเหตุ: คะแนนข้อที่ 8 จะให้อยู่ในดุลพินิจของอาจารย์ที่ปรึกษาแล้วแต่ความเหมาะสม จะเป็นคะแนนที่ให้เพิ่มจาก 100 %</Text>
+                    <Text style={{ width: '100%', textAlign: 'center' }}>หมายเหตุ: คะแนนข้อที่ 8 จะให้อยู่ในดุลพินิจของอาจารย์ที่ปรึกษาแล้วแต่ความเหมาะสม จะเป็นคะแนนที่ให้เพิ่มจาก 100 % </Text>
                 </View>
             </View >
         </>

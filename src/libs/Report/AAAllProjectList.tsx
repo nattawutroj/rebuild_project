@@ -202,9 +202,9 @@ function Header() {
                 <View style={{ width: '5%' }}>
                 </View>
                 <View style={{ width: '70%', marginTop: 15 }}>
-                    <Text style={styles.title}>รายงานสถานะโครงงานพิเศษ (ปริญญานิพนธ์)</Text>
-                    <Text>ภาควิชาเทคโนโลยีสารสนเทศ คณะเทคโนโลยีและการจัดการอุตสาหกรรม</Text>
-                    <Text>มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ วิทยาเขตปราจีนบุรี</Text>
+                    <Text style={styles.title}>รายงานสถานะโครงงานพิเศษ (ปริญญานิพนธ์) </Text>
+                    <Text>ภาควิชาเทคโนโลยีสารสนเทศ คณะเทคโนโลยีและการจัดการอุตสาหกรรม </Text>
+                    <Text>มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ วิทยาเขตปราจีนบุรี </Text>
                 </View>
                 <View style={{ width: '10%' }}>
                 </View>
@@ -217,28 +217,28 @@ function Information({ docgenlist }:any) {
     return (
         <>
             <View style={[styles.row, { marginTop: 10 }, styles.bb, styles.bt]} fixed>
-                <Text style={[styles.bl, { width: '10%', textAlign: 'center', fontWeight: 'bold', }]}>รหัสโครงงาน</Text>
-                <Text style={[styles.bl, { width: '20%', textAlign: 'center', fontWeight: 'bold', }]}>ชื่อโครงงาน/กรณีศึกษา</Text>
-                <Text style={[styles.bl, { width: '15%', textAlign: 'center', fontWeight: 'bold', }]}>ผู้จัดทำโครงงาน</Text>
-                <Text style={[styles.bl, { width: '15%', textAlign: 'center', fontWeight: 'bold', }]}>ที่ปรึกษา/ที่ปรึกษาร่วม</Text>
-                <Text style={[styles.bl, { width: '15%', textAlign: 'center', fontWeight: 'bold', }]}>ประธาน/กรรมการ</Text>
-                <Text style={[styles.bl, { width: '15%', textAlign: 'center', fontWeight: 'bold', }]}>สถานะโครงงาน</Text>
-                <Text style={[styles.bl, styles.br, { width: '10%', textAlign: 'center', fontWeight: 'bold', }]}>หมายเหตุ</Text>
+                <Text style={[styles.bl, { width: '10%', textAlign: 'center', fontWeight: 'bold', }]}>รหัสโครงงาน </Text>
+                <Text style={[styles.bl, { width: '20%', textAlign: 'center', fontWeight: 'bold', }]}>ชื่อโครงงาน/กรณีศึกษา </Text>
+                <Text style={[styles.bl, { width: '15%', textAlign: 'center', fontWeight: 'bold', }]}>ผู้จัดทำโครงงาน </Text>
+                <Text style={[styles.bl, { width: '15%', textAlign: 'center', fontWeight: 'bold', }]}>ที่ปรึกษา/ที่ปรึกษาร่วม </Text>
+                <Text style={[styles.bl, { width: '15%', textAlign: 'center', fontWeight: 'bold', }]}>ประธาน/กรรมการ </Text>
+                <Text style={[styles.bl, { width: '15%', textAlign: 'center', fontWeight: 'bold', }]}>สถานะโครงงาน </Text>
+                <Text style={[styles.bl, styles.br, { width: '10%', textAlign: 'center', fontWeight: 'bold', }]}>หมายเหตุ </Text>
             </View>
             {
                 docgenlist?.map((item:any, index:any) => {
                     return (
                         <View style={[styles.row, styles.bb]} key={index}>
-                            <Text style={[styles.bl, { paddingTop: 8,width: '10%', textAlign: 'center', fontWeight: 'light', }]}>{item.id_project}</Text>
+                            <Text style={[styles.bl, { paddingTop: 8,width: '10%', textAlign: 'center', fontWeight: 'light', }]}>{item.id_project} </Text>
                             <View style={[styles.column, styles.bl, { width: '20%', textAlign: 'left', fontWeight: 'light', }]}>
-                                <Text style={[{ textAlign: 'left', fontWeight: 'light', padding: '2', fontSize: '9' }]}>{item.project_title_th}</Text>
-                                <Text style={[{ textAlign: 'left', fontWeight: 'light', padding: '2', fontSize: '9' }]}>{item.case_study_title_th}</Text>
+                                <Text style={[{ textAlign: 'left', fontWeight: 'light', padding: '2', fontSize: '9' }]}>{item.project_title_th} </Text>
+                                <Text style={[{ textAlign: 'left', fontWeight: 'light', padding: '2', fontSize: '9' }]}>{item.case_study_title_th} </Text>
                             </View>
                             <View style={[styles.column, styles.bl, { width: '15%', textAlign: 'left', fontWeight: 'light', }]}>
                                 {
                                     item.member.map((member:any, index:any) => {
                                         return (
-                                            <Text key={index} style={[{ textAlign: 'left', fontWeight: 'light', padding: '2', fontSize: '9' }]}>{member.name_title_th}{member.first_name_th} {member.last_name_th}</Text>
+                                            <Text key={index} style={[{ textAlign: 'left', fontWeight: 'light', padding: '2', fontSize: '9' }]}>{member.name_title_th}{member.first_name_th} {member.last_name_th} </Text>
                                         )
                                     }
                                     )
@@ -251,7 +251,7 @@ function Information({ docgenlist }:any) {
                                             <>
                                                 {
                                                     staff.project_staff_position_title === "ปรึกษา" ?
-                                                        <Text key={index} style={[{ textAlign: 'left', fontWeight: 'light', padding: '2', fontSize: '9' }]}>{staff.name_title_th}{staff.first_name_th} {staff.last_name_th}</Text>
+                                                        <Text key={index} style={[{ textAlign: 'left', fontWeight: 'light', padding: '2', fontSize: '9' }]}>{staff.name_title_th}{staff.first_name_th} {staff.last_name_th} </Text>
                                                         : null
                                                 }
                                             </>
@@ -265,7 +265,7 @@ function Information({ docgenlist }:any) {
                                             <>
                                                 {
                                                     staff.project_staff_position_title === "ปรึกษาร่วม" ?
-                                                        <Text key={index} style={[{ textAlign: 'left', fontWeight: 'light', padding: '2', fontSize: '9' }]}>{staff.name_title_th}{staff.first_name_th} {staff.last_name_th}</Text>
+                                                        <Text key={index} style={[{ textAlign: 'left', fontWeight: 'light', padding: '2', fontSize: '9' }]}>{staff.name_title_th}{staff.first_name_th} {staff.last_name_th} </Text>
                                                         : null
                                                 }
                                             </>
@@ -279,7 +279,7 @@ function Information({ docgenlist }:any) {
                                             <>
                                                 {
                                                     staff.project_staff_position_title === "ปรึกษาร่วม" ?
-                                                        <Text key={index} style={[{ textAlign: 'left', fontWeight: 'light', padding: '2', fontSize: '9' }]}>{staff.name_title_th}{staff.first_name_th} {staff.last_name_th}</Text>
+                                                        <Text key={index} style={[{ textAlign: 'left', fontWeight: 'light', padding: '2', fontSize: '9' }]}>{staff.name_title_th}{staff.first_name_th} {staff.last_name_th} </Text>
                                                         : null
                                                 }
                                             </>
@@ -295,7 +295,7 @@ function Information({ docgenlist }:any) {
                                             <>
                                                 {
                                                     staff.project_staff_position_title === "ประธาน" ?
-                                                        <Text key={index} style={[{ textAlign: 'left', fontWeight: 'light', padding: '2', fontSize: '9' }]}>{staff.name_title_th}{staff.first_name_th} {staff.last_name_th}</Text>
+                                                        <Text key={index} style={[{ textAlign: 'left', fontWeight: 'light', padding: '2', fontSize: '9' }]}>{staff.name_title_th}{staff.first_name_th} {staff.last_name_th} </Text>
                                                         : null
                                                 }
                                             </>
@@ -309,7 +309,7 @@ function Information({ docgenlist }:any) {
                                             <>
                                                 {
                                                     staff.project_staff_position_title === "กรรมการ" ?
-                                                        <Text key={index} style={[{ textAlign: 'left', fontWeight: 'light', padding: '2', fontSize: '9' }]}>{staff.name_title_th}{staff.first_name_th} {staff.last_name_th}</Text>
+                                                        <Text key={index} style={[{ textAlign: 'left', fontWeight: 'light', padding: '2', fontSize: '9' }]}>{staff.name_title_th}{staff.first_name_th} {staff.last_name_th} </Text>
                                                         : null
                                                 }
                                             </>
@@ -319,9 +319,9 @@ function Information({ docgenlist }:any) {
                                 }
                             </View>
                             <View style={[styles.column, styles.bl, { width: '15%', textAlign: 'left', fontWeight: 'light', }]}>
-                                <Text key={index} style={[{ textAlign: 'left', fontWeight: 'light', padding: '2', fontSize: '10' }]}>{item.project_status_name_title}</Text>
+                                <Text key={index} style={[{ textAlign: 'left', fontWeight: 'light', padding: '2', fontSize: '10' }]}>{item.project_status_name_title} </Text>
                             </View>
-                            <Text style={[styles.bl, styles.br, { width: '10%', textAlign: 'center', fontWeight: 'light', }]}> </Text>
+                            <Text style={[styles.bl, styles.br, { width: '10%', textAlign: 'center', fontWeight: 'light', }]}>  </Text>
                         </View >
                     )
                 }
