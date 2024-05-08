@@ -77,7 +77,7 @@ export default function AdminDash() {
                 window.open(dataUrl);
             }
             else {
-                setPdfUrl(dataUrl);
+                window.open(dataUrl);
             }
         }).catch(err => {
             setPdfUrl('')
@@ -85,7 +85,6 @@ export default function AdminDash() {
         }
         );
     };
-
 
     const [staffList, setStaffList] = React.useState([]);
 
@@ -118,7 +117,18 @@ export default function AdminDash() {
     }
 
     const Viewpdf = (id: any) => {
-        handleFileDownload(id);
+        console.log(id)
+        axios.get('resources/public/fefile', {
+            params: {
+                id_project: id
+            }
+        }
+        ).then(res => {
+            console.log(res)
+            handleFileDownload(res.data.result[0].path)
+        }).catch(err => {
+            console.log(err);
+        })
     }
 
 
@@ -492,19 +502,25 @@ export default function AdminDash() {
                 aria-controls="panel1a-content"
                 id="panel1a-header"
             >
-                <Typography sx={{ pt: 0.3, width: '65%', flexShrink: 0,fontFamily: "kanit" }}> {file.id_project} {file.project_title_th} </Typography>
+                <Typography sx={{ pt: 0.3, width: '65%', flexShrink: 0, fontFamily: "kanit" }}> {file.id_project} {file.project_title_th} </Typography>
                 {
                     file.staus_code != -1 ?
                         // <Typography sx={{ pt: 0.3, color: green[600] }}>ไม่ผ่านยื่นสอบใหม่ภายในช่วงเวลา</Typography>
-                        <Typography sx={{ pt: 0.3, color: green[600],fontFamily: "kanit" }}>{file.project_status_name_title}</Typography>
+                        <Typography sx={{ pt: 0.3, color: green[600], fontFamily: "kanit" }}>{file.project_status_name_title}</Typography>
                         :
                         file.staus_code == 18 ?
-                            <Typography sx={{ pt: 0.3, color: red[600],fontFamily: "kanit" }}>{file.project_status_name_title}</Typography>
+                            <Typography sx={{ pt: 0.3, color: red[600], fontFamily: "kanit" }}>{file.project_status_name_title}</Typography>
                             :
                             null
                 }
             </AccordionSummary>
 
+            <Stack direction="row"
+                justifyContent="flex-end"
+                alignItems="center"
+                spacing={2} sx={{ mr: 2.5 }}>
+                <Button onClick={() => { Viewpdf(file.id_project) }} variant="contained" sx={{ mr: 2, mt: 1, ml: 1, mb: 1 }}>ดูรายละเอียด ทก.01</Button>
+            </Stack>
             <ProjectDetail del={false} id={file.id_project} />
 
             {/* <AccordionDetails>
