@@ -140,6 +140,20 @@ const CommandShortcut = ({
 };
 CommandShortcut.displayName = "CommandShortcut";
 
+const CommandIcon = ({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLSpanElement>) => {
+  return (
+    <span
+      className={cn("mr-2 h-5 w-5 shrink-0 opacity-50", className)}
+      {...props}
+    />
+  );
+};
+
+CommandIcon.displayName = "CommandIcon";
+
 export {
   Command,
   CommandDialog,
@@ -150,4 +164,5 @@ export {
   CommandItem,
   CommandShortcut,
   CommandSeparator,
+  CommandIcon
 };
