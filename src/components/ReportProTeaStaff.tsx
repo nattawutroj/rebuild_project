@@ -89,7 +89,7 @@ export default function AdminDash() {
 
     const [staffList, setStaffList] = React.useState([]);
 
-    const [id_staff, setIdStaff] = React.useState<any>(profile.id_staff);
+    // const [id_staff, setIdStaff] = React.useState<any>(profile.id_staff);
     function FetchStaff() {
         axios.get('/user/stafflist')
             .then(res => {
