@@ -974,7 +974,7 @@ export default function AdminDash() {
                 >
                     <Box sx={{ ...style, width: 450 }}>
                         <ModalAddJust act={act} setAct={setAct} setOpenAddJust={setOpenAddJust} projectcode={projectcode} />
-                        <Card sx={{ p: 1 }}
+                        {/* <Card sx={{ p: 1 }}
                             aria-controls="panel1a-content"
                             id="panel1a-header"
                         >
@@ -1021,7 +1021,7 @@ export default function AdminDash() {
                                     }
                                 </Stack>
                             </Stack>
-                        </Card>
+                        </Card> */}
                     </Box>
                 </Modal>
 

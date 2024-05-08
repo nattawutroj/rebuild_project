@@ -13,10 +13,36 @@ export default function ModalAddJust({ act, setAct, projectcode, setOpenAddJust 
     const [id_staff2, setIdStaff2] = React.useState<any>(-1);
     const [id_staff3, setIdStaff3] = React.useState<any>(-1);
 
+    const [id_staffold, setIdStaffold] = React.useState<any>(-1);
+    const [id_staffold1, setIdStaffold1] = React.useState<any>(-1);
+    const [id_staffold2, setIdStaffold2] = React.useState<any>(-1);
+    const [id_staffold3, setIdStaffold3] = React.useState<any>(-1);
+
+    console.log("id_staffold", id_staffold3);
+
     const [nametitle, setNametitle] = useState<any>([]);
     const [editProfileAlert, setEditProfileAlert] = useState<any>(false);
     const [selectedTitle, setSelectedTitle] = useState<any>('');
     const [staffList, setStaffList] = React.useState<any>([]);
+    const [staff, setStaff] = React.useState<any>([]);
+
+    React.useEffect(() => {
+        if (staff?.staff) {
+            var staffx = staff.staff.filter((staff: any) => staff.id_project_staff_position === 1);
+            var staffx1 = staff.staff.filter((staff: any) => staff.id_project_staff_position === 2);
+            var staffx2 = staff.staff.filter((staff: any) => staff.id_project_staff_position === 3 && staff.id_staff !== staffx[0].id_staff);
+            var staffx3 = staff.staff.filter((staff: any) => staff.id_staff === staffx[0].id_staff && staff.id_project_staff_position === 3);
+            setIdStaff3(staffx[0]?.id_staff || -1);
+            setIdStaffold3(staffx3[0]?.id_project_staff || -1);
+            setIdStaff(staffx1[0]?.id_staff || -1);
+            setIdStaffold(staffx1[0]?.id_project_staff || -1);
+            setIdStaff1(staffx2[0]?.id_staff || -1);
+            setIdStaffold1(staffx2[0]?.id_project_staff || -1);
+            setIdStaff2(staffx2[1]?.id_staff || -1);
+            setIdStaffold2(staffx2[1]?.id_project_staff || -1);
+
+        }
+    }, [staff]);
 
     const [formData, setFormData] = useState<any>({
         id_project: projectcode,
@@ -70,7 +96,7 @@ export default function ModalAddJust({ act, setAct, projectcode, setOpenAddJust 
                 .then(res => {
                     console.log(res.data);
                     if (res.data.status === 200) {
-                        window.alert("เพิ่มข้อมูลสำเร็จ");
+                        window.alert("ดำเนินการแล้ว");
                     } else {
                         window.alert("เพิ่มข้อมูลไม่สำเร็จ");
                     }
@@ -102,6 +128,18 @@ export default function ModalAddJust({ act, setAct, projectcode, setOpenAddJust 
             .then(res => {
                 console.log(res.data);
                 setStaffList(res.data.result);
+                axios.get('/resources/admin/projectinfomation/staff',
+                    {
+                        params: {
+                            id_project: projectcode
+                        }
+                    }
+                ).then(res => {
+
+                    setStaff(res.data.result[0]);
+                }).catch(err => {
+                    console.log(err);
+                })
             })
             .catch(err => {
                 console.log(err);
@@ -125,6 +163,62 @@ export default function ModalAddJust({ act, setAct, projectcode, setOpenAddJust 
     }
 
     function addStaff() {
+        if (id_staffold !== -1) {
+            axios.delete('/user/projectstaff', {
+                data: {
+                    id_project_staff: id_staffold
+                }
+            })
+                .then(res => {
+                    console.log("done");
+                }
+                )
+                .catch(err => {
+                    console.log(err);
+                });
+        }
+        if (id_staffold1 !== -1) {
+            axios.delete('/user/projectstaff', {
+                data: {
+                    id_project_staff: id_staffold1
+                }
+            })
+                .then(res => {
+                    console.log("done");
+                }
+                )
+                .catch(err => {
+                    console.log(err);
+                });
+        }
+        if (id_staffold2 !== -1) {
+            axios.delete('/user/projectstaff', {
+                data: {
+                    id_project_staff: id_staffold2
+                }
+            })
+                .then(res => {
+                    console.log("done");
+                }
+                )
+                .catch(err => {
+                    console.log(err);
+                });
+        }
+        if (id_staffold3 !== -1) {
+            axios.delete('/user/projectstaff', {
+                data: {
+                    id_project_staff: id_staffold3
+                }
+            })
+                .then(res => {
+                    console.log("done");
+                }
+                )
+                .catch(err => {
+                    console.log(err);
+                });
+        }
         if (id_staff != -1) {
             axios.post('/user/projectstaff', {
                 id_project: projectcode,
@@ -132,94 +226,53 @@ export default function ModalAddJust({ act, setAct, projectcode, setOpenAddJust 
                 id_project_staff_position: 2
             })
                 .then(res => {
-                    console.log(res.data);
-                    if (res.data.status === 200) {
-                        if (id_staff1 != -1) {
-                            axios.post('/user/projectstaff', {
-                                id_project: projectcode,
-                                id_staff: id_staff1,
-                                id_project_staff_position: 3
-                            })
-                                .then(res => {
-                                    console.log(res.data);
-                                    if (res.data.status === 200) {
-                                        if (id_staff2 != -1) {
-                                            axios.post('/user/projectstaff', {
-                                                id_project: projectcode,
-                                                id_staff: id_staff2,
-                                                id_project_staff_position: 3
-                                            })
-                                                .then(res => {
-                                                    console.log(res.data);
-                                                    if (res.data.status === 200) {
-                                                        if (id_staff3 != -1) {
-                                                            axios.post('/user/projectstaff', {
-                                                                id_project: projectcode,
-                                                                id_staff: id_staff3,
-                                                                id_project_staff_position: 3
-                                                            })
-                                                                .then(res => {
-                                                                    console.log(res.data);
-                                                                    if (res.data.status === 200) {
-                                                                        window.alert("เพิ่มข้อมูลสำเร็จ");
-                                                                        setOpenAddJust(false);
-
-                                                                        console.log("act >>", act);
-                                                                        setAct(act + 1);
-
-                                                                        // window.location.reload();
-                                                                    } else {
-                                                                        setOpenAddJust(false);
-                                                                    }
-                                                                })
-                                                                .catch(err => {
-                                                                    console.log(err);
-                                                                });
-                                                        }
-                                                        else {
-                                                            setOpenAddJust(false);
-                                                        }
-                                                        setAct(act + 1);
-
-                                                        // window.location.reload();
-                                                    } else {
-                                                        setOpenAddJust(false);
-                                                    }
-                                                })
-                                                .catch(err => {
-                                                    console.log(err);
-                                                });
-                                        }
-                                        else {
-                                            setOpenAddJust(false);
-                                        }
-                                        setAct(act + 1);
-
-                                        // window.location.reload();
-                                    } else {
-                                        setOpenAddJust(false);
-                                    }
-                                })
-                                .catch(err => {
-                                    console.log(err);
-                                });
-                        }
-                        else {
-                            setOpenAddJust(false);
-                        }
-                        setAct(act + 1);
-
-                        // window.location.reload();
-                    } else {
-                        setOpenAddJust(false);
-                    }
                 })
                 .catch(err => {
                     console.log(err);
                 });
-        } else {
-            window.alert("เพิ่มข้อมูลไม่สำเร็จ");
         }
+        if (id_staff1 != -1) {
+            axios.post('/user/projectstaff', {
+                id_project: projectcode,
+                id_staff: id_staff1,
+                id_project_staff_position: 3
+            })
+                .then(res => {
+                    console.log(res.data);
+                })
+                .catch(err => {
+                    console.log(err);
+                });
+        }
+        if (id_staff2 != -1) {
+            axios.post('/user/projectstaff', {
+                id_project: projectcode,
+                id_staff: id_staff2,
+                id_project_staff_position: 3
+            })
+                .then(res => {
+                })
+                .catch(err => {
+                    console.log(err);
+                });
+        }
+        if (id_staff3 != -1) {
+            axios.post('/user/projectstaff', {
+                id_project: projectcode,
+                id_staff: id_staff3,
+                id_project_staff_position: 3
+            })
+                .then(res => {
+                    console.log(res.data);
+                })
+                .catch(err => {
+                    console.log(err);
+                });
+        }
+        setOpenAddJust(false);
+        setAct(act + 1);
+        setAct(act + 1);
+
     }
 
     return (
@@ -311,7 +364,7 @@ export default function ModalAddJust({ act, setAct, projectcode, setOpenAddJust 
                 justifyContent="flex-end"
                 alignItems="center"
                 spacing={2} sx={{ mt: 2.5 }}>
-                <Button color='success' variant="contained" onClick={() => { addStaff() }}>เพิ่ม</Button>
+                <Button color='success' variant="contained" onClick={() => { addStaff() }}>แก้ไข</Button>
                 <Button variant="contained" onClick={() => { setOpenAddJust(false) }}>ยกเลิก</Button>
             </Stack>
             <Modal
