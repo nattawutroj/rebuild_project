@@ -131,7 +131,7 @@ function BasicDocument({ projectinfo, member, staff, boss, selectReport }:any) {
     //         "id_project_member": 51,
     //         "id_project": "66200008",
     //         "id_student": 3,
-    //         "student_code": "6506021421129",
+    //         "student_code": "650602821129",
     //         "first_name_th": "ณัฐกานต์",
     //         "last_name_th": "กระแสร์ลาภ",
     //         "id_name_title": 2,
@@ -158,7 +158,7 @@ function BasicDocument({ projectinfo, member, staff, boss, selectReport }:any) {
     //         "id_project_member": 55,
     //         "id_project": "66200008",
     //         "id_student": 321,
-    //         "student_code": "6606021421276",
+    //         "student_code": "660602821276",
     //         "first_name_th": "ทรวภพ",
     //         "last_name_th": "ขูจิต",
     //         "id_name_title": 5,
@@ -534,7 +534,7 @@ function Information({ projectinfo, member, staff }:any) {
                         <View style={styles.row} key={index}>
                             <Text style={{ width: '5%', fontWeight: 'bold', textAlign: 'left' }}> </Text>
                             <Text style={{ width: '35%', textAlign: 'left' }}>{item.name_title_th}{item.first_name_th} {item.last_name_th}</Text>
-                            <Text style={{ width: '15%', textAlign: 'left', fontWeight: 'bold' }}>รหัสประจำตัว</Text>
+                            <Text style={{ width: '15%', textAlign: 'left', fontWeight: 'bold' }}>asรหัสประจำตัว</Text>
                             <Text style={{ width: '17%', textAlign: 'left' }}>{item.student_code}</Text>
                             <Text style={{ width: '10%', textAlign: 'left', fontWeight: 'bold' }}>โทรศัพท์</Text>
                             <Text style={{ width: '18%', textAlign: 'left' }}>{item.phone}</Text>
@@ -634,17 +634,17 @@ function Information2({ projectinfo, member, staff }:any) {
         <>
             <View style={styles.row}>
                 <Text style={{ width: '20%', fontWeight: 'bold' }}>ชื่อ - สกุลนักศึกษา</Text>
-                <Text style={{ width: '45%' }}>{member[0].name_title_th} {member[0].first_name_th} {member[0].last_name_th}</Text>
+                <Text style={{ width: '40%' }}>{member[0].name_title_th} {member[0].first_name_th} {member[0].last_name_th}</Text>
                 <Text style={{ width: '1%' }}> </Text>
-                <Text style={{ width: '14%', fontWeight: 'bold' }}>รหัสประจำตัว</Text>
-                <Text style={{ width: '20%' }}>{member[0].student_code}</Text>
+                <Text style={{ width: '13%', fontWeight: 'bold' }}>รหัสประจำตัว</Text>
+                <Text style={{ width: '26%' }}>{member[0].student_code}</Text>
             </View>
             <View style={styles.row}>
-                <Text style={{ width: '50%', fontWeight: 'bold' }}>ที่อยู่ปัจจุบันที่สามารถติดต่อได้สะดวก</Text>
-                <Text style={{ width: '15%' }}> </Text>
-                <Text style={{ width: '1%' }}> </Text>
-                <Text style={{ width: '14%', fontWeight: 'bold' }}>โทรศัพท์</Text>
-                <Text style={{ width: '20%' }}>{member[0].phone}</Text>
+                <Text style={{ width: '30%', fontWeight: 'bold' }}>ที่อยู่ปัจจุบันที่สามารถติดต่อได้สะดวก</Text>
+                <Text style={{ width: '20%' }}> </Text>
+                <Text style={{ width: '11%' }}> </Text>
+                <Text style={{ width: '13%', fontWeight: 'bold' }}>โทรศัพท์</Text>
+                <Text style={{ width: '26%' }}>{member[0].phone}</Text>
             </View>
             <View style={styles.row}>
                 <Text style={{ width: '90%' }}>{member[0].address}</Text>
@@ -820,7 +820,7 @@ function Information3({ projectinfo, member, staff }:any) {
                             <View style={styles.row} key={index}>
                                 <Text style={{ width: '5%', fontWeight: 'bold', textAlign: 'left' }}> </Text>
                                 <Text style={{ width: '35%', textAlign: 'left' }}>{index + 1}. {item.name_title_th}{item.first_name_th} {item.last_name_th}</Text>
-                                <Text style={{ width: '15%', textAlign: 'left', fontWeight: 'bold' }}>รหัสประจำตัว</Text>
+                                <Text style={{ width: '15%', textAlign: 'left', fontWeight: 'bold' }}>asรหัสประจำตัว</Text>
                                 <Text style={{ width: '17%', textAlign: 'left' }}>{item.student_code}</Text>
                                 <Text style={{ width: '10%', textAlign: 'left', fontWeight: 'bold' }}>โทรศัพท์</Text>
                                 <Text style={{ width: '18%', textAlign: 'left' }}>{item.phone}</Text>
@@ -1676,7 +1676,7 @@ function Singature0() {
             <View style={styles.row}>
                 <Text style={{ width: '5%', textAlign: 'right', marginRight: 50 }}></Text>
                 <Text style={{ width: '40%', textAlign: 'left' }}></Text>
-                <Text style={{ width: '50%', textAlign: 'center', marginRight: 30 }}>ลงชื่อ  ..................................................... (ผู้ยื่นคำร้อง)</Text>
+                <Text style={{ width: '50%', textAlign: 'center', marginRight: 30 }}>ลงชื่อ  ..................................................... (ผู้ยื่นคำร้อง) </Text>
                 <Text style={{ width: '5%', textAlign: 'right' }}></Text>
             </View>
             <View style={styles.row}>
@@ -1853,7 +1853,7 @@ function Bottom01({ boss, staff }:any) {
     )
     return (
         <>
-            <View style={[styles.row, {}]}>
+            <View style={[styles.row, {marginTop: 250}]}>
                 <View style={[styles.column, { width: '33%', marginLeft: 1, marginRight: 1, textAlign: 'left', border: "2px solid #d3d3d3" }]}>
                     <Text style={{ paddingTop: 10, width: '100%', textAlign: 'center' }}>ความเห็นอาจารย์ที่ปรึกษา</Text>
                     <Text style={{ width: '100%', textAlign: 'center' }}>________________________</Text>
@@ -1867,8 +1867,8 @@ function Bottom01({ boss, staff }:any) {
                                 (item.project_staff_position_title === 'ปรึกษา' && x === 0) ?
                                     <>
                                         {x++}
-                                        <Text style={{ width: '100%', fontSize: 14, textAlign: 'center' }}>ลงชื่อ  ....................................................</Text>
-                                        <Text style={{ width: '100%', fontSize: 14, textAlign: 'center' }}>(&nbsp;{item.name_title_th} {item.first_name_th} {item.last_name_th}&nbsp;)</Text>
+                                        <Text style={{ width: '100%', fontSize: 8, textAlign: 'center' }}>ลงชื่อ  ....................................................</Text>
+                                        <Text style={{ width: '100%', fontSize: 8, textAlign: 'center' }}>(&nbsp;{item.name_title_th} {item.first_name_th} {item.last_name_th}&nbsp;)</Text>
                                     </>
                                     :
                                     null
@@ -1876,7 +1876,7 @@ function Bottom01({ boss, staff }:any) {
                         })
                     }
 
-                    <Text style={{ width: '100%', fontSize: 14, textAlign: 'center' }}>............./........................../............</Text>
+                    <Text style={{ width: '100%', fontSize: 8, textAlign: 'center' }}>............./........................../............</Text>
                 </View>
                 <View style={[styles.column, { width: '33%', marginLeft: 1, marginRight: 1, textAlign: 'left', border: "2px solid #d3d3d3" }]}>
                     <Text style={{ paddingTop: 10, width: '100%', textAlign: 'center' }}>ความเห็นหัวหน้าภาควิชา</Text>
@@ -1885,19 +1885,19 @@ function Bottom01({ boss, staff }:any) {
                     <Text style={{ width: '100%', textAlign: 'center' }}>________________________</Text>
                     <Text style={{ width: '100%', textAlign: 'center' }}>________________________</Text>
                     <Text style={{ width: '100%', textAlign: 'center' }}> </Text>
-                    <Text style={{ width: '100%', fontSize: 14, textAlign: 'center' }}>ลงชื่อ  ....................................................</Text>
-                    <Text style={{ width: '100%', fontSize: 14, textAlign: 'center' }}>(&nbsp;{boss[0].name_title_th} {boss[0].first_name_th} {boss[0].last_name_th}&nbsp;)</Text>
-                    <Text style={{ width: '100%', fontSize: 14, textAlign: 'center' }}>............./........................../............</Text>
+                    <Text style={{ width: '100%', fontSize: 8, textAlign: 'center' }}>ลงชื่อ  ....................................................</Text>
+                    <Text style={{ width: '100%', fontSize: 8, textAlign: 'center' }}>(&nbsp;{boss[0].name_title_th} {boss[0].first_name_th} {boss[0].last_name_th}&nbsp;)</Text>
+                    <Text style={{ width: '100%', fontSize: 8, textAlign: 'center' }}>............./........................../............</Text>
                 </View>
                 <View style={[styles.column, { width: '33%', height: '100%', marginLeft: 1, marginRight: 1, textAlign: 'left', border: "2px solid #d3d3d3" }]}>
                     <Text style={{ paddingTop: 10, width: '100%', textAlign: 'center' }}>รายชื่อคณะกรรมการสอบ</Text>
                     {
                         (countstaffa === 0 && countstaffb === 0) ?
                             <>
-                                <Text style={{ width: '100%', fontSize: 14, marginTop: 6, textAlign: 'center' }}>ประธาน_________________________</Text>
-                                <Text style={{ width: '100%', fontSize: 14, marginTop: 6, textAlign: 'center' }}>กรรมการ________________________</Text>
-                                <Text style={{ width: '100%', fontSize: 14, marginTop: 6, textAlign: 'center' }}>กรรมการ________________________</Text>
-                                <Text style={{ width: '100%', fontSize: 14, marginTop: 6, textAlign: 'center' }}>กรรมการ________________________</Text>
+                                <Text style={{ width: '100%', fontSize: 8, marginTop: 6, textAlign: 'center' }}>ประธาน_________________________</Text>
+                                <Text style={{ width: '100%', fontSize: 8, marginTop: 6, textAlign: 'center' }}>กรรมการ________________________</Text>
+                                <Text style={{ width: '100%', fontSize: 8, marginTop: 6, textAlign: 'center' }}>กรรมการ________________________</Text>
+                                <Text style={{ width: '100%', fontSize: 8, marginTop: 6, textAlign: 'center' }}>กรรมการ________________________</Text>
                             </>
                             :
                             (staff.staff.map((item:any) => {
@@ -1905,7 +1905,7 @@ function Bottom01({ boss, staff }:any) {
                                     <>
                                         {
                                             (item.project_staff_position_title === 'ประธาน') ?
-                                                <Text style={{ width: '100%', fontSize: 14, marginTop: 6, textAlign: 'left', paddingLeft: 5 }}>ประธาน (&nbsp;{item.name_title_th} {item.first_name_th} {item.last_name_th}&nbsp;)</Text>
+                                                <Text style={{ width: '100%', fontSize: 8, marginTop: 6, textAlign: 'left', paddingLeft: 5 }}>ประธาน (&nbsp;{item.name_title_th} {item.first_name_th} {item.last_name_th}&nbsp;)</Text>
                                                 :
                                                 null
                                         }
@@ -1921,7 +1921,7 @@ function Bottom01({ boss, staff }:any) {
                                     <>
                                         {
                                             (item.project_staff_position_title === 'กรรมการ') ?
-                                                <Text style={{ width: '100%', fontSize: 14, marginTop: 6, textAlign: 'left', paddingLeft: 5 }}>กรรมการ (&nbsp;{item.name_title_th} {item.first_name_th} {item.last_name_th}&nbsp;)</Text>
+                                                <Text style={{ width: '100%', fontSize: 8, marginTop: 6, textAlign: 'left', paddingLeft: 5 }}>กรรมการ (&nbsp;{item.name_title_th} {item.first_name_th} {item.last_name_th}&nbsp;)</Text>
                                                 :
                                                 null
                                         }
@@ -1930,8 +1930,8 @@ function Bottom01({ boss, staff }:any) {
                             }))
                     }
                     <Text style={{ width: '100%', textAlign: 'center' }}> </Text>
-                    <Text style={{ width: '100%', fontSize: 14, textAlign: 'center' }}>วันที่สอบ ............/........................../...........</Text>
-                    <Text style={{ width: '100%', fontSize: 14, marginTop: 5, textAlign: 'center' }}>สถานที่จัดสอบ ...........................................</Text>
+                    <Text style={{ width: '100%', fontSize: 8, textAlign: 'center' }}>วันที่สอบ ............/........................../...........</Text>
+                    <Text style={{ width: '100%', fontSize: 8, marginTop: 5, textAlign: 'center' }}>สถานที่จัดสอบ ...........................................</Text>
                 </View>
             </View >
         </>

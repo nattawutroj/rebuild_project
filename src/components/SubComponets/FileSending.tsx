@@ -75,6 +75,7 @@ export default function FileSending({ itemprojectinfo, id_project }:any) {
             alert('โปรดระบุประเภทการยื่นสอบ')
         }
         else {
+            if(confirm('ยื่นสอบหรือไม่?')) {
             if (file) {
                 const formData = new FormData();
                 formData.append('', file);
@@ -98,6 +99,7 @@ export default function FileSending({ itemprojectinfo, id_project }:any) {
             } else {
                 alert('Please select a valid PDF file before uploading.');
             }
+        }
         }
     }
 

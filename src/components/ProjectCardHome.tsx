@@ -77,7 +77,7 @@ export default function ProjectCard({ projectinfo, setEditMode }: any) {
                             justifyContent="flex-end"
                             alignItems="center"
                             spacing={0} sx={{ mt: 1, mb: 1, mr: 2 }}>
-                            <Button onClick={() => { setEditMode(1) }} variant='outlined' color='primary' startIcon={<Edit sx={{ ml: 1.4 }} />}></Button>
+                            {/* <Button onClick={() => { setEditMode(1) }} variant='outlined' color='primary' startIcon={<Edit sx={{ ml: 1.4 }} />}></Button> */}
                         </Stack>
                         <AccordionDetails>
                             <Card sx={{ p: 1 }}
