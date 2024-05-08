@@ -10,9 +10,16 @@ import axios from "@/api/axios";
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import LinearProgress from '@mui/material/LinearProgress';
 
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+} from "@/components/ui/tooltip"
+
 dayjs.extend(isBetweenPlugin);
 
-const CustomPickersDay = styled('div')(({ theme, isSelected, isHovered }:any) => ({
+const CustomPickersDay = styled('div')(({ theme, isSelected, isHovered }: any) => ({
     border: '1px solid #ccc',
     padding: '8px',
     borderRadius: '4px',
@@ -25,7 +32,20 @@ const CustomPickersDay = styled('div')(({ theme, isSelected, isHovered }:any) =>
     cursor: 'pointer',
 }));
 
-const isInSameWeek = (dayA:any, dayB:any) => {
+const CustomSlot = styled('div')(({ theme, isSelected, isHovered }: any) => ({
+    border: '1px solid #ccc',
+    padding: '8px',
+    borderRadius: '4px',
+    backgroundColor: isSelected
+        ? theme.palette.primary.main
+        : isHovered
+            ? theme.palette.primary[theme.palette.mode]
+            : 'transparent',
+    color: isSelected ? theme.palette.primary.contrastText : 'inherit',
+    cursor: 'pointer',
+}));
+
+const isInSameWeek = (dayA: any, dayB: any) => {
     if (dayB == null) {
         return false;
     }
@@ -49,7 +69,7 @@ const generateSlots = () => {
 };
 
 
-export default function WeekPicker({ ajid, idprojectstatustitle, setOpenCalander }:any) {
+export default function WeekPicker({ ajid, idprojectstatustitle, setOpenCalander }: any) {
     const [value, setValue] = React.useState<any>(dayjs());
     const [idroom, setIdroom] = React.useState<any>(-1);
     const [room, setRoom] = React.useState<any>([]);
@@ -76,7 +96,7 @@ export default function WeekPicker({ ajid, idprojectstatustitle, setOpenCalander
     const startOfWeek = value;
     const endOfWeek = value;
 
-    const handleDayClick = (day:any) => {
+    const handleDayClick = (day: any) => {
         console.log(`Clicked on ${day.format('DD/MM/YYYY')}`);
         // Add your logic for handling day clicks here
     };
@@ -123,7 +143,7 @@ export default function WeekPicker({ ajid, idprojectstatustitle, setOpenCalander
                                 {console.log(room)}
                                 ห้องที่จอง: {reseveroom[0].room_title}
                             </Typography>
-                            <Stack spacing={2} direction="row" sx={{mt:5}}>
+                            <Stack spacing={2} direction="row" sx={{ mt: 5 }}>
                                 <Button
                                     sx={{ mt: 3, mb: 1 }}
                                     fullWidth
@@ -171,16 +191,16 @@ export default function WeekPicker({ ajid, idprojectstatustitle, setOpenCalander
                                     onChange={(newValue) => setValue(newValue)}
                                     showDaysOutsideCurrentMonth
                                     displayWeekNumber
-                                    // Remove the onDayClick prop
-                                    // renderDay={(day, _, dayState) => (
-                                    //     <CustomPickersDay
-                                    //         isSelected={dayState.isSelected}
-                                    //         isHovered={dayState.isHovered}
-                                    //         onClick={() => handleDayClick(day)}
-                                    //     >
-                                    //         {day.format('DD/MM')}
-                                        // </CustomPickersDay>
-                                    // )}
+                                // Remove the onDayClick prop
+                                // renderDay={(day, _, dayState) => (
+                                //     <CustomPickersDay
+                                //         isSelected={dayState.isSelected}
+                                //         isHovered={dayState.isHovered}
+                                //         onClick={() => handleDayClick(day)}
+                                //     >
+                                //         {day.format('DD/MM')}
+                                // </CustomPickersDay>
+                                // )}
                                 />
                                 <FormControl fullWidth>
                                     <InputLabel id="demo-simple-select-label">เลือกห้องสอบ</InputLabel>
@@ -193,7 +213,7 @@ export default function WeekPicker({ ajid, idprojectstatustitle, setOpenCalander
                                     >
                                         <MenuItem value={-1}>เลือก</MenuItem>
                                         {
-                                            room?.map((item:any, index:any) => {
+                                            room?.map((item: any, index: any) => {
                                                 return <MenuItem key={index} value={item.id_room}>{item.room_title}</MenuItem>
                                             })
                                         }
@@ -216,7 +236,7 @@ export default function WeekPicker({ ajid, idprojectstatustitle, setOpenCalander
                                         }
                                     })
                                         .then(res => {
-                                            const slotsByDate = res.data.data.reduce((accumulator:any, item:any) => {
+                                            const slotsByDate = res.data.data.reduce((accumulator: any, item: any) => {
                                                 const { date, slot, id_room, condition, day } = item;
 
                                                 if (accumulator[date]) {
@@ -246,7 +266,7 @@ export default function WeekPicker({ ajid, idprojectstatustitle, setOpenCalander
                             </Button>
                         </Stack>
                         <div>
-                            <p>เริ่ม: {startOfWeek.format('DD/MM/YYYY')} - สิ้นสุด: {endOfWeek.format('DD/MM/YYYY')}</p>
+                            <p className='font-kanit text-base'>เริ่ม: {startOfWeek.format('DD/MM/YYYY')} - สิ้นสุด: {endOfWeek.format('DD/MM/YYYY')}</p>
                         </div>
                         {slotall ?
                             <div>
@@ -261,37 +281,61 @@ export default function WeekPicker({ ajid, idprojectstatustitle, setOpenCalander
                                     </thead>
                                     <tbody>
                                         {
-                                            slotall?.map((item:any, index:any) => {
+                                            slotall?.map((item: any, index: any) => {
                                                 return (
                                                     <tr key={index}>
                                                         <td>{dayjs(item.date).format('DD/MM')}</td>
                                                         {
-                                                            item.slots.map((slot:any, index:any) => {
+                                                            item.slots.map((slot: any, index: any) => {
                                                                 return (
                                                                     <td key={index}>
-                                                                        <Button sx={{ m: 0.5, p: 3 }} variant="contained" color="primary" size="small" onClick={() => {
-                                                                            console.log(slot);
-                                                                            confirm('คุณต้องการจองหรือไม่') == true ?
-                                                                                axios.post('/resources/admin/room/schedule', {
-                                                                                    id_room: idroom,
-                                                                                    date: item.date,
-                                                                                    slot: slot.slot,
-                                                                                    id_project: ajid,
-                                                                                    id_test_catagory: idprojectstatustitle
-                                                                                })
-                                                                                    .then(() => {
-                                                                                        SChecker();
-                                                                                    })
-                                                                                    .catch(err => {
-                                                                                        console.log(err);
-                                                                                    })
-                                                                                : null;
-                                                                        }
-                                                                        }
-                                                                            disabled={!(slot.condition.roomslot == 0 && slot.condition.teacherslot == 0)}
-                                                                        >
-                                                                            จอง
-                                                                        </Button>
+                                                                        <TooltipProvider>
+                                                                            <Tooltip>
+                                                                                <TooltipTrigger asChild>
+                                                                                    <Button sx={((slot.condition.roomslot == 0 && slot.condition.teacherslot == 0)) ? { m: 0.5, p: 3 } : { m: 0.5, p: 3, bgcolor: 'text.secondary' }} variant="contained" color="primary" size="small" onClick={() => {
+                                                                                        (!(slot.condition.roomslot == 0 && slot.condition.teacherslot == 0)) ? (alert('ไม่สามารถจองได้'))
+                                                                                            :
+                                                                                            confirm('คุณต้องการจองหรือไม่') == true ?
+                                                                                                axios.post('/resources/admin/room/schedule', {
+                                                                                                    id_room: idroom,
+                                                                                                    date: item.date,
+                                                                                                    slot: slot.slot,
+                                                                                                    id_project: ajid,
+                                                                                                    id_test_catagory: idprojectstatustitle
+                                                                                                })
+                                                                                                    .then(() => {
+                                                                                                        SChecker();
+                                                                                                    })
+                                                                                                    .catch(err => {
+                                                                                                        console.log(err);
+                                                                                                    })
+                                                                                                : null;
+                                                                                    }
+                                                                                    }
+                                                                                    >
+                                                                                        จอง
+                                                                                    </Button>
+                                                                                </TooltipTrigger>
+                                                                                <TooltipContent>
+                                                                                    {
+                                                                                        slot.condition.roomslot !== 0 ?
+                                                                                            slot.condition.roomslot[0].id_test_category == 1 ? <p className='font-kanit text-base'>สอบหัวข้อ</p> :
+                                                                                                slot.condition.roomslot[0].id_test_category == 2 ? <p className='font-kanit text-base'>สอบหกสิบ</p> :
+                                                                                                    slot.condition.roomslot[0].id_test_category == 3 ? <p className='font-kanit text-base'>สอบร้อย</p> :
+                                                                                                        null : null
+                                                                                    }
+                                                                                    <p className='flex font-kanit text-base'>สถานะห้อง: {slot.condition.roomslot == 0 ? <p className=' text-green-500'>&nbsp;ว่าง</p> : <p className=' text-red-500'>&nbsp;ไม่ว่าง</p>}</p>
+                                                                                    <p className='flex font-kanit text-base'>สถานะอาจารย์: {slot.condition.teacherslot == 0 ? slot.condition.roomslot == 0 ? <p className=' text-green-500'>&nbsp;อาจารย์ทุกท่านว่างในช่วงเวลานี้</p> : <p className=' text-orange-400'>&nbsp;ตรวจสอบเพิ่มเติม</p> : <p className=' text-red-500'>&nbsp;มีอาจารย์บางท่านติดสอบในช่วงเวลานี้</p>}</p>
+                                                                                    {
+                                                                                        slot.condition.roomslot == 0 && slot.condition.teacherslot == 0 ?
+                                                                                            <p className='font-kanit text-base text-green-500'>สามารถจองได้</p>
+                                                                                            :
+                                                                                            <p className='font-kanit text-base text-red-500'>ไม่สามารถจองได้</p>
+
+                                                                                    }
+                                                                                </TooltipContent>
+                                                                            </Tooltip>
+                                                                        </TooltipProvider>
                                                                     </td>
                                                                 );
                                                             })
