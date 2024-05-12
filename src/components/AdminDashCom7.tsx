@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "@/api/axios";
-import { Accordion, Box, Grid, Modal, TextField } from "@mui/material";
+import { Accordion, Box, Grid, MenuItem, Modal, Select, TextField } from "@mui/material";
 import { AccordionSummary } from "@mui/material";
 import { AccordionDetails } from "@mui/material";
 import { Typography } from "@mui/material";
@@ -920,7 +920,7 @@ export default function AdminDash() {
                                                                         console.log(err);
                                                                     });
                                                             }} variant='contained' color='success' startIcon={<CheckIcon />}>ยืนยัน</Button>
-                                                        <Button onClick={() => { handlereportCancel(file.fileLastUpdate.id_project_file_path, "ทดสอบยกเลิก", file.id_project_status_title) }} variant='contained' color='error' startIcon={<DeleteIcon />}>ยกเลิก</Button>
+                                                        <Button onClick={() => { setA1(file.id_project_file_path), setA2("สำเร็จ"), setA3(file.id_project_status_title), setA4(file.id_project_status), setIdprojectstatustitle(file.id_project_status_title), setAjid(file.id_project),handlereportCancel(file.fileLastUpdate.id_project_file_path, "ทดสอบยกเลิก", file.id_project_status_title) }} variant='contained' color='error' startIcon={<DeleteIcon />}>ยกเลิก</Button>
                                                     </Stack>
 
                                                 </AccordionDetails>
@@ -945,42 +945,73 @@ export default function AdminDash() {
                     }
                 </Grid>
                 <Modal open={openCancel} onClose={() => { setOpenCancel(false) }}>
-                    <Box sx={{ ...style, width: 400 }}>
+                <Box sx={{ ...style, width: 400 }}>
                         <h2 id="parent-modal-title">ความเห็นเพิ่มเติม</h2>
-                        <RadioGroup
-                            onChange={(e) => { setExamrecord(e.target.value) }}
-                            row
-                            aria-labelledby="demo-row-radio-buttons-group-label"
-                            name="row-radio-buttons-group"
-                        >
-                            <FormControlLabel value="ไม่ผ่านยื่นสอบใหม่ภายในช่วงเวลา" control={<Radio />} label="ไม่ผ่านยื่นสอบใหม่ภายในช่วงเวลา" />
-                            <FormControlLabel value="ไม่ผ่าน" control={<Radio />} label="ไม่ผ่าน" />
-                        </RadioGroup>
+                        <FormControl fullWidth>
+                            <InputLabel id="exam-record-select-label">ผลการสอบ</InputLabel>
+                            <Select
+                                labelId="exam-record-select-label"
+                                id="exam-record-select"
+                                value={examrecord}
+                                onChange={(e) => { setExamrecord(e.target.value) }}
+                                label="ผลการสอบ"
+                            >
+                                <MenuItem value="ไม่ผ่านยื่นสอบใหม่ภายในช่วงเวลา">ไม่ผ่านยื่นสอบใหม่ภายในช่วงเวลา</MenuItem>
+                                <MenuItem value="ไม่ผ่าน">ไม่ผ่าน</MenuItem>
+                            </Select>
+                        </FormControl>
                         <Box component="form" noValidate onSubmit={handleCancelcomment} sx={{ mt: 1 }}>
-                            <TextField
-                                margin="normal"
-                                required
-                                fullWidth
-                                id="comment"
-                                label="หมายเหตุ"
-                                name="comment"
-                                autoFocus
-                                value={Cancelcomment}
-                                onChange={(e) => { setCancelcomment(e.target.value) }}
-                            />
+
+
+
+                            {
+                                (examrecord === 'ผ่านแบบมีเงื่อนไข' || examrecord === 'ไม่ผ่านยื่นสอบใหม่ภายในช่วงเวลา') &&
+                                <TextField
+                                    margin="normal"
+                                    fullWidth
+                                    id="comment"
+                                    label="หมายเหตุ"
+                                    name="comment"
+                                    autoFocus
+                                    value={examrecordcomment}
+                                    onChange={(e) => { setExamrecordcomment(e.target.value) }}
+                                />
+                            }
 
                             <Stack direction="row"
                                 justifyContent="flex-end"
                                 alignItems="center"
                                 spacing={2} sx={{ mt: 2.5 }}><Button
-                                    onClick={() => { handleCancelcomment() }}
+                                    onClick={() => {
+                                        examrecord != ''
+                                            ?
+                                            examrecord == 'ไม่ผ่านยื่นสอบใหม่ภายในช่วงเวลา'
+                                                ?
+                                                examrecordcomment != ''
+                                                    ?
+                                                    confirm('ยืนยันต้องการบันทึกข้อมูลนี้หรือไม่')
+                                                        ?
+                                                        cfrecordexam()
+                                                        :
+                                                        null
+                                                    :
+                                                    window.alert('กรุณากรอกหมายเหตุ')
+                                                :
+                                                confirm('ยืนยันต้องการบันทึกข้อมูลนี้หรือไม่')
+                                                    ?
+                                                    cfrecordexam()
+                                                    :
+                                                    null
+                                            :
+                                            window.alert('กรุณาเลือกผลการสอบ')
+                                    }}
                                     fullWidth
                                     variant="contained"
                                     sx={{ mt: 3, mb: 2 }}
                                 >
                                     ยืนยัน
                                 </Button>
-                                <Button onClick={() => { setOpenCancel(false) }} variant='contained' color='error'>ยกเลิก</Button>
+                                <Button onClick={() => { setmodalRecord(false) }} variant='contained' color='error'>ยกเลิก</Button>
                             </Stack>
                         </Box>
                     </Box>

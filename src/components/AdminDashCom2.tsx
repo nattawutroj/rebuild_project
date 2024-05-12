@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "@/api/axios";
-import { Accordion, Box, Grid, Modal, TextField } from "@mui/material";
+import { Accordion, Box, Grid, MenuItem, Modal, Select, TextField } from "@mui/material";
 import { AccordionSummary } from "@mui/material";
 import { AccordionDetails } from "@mui/material";
 import { Typography } from "@mui/material";
@@ -88,47 +88,47 @@ export default function AdminDash() {
         setProjectProcessWaitRecordFinalCount(0);
         fileList.map((file: { id_project_status_title: number }) => {
             if (file.id_project_status_title == 3) {
-                setLableexam1((prevLableexam1:any) => prevLableexam1 + 1);
+                setLableexam1((prevLableexam1: any) => prevLableexam1 + 1);
             }
             if (file.id_project_status_title == 8) {
-                setLableexam2((prevLableexam2:any) => prevLableexam2 + 1);
+                setLableexam2((prevLableexam2: any) => prevLableexam2 + 1);
             }
             if (file.id_project_status_title == 12) {
-                setLableexam3((prevLableexam3:any) => prevLableexam3 + 1);
+                setLableexam3((prevLableexam3: any) => prevLableexam3 + 1);
             }
         }
         )
         projectProcess?.map(() => {
-            setProjectProcessCount((prevProjectProcessCount:any) => prevProjectProcessCount + 1);
+            setProjectProcessCount((prevProjectProcessCount: any) => prevProjectProcessCount + 1);
         }
         )
         projectProcessWaitSchdule?.map(() => {
-            setProjectProcessWaitSchduleCount((prevProjectProcessWaitSchduleCount:any) => prevProjectProcessWaitSchduleCount + 1);
+            setProjectProcessWaitSchduleCount((prevProjectProcessWaitSchduleCount: any) => prevProjectProcessWaitSchduleCount + 1);
         }
         )
         projectProcessWaitSchdule60?.map(() => {
-            setProjectProcessWaitSchdule60Count((prevProjectProcessWaitSchdule60Count:any) => prevProjectProcessWaitSchdule60Count + 1);
+            setProjectProcessWaitSchdule60Count((prevProjectProcessWaitSchdule60Count: any) => prevProjectProcessWaitSchdule60Count + 1);
         }
         )
         projectProcessWaitSchdule100?.map(() => {
-            setProjectProcessWaitSchdule100Count((prevProjectProcessWaitSchdule100Count:any) => prevProjectProcessWaitSchdule100Count + 1);
+            setProjectProcessWaitSchdule100Count((prevProjectProcessWaitSchdule100Count: any) => prevProjectProcessWaitSchdule100Count + 1);
         }
         )
         projectProcessWaitRecord?.map(() => {
-            setProjectProcessWaitRecordCount((prevProjectProcessWaitRecordCount:any) => prevProjectProcessWaitRecordCount + 1);
+            setProjectProcessWaitRecordCount((prevProjectProcessWaitRecordCount: any) => prevProjectProcessWaitRecordCount + 1);
         })
         projectProcessWaitRecord60?.map(() => {
-            setProjectProcessWaitRecord60Count((prevProjectProcessWaitRecord60Count:any) => prevProjectProcessWaitRecord60Count + 1);
+            setProjectProcessWaitRecord60Count((prevProjectProcessWaitRecord60Count: any) => prevProjectProcessWaitRecord60Count + 1);
         })
         projectProcessWaitRecord100?.map(() => {
-            setProjectProcessWaitRecord100Count((prevProjectProcessWaitRecord100Count:any) => prevProjectProcessWaitRecord100Count + 1);
+            setProjectProcessWaitRecord100Count((prevProjectProcessWaitRecord100Count: any) => prevProjectProcessWaitRecord100Count + 1);
         })
         projectProcessWaitConfiremT01?.map(() => {
-            setprojectProcessWaitConfiremT01Count((prevprojectProcessWaitConfiremT01Count:any) => prevprojectProcessWaitConfiremT01Count + 1);
+            setprojectProcessWaitConfiremT01Count((prevprojectProcessWaitConfiremT01Count: any) => prevprojectProcessWaitConfiremT01Count + 1);
         })
         projectProcessWaitRecordFinal.map(() => {
             console.log("hello")
-            setProjectProcessWaitRecordFinalCount((prevProjectProcessWaitRecordFinalCount:any) => prevProjectProcessWaitRecordFinalCount + 1);
+            setProjectProcessWaitRecordFinalCount((prevProjectProcessWaitRecordFinalCount: any) => prevProjectProcessWaitRecordFinalCount + 1);
         })
     }
 
@@ -137,7 +137,7 @@ export default function AdminDash() {
         setDialogstaff(false);
     };
 
-    const handleRemoveStaff = (id:any) => {
+    const handleRemoveStaff = (id: any) => {
         setAaid_staff(id);
         setDialogstaff(true);
     }
@@ -222,7 +222,7 @@ export default function AdminDash() {
         });
     }, [ajid, act]);
 
-    const convertDate = (date:any) => {
+    const convertDate = (date: any) => {
         let d = new Date(date);
         return d.toLocaleString();
     }
@@ -230,7 +230,7 @@ export default function AdminDash() {
     const [pdfUrl, setPdfUrl] = React.useState<any>('');
 
 
-    const handleFileDownload = (id_file:any) => {
+    const handleFileDownload = (id_file: any) => {
         axios.get('/resources/public/download/pdf', {
             params: {
                 file: id_file
@@ -470,7 +470,7 @@ export default function AdminDash() {
                 // Wait for all promises to resolve
                 return Promise.all(fileLastUpdatePromises)
                     .then(fileLastUpdates => {
-                        const combinedData = projectProcessWaitSchduleData100.map((item:any, index:any) => ({
+                        const combinedData = projectProcessWaitSchduleData100.map((item: any, index: any) => ({
                             ...item,
                             fileLastUpdate: fileLastUpdates[index]
                         }));
@@ -497,7 +497,7 @@ export default function AdminDash() {
                 const projectProcessWaitRecord = response.data.result.rows;
 
                 // Use Promise.all to handle multiple asynchronous calls
-                const fileLastUpdatePromises = projectProcessWaitRecord.map((item:any) => {
+                const fileLastUpdatePromises = projectProcessWaitRecord.map((item: any) => {
                     return axios.get('resources/admin/projectfilelast', {
                         params: {
                             id_project: item.id_project
@@ -514,7 +514,7 @@ export default function AdminDash() {
                 return Promise.all(fileLastUpdatePromises)
                     .then(fileLastUpdates => {
                         // Combine projectProcessWaitRecord with fileLastUpdates
-                        const combinedData = projectProcessWaitRecord.map((item:any, index:any) => ({
+                        const combinedData = projectProcessWaitRecord.map((item: any, index: any) => ({
                             ...item,
                             fileLastUpdate: fileLastUpdates[index]
                         }));
@@ -542,7 +542,7 @@ export default function AdminDash() {
                 const projectProcessWaitRecord60 = response.data.result.rows;
 
                 // Use Promise.all to handle multiple asynchronous calls
-                const fileLastUpdatePromises = projectProcessWaitRecord60.map((item:any) => {
+                const fileLastUpdatePromises = projectProcessWaitRecord60.map((item: any) => {
                     return axios.get('resources/admin/projectfilelast', {
                         params: {
                             id_project: item.id_project
@@ -559,7 +559,7 @@ export default function AdminDash() {
                 return Promise.all(fileLastUpdatePromises)
                     .then(fileLastUpdates => {
                         // Combine projectProcessWaitRecord60 with fileLastUpdates
-                        const combinedData = projectProcessWaitRecord60.map((item:any, index:any) => ({
+                        const combinedData = projectProcessWaitRecord60.map((item: any, index: any) => ({
                             ...item,
                             fileLastUpdate: fileLastUpdates[index]
                         }));
@@ -586,7 +586,7 @@ export default function AdminDash() {
                 const projectProcessWaitRecord100 = response.data.result.rows;
 
                 // Use Promise.all to handle multiple asynchronous calls
-                const fileLastUpdatePromises = projectProcessWaitRecord100.map((item:any) => {
+                const fileLastUpdatePromises = projectProcessWaitRecord100.map((item: any) => {
                     return axios.get('resources/admin/projectfilelast', {
                         params: {
                             id_project: item.id_project
@@ -603,7 +603,7 @@ export default function AdminDash() {
                 return Promise.all(fileLastUpdatePromises)
                     .then(fileLastUpdates => {
                         // Combine projectProcessWaitRecord100 with fileLastUpdates
-                        const combinedData = projectProcessWaitRecord100.map((item:any, index:any) => ({
+                        const combinedData = projectProcessWaitRecord100.map((item: any, index: any) => ({
                             ...item,
                             fileLastUpdate: fileLastUpdates[index]
                         }));
@@ -631,7 +631,7 @@ export default function AdminDash() {
                 const projectProcessWaitRecordFinal = response.data.result.rows;
 
                 // Use Promise.all to handle multiple asynchronous calls
-                const fileLastUpdatePromises = projectProcessWaitRecordFinal.map((item:any) => {
+                const fileLastUpdatePromises = projectProcessWaitRecordFinal.map((item: any) => {
                     return axios.get('resources/admin/projectfilelast', {
                         params: {
                             id_project: item.id_project
@@ -648,7 +648,7 @@ export default function AdminDash() {
                 return Promise.all(fileLastUpdatePromises)
                     .then(fileLastUpdates => {
                         // Combine projectProcessWaitRecordFinal with fileLastUpdates
-                        const combinedData = projectProcessWaitRecordFinal.map((item:any, index:any) => ({
+                        const combinedData = projectProcessWaitRecordFinal.map((item: any, index: any) => ({
                             ...item,
                             fileLastUpdate: fileLastUpdates[index]
                         }));
@@ -676,7 +676,7 @@ export default function AdminDash() {
                 const projectProcessWaitConfiremT01 = response.data.result.rows;
 
                 // Use Promise.all to handle multiple asynchronous calls
-                const fileLastUpdatePromises = projectProcessWaitConfiremT01.map((item:any) => {
+                const fileLastUpdatePromises = projectProcessWaitConfiremT01.map((item: any) => {
                     return axios.get('resources/admin/projectfilelast', {
                         params: {
                             id_project: item.id_project
@@ -693,7 +693,7 @@ export default function AdminDash() {
                 return Promise.all(fileLastUpdatePromises)
                     .then(fileLastUpdates => {
                         // Combine projectProcessWaitRecord100 with fileLastUpdates
-                        const combinedData = projectProcessWaitConfiremT01.map((item:any, index:any) => ({
+                        const combinedData = projectProcessWaitConfiremT01.map((item: any, index: any) => ({
                             ...item,
                             fileLastUpdate: fileLastUpdates[index]
                         }));
@@ -711,12 +711,12 @@ export default function AdminDash() {
             });
     };
 
-    const Viewpdf = (id:any) => {
+    const Viewpdf = (id: any) => {
         handleFileDownload(id);
     }
 
 
-    const handleChange = (panel:any) => {
+    const handleChange = (panel: any) => {
         setExpanded(panel);
     }
 
@@ -733,7 +733,7 @@ export default function AdminDash() {
         FetchProjectProcessWaitRecordExtamFinal();
     }, [selectstatus_code])
 
-    const handlereportCancel = (id_project_file_paths:any, id_project_status_title:any, id_project_status:any) => {
+    const handlereportCancel = (id_project_file_paths: any, id_project_status_title: any, id_project_status: any) => {
         setCanceldatafrom({
             id_project_file_paths: id_project_file_paths,
             id_project_status_title: id_project_status_title,
@@ -773,7 +773,7 @@ export default function AdminDash() {
             });
         }
     }
-    const handlereportConfirm = (id_project_file_paths:any, comment:any, id_project_status_title:any, id_project_status:any) => {
+    const handlereportConfirm = (id_project_file_paths: any, comment: any, id_project_status_title: any, id_project_status: any) => {
         console.log(id_project_file_paths, comment, id_project_status_title, id_project_status);
         if (confirm("ยืนยันการดำเนินการ")) {
             axios.post('resources/admin/reqreport/approve',
@@ -790,7 +790,7 @@ export default function AdminDash() {
             null
         }
     }
-    const handleCancelcommentUNC = (id_project_file_paths:any, comment:any, id_project_status_title:any, id_project_status:any) => {
+    const handleCancelcommentUNC = (id_project_file_paths: any, comment: any, id_project_status_title: any, id_project_status: any) => {
         if (examrecord == 'ไม่ผ่านยื่นสอบใหม่ภายในช่วงเวลา') {
             axios.post('resources/admin/reqreport/provere',
                 {
@@ -836,11 +836,11 @@ export default function AdminDash() {
         });
     }
 
-    const openDoc = (id:any, selectReport:any) => {
+    const openDoc = (id: any, selectReport: any) => {
         window.open(`/testreport/${id}/${selectReport}`);
     }
 
-    const openDocWidget = (id:any, selectReport:any) => {
+    const openDocWidget = (id: any, selectReport: any) => {
         if (window.innerWidth < 900) {
             setPdfUrl(null)
             window.open(`/testreport/${id}/${selectReport}`);
@@ -872,7 +872,7 @@ export default function AdminDash() {
 
                             <Typography sx={{ pt: 0.3, width: '70%', fontSize: 20, fontWeight: "bold", flexShrink: 0 }}>ชื่อโครงงาน</Typography>
                         </Stack>
-                        {projectProcess.map((file:any, index:any) => (
+                        {projectProcess.map((file: any, index: any) => (
                             <Accordion expanded={expanded === `${file.fileLastUpdate.id_project_file_path}`} onChange={() => { handleChange(`${file.fileLastUpdate.id_project_file_path}`), Viewpdf(file.fileLastUpdate.path) }} key={index} sx={{ backgroundColor: "#DCFCE7", mt: 1, width: '100%' }} >
                                 <AccordionSummary
                                     expandIcon={<KeyboardArrowUpIcon />}
@@ -901,7 +901,7 @@ export default function AdminDash() {
                                             alignItems="center"
                                             spacing={2} sx={{ mt: 2.5 }}>
                                             <Button onClick={() => { handlereportConfirm(file.fileLastUpdate.id_project_file_path, "สำเร็จ", file.id_project_status_title, file.id_project_status) }} variant='contained' color='success' startIcon={<CheckIcon />}>ยืนยัน</Button>
-                                            <Button onClick={() => { handlereportCancel(file.fileLastUpdate.id_project_file_path, "ทดสอบยกเลิก", file.id_project_status_title) }} variant='contained' color='error' startIcon={<DeleteIcon />}>ยกเลิก</Button>
+                                            <Button onClick={() => { setA1(file.id_project_file_path), setA2("สำเร็จ"), setA3(file.id_project_status_title), setA4(file.id_project_status), setIdprojectstatustitle(file.id_project_status_title), setAjid(file.id_project), handlereportCancel(file.id_project_file_path, "ทดสอบยกเลิก", file.id_project_status_title) }} variant='contained' color='error' startIcon={<DeleteIcon />}>ยกเลิก</Button>
                                         </Stack>
 
                                     </AccordionDetails>
@@ -928,40 +928,71 @@ export default function AdminDash() {
                 <Modal open={openCancel} onClose={() => { setOpenCancel(false) }}>
                     <Box sx={{ ...style, width: 400 }}>
                         <h2 id="parent-modal-title">ความเห็นเพิ่มเติม</h2>
-                        <RadioGroup
-                            onChange={(e) => { setExamrecord(e.target.value) }}
-                            row
-                            aria-labelledby="demo-row-radio-buttons-group-label"
-                            name="row-radio-buttons-group"
-                        >
-                            <FormControlLabel value="ไม่ผ่านยื่นสอบใหม่ภายในช่วงเวลา" control={<Radio />} label="ไม่ผ่านยื่นสอบใหม่ภายในช่วงเวลา" />
-                            <FormControlLabel value="ไม่ผ่าน" control={<Radio />} label="ไม่ผ่าน" />
-                        </RadioGroup>
+                        <FormControl fullWidth>
+                            <InputLabel id="exam-record-select-label">ผลการสอบ</InputLabel>
+                            <Select
+                                labelId="exam-record-select-label"
+                                id="exam-record-select"
+                                value={examrecord}
+                                onChange={(e) => { setExamrecord(e.target.value) }}
+                                label="ผลการสอบ"
+                            >
+                                <MenuItem value="ไม่ผ่านยื่นสอบใหม่ภายในช่วงเวลา">ไม่ผ่านยื่นสอบใหม่ภายในช่วงเวลา</MenuItem>
+                                <MenuItem value="ไม่ผ่าน">ไม่ผ่าน</MenuItem>
+                            </Select>
+                        </FormControl>
                         <Box component="form" noValidate onSubmit={handleCancelcomment} sx={{ mt: 1 }}>
-                            <TextField
-                                margin="normal"
-                                required
-                                fullWidth
-                                id="comment"
-                                label="หมายเหตุ"
-                                name="comment"
-                                autoFocus
-                                value={Cancelcomment}
-                                onChange={(e) => { setCancelcomment(e.target.value) }}
-                            />
+
+
+
+                            {
+                                (examrecord === 'ผ่านแบบมีเงื่อนไข' || examrecord === 'ไม่ผ่านยื่นสอบใหม่ภายในช่วงเวลา') &&
+                                <TextField
+                                    margin="normal"
+                                    fullWidth
+                                    id="comment"
+                                    label="หมายเหตุ"
+                                    name="comment"
+                                    autoFocus
+                                    value={examrecordcomment}
+                                    onChange={(e) => { setExamrecordcomment(e.target.value) }}
+                                />
+                            }
 
                             <Stack direction="row"
                                 justifyContent="flex-end"
                                 alignItems="center"
                                 spacing={2} sx={{ mt: 2.5 }}><Button
-                                    onClick={() => { handleCancelcomment() }}
+                                    onClick={() => {
+                                        examrecord != ''
+                                            ?
+                                            examrecord == 'ไม่ผ่านยื่นสอบใหม่ภายในช่วงเวลา'
+                                                ?
+                                                examrecordcomment != ''
+                                                    ?
+                                                    confirm('ยืนยันต้องการบันทึกข้อมูลนี้หรือไม่')
+                                                        ?
+                                                        cfrecordexam()
+                                                        :
+                                                        null
+                                                    :
+                                                    window.alert('กรุณากรอกหมายเหตุ')
+                                                :
+                                                confirm('ยืนยันต้องการบันทึกข้อมูลนี้หรือไม่')
+                                                    ?
+                                                    cfrecordexam()
+                                                    :
+                                                    null
+                                            :
+                                            window.alert('กรุณาเลือกผลการสอบ')
+                                    }}
                                     fullWidth
                                     variant="contained"
                                     sx={{ mt: 3, mb: 2 }}
                                 >
                                     ยืนยัน
                                 </Button>
-                                <Button onClick={() => { setOpenCancel(false) }} variant='contained' color='error'>ยกเลิก</Button>
+                                <Button onClick={() => { setmodalRecord(false) }} variant='contained' color='error'>ยกเลิก</Button>
                             </Stack>
                         </Box>
                     </Box>
