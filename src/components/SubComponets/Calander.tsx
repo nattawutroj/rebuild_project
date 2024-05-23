@@ -292,7 +292,7 @@ export default function WeekPicker({ ajid, idprojectstatustitle, setOpenCalander
                                                                         <TooltipProvider>
                                                                             <Tooltip>
                                                                                 <TooltipTrigger asChild>
-                                                                                    <Button sx={((slot.condition.roomslot == 0 && slot.condition.teacherslot == 0)) ? { m: 0.5, p: 3 } : { m: 0.5, p: 3, bgcolor: 'text.secondary' }} variant="contained" color="primary" size="small" onClick={() => {
+                                                                                    <Button sx={((slot.condition.roomslot == 0 && slot.condition.teacherslot == 0)) ? { m: 0.5, p: 3 } : { m: 0.5, p: 3, bgcolor: 'error.main' }} variant="contained" color="primary" size="small" onClick={() => {
                                                                                         (!(slot.condition.roomslot == 0 && slot.condition.teacherslot == 0)) ? (alert('ไม่สามารถจองได้'))
                                                                                             :
                                                                                             confirm('คุณต้องการจองหรือไม่') == true ?
@@ -324,8 +324,8 @@ export default function WeekPicker({ ajid, idprojectstatustitle, setOpenCalander
                                                                                                     slot.condition.roomslot[0].id_test_category == 3 ? <p className='font-kanit text-base'>สอบร้อย</p> :
                                                                                                         null : null
                                                                                     }
-                                                                                    {/* <p className='flex font-kanit text-base'>สถานะห้อง: {slot.condition.roomslot == 0 ? <p className=' text-green-500'>&nbsp;ว่าง</p> : <p className=' text-red-500'>&nbsp;ไม่ว่าง</p>}</p> */}
-                                                                                    {/* <p className='flex font-kanit text-base'>สถานะอาจารย์: {slot.condition.teacherslot == 0 ? slot.condition.roomslot == 0 ? <p className=' text-green-500'>&nbsp;อาจารย์ทุกท่านว่างในช่วงเวลานี้</p> : <p className=' text-orange-400'>&nbsp;ตรวจสอบเพิ่มเติม</p> : <p className=' text-red-500'>&nbsp;มีอาจารย์บางท่านติดสอบในช่วงเวลานี้</p>}</p> */}
+                                                                                    <p className='flex font-kanit text-base'>สถานะห้อง: {slot.condition.roomslot == 0 ? <p className=' text-green-500'>&nbsp;ว่าง</p> : <p className=' text-red-500'>&nbsp;ไม่ว่าง</p>}</p>
+                                                                                    <p className='flex font-kanit text-base'>สถานะอาจารย์: {slot.condition.teacherslot == 0 ? slot.condition.roomslot == 0 ? <p className=' text-green-500'>&nbsp;อาจารย์ทุกท่านว่างในช่วงเวลานี้</p> : <p className=' text-orange-400'>&nbsp;ตรวจสอบเพิ่มเติม</p> : <p className=' text-red-500'>&nbsp;มีอาจารย์บางท่านติดสอบในช่วงเวลานี้</p>}</p>
                                                                                     {
                                                                                         slot.condition.roomslot == 0 && slot.condition.teacherslot == 0 ?
                                                                                             <p className='font-kanit text-base text-green-500'>สามารถจองได้</p>

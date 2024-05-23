@@ -146,7 +146,7 @@ export const FileListDetail = (file: any) => {
             <Table>
                 <TableBody>
                     <TableRow>
-                        <TableCell className="font-medium w-20">{file.file.id_roll == 79 ? <p> </p> : <p>สถานะ</p>}</TableCell>
+                        <TableCell className="font-medium w-20">{file.file.id_roll == 79 ? <p> </p> : <p></p>}</TableCell>
                         <TableCell>{file.file.id_roll == 79 ? <p className="w-36"> </p> : <p className="w-36">{mapping.map((item) => item.id == file.file.id_roll ? item.now : ' ')}</p>}</TableCell>
                         <TableCell>{file.file.id_roll == 79 ? <p className="text-red-600 w-36">{file.file.status}</p> : <p className="text-green-500 w-36">{file.file.status}</p>}</TableCell>
                         <TableCell className="text-right">บันทึกเมื่อ</TableCell>
